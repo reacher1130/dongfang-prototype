@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><style>html{color-scheme:dark}</style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="theme-color" content="#1C1210">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>找寺院 - 问玄东方</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --color-bg-primary: #1C1210;
+      --color-bg-secondary: #2A1E1A;
+      --color-bg-tertiary: #3A2C25;
+      --color-brand: #C45A3C;
+      --color-brand-light: #D4735A;
+      --color-accent: #C8A96E;
+      --color-accent-light: #D4BC8A;
+      --color-text-primary: #F0E6DA;
+      --color-text-secondary: #C5B097;
+      --color-text-tertiary: #8A7A6A;
+      --color-border: rgba(200,169,110,0.15);
+      --color-divider: rgba(200,169,110,0.08);
+      --color-state-success: #5B8C5A;
+    }
+    body { max-width: 375px; margin: 0 auto; position: relative; }
+
+    /* Category tags row */
+    .category-row {
+      display: flex;
+      gap: 8px;
+      padding: 10px 12px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .category-row::-webkit-scrollbar { display: none; }
+    .tag-pill {
+      flex-shrink: 0;
+      border-radius: 9999px;
+      background: var(--color-bg-tertiary);
+      color: var(--color-text-tertiary);
+      font-size: 12px;
+      padding: 5px 14px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, border-color 0.2s, opacity 0.2s;
+      white-space: nowrap;
+    }
+    .tag-pill.active {
+      background: var(--color-brand);
+      color: #fff;
+    }
+
+    /* Two-column layout */
+    .content-layout {
+      display: flex;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    /* Left filter panel */
+    .filter-panel {
+      width: 80px;
+      flex-shrink: 0;
+      overflow-y: auto;
+      background: var(--color-bg-secondary);
+      border-right: 1px solid var(--color-divider);
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .filter-panel::-webkit-scrollbar { display: none; }
+
+    .filter-option {
+      padding: 11px 6px;
+      font-size: 12px;
+      color: var(--color-text-tertiary);
+      text-align: center;
+      border-left: 2px solid transparent;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, border-color 0.2s, opacity 0.2s;
+      line-height: 1.3;
+    }
+    .filter-option:active {
+      background: rgba(196, 90, 60, 0.08);
+    }
+    .filter-option.active {
+      color: var(--color-brand);
+      border-left-color: var(--color-brand);
+      background: rgba(196, 90, 60, 0.08);
+      font-weight: 500;
+    }
+
+    /* Right temple card list */
+    .temple-list {
+      flex: 1;
+      overflow-y: auto;
+      padding: 0 12px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .temple-list::-webkit-scrollbar { display: none; }
+
+    /* Temple card */
+    .temple-card {
+      background: var(--color-bg-secondary);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+    .temple-card:active {
+      border-color: rgba(200,169,110,0.3);
+    }
+    .temple-card-img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      display: block;
+    }
+    .temple-card-body {
+      padding: 10px 12px;
+    }
+    .temple-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .temple-card-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--color-text-primary);
+    }
+    .temple-card-rating {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+    .temple-card-location {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 4px;
+    }
+    .temple-card-services {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px solid var(--color-divider);
+    }
+    .service-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .service-tag {
+      font-size: 10px;
+      color: var(--color-text-secondary);
+      background: rgba(200,169,110,0.06);
+      padding: 2px 8px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body style="background-color: #1C1210; color: #F0E6DA; font-family: 'Noto Sans SC', 'PingFang SC', sans-serif;">
+
+  <!-- 1. Top Navigation Bar (sticky, 44px) -->
+  <div style="position: sticky; top: 0; z-index: 50; display: flex; align-items: center; height: 44px; padding: 0 16px; background: rgba(28, 18, 16, 0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);">
+    <!-- Back arrow -->
+    <a href="home.html" data-dom-id="back-home" style="cursor: pointer; padding: 4px; display: flex; align-items: center; text-decoration: none;">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M15 19l-7-7 7-7" stroke="#C8A96E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+    <!-- Title -->
+    <div style="flex: 1; text-align: center; font-size: 17px; font-weight: 700; color: #C8A96E; font-family: 'Noto Serif SC', serif;">
+      找寺院
+    </div>
+    <!-- Search icon -->
+    <div style="cursor: pointer; padding: 4px; display: flex; align-items: center;">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+        <circle cx="11" cy="11" r="7" stroke="#C8A96E" stroke-width="2"/>
+        <path d="M16 16l4 4" stroke="#C8A96E" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- 2. Horizontal Category Tags -->
+  <div class="category-row">
+    <div class="tag-pill active">汉传佛教</div>
+    <div class="tag-pill">南传佛教</div>
+    <div class="tag-pill">藏传密宗</div>
+    <div class="tag-pill">道教道观</div>
+    <div class="tag-pill">民间地方信仰</div>
+  </div>
+
+  <!-- 3. Two-column Layout -->
+  <div class="content-layout" style="height: calc(100vh - 44px - 52px);">
+
+    <!-- Left: Service-based Filter Panel (80px) -->
+    <div class="filter-panel">
+      <div class="filter-option active">全部</div>
+      <div class="filter-option">求姻缘</div>
+      <div class="filter-option">求财运</div>
+      <div class="filter-option">求事业</div>
+      <div class="filter-option">求风水</div>
+      <div class="filter-option">求健康</div>
+      <div class="filter-option">求学业</div>
+      <div class="filter-option">祈福平安</div>
+      <div class="filter-option">超度祭祖</div>
+      <div class="filter-option">开光加持</div>
+    </div>
+
+    <!-- Right: Temple Card List -->
+    <div class="temple-list">
+
+      <!-- Temple 1: 白马寺 -->
+      <a class="temple-card" href="temple-detail.html" data-dom-id="cta-temple-detail" style="text-decoration: none; display: block;">
+        <div style="position: relative;">
+          <img src="../assets/temple-card-baimasi.jpg" alt="白马寺" class="temple-card-img" width="180" height="110">
+          <span style="position:absolute; top:8px; left:8px; background:rgba(196,90,60,0.85); color:#fff; font-size:10px; padding:2px 8px; border-radius:10px;">汉传佛教</span>
+        </div>
+        <div class="temple-card-body">
+          <div class="temple-card-header">
+            <span class="temple-card-name">白马寺</span>
+            <div class="temple-card-rating">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="#C8A96E"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <span style="color: #C8A96E; font-size: 13px; font-weight: 600;">4.9</span>
+            </div>
+          </div>
+          <div class="temple-card-location">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#8A7A6A" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span style="font-size: 12px; color: #8A7A6A;">洛阳·河南</span>
+            <span style="margin-left: auto; font-size: 13px; font-weight: 700; color: #C45A3C;">¥38起</span>
+          </div>
+          <div class="temple-card-services">
+            <div class="service-tags">
+              <span class="service-tag">法事</span>
+              <span class="service-tag">祈福</span>
+              <span class="service-tag">供灯</span>
+              <span class="service-tag">开光</span>
+            </div>
+            <span style="font-size: 10px; color: #C45A3C; font-weight: 500; white-space: nowrap; margin-left: 8px;">5项服务</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Temple 2: 少林寺 -->
+      <a class="temple-card" href="temple-detail.html" data-dom-id="cta-temple-detail" style="text-decoration: none; display: block;">
+        <div style="position: relative;">
+          <img src="../assets/temple-card-shaolinsi.jpg" alt="少林寺" class="temple-card-img" width="180" height="110">
+          <span style="position:absolute; top:8px; left:8px; background:rgba(196,90,60,0.85); color:#fff; font-size:10px; padding:2px 8px; border-radius:10px;">汉传佛教</span>
+        </div>
+        <div class="temple-card-body">
+          <div class="temple-card-header">
+            <span class="temple-card-name">少林寺</span>
+            <div class="temple-card-rating">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="#C8A96E"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <span style="color: #C8A96E; font-size: 13px; font-weight: 600;">4.8</span>
+            </div>
+          </div>
+          <div class="temple-card-location">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#8A7A6A" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span style="font-size: 12px; color: #8A7A6A;">登封·河南</span>
+            <span style="margin-left: auto; font-size: 13px; font-weight: 700; color: #C45A3C;">¥68起</span>
+          </div>
+          <div class="temple-card-services">
+            <div class="service-tags">
+              <span class="service-tag">法事</span>
+              <span class="service-tag">禅修</span>
+              <span class="service-tag">开光</span>
+              <span class="service-tag">超度</span>
+            </div>
+            <span style="font-size: 10px; color: #C45A3C; font-weight: 500; white-space: nowrap; margin-left: 8px;">6项服务</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Temple 3: 灵隐寺 -->
+      <a class="temple-card" href="temple-detail.html" data-dom-id="cta-temple-detail" style="text-decoration: none; display: block;">
+        <div style="position: relative;">
+          <img src="../assets/temple-card-lingyinsi.jpg" alt="灵隐寺" class="temple-card-img" width="180" height="110">
+          <span style="position:absolute; top:8px; left:8px; background:rgba(196,90,60,0.85); color:#fff; font-size:10px; padding:2px 8px; border-radius:10px;">汉传佛教</span>
+        </div>
+        <div class="temple-card-body">
+          <div class="temple-card-header">
+            <span class="temple-card-name">灵隐寺</span>
+            <div class="temple-card-rating">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="#C8A96E"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <span style="color: #C8A96E; font-size: 13px; font-weight: 600;">4.9</span>
+            </div>
+          </div>
+          <div class="temple-card-location">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#8A7A6A" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span style="font-size: 12px; color: #8A7A6A;">杭州·浙江</span>
+            <span style="margin-left: auto; font-size: 13px; font-weight: 700; color: #5B8C5A;">免费</span>
+          </div>
+          <div class="temple-card-services">
+            <div class="service-tags">
+              <span class="service-tag">祈福</span>
+              <span class="service-tag">供灯</span>
+              <span class="service-tag">开光</span>
+              <span class="service-tag">法事</span>
+            </div>
+            <span style="font-size: 10px; color: #C45A3C; font-weight: 500; white-space: nowrap; margin-left: 8px;">5项服务</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Temple 4: 青羊宫 -->
+      <a class="temple-card" href="temple-detail.html" data-dom-id="cta-temple-detail" style="text-decoration: none; display: block;">
+        <div style="position: relative;">
+          <img src="../assets/temple-card-qingyanggong.jpg" alt="青羊宫" class="temple-card-img" width="180" height="110">
+          <span style="position:absolute; top:8px; left:8px; background:rgba(158,143,178,0.85); color:#fff; font-size:10px; padding:2px 8px; border-radius:10px;">道教道观</span>
+        </div>
+        <div class="temple-card-body">
+          <div class="temple-card-header">
+            <span class="temple-card-name">青羊宫</span>
+            <div class="temple-card-rating">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="#C8A96E"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <span style="color: #C8A96E; font-size: 13px; font-weight: 600;">4.7</span>
+            </div>
+          </div>
+          <div class="temple-card-location">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#8A7A6A" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span style="font-size: 12px; color: #8A7A6A;">成都·四川</span>
+            <span style="margin-left: auto; font-size: 13px; font-weight: 700; color: #C45A3C;">¥10起</span>
+          </div>
+          <div class="temple-card-services">
+            <div class="service-tags">
+              <span class="service-tag">祈福</span>
+              <span class="service-tag">法事</span>
+              <span class="service-tag">供灯</span>
+            </div>
+            <span style="font-size: 10px; color: #C45A3C; font-weight: 500; white-space: nowrap; margin-left: 8px;">4项服务</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Temple 5: 法门寺 -->
+      <a class="temple-card" href="temple-detail.html" data-dom-id="cta-temple-detail" style="text-decoration: none; display: block;">
+        <div style="position: relative;">
+          <img src="../assets/temple-card-famensi.jpg" alt="法门寺" class="temple-card-img" width="180" height="110">
+          <span style="position:absolute; top:8px; left:8px; background:rgba(196,90,60,0.85); color:#fff; font-size:10px; padding:2px 8px; border-radius:10px;">汉传佛教</span>
+        </div>
+        <div class="temple-card-body">
+          <div class="temple-card-header">
+            <span class="temple-card-name">法门寺</span>
+            <div class="temple-card-rating">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="#C8A96E"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <span style="color: #C8A96E; font-size: 13px; font-weight: 600;">4.8</span>
+            </div>
+          </div>
+          <div class="temple-card-location">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#8A7A6A" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span style="font-size: 12px; color: #8A7A6A;">宝鸡·陕西</span>
+            <span style="margin-left: auto; font-size: 13px; font-weight: 700; color: #C45A3C;">¥28起</span>
+          </div>
+          <div class="temple-card-services">
+            <div class="service-tags">
+              <span class="service-tag">祈福</span>
+              <span class="service-tag">供灯</span>
+              <span class="service-tag">超度</span>
+              <span class="service-tag">法事</span>
+            </div>
+            <span style="font-size: 10px; color: #C45A3C; font-weight: 500; white-space: nowrap; margin-left: 8px;">5项服务</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Temple 6: 大昭寺 -->
+      <a class="temple-card" href="temple-detail.html" data-dom-id="cta-temple-detail" style="text-decoration: none; display: block;">
+        <div style="position: relative;">
+          <img src="../assets/temple-card-dazhaosi.jpg" alt="大昭寺" class="temple-card-img" width="180" height="110">
+          <span style="position:absolute; top:8px; left:8px; background:rgba(100,60,150,0.85); color:#fff; font-size:10px; padding:2px 8px; border-radius:10px;">藏传密宗</span>
+        </div>
+        <div class="temple-card-body">
+          <div class="temple-card-header">
+            <span class="temple-card-name">大昭寺</span>
+            <div class="temple-card-rating">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="#C8A96E"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <span style="color: #C8A96E; font-size: 13px; font-weight: 600;">5.0</span>
+            </div>
+          </div>
+          <div class="temple-card-location">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#8A7A6A" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span style="font-size: 12px; color: #8A7A6A;">拉萨·西藏</span>
+            <span style="margin-left: auto; font-size: 13px; font-weight: 700; color: #C45A3C;">¥85起</span>
+          </div>
+          <div class="temple-card-services">
+            <div class="service-tags">
+              <span class="service-tag">灌顶</span>
+              <span class="service-tag">加持</span>
+              <span class="service-tag">祈福</span>
+              <span class="service-tag">供养</span>
+            </div>
+            <span style="font-size: 10px; color: #C45A3C; font-weight: 500; white-space: nowrap; margin-left: 8px;">4项服务</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- JavaScript: Filter option selection -->
+  <script>
+    // Filter option selection (single-select)
+    document.querySelectorAll('.filter-option').forEach(option => {
+      option.addEventListener('click', () => {
+        document.querySelectorAll('.filter-option').forEach(o => o.classList.remove('active'));
+        option.classList.add('active');
+      });
+    });
+
+    // Category tag selection (single-select)
+    document.querySelectorAll('.tag-pill').forEach(tag => {
+      tag.addEventListener('click', () => {
+        document.querySelectorAll('.tag-pill').forEach(t => t.classList.remove('active'));
+        tag.classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+</html>

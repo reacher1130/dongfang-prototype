@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><style>html{color-scheme:dark}</style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="theme-color" content="#1C1210">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>商品订单 - 问玄东方·商城管理台</title>
+  <link rel="stylesheet" href="../shop-admin.css">
+</head>
+<body>
+<div class="admin-layout">
+  <aside class="sidebar">
+    <div class="sidebar-brand"><h1>问玄东方</h1><p>商城管理台</p></div>
+    <nav class="sidebar-nav">
+      <div class="nav-group-title">核心功能</div>
+      <a href="dashboard.html" class="nav-item" data-dom-id="nav-dashboard"><span class="nav-icon">&#9632;</span><span class="nav-label">首页仪表盘</span></a>
+      <a href="product-list.html" class="nav-item" data-dom-id="nav-product"></a>
+      <a href="category-manage.html" class="nav-item" data-dom-id="nav-category"></a>
+      <a href="diy-order-list.html" class="nav-item" data-dom-id="nav-diy-order"><span class="nav-badge">3</span></a>
+      <a href="material-list.html" class="nav-item" data-dom-id="nav-material"></a>
+      <a href="service-list.html" class="nav-item" data-dom-id="nav-extra-service"></a>
+      <div class="nav-group-title">交易管理</div>
+      <a href="order-list.html" class="nav-item active" data-dom-id="nav-order"><span class="nav-badge">12</span></a>
+      <a href="logistics.html" class="nav-item" data-dom-id="nav-logistics"></a>
+      <a href="return-list.html" class="nav-item" data-dom-id="nav-return"><span class="nav-badge">2</span></a>
+      <div class="nav-group-title">运营</div>
+      <a href="report.html" class="nav-item" data-dom-id="nav-report"></a>
+      <a href="settings.html" class="nav-item" data-dom-id="nav-settings"></a>
+    </nav>
+    <div class="sidebar-footer"><a href="../login.html" style="color:rgba(232,222,212,0.5);font-size:12px;">退出登录</a></div>
+  </aside>
+  <main class="main-content">
+    <header class="top-header">
+      <div class="breadcrumb">商城管理台 / <span>商品订单</span></div>
+      <div class="header-right"><div class="header-user"><div class="header-avatar">管</div><span>管理员</span></div></div>
+    </header>
+    <div class="page-content">
+      <h1 class="page-title">商品订单</h1>
+
+      <div class="tabs">
+        <div class="tab-item active">全部 <span class="tab-badge">86</span></div>
+        <div class="tab-item">待付款 <span class="tab-badge">5</span></div>
+        <div class="tab-item">待发货 <span class="tab-badge">12</span></div>
+        <div class="tab-item">已发货 <span class="tab-badge">18</span></div>
+        <div class="tab-item">已完成</div>
+        <div class="tab-item">已取消</div>
+      </div>
+
+      <div class="card">
+        <div class="table-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>订单号</th>
+                <th>用户</th>
+                <th>商品</th>
+                <th>数量</th>
+                <th>金额</th>
+                <th>收货地址</th>
+                <th>状态</th>
+                <th>下单时间</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-sm text-muted">ORD20260629001</td>
+                <td>陈慧琳</td>
+                <td>小叶紫檀108颗佛珠手串</td>
+                <td>1</td>
+                <td class="price">¥299.00</td>
+                <td class="text-sm text-muted">浙江省杭州市西湖区...</td>
+                <td><span class="badge badge-warning">待发货</span></td>
+                <td class="text-sm text-muted">2026-06-29 08:30</td>
+                <td><a href="order-detail.html" class="btn btn-primary btn-sm" data-dom-id="cta-order-detail">处理</a></td>
+              </tr>
+              <tr>
+                <td class="text-sm text-muted">ORD20260629002</td>
+                <td>张明远</td>
+                <td>白玉观音吊坠项链</td>
+                <td>2</td>
+                <td class="price">¥600.00</td>
+                <td class="text-sm text-muted">上海市浦东新区...</td>
+                <td><span class="badge badge-warning">待发货</span></td>
+                <td class="text-sm text-muted">2026-06-29 09:15</td>
+                <td><a href="order-detail.html" class="btn btn-primary btn-sm" data-dom-id="cta-order-detail">处理</a></td>
+              </tr>
+              <tr>
+                <td class="text-sm text-muted">ORD20260629003</td>
+                <td>刘思琪</td>
+                <td>黄铜香炉(大号)</td>
+                <td>1</td>
+                <td class="price">¥198.00</td>
+                <td class="text-sm text-muted">北京市朝阳区...</td>
+                <td><span class="badge badge-info">已发货</span></td>
+                <td class="text-sm text-muted">2026-06-28 14:22</td>
+                <td><a href="order-detail.html" class="btn btn-ghost btn-sm" data-dom-id="cta-order-detail">查看</a></td>
+              </tr>
+              <tr>
+                <td class="text-sm text-muted">ORD20260628006</td>
+                <td>王雅琴</td>
+                <td>星月菩提手串(单圈)</td>
+                <td>3</td>
+                <td class="price">¥504.00</td>
+                <td class="text-sm text-muted">江苏省南京市鼓楼区...</td>
+                <td><span class="badge badge-info">已发货</span></td>
+                <td class="text-sm text-muted">2026-06-28 16:45</td>
+                <td><a href="order-detail.html" class="btn btn-ghost btn-sm" data-dom-id="cta-order-detail">查看</a></td>
+              </tr>
+              <tr>
+                <td class="text-sm text-muted">ORD20260628004</td>
+                <td>赵子墨</td>
+                <td>宣纸手抄心经套装</td>
+                <td>1</td>
+                <td class="price">¥128.00</td>
+                <td class="text-sm text-muted">广东省深圳市南山区...</td>
+                <td><span class="badge badge-success">已完成</span></td>
+                <td class="text-sm text-muted">2026-06-28 10:08</td>
+                <td><a href="order-detail.html" class="btn btn-ghost btn-sm" data-dom-id="cta-order-detail">查看</a></td>
+              </tr>
+              <tr>
+                <td class="text-sm text-muted">ORD20260627012</td>
+                <td>周慧心</td>
+                <td>檀木莲花挂件</td>
+                <td>2</td>
+                <td class="price">¥178.00</td>
+                <td class="text-sm text-muted">四川省成都市锦江区...</td>
+                <td><span class="badge badge-warning">待发货</span></td>
+                <td class="text-sm text-muted">2026-06-27 15:30</td>
+                <td><a href="order-detail.html" class="btn btn-primary btn-sm" data-dom-id="cta-order-detail">处理</a></td>
+              </tr>
+              <tr>
+                <td class="text-sm text-muted">ORD20260627009</td>
+                <td>李明轩</td>
+                <td>和田玉平安扣项链</td>
+                <td>1</td>
+                <td class="price">¥458.00</td>
+                <td class="text-sm text-muted">福建省厦门市思明区...</td>
+                <td><span class="badge badge-success">已完成</span></td>
+                <td class="text-sm text-muted">2026-06-27 11:20</td>
+                <td><a href="order-detail.html" class="btn btn-ghost btn-sm" data-dom-id="cta-order-detail">查看</a></td>
+              </tr>
+              <tr>
+                <td class="text-sm text-muted">ORD20260626015</td>
+                <td>孙妙音</td>
+                <td>绿檀木鱼(小号)</td>
+                <td>1</td>
+                <td class="price">¥58.00</td>
+                <td class="text-sm text-muted">湖北省武汉市武昌区...</td>
+                <td><span class="badge badge-default">已取消</span></td>
+                <td class="text-sm text-muted">2026-06-26 09:45</td>
+                <td><a href="order-detail.html" class="btn btn-ghost btn-sm" data-dom-id="cta-order-detail">查看</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card-footer">
+          <div class="pagination">
+            <div class="pagination-info">共 86 条记录，第 1/11 页</div>
+            <div class="pagination-pages">
+              <button class="page-btn">&laquo;</button>
+              <button class="page-btn active">1</button>
+              <button class="page-btn">2</button>
+              <button class="page-btn">3</button>
+              <button class="page-btn">...</button>
+              <button class="page-btn">11</button>
+              <button class="page-btn">&raquo;</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

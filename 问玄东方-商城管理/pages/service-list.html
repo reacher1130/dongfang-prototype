@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><style>html{color-scheme:dark}</style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="theme-color" content="#1C1210">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>额外服务 - 问玄东方·商城管理台</title>
+  <link rel="stylesheet" href="../shop-admin.css">
+</head>
+<body>
+<div class="admin-layout">
+  <aside class="sidebar">
+    <div class="sidebar-brand"><h1>问玄东方</h1><p>商城管理台</p></div>
+    <nav class="sidebar-nav">
+      <div class="nav-group-title">核心功能</div>
+      <a href="dashboard.html" class="nav-item" data-dom-id="nav-dashboard"><span class="nav-icon">&#9632;</span><span class="nav-label">首页仪表盘</span></a>
+      <a href="product-list.html" class="nav-item" data-dom-id="nav-product"></a>
+      <a href="category-manage.html" class="nav-item" data-dom-id="nav-category"></a>
+      <a href="diy-order-list.html" class="nav-item" data-dom-id="nav-diy-order"><span class="nav-badge">3</span></a>
+      <a href="material-list.html" class="nav-item" data-dom-id="nav-material"></a>
+      <a href="service-list.html" class="nav-item active" data-dom-id="nav-extra-service"></a>
+      <div class="nav-group-title">交易管理</div>
+      <a href="order-list.html" class="nav-item" data-dom-id="nav-order"><span class="nav-badge">12</span></a>
+      <a href="logistics.html" class="nav-item" data-dom-id="nav-logistics"></a>
+      <a href="return-list.html" class="nav-item" data-dom-id="nav-return"><span class="nav-badge">2</span></a>
+      <div class="nav-group-title">运营</div>
+      <a href="report.html" class="nav-item" data-dom-id="nav-report"></a>
+      <a href="settings.html" class="nav-item" data-dom-id="nav-settings"></a>
+    </nav>
+    <div class="sidebar-footer"><a href="../login.html" style="color:rgba(232,222,212,0.5);font-size:12px;">退出登录</a></div>
+  </aside>
+  <main class="main-content">
+    <header class="top-header">
+      <div class="breadcrumb">商城管理台 / <span>额外服务</span></div>
+      <div class="header-right"><div class="header-user"><div class="header-avatar">管</div><span>管理员</span></div></div>
+    </header>
+    <div class="page-content">
+      <div class="flex-between mb-24">
+        <h1 class="page-title" style="margin-bottom:0;">额外服务管理</h1>
+        <a href="service-edit.html" class="btn btn-primary">+ 添加服务</a data-dom-id="cta-add-service">
+      </div>
+
+      <div class="card">
+        <div class="table-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>服务名称</th>
+                <th>关联寺庙</th>
+                <th>主法法师</th>
+                <th>价格</th>
+                <th>已服务次数</th>
+                <th>状态</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>灵隐寺·开光加持</strong></td>
+                <td>杭州灵隐寺</td>
+                <td>智海法师</td>
+                <td class="price">¥168.00</td>
+                <td>256</td>
+                <td><span class="badge badge-success">启用</span></td>
+                <td class="col-actions">
+                  <a href="service-edit.html" class="btn btn-ghost btn-sm">编辑</a>
+                  <button class="btn btn-ghost btn-sm text-danger">停用</button>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>白云观·道长祈福</strong></td>
+                <td>北京白云观</td>
+                <td>清风道长</td>
+                <td class="price">¥128.00</td>
+                <td>182</td>
+                <td><span class="badge badge-success">启用</span></td>
+                <td class="col-actions">
+                  <a href="service-edit.html" class="btn btn-ghost btn-sm">编辑</a>
+                  <button class="btn btn-ghost btn-sm text-danger">停用</button>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>少林寺·武僧加持</strong></td>
+                <td>嵩山少林寺</td>
+                <td>释延心法师</td>
+                <td class="price">¥198.00</td>
+                <td>143</td>
+                <td><span class="badge badge-success">启用</span></td>
+                <td class="col-actions">
+                  <a href="service-edit.html" class="btn btn-ghost btn-sm">编辑</a>
+                  <button class="btn btn-ghost btn-sm text-danger">停用</button>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>大昭寺·活佛灌顶</strong></td>
+                <td>拉萨大昭寺</td>
+                <td>扎西多吉活佛</td>
+                <td class="price">¥268.00</td>
+                <td>67</td>
+                <td><span class="badge badge-success">启用</span></td>
+                <td class="col-actions">
+                  <a href="service-edit.html" class="btn btn-ghost btn-sm">编辑</a>
+                  <button class="btn btn-ghost btn-sm text-danger">停用</button>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>普陀山祈福</strong></td>
+                <td>普陀山普济寺</td>
+                <td>道生长老</td>
+                <td class="price">¥158.00</td>
+                <td>215</td>
+                <td><span class="badge badge-success">启用</span></td>
+                <td class="col-actions">
+                  <a href="service-edit.html" class="btn btn-ghost btn-sm">编辑</a>
+                  <button class="btn btn-ghost btn-sm text-danger">停用</button>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>武当山开光</strong></td>
+                <td>武当山紫霄宫</td>
+                <td>董理清道长</td>
+                <td class="price">¥148.00</td>
+                <td>98</td>
+                <td><span class="badge badge-default">停用</span></td>
+                <td class="col-actions">
+                  <a href="service-edit.html" class="btn btn-ghost btn-sm">编辑</a>
+                  <button class="btn btn-ghost btn-sm text-success">启用</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

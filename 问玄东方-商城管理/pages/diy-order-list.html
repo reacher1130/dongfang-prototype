@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><style>html{color-scheme:dark}</style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="theme-color" content="#1C1210">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DIY订单 - 问玄东方·商城管理台</title>
+  <link rel="stylesheet" href="../shop-admin.css">
+</head>
+<body>
+<div class="admin-layout">
+  <aside class="sidebar">
+    <div class="sidebar-brand"><h1>问玄东方</h1><p>商城管理台</p></div>
+    <nav class="sidebar-nav">
+      <div class="nav-group-title">核心功能</div>
+      <a href="dashboard.html" class="nav-item" data-dom-id="nav-dashboard"><span class="nav-icon">&#9632;</span><span class="nav-label">首页仪表盘</span></a>
+      <a href="product-list.html" class="nav-item" data-dom-id="nav-product"></a>
+      <a href="category-manage.html" class="nav-item" data-dom-id="nav-category"></a>
+      <a href="diy-order-list.html" class="nav-item active" data-dom-id="nav-diy-order"><span class="nav-badge">3</span></a>
+      <a href="material-list.html" class="nav-item" data-dom-id="nav-material"></a>
+      <a href="service-list.html" class="nav-item" data-dom-id="nav-extra-service"></a>
+      <div class="nav-group-title">交易管理</div>
+      <a href="order-list.html" class="nav-item" data-dom-id="nav-order"><span class="nav-badge">12</span></a>
+      <a href="logistics.html" class="nav-item" data-dom-id="nav-logistics"></a>
+      <a href="return-list.html" class="nav-item" data-dom-id="nav-return"><span class="nav-badge">2</span></a>
+      <div class="nav-group-title">运营</div>
+      <a href="report.html" class="nav-item" data-dom-id="nav-report"></a>
+      <a href="settings.html" class="nav-item" data-dom-id="nav-settings"></a>
+    </nav>
+    <div class="sidebar-footer"><a href="../login.html" style="color:rgba(232,222,212,0.5);font-size:12px;">退出登录</a></div>
+  </aside>
+  <main class="main-content">
+    <header class="top-header">
+      <div class="breadcrumb">商城管理台 / <span>DIY订单</span></div>
+      <div class="header-right"><div class="header-user"><div class="header-avatar">管</div><span>管理员</span></div></div>
+    </header>
+    <div class="page-content">
+      <h1 class="page-title">DIY手串订单</h1>
+
+      <!-- Status Tabs -->
+      <div class="tabs">
+        <div class="tab-item active">待审核 <span class="tab-badge">3</span></div>
+        <div class="tab-item">制作中 <span class="tab-badge">5</span></div>
+        <div class="tab-item">等待加持 <span class="tab-badge">2</span></div>
+        <div class="tab-item">加持中 <span class="tab-badge">1</span></div>
+        <div class="tab-item">待发货 <span class="tab-badge">8</span></div>
+        <div class="tab-item">已发货</div>
+        <div class="tab-item">已完成</div>
+        <div class="tab-item">已取消</div>
+      </div>
+
+      <div class="card">
+        <div class="table-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>订单号</th>
+                <th>用户</th>
+                <th>设计名称</th>
+                <th>材料数</th>
+                <th>总价</th>
+                <th>额外服务</th>
+                <th>状态</th>
+                <th>下单时间</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="highlight">
+                <td class="text-sm text-muted">DIY20260629001</td>
+                <td>李明轩</td>
+                <td>紫檀转运手串</td>
+                <td>5种</td>
+                <td class="price">¥486</td>
+                <td><span class="badge badge-gold">灵隐寺开光</span></td>
+                <td><span class="badge badge-warning">待审核</span></td>
+                <td class="text-sm text-muted">2026-06-29 09:15</td>
+                <td><a href="diy-order-detail.html" class="btn btn-primary btn-sm" data-dom-id="cta-diy-detail">审核</a></td>
+              </tr>
+              <tr>
+                <td class="text-sm text-muted">DIY20260629002</td>
+                <td>王雅琴</td>
+                <td>星月菩提平安串</td>
+                <td>4种</td>
+                <td class="price">¥328</td>
+                <td><span class="text-sm text-muted">--</span></td>
+                <td><span class="badge badge-warning">待审核</span></td>
+                <td class="text-sm text-muted">2026-06-29 10:22</td>
+                <td><a href="diy-order-detail.html" class="btn btn-primary btn-sm" data-dom-id="cta-diy-detail">审核</a></td>
+              </tr>
+              <tr class="highlight">
+                <td class="text-sm text-muted">DIY20260629003</td>
+                <td>张道远</td>
+                <td>檀木百福手串</td>
+                <td>6种</td>
+                <td class="price">¥568</td>
+                <td><span class="badge badge-gold">少林寺加持</span></td>
+                <td><span class="badge badge-warning">待审核</span></td>
+                <td class="text-sm text-muted">2026-06-29 11:08</td>
+                <td><a href="diy-order-detail.html" class="btn btn-primary btn-sm" data-dom-id="cta-diy-detail">审核</a></td>
+              </tr>
+              <tr class="highlight">
+                <td class="text-sm text-muted">DIY20260628015</td>
+                <td>王静怡</td>
+                <td>和田玉转运珠串</td>
+                <td>3种</td>
+                <td class="price">¥892</td>
+                <td><span class="badge badge-gold">大昭寺灌顶</span></td>
+                <td><span class="badge badge-info">制作中</span></td>
+                <td class="text-sm text-muted">2026-06-28 14:30</td>
+                <td><a href="diy-order-detail.html" class="btn btn-ghost btn-sm" data-dom-id="cta-diy-detail">查看</a></td>
+              </tr>
+              <tr>
+                <td class="text-sm text-muted">DIY20260628014</td>
+                <td>赵子墨</td>
+                <td>蜜蜡貔貅手串</td>
+                <td>4种</td>
+                <td class="price">¥425</td>
+                <td><span class="text-sm text-muted">--</span></td>
+                <td><span class="badge badge-info">制作中</span></td>
+                <td class="text-sm text-muted">2026-06-28 16:45</td>
+                <td><a href="diy-order-detail.html" class="btn btn-ghost btn-sm" data-dom-id="cta-diy-detail">查看</a></td>
+              </tr>
+              <tr class="highlight">
+                <td class="text-sm text-muted">DIY20260628013</td>
+                <td>林若溪</td>
+                <td>紫檀·静心</td>
+                <td>5种</td>
+                <td class="price">¥586</td>
+                <td><span class="badge badge-gold">灵隐寺开光</span></td>
+                <td><span class="badge" style="background:#FFF3E0;color:#E65100;font-weight:500;">等待加持</span></td>
+                <td class="text-sm text-muted">2026-06-28 10:30</td>
+                <td><a href="diy-order-detail.html" class="btn btn-ghost btn-sm" data-dom-id="cta-diy-detail">查看</a></td>
+              </tr>
+              <tr>
+                <td class="text-sm text-muted">DIY20260627009</td>
+                <td>孙慧心</td>
+                <td>白玉·清莲</td>
+                <td>4种</td>
+                <td class="price">¥728</td>
+                <td><span class="badge badge-gold">白云观祈福</span></td>
+                <td><span class="badge" style="background:#E65100;color:#fff;font-weight:500;animation:pulse 1.5s infinite;">加持中</span></td>
+                <td class="text-sm text-muted">2026-06-27 15:40</td>
+                <td><a href="diy-order-detail.html" class="btn btn-ghost btn-sm" data-dom-id="cta-diy-detail">查看</a></td>
+              </tr>
+              <tr>
+                <td class="text-sm text-muted">DIY20260628012</td>
+                <td>陈思涵</td>
+                <td>沉香龙纹手串</td>
+                <td>5种</td>
+                <td class="price">¥658</td>
+                <td><span class="text-sm text-muted">--</span></td>
+                <td><span class="badge badge-success">待发货</span></td>
+                <td class="text-sm text-muted">2026-06-28 09:20</td>
+                <td><a href="diy-order-detail.html" class="btn btn-ghost btn-sm" data-dom-id="cta-diy-detail">查看</a></td>
+              </tr>
+              <tr class="highlight">
+                <td class="text-sm text-muted">DIY20260627008</td>
+                <td>刘妙音</td>
+                <td>朱砂辟邪手串</td>
+                <td>4种</td>
+                <td class="price">¥398</td>
+                <td><span class="badge badge-gold">白云观祈福</span></td>
+                <td><span class="badge badge-success">待发货</span></td>
+                <td class="text-sm text-muted">2026-06-27 11:55</td>
+                <td><a href="diy-order-detail.html" class="btn btn-ghost btn-sm" data-dom-id="cta-diy-detail">查看</a></td>
+              </tr>
+              <tr>
+                <td class="text-sm text-muted">DIY20260626005</td>
+                <td>周慧心</td>
+                <td>青金石莲花串</td>
+                <td>5种</td>
+                <td class="price">¥512</td>
+                <td><span class="text-sm text-muted">--</span></td>
+                <td><span class="badge badge-default">已完成</span></td>
+                <td class="text-sm text-muted">2026-06-26 08:30</td>
+                <td><a href="diy-order-detail.html" class="btn btn-ghost btn-sm" data-dom-id="cta-diy-detail">查看</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card-footer">
+          <div class="pagination">
+            <div class="pagination-info">共 44 条记录，第 1/6 页</div>
+            <div class="pagination-pages">
+              <button class="page-btn">&laquo;</button>
+              <button class="page-btn active">1</button>
+              <button class="page-btn">2</button>
+              <button class="page-btn">3</button>
+              <button class="page-btn">...</button>
+              <button class="page-btn">6</button>
+              <button class="page-btn">&raquo;</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+<style>@keyframes pulse{0%,100%{opacity:1}50%{opacity:.6}}</style>
+</html>

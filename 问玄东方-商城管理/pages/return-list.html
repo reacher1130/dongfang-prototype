@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><style>html{color-scheme:dark}</style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="theme-color" content="#1C1210">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>退换货 - 问玄东方·商城管理台</title>
+  <link rel="stylesheet" href="../shop-admin.css">
+</head>
+<body>
+<div class="admin-layout">
+  <aside class="sidebar">
+    <div class="sidebar-brand"><h1>问玄东方</h1><p>商城管理台</p></div>
+    <nav class="sidebar-nav">
+      <div class="nav-group-title">核心功能</div>
+      <a href="dashboard.html" class="nav-item" data-dom-id="nav-dashboard"><span class="nav-icon">&#9632;</span><span class="nav-label">首页仪表盘</span></a>
+      <a href="product-list.html" class="nav-item" data-dom-id="nav-product"></a>
+      <a href="category-manage.html" class="nav-item" data-dom-id="nav-category"></a>
+      <a href="diy-order-list.html" class="nav-item" data-dom-id="nav-diy-order"><span class="nav-badge">3</span></a>
+      <a href="material-list.html" class="nav-item" data-dom-id="nav-material"></a>
+      <a href="service-list.html" class="nav-item" data-dom-id="nav-extra-service"></a>
+      <div class="nav-group-title">交易管理</div>
+      <a href="order-list.html" class="nav-item" data-dom-id="nav-order"><span class="nav-badge">12</span></a>
+      <a href="logistics.html" class="nav-item" data-dom-id="nav-logistics"></a>
+      <a href="return-list.html" class="nav-item active" data-dom-id="nav-return"><span class="nav-badge">2</span></a>
+      <div class="nav-group-title">运营</div>
+      <a href="report.html" class="nav-item" data-dom-id="nav-report"></a>
+      <a href="settings.html" class="nav-item" data-dom-id="nav-settings"></a>
+    </nav>
+    <div class="sidebar-footer"><a href="../login.html" style="color:rgba(232,222,212,0.5);font-size:12px;">退出登录</a></div>
+  </aside>
+  <main class="main-content">
+    <header class="top-header">
+      <div class="breadcrumb">商城管理台 / <span>退换货</span></div>
+      <div class="header-right"><div class="header-user"><div class="header-avatar">管</div><span>管理员</span></div></div>
+    </header>
+    <div class="page-content">
+      <h1 class="page-title">退换货管理</h1>
+
+      <div class="tabs">
+        <div class="tab-item active">全部</div>
+        <div class="tab-item">待处理 <span class="tab-badge">2</span></div>
+        <div class="tab-item">已同意</div>
+        <div class="tab-item">已拒绝</div>
+        <div class="tab-item">已退款</div>
+      </div>
+
+      <div class="card">
+        <div class="table-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>退货单号</th>
+                <th>用户</th>
+                <th>商品</th>
+                <th>退货原因</th>
+                <th>申请时间</th>
+                <th>退款金额</th>
+                <th>状态</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-sm text-muted">RET20260629001</td>
+                <td>刘思琪</td>
+                <td>黄铜香炉(大号)</td>
+                <td>商品有瑕疵</td>
+                <td class="text-sm text-muted">2026-06-29 10:15</td>
+                <td class="price">¥198.00</td>
+                <td><span class="badge badge-warning">待处理</span></td>
+                <td><a href="return-detail.html" class="btn btn-primary btn-sm" data-dom-id="cta-return-detail">处理</a></td>
+              </tr>
+              <tr>
+                <td class="text-sm text-muted">RET20260629002</td>
+                <td>赵子墨</td>
+                <td>宣纸手抄心经套装</td>
+                <td>尺寸不合适</td>
+                <td class="text-sm text-muted">2026-06-29 11:30</td>
+                <td class="price">¥128.00</td>
+                <td><span class="badge badge-warning">待处理</span></td>
+                <td><a href="return-detail.html" class="btn btn-primary btn-sm" data-dom-id="cta-return-detail">处理</a></td>
+              </tr>
+              <tr>
+                <td class="text-sm text-muted">RET20260628003</td>
+                <td>王雅琴</td>
+                <td>星月菩提手串(单圈)</td>
+                <td>不喜欢</td>
+                <td class="text-sm text-muted">2026-06-28 14:20</td>
+                <td class="price">¥168.00</td>
+                <td><span class="badge badge-info">已同意</span></td>
+                <td><a href="return-detail.html" class="btn btn-ghost btn-sm" data-dom-id="cta-return-detail">查看</a></td>
+              </tr>
+              <tr>
+                <td class="text-sm text-muted">RET20260627001</td>
+                <td>周慧心</td>
+                <td>檀木莲花挂件</td>
+                <td>与描述不符</td>
+                <td class="text-sm text-muted">2026-06-27 09:45</td>
+                <td class="price">¥89.00</td>
+                <td><span class="badge badge-danger">已拒绝</span></td>
+                <td><a href="return-detail.html" class="btn btn-ghost btn-sm" data-dom-id="cta-return-detail">查看</a></td>
+              </tr>
+              <tr>
+                <td class="text-sm text-muted">RET20260625002</td>
+                <td>李明轩</td>
+                <td>和田玉平安扣项链</td>
+                <td>收到损坏</td>
+                <td class="text-sm text-muted">2026-06-25 16:30</td>
+                <td class="price">¥458.00</td>
+                <td><span class="badge badge-success">已退款</span></td>
+                <td><a href="return-detail.html" class="btn btn-ghost btn-sm" data-dom-id="cta-return-detail">查看</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card-footer">
+          <div class="pagination">
+            <div class="pagination-info">共 18 条记录，第 1/4 页</div>
+            <div class="pagination-pages">
+              <button class="page-btn">&laquo;</button>
+              <button class="page-btn active">1</button>
+              <button class="page-btn">2</button>
+              <button class="page-btn">3</button>
+              <button class="page-btn">4</button>
+              <button class="page-btn">&raquo;</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><style>html{color-scheme:dark}</style>
+<head>
+<meta charset="UTF-8">
+  <meta name="theme-color" content="#1C1210">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>寺院管理 - 问玄东方平台管理台</title>
+<link rel="stylesheet" href="../platform-admin.css">
+</head>
+<body>
+<div class="admin-layout">
+  <aside class="sidebar">
+    <div class="sidebar-brand"><h1>问玄东方</h1><div class="brand-sub">平台管理台</div></div>
+    <nav class="sidebar-nav">
+      <div class="nav-group"><a class="nav-group-title" href="dashboard.html" data-dom-id="nav-dashboard"><span class="nav-icon">&#9632;</span>数据大盘</a></div>
+      <div class="nav-group"><a href="temple-list.html"  class="nav-group-title expanded" onclick="toggleNav(this)" data-dom-id="nav-temple"><span class="nav-icon">&#9775;</span>运营管理<span class="nav-arrow">&#9654;</span></a><div class="nav-sub show"><a href="temple-list.html" class="active">寺院管理</a><a href="temple-review.html" data-dom-id="cta-temple-review">寺院审核</a><a href="master-list.html"> data-dom-id="nav-master">法师管理</a><a href="master-review.html">法师认证审核</a></div></div>
+      <div class="nav-group"><a href="user-list.html"  class="nav-group-title" onclick="toggleNav(this)" data-dom-id="nav-user"><span class="nav-icon">&#9787;</span>用户管理<span class="nav-arrow">&#9654;</span></a><div class="nav-sub"><a href="user-list.html">用户列表</a></div></div>
+      <div class="nav-group"><a href="content-design.html"  class="nav-group-title" onclick="toggleNav(this)" data-dom-id="nav-content"><span class="nav-icon">&#9998;</span>内容审核<span class="nav-badge">3</span><span class="nav-arrow">&#9654;</span></a><div class="nav-sub"><a href="content-design.html">设计广场审核</a><a href="content-comment.html">评论审核</a><a href="content-report.html">举报处理</a></div></div>
+      <div class="nav-group"><a href="finance-overview.html"  class="nav-group-title" onclick="toggleNav(this)" data-dom-id="nav-finance"><span class="nav-icon">&#9733;</span>财务管理<span class="nav-arrow">&#9654;</span></a><div class="nav-sub"><a href="finance-overview.html">财务总览</a><a href="finance-temple.html">寺院结算</a><a href="finance-master.html">法师结算</a><a href="finance-reconcile.html">对账管理</a></div></div>
+      <div class="nav-group"><a href="marketing-banner.html"  class="nav-group-title" onclick="toggleNav(this)" data-dom-id="nav-marketing"><span class="nav-icon">&#9830;</span>营销管理<span class="nav-arrow">&#9654;</span></a><div class="nav-sub"><a href="marketing-coupon.html">优惠券管理</a><a href="marketing-banner.html">Banner管理</a><a href="marketing-activity.html">活动管理</a></div></div>
+      <div class="nav-group"><a href="settings-role.html"  class="nav-group-title" onclick="toggleNav(this)" data-dom-id="nav-settings"><span class="nav-icon">&#9881;</span>系统设置<span class="nav-arrow">&#9654;</span></a><div class="nav-sub"><a href="settings-role.html">角色权限</a><a href="settings-dict.html">数据字典</a><a href="settings-log.html">操作日志</a><a href="settings-backup.html">数据备份</a></div></div>
+    </nav>
+    <div class="sidebar-footer"><div class="sidebar-user"><div class="user-avatar">管</div><div class="user-info"><div class="user-name">超级管理员</div><div class="user-role">SUPER_ADMIN</div></div><a href="../login.html" class="logout-btn" title="退出">&#x2716;</a></div></div>
+  </aside>
+  <main class="main-content">
+    <div class="topbar"><div class="topbar-breadcrumb">平台管理台 <span class="sep">/</span> 运营管理 <span class="sep">/</span> <span>寺院管理</span></div><div class="topbar-actions"><button class="icon-btn notification-dot"> aria-label="通知">&#128276;</button><button class="icon-btn"> aria-label="通知">&#128269;</button></div></div>
+    <div class="page-content">
+      <div class="page-header"><h2>寺院管理</h2><div class="page-desc">管理平台所有寺院信息，共 6 家寺院</div></div>
+      <div class="filter-bar">
+        <div class="filter-item"><span class="filter-label">地区：</span><select><option>全部地区</option><option>浙江</option><option>北京</option><option>河南</option><option>西藏</option><option>湖北</option></select></div>
+        <div class="filter-item"><span class="filter-label">状态：</span><select><option>全部状态</option><option>正常</option><option>待审核</option><option>已封禁</option></select></div>
+        <div class="filter-item"><span class="filter-label">搜索：</span><input type="text" placeholder="寺院名称" aria-label="寺院名称"></div>
+        <button class="btn btn-primary btn-sm">查询</button>
+        <button class="btn btn-outline btn-sm">重置</button>
+      </div>
+      <div class="data-table-wrap">
+        <div class="table-header"><h3>寺院列表</h3><span class="text-sm text-muted">共 6 条</span></div>
+        <table class="data-table">
+          <thead><tr><th>寺院</th><th>地区</th><th>状态</th><th>法师数</th><th>评分</th><th>操作</th></tr></thead>
+          <tbody>
+            <tr><td><div class="cell-temple"><div class="cell-temple-logo">&#9775;</div><div class="cell-temple-info"><div class="cell-name">灵隐寺</div><div class="cell-sub">浙江省杭州市西湖区灵隐路</div></div></div></td><td>浙江·杭州</td><td><span class="badge badge-success">正常</span></td><td>12</td><td>4.9</td><td><a href="temple-detail.html" class="btn-text" data-dom-id="cta-temple-detail">查看</a> <a class="btn-text danger" href="#">封禁</a></td></tr>
+            <tr><td><div class="cell-temple"><div class="cell-temple-logo">&#9775;</div><div class="cell-temple-info"><div class="cell-name">白云观</div><div class="cell-sub">北京市西城区白云观街</div></div></div></td><td>北京</td><td><span class="badge badge-success">正常</span></td><td>10</td><td>4.8</td><td><a href="temple-detail.html" class="btn-text" data-dom-id="cta-temple-detail">查看</a> <a class="btn-text danger" href="#">封禁</a></td></tr>
+            <tr><td><div class="cell-temple"><div class="cell-temple-logo">&#9775;</div><div class="cell-temple-info"><div class="cell-name">少林寺</div><div class="cell-sub">河南省登封市嵩山五乳峰</div></div></div></td><td>河南·嵩山</td><td><span class="badge badge-success">正常</span></td><td>18</td><td>4.8</td><td><a href="temple-detail.html" class="btn-text" data-dom-id="cta-temple-detail">查看</a> <a class="btn-text danger" href="#">封禁</a></td></tr>
+            <tr><td><div class="cell-temple"><div class="cell-temple-logo">&#9775;</div><div class="cell-temple-info"><div class="cell-name">大昭寺</div><div class="cell-sub">西藏自治区拉萨市城关区</div></div></div></td><td>西藏·拉萨</td><td><span class="badge badge-success">正常</span></td><td>8</td><td>4.9</td><td><a href="temple-detail.html" class="btn-text" data-dom-id="cta-temple-detail">查看</a> <a class="btn-text danger" href="#">封禁</a></td></tr>
+            <tr><td><div class="cell-temple"><div class="cell-temple-logo">&#9775;</div><div class="cell-temple-info"><div class="cell-name">普陀山</div><div class="cell-sub">浙江省舟山市普陀区</div></div></div></td><td>浙江·舟山</td><td><span class="badge badge-warning">待审核</span></td><td>4</td><td>--</td><td><a href="temple-detail.html" class="btn-text" data-dom-id="cta-temple-detail">查看</a> <a href="temple-review.html" class="btn-text" data-dom-id="cta-temple-review">审核</a></td></tr>
+            <tr><td><div class="cell-temple"><div class="cell-temple-logo">&#9775;</div><div class="cell-temple-info"><div class="cell-name">武当山</div><div class="cell-sub">湖北省十堰市丹江口市</div></div></div></td><td>湖北·十堰</td><td><span class="badge badge-danger">已封禁</span></td><td>6</td><td>3.2</td><td><a href="temple-detail.html" class="btn-text" data-dom-id="cta-temple-detail">查看</a> <a class="btn-text success" href="#">解封</a></td></tr>
+          </tbody>
+        </table>
+        <div class="pagination"><div class="page-info">第 1-6 条 / 共 6 条</div><div class="page-btns"><div class="page-btn disabled">&lt;</div><div class="page-btn active">1</div><div class="page-btn disabled">&gt;</div></div></div>
+      </div>
+    </div>
+  </main>
+</div>
+<script>function toggleNav(el){el.classList.toggle('expanded');var sub=el.nextElementSibling;if(sub&&sub.classList.contains('nav-sub')){sub.classList.toggle('show');}}</script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><style>html{color-scheme:dark}</style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="theme-color" content="#1C1210">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>材料库 - 问玄东方·商城管理台</title>
+  <link rel="stylesheet" href="../shop-admin.css">
+</head>
+<body>
+<div class="admin-layout">
+  <aside class="sidebar">
+    <div class="sidebar-brand"><h1>问玄东方</h1><p>商城管理台</p></div>
+    <nav class="sidebar-nav">
+      <div class="nav-group-title">核心功能</div>
+      <a href="dashboard.html" class="nav-item" data-dom-id="nav-dashboard"><span class="nav-icon">&#9632;</span><span class="nav-label">首页仪表盘</span></a>
+      <a href="product-list.html" class="nav-item" data-dom-id="nav-product"></a>
+      <a href="category-manage.html" class="nav-item" data-dom-id="nav-category"></a>
+      <a href="diy-order-list.html" class="nav-item" data-dom-id="nav-diy-order"><span class="nav-badge">3</span></a>
+      <a href="material-list.html" class="nav-item active" data-dom-id="nav-material"></a>
+      <a href="service-list.html" class="nav-item" data-dom-id="nav-extra-service"></a>
+      <div class="nav-group-title">交易管理</div>
+      <a href="order-list.html" class="nav-item" data-dom-id="nav-order"><span class="nav-badge">12</span></a>
+      <a href="logistics.html" class="nav-item" data-dom-id="nav-logistics"></a>
+      <a href="return-list.html" class="nav-item" data-dom-id="nav-return"><span class="nav-badge">2</span></a>
+      <div class="nav-group-title">运营</div>
+      <a href="report.html" class="nav-item" data-dom-id="nav-report"></a>
+      <a href="settings.html" class="nav-item" data-dom-id="nav-settings"></a>
+    </nav>
+    <div class="sidebar-footer"><a href="../login.html" style="color:rgba(232,222,212,0.5);font-size:12px;">退出登录</a></div>
+  </aside>
+  <main class="main-content">
+    <header class="top-header">
+      <div class="breadcrumb">商城管理台 / <span>材料库</span></div>
+      <div class="header-right"><div class="header-user"><div class="header-avatar">管</div><span>管理员</span></div></div>
+    </header>
+    <div class="page-content">
+      <div class="flex-between mb-24">
+        <h1 class="page-title" style="margin-bottom:0;">材料库</h1>
+        <a href="material-edit.html" class="btn btn-primary">+ 添加材料</a data-dom-id="cta-add-material">
+      </div>
+
+      <div class="filter-bar">
+        <select class="form-control">
+          <option value="">全部分类</option>
+          <option>主珠</option><option>配珠</option><option>佛头</option><option>配饰</option><option>配件</option>
+        </select>
+        <input type="text" class="form-control search-input" placeholder="搜索材料名称..." aria-label="搜索材料名称...">
+        <button class="btn btn-outline">查询</button>
+        <button class="btn btn-ghost">重置</button>
+      </div>
+
+      <div class="card">
+        <div class="table-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>颜色</th>
+                <th>材料名称</th>
+                <th>分类</th>
+                <th>规格</th>
+                <th>单价</th>
+                <th>库存</th>
+                <th>状态</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="color-swatch" style="background:#3D1C0A;"></span></td>
+                <td><strong>小叶紫檀主珠</strong></td>
+                <td>主珠</td>
+                <td>8mm 圆珠</td>
+                <td class="price">¥12.00</td>
+                <td>560</td>
+                <td><span class="badge badge-success">在售</span></td>
+                <td><a href="material-edit.html" class="btn btn-ghost btn-sm">编辑</a></td>
+              </tr>
+              <tr>
+                <td><span class="color-swatch" style="background:#C8A96E;"></span></td>
+                <td><strong>18K金隔珠</strong></td>
+                <td>配珠</td>
+                <td>6mm 圆珠</td>
+                <td class="price">¥28.00</td>
+                <td>230</td>
+                <td><span class="badge badge-success">在售</span></td>
+                <td><a href="material-edit.html" class="btn btn-ghost btn-sm">编辑</a></td>
+              </tr>
+              <tr>
+                <td><span class="color-swatch" style="background:#D4A574;"></span></td>
+                <td><strong>南红玛瑙佛头</strong></td>
+                <td>佛头</td>
+                <td>12mm 圆形</td>
+                <td class="price">¥35.00</td>
+                <td>85</td>
+                <td><span class="badge badge-success">在售</span></td>
+                <td><a href="material-edit.html" class="btn btn-ghost btn-sm">编辑</a></td>
+              </tr>
+              <tr>
+                <td><span class="color-swatch" style="background:#2D5016;"></span></td>
+                <td><strong>绿松石弟子珠</strong></td>
+                <td>配珠</td>
+                <td>4mm 圆珠</td>
+                <td class="price">¥8.00</td>
+                <td>1200</td>
+                <td><span class="badge badge-success">在售</span></td>
+                <td><a href="material-edit.html" class="btn btn-ghost btn-sm">编辑</a></td>
+              </tr>
+              <tr>
+                <td><span class="color-swatch" style="background:#8B0000;"></span></td>
+                <td><strong>朱砂背云</strong></td>
+                <td>配饰</td>
+                <td>10mm 圆形</td>
+                <td class="price">¥15.00</td>
+                <td>320</td>
+                <td><span class="badge badge-success">在售</span></td>
+                <td><a href="material-edit.html" class="btn btn-ghost btn-sm">编辑</a></td>
+              </tr>
+              <tr>
+                <td><span class="color-swatch" style="background:#F5E6C8;"></span></td>
+                <td><strong>蜜蜡圆珠</strong></td>
+                <td>配珠</td>
+                <td>10mm 圆珠</td>
+                <td class="price">¥45.00</td>
+                <td>120</td>
+                <td><span class="badge badge-success">在售</span></td>
+                <td><a href="material-edit.html" class="btn btn-ghost btn-sm">编辑</a></td>
+              </tr>
+              <tr>
+                <td><span class="color-swatch" style="background:#1A365D;"></span></td>
+                <td><strong>青金石主珠</strong></td>
+                <td>主珠</td>
+                <td>8mm 圆珠</td>
+                <td class="price">¥18.00</td>
+                <td>380</td>
+                <td><span class="badge badge-success">在售</span></td>
+                <td><a href="material-edit.html" class="btn btn-ghost btn-sm">编辑</a></td>
+              </tr>
+              <tr>
+                <td><span class="color-swatch" style="background:#2E0854;"></span></td>
+                <td><strong>紫水晶佛头</strong></td>
+                <td>佛头</td>
+                <td>14mm 圆形</td>
+                <td class="price">¥42.00</td>
+                <td>45</td>
+                <td><span class="badge badge-warning">库存不足</span></td>
+                <td><a href="material-edit.html" class="btn btn-ghost btn-sm">编辑</a></td>
+              </tr>
+              <tr>
+                <td><span class="color-swatch" style="background:#E8D5B7;"></span></td>
+                <td><strong>和田玉平安扣</strong></td>
+                <td>配饰</td>
+                <td>20mm 扁圆</td>
+                <td class="price">¥68.00</td>
+                <td>28</td>
+                <td><span class="badge badge-success">在售</span></td>
+                <td><a href="material-edit.html" class="btn btn-ghost btn-sm">编辑</a></td>
+              </tr>
+              <tr>
+                <td><span class="color-swatch" style="background:#FFD700;"></span></td>
+                <td><strong>18K金流苏</strong></td>
+                <td>配件</td>
+                <td>标准长度</td>
+                <td class="price">¥45.00</td>
+                <td>95</td>
+                <td><span class="badge badge-success">在售</span></td>
+                <td><a href="material-edit.html" class="btn btn-ghost btn-sm">编辑</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card-footer">
+          <div class="pagination">
+            <div class="pagination-info">共 48 条记录，第 1/5 页</div>
+            <div class="pagination-pages">
+              <button class="page-btn">&laquo;</button>
+              <button class="page-btn active">1</button>
+              <button class="page-btn">2</button>
+              <button class="page-btn">3</button>
+              <button class="page-btn">...</button>
+              <button class="page-btn">5</button>
+              <button class="page-btn">&raquo;</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>
