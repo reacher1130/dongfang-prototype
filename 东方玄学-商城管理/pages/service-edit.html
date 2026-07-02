@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><style>html{color-scheme:dark}</style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="theme-color" content="#1C1210">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>编辑服务 - 东方玄学·商城管理台</title>
+  <link rel="stylesheet" href="../shop-admin.css">
+</head>
+<body>
+<div class="admin-layout">
+  <aside class="sidebar">
+    <div class="sidebar-brand"><h1>东方玄学</h1><p>商城管理台</p></div>
+    <nav class="sidebar-nav">
+      <div class="nav-group-title">核心功能</div>
+      <a href="dashboard.html" class="nav-item" data-dom-id="nav-dashboard"></a>
+      <a href="product-list.html" class="nav-item" data-dom-id="nav-product"></a>
+      <a href="category-manage.html" class="nav-item" data-dom-id="nav-category"></a>
+      <a href="diy-order-list.html" class="nav-item" data-dom-id="nav-diy-order"><span class="nav-badge">3</span></a>
+      <a href="material-list.html" class="nav-item" data-dom-id="nav-material"></a>
+      <a href="service-list.html" class="nav-item active" data-dom-id="nav-extra-service"></a>
+      <div class="nav-group-title">交易管理</div>
+      <a href="order-list.html" class="nav-item" data-dom-id="nav-order"><span class="nav-badge">12</span></a>
+      <a href="logistics.html" class="nav-item" data-dom-id="nav-logistics"></a>
+      <a href="return-list.html" class="nav-item" data-dom-id="nav-return"><span class="nav-badge">2</span></a>
+      <div class="nav-group-title">运营</div>
+      <a href="report.html" class="nav-item" data-dom-id="nav-report"></a>
+      <a href="settings.html" class="nav-item" data-dom-id="nav-settings"></a>
+    </nav>
+    <div class="sidebar-footer"><a href="../login.html" style="color:rgba(232,222,212,0.5);font-size:12px;">退出登录</a></div>
+  </aside>
+  <main class="main-content">
+    <header class="top-header">
+      <div class="breadcrumb">商城管理台 / <a href="service-list.html" data-dom-id="back">额外服务</a> / <span>编辑服务</span></div>
+      <div class="header-right"><div class="header-user"><div class="header-avatar">管</div><span>管理员</span></div></div>
+    </header>
+    <div class="page-content">
+      <div class="flex-between mb-24">
+        <h1 class="page-title" style="margin-bottom:0;">编辑服务</h1>
+        <a href="service-list.html" class="btn btn-outline">返回列表</a>
+      </div>
+
+      <div class="card">
+        <div class="card-header"><h3>服务信息</h3></div>
+        <div class="card-body">
+          <div class="form-group">
+            <label>服务名称 <span class="required">*</span></label>
+            <input type="text" class="form-control" value="灵隐寺·开光加持" placeholder="请输入服务名称" aria-label="请输入服务名称">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>关联寺庙 <span class="required">*</span></label>
+              <select class="form-control">
+                <option selected>杭州灵隐寺</option>
+                <option>北京白云观</option>
+                <option>嵩山少林寺</option>
+                <option>拉萨大昭寺</option>
+                <option>舟山普陀山</option>
+                <option>十堰武当山</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>关联法师 <span class="required">*</span></label>
+              <select class="form-control">
+                <option selected>智海法师</option>
+                <option>清风道长</option>
+                <option>释延心法师</option>
+                <option>扎西多吉活佛</option>
+                <option>慧明法师</option>
+                <option>真武道长</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>服务描述 <span class="required">*</span></label>
+            <textarea class="form-control" rows="4" placeholder="请输入服务描述">由灵隐寺智海法师亲自主持开光仪式，为法器、手串、项链等佛教用品进行开光加持，赋予其神圣能量。开光过程严格遵守佛教仪轨，持续约30分钟。</textarea>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>服务价格 <span class="required">*</span></label>
+              <input type="number" class="form-control" value="168" step="0.01" placeholder="请输入服务价格" aria-label="请输入服务价格">
+              <div class="form-hint">单位：人民币（元）</div>
+            </div>
+            <div class="form-group">
+              <label>服务时长</label>
+              <input type="text" class="form-control" value="约1-2个工作日" placeholder="如 1-2个工作日" aria-label="如 1-2个工作日">
+              <div class="form-hint">从下单到完成的时间</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>状态</label>
+            <select class="form-control">
+              <option>启用</option>
+              <option>停用</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex-between mt-24">
+        <a href="service-list.html" class="btn btn-outline">取消</a>
+        <button class="btn btn-primary">保存</button>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

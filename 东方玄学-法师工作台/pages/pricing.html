@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><style>html{color-scheme:dark}</style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="theme-color" content="#1C1210">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>服务定价 - 法师工作台</title>
+  <link rel="stylesheet" href="../master-app.css">
+  <style>
+    .pricing-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px;
+      background: var(--color-card-bg);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .pricing-item:first-child {
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    }
+    .pricing-item:last-child {
+      border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+      border-bottom: none;
+    }
+    .pricing-item .service-name {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--color-text-primary);
+    }
+    .pricing-item .service-desc {
+      font-size: 12px;
+      color: var(--color-text-muted);
+      margin-top: 2px;
+    }
+    .pricing-item .price-input-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .pricing-item .price-input-wrap .yuan {
+      font-size: 14px;
+      color: var(--color-accent);
+      font-weight: 600;
+    }
+    .pricing-item .price-input {
+      width: 80px;
+      height: 36px;
+      text-align: center;
+      background: var(--color-bg-secondary);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      color: var(--color-accent);
+      font-size: 16px;
+      font-weight: 600;
+    }
+    .pricing-item .price-input:focus {
+      border-color: var(--color-accent);
+    }
+    .pricing-item .save-btn {
+      width: 56px;
+      height: 36px;
+      background: var(--color-brand);
+      color: #fff;
+      border-radius: var(--radius-md);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      flex-shrink: 0;
+      border: none;
+    }
+  </style>
+</head>
+<body style="background-color: #1C1210; color: #F0E6DA;">
+  <div class="app-container">
+    <div class="page-no-tabs">
+      <!-- Top Nav -->
+      <div class="top-nav">
+        <a class="nav-back" href="profile.html" data-dom-id="back-profile">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15,18 9,12 15,6"/>
+          </svg>
+        </a>
+        <span class="nav-title">服务定价</span>
+      </div>
+
+      <div class="page-content">
+        <div style="margin: 16px; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--color-border);">
+          <div class="pricing-item fade-in">
+            <div>
+              <div class="service-name">祈福法会</div>
+              <div class="service-desc">为信众祈福消灾，保佑平安</div>
+            </div>
+            <div class="price-input-wrap">
+              <span class="yuan">¥</span>
+              <input type="number" class="price-input" value="200" aria-label="输入">
+              <button class="save-btn">保存</button>
+            </div>
+          </div>
+
+          <div class="pricing-item fade-in">
+            <div>
+              <div class="service-name">超度法事</div>
+              <div class="service-desc">超度亡灵，往生净土</div>
+            </div>
+            <div class="price-input-wrap">
+              <span class="yuan">¥</span>
+              <input type="number" class="price-input" value="500" aria-label="输入">
+              <button class="save-btn">保存</button>
+            </div>
+          </div>
+
+          <div class="pricing-item fade-in">
+            <div>
+              <div class="service-name">开光加持</div>
+              <div class="service-desc">为法器饰品开光，增强灵性</div>
+            </div>
+            <div class="price-input-wrap">
+              <span class="yuan">¥</span>
+              <input type="number" class="price-input" value="300" aria-label="输入">
+              <button class="save-btn">保存</button>
+            </div>
+          </div>
+
+          <div class="pricing-item fade-in">
+            <div>
+              <div class="service-name">命理咨询</div>
+              <div class="service-desc">八字命理、运势分析</div>
+            </div>
+            <div class="price-input-wrap">
+              <span class="yuan">¥</span>
+              <input type="number" class="price-input" value="100" aria-label="输入">
+              <button class="save-btn">保存</button>
+            </div>
+          </div>
+        </div>
+
+        <div style="padding: 16px; font-size: 12px; color: var(--color-text-muted); text-align: center;">
+          功德金定价建议参考当地市场水平，平台将收取10%服务费
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

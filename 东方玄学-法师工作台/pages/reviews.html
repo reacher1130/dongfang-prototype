@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><style>html{color-scheme:dark}</style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="theme-color" content="#1C1210">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>评价管理 - 法师工作台</title>
+  <link rel="stylesheet" href="../master-app.css">
+  <style>
+    .review-stats {
+      display: flex;
+      gap: 0;
+      margin: 16px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+    }
+    .review-stats .rs-item {
+      flex: 1;
+      text-align: center;
+      padding: 16px 8px;
+      background: var(--color-card-bg);
+      border-right: 1px solid var(--color-border);
+    }
+    .review-stats .rs-item:last-child {
+      border-right: none;
+    }
+    .review-stats .rs-value {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-accent);
+    }
+    .review-stats .rs-value.big {
+      font-size: 28px;
+    }
+    .review-stats .rs-label {
+      font-size: 11px;
+      color: var(--color-text-muted);
+      margin-top: 4px;
+    }
+    .review-star-breakdown {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 0 16px 8px;
+    }
+    .rsb-item {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 6px 10px;
+      background: var(--color-card-bg);
+      border-radius: var(--radius-full);
+      font-size: 12px;
+      color: var(--color-text-secondary);
+      border: 1px solid var(--color-border);
+    }
+    .rsb-item .rsb-count {
+      color: var(--color-accent);
+      font-weight: 600;
+    }
+    .review-item {
+      padding: 14px 16px;
+      background: var(--color-card-bg);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .review-item:first-child {
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    }
+    .review-item:last-child {
+      border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+      border-bottom: none;
+    }
+    .review-item .review-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .review-item .review-user {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--color-text-primary);
+    }
+    .review-item .review-time {
+      font-size: 11px;
+      color: var(--color-text-muted);
+      margin-left: auto;
+    }
+    .review-item .review-stars {
+      margin-top: 6px;
+    }
+    .review-item .review-content {
+      font-size: 13px;
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body style="background-color: #1C1210; color: #F0E6DA;">
+  <div class="app-container">
+    <div class="page-no-tabs">
+      <!-- Top Nav -->
+      <div class="top-nav">
+        <a class="nav-back" href="profile.html" data-dom-id="back-profile">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15,18 9,12 15,6"/>
+          </svg>
+        </a>
+        <span class="nav-title">评价管理</span>
+      </div>
+
+      <div class="page-content">
+        <!-- Stats -->
+        <div class="review-stats fade-in">
+          <div class="rs-item">
+            <div class="rs-value big">98.5%</div>
+            <div class="rs-label">好评率</div>
+          </div>
+          <div class="rs-item">
+            <div class="rs-value">156</div>
+            <div class="rs-label">总评价</div>
+          </div>
+        </div>
+
+        <!-- Star Breakdown -->
+        <div class="review-star-breakdown fade-in">
+          <div class="rsb-item">
+            <span>5星</span>
+            <span class="rsb-count">148</span>
+          </div>
+          <div class="rsb-item">
+            <span>4星</span>
+            <span class="rsb-count">6</span>
+          </div>
+          <div class="rsb-item">
+            <span>3星</span>
+            <span class="rsb-count">2</span>
+          </div>
+        </div>
+
+        <!-- Review List -->
+        <div style="margin: 8px 16px 0; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--color-border);">
+          <div class="review-item fade-in">
+            <div class="review-header">
+              <div class="avatar avatar-xs">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                  <circle cx="12" cy="7" r="4"/>
+                </svg>
+              </div>
+              <span class="review-user">张三</span>
+              <span class="review-time">2026-06-28</span>
+            </div>
+            <div class="review-stars">
+              <div class="stars">
+                <svg viewBox="0 0 24 24" class="star-filled"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24" class="star-filled"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24" class="star-filled"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24" class="star-filled"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24" class="star-filled"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+            </div>
+            <div class="review-content">法师慈悲为怀，祈福法会庄严殊胜。感恩法师为我们一家祈福，回来后确实感觉家中气场好了很多，孩子学习也更用心了。</div>
+          </div>
+
+          <div class="review-item fade-in">
+            <div class="review-header">
+              <div class="avatar avatar-xs">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                  <circle cx="12" cy="7" r="4"/>
+                </svg>
+              </div>
+              <span class="review-user">李四</span>
+              <span class="review-time">2026-06-27</span>
+            </div>
+            <div class="review-stars">
+              <div class="stars">
+                <svg viewBox="0 0 24 24" class="star-filled"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24" class="star-filled"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24" class="star-filled"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24" class="star-filled"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24" class="star-filled"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+            </div>
+            <div class="review-content">法师的命理分析非常精准，对我的人生规划有很大的帮助。态度和蔼，解答耐心细致，强烈推荐。</div>
+          </div>
+
+          <div class="review-item fade-in">
+            <div class="review-header">
+              <div class="avatar avatar-xs">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                  <circle cx="12" cy="7" r="4"/>
+                </svg>
+              </div>
+              <span class="review-user">赵六</span>
+              <span class="review-time">2026-06-25</span>
+            </div>
+            <div class="review-stars">
+              <div class="stars">
+                <svg viewBox="0 0 24 24" class="star-filled"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24" class="star-filled"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24" class="star-filled"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24" class="star-filled"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24" class="star-filled"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+            </div>
+            <div class="review-content">开光加持后的玉佩感觉更有灵气了，佩戴后心态平和了很多。法师修为深厚，值得信赖。</div>
+          </div>
+
+          <div class="review-item fade-in">
+            <div class="review-header">
+              <div class="avatar avatar-xs">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                  <circle cx="12" cy="7" r="4"/>
+                </svg>
+              </div>
+              <span class="review-user">王五</span>
+              <span class="review-time">2026-06-22</span>
+            </div>
+            <div class="review-stars">
+              <div class="stars">
+                <svg viewBox="0 0 24 24" class="star-filled"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24" class="star-filled"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24" class="star-filled"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24" class="star-filled"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24" class="star-empty"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+            </div>
+            <div class="review-content">超度法事安排得很周到，法师诵经声音庄严，整个过程庄严肃穆。稍等了一会儿才开始，总体满意。</div>
+          </div>
+
+          <div class="review-item fade-in">
+            <div class="review-header">
+              <div class="avatar avatar-xs">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                  <circle cx="12" cy="7" r="4"/>
+                </svg>
+              </div>
+              <span class="review-user">陈七</span>
+              <span class="review-time">2026-06-20</span>
+            </div>
+            <div class="review-stars">
+              <div class="stars">
+                <svg viewBox="0 0 24 24" class="star-filled"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24" class="star-filled"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24" class="star-filled"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24" class="star-filled"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24" class="star-filled"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+            </div>
+            <div class="review-content">第二次来法师这里祈福了，每次都能感受到满满的正能量。法师待人真诚，修行境界高远。</div>
+          </div>
+        </div>
+
+        <div style="height: 32px;"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

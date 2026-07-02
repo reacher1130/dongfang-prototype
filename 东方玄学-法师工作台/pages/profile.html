@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><style>html{color-scheme:dark}</style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="theme-color" content="#1C1210">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我的 - 法师工作台</title>
+  <link rel="stylesheet" href="../master-app.css">
+  <style>
+    .profile-card {
+      background: var(--color-card-bg);
+      border-radius: var(--radius-lg);
+      margin: 16px;
+      padding: 24px 16px;
+      text-align: center;
+      border: 1px solid var(--color-border);
+    }
+    .profile-card .profile-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: var(--radius-full);
+      background: var(--color-card-bg-light);
+      border: 3px solid var(--color-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 12px;
+    }
+    .profile-card .profile-avatar svg {
+      width: 40px;
+      height: 40px;
+      stroke: var(--color-accent);
+    }
+    .profile-card .profile-name {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-text-primary);
+      font-family: var(--font-serif);
+    }
+    .profile-card .profile-info {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .profile-card .profile-temple {
+      font-size: 13px;
+      color: var(--color-text-secondary);
+    }
+    .profile-card .profile-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 2px 8px;
+      background: linear-gradient(135deg, rgba(200, 169, 110, 0.2), rgba(200, 169, 110, 0.1));
+      border: 1px solid rgba(200, 169, 110, 0.3);
+      border-radius: var(--radius-full);
+      font-size: 11px;
+      color: var(--color-accent);
+    }
+    .profile-card .profile-badge svg {
+      width: 12px;
+      height: 12px;
+      fill: var(--color-accent);
+      stroke: var(--color-accent);
+    }
+    .profile-card .profile-role {
+      font-size: 13px;
+      color: var(--color-text-secondary);
+      margin-top: 4px;
+    }
+    .menu-group {
+      margin: 16px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .menu-item {
+      display: flex;
+      align-items: center;
+      padding: 14px 16px;
+      background: var(--color-card-bg);
+      border-bottom: 1px solid var(--color-border);
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.2s;
+    }
+    .menu-item:last-child {
+      border-bottom: none;
+    }
+    .menu-item:hover {
+      background: var(--color-card-bg-light);
+    }
+    .menu-item .menu-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-right: 12px;
+    }
+    .menu-item .menu-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+    .menu-item .menu-label {
+      flex: 1;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--color-text-primary);
+    }
+    .menu-item .menu-extra {
+      font-size: 13px;
+      color: var(--color-text-muted);
+      margin-right: 8px;
+    }
+    .menu-item .menu-arrow {
+      width: 16px;
+      height: 16px;
+      stroke: var(--color-text-muted);
+    }
+  </style>
+</head>
+<body style="background-color: #1C1210; color: #F0E6DA;">
+  <div class="app-container">
+    <div class="page">
+      <!-- Profile Card -->
+      <div class="profile-card fade-in">
+        <div class="profile-avatar">
+          <svg viewBox="0 0 40 40" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="20" cy="14" r="6"/>
+            <path d="M12 28c0-4.4 3.6-8 8-8s8 3.6 8 8"/>
+            <path d="M16 8l4-3 4 3"/>
+          </svg>
+        </div>
+        <div class="profile-name">智海法师</div>
+        <div class="profile-info">
+          <span class="profile-temple">灵隐寺</span>
+          <span class="profile-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 17.77 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/>
+            </svg>
+            已认证
+          </span>
+        </div>
+        <div class="profile-role">住持</div>
+      </div>
+
+      <!-- Menu Group -->
+      <div class="menu-group fade-in">
+        <a class="menu-item" href="profile-edit.html" data-dom-id="cta-profile-edit">
+          <div class="menu-icon" style="background: rgba(200, 169, 110, 0.12);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+          </div>
+          <span class="menu-label">个人资料</span>
+          <svg class="menu-arrow" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,18 15,12 9,6"/></svg>
+        </a>
+        <a class="menu-item" href="skills.html" data-dom-id="cta-skills">
+          <div class="menu-icon" style="background: rgba(91, 122, 170, 0.12);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-info)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+          </div>
+          <span class="menu-label">专长管理</span>
+          <svg class="menu-arrow" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,18 15,12 9,6"/></svg>
+        </a>
+        <a class="menu-item" href="pricing.html" data-dom-id="cta-pricing">
+          <div class="menu-icon" style="background: rgba(196, 90, 60, 0.12);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-brand)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="1" x2="12" y2="23"/>
+              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+            </svg>
+          </div>
+          <span class="menu-label">服务定价</span>
+          <svg class="menu-arrow" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,18 15,12 9,6"/></svg>
+        </a>
+        <a class="menu-item" href="earnings.html" data-dom-id="cta-earnings">
+          <div class="menu-icon" style="background: rgba(212, 160, 48, 0.12);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-warning)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+              <line x1="1" y1="10" x2="23" y2="10"/>
+            </svg>
+          </div>
+          <span class="menu-label">收入管理</span>
+          <span class="menu-extra">¥8,560</span>
+          <svg class="menu-arrow" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,18 15,12 9,6"/></svg>
+        </a>
+        <a class="menu-item" href="reviews.html" data-dom-id="cta-reviews">
+          <div class="menu-icon" style="background: rgba(91, 140, 90, 0.12);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+          </div>
+          <span class="menu-label">评价管理</span>
+          <span class="menu-extra">98.5%</span>
+          <svg class="menu-arrow" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,18 15,12 9,6"/></svg>
+        </a>
+        <a class="menu-item" href="settings.html" data-dom-id="cta-settings">
+          <div class="menu-icon" style="background: rgba(122, 110, 98, 0.15);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-text-muted)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+            </svg>
+          </div>
+          <span class="menu-label">设置</span>
+          <svg class="menu-arrow" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,18 15,12 9,6"/></svg>
+        </a>
+      </div>
+
+      <div style="height: 16px;"></div>
+    </div>
+
+    <!-- Bottom Tab Bar -->
+    <div class="bottom-tabs">
+      <a class="tab-item" href="workspace.html" data-dom-id="nav-workspace">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+          <polyline points="9,22 9,12 15,12 15,22"/>
+        </svg>
+        <span>工作台</span>
+      </a>
+      <a class="tab-item" href="bookings.html" data-dom-id="nav-bookings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+          <line x1="16" y1="2" x2="16" y2="6"/>
+          <line x1="8" y1="2" x2="8" y2="6"/>
+          <line x1="3" y1="10" x2="21" y2="10"/>
+        </svg>
+        <span>预约</span>
+        <span class="tab-badge">3</span>
+      </a>
+      <a class="tab-item" href="messages.html" data-dom-id="nav-messages">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+        <span>消息</span>
+        <span class="tab-badge">5</span>
+      </a>
+      <a class="tab-item active" href="profile.html" data-dom-id="nav-profile">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+        <span>我的</span>
+      </a>
+    </div>
+  </div>
+</body>
+</html>

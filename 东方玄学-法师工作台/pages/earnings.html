@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><style>html{color-scheme:dark}</style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="theme-color" content="#1C1210">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>收入管理 - 法师工作台</title>
+  <link rel="stylesheet" href="../master-app.css">
+  <style>
+    .earnings-top-card {
+      background: linear-gradient(135deg, var(--color-card-bg), var(--color-card-bg-light));
+      border-radius: var(--radius-lg);
+      margin: 16px;
+      padding: 20px;
+      border: 1px solid var(--color-border);
+    }
+    .earnings-top-card .earnings-main {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--color-accent);
+      font-family: var(--font-sans);
+    }
+    .earnings-top-card .earnings-label {
+      font-size: 13px;
+      color: var(--color-text-secondary);
+      margin-bottom: 4px;
+    }
+    .earnings-stats {
+      display: flex;
+      gap: 16px;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--color-border);
+    }
+    .earnings-stats .stat-item {
+      flex: 1;
+    }
+    .earnings-stats .stat-value {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+    }
+    .earnings-stats .stat-label {
+      font-size: 11px;
+      color: var(--color-text-muted);
+      margin-top: 2px;
+    }
+    .withdraw-btn-wrap {
+      margin: 16px;
+    }
+    .income-item {
+      display: flex;
+      align-items: center;
+      padding: 14px 16px;
+      background: var(--color-card-bg);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .income-item:first-child {
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    }
+    .income-item:last-child {
+      border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+      border-bottom: none;
+    }
+    .income-item .income-info {
+      flex: 1;
+    }
+    .income-item .income-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--color-text-primary);
+    }
+    .income-item .income-meta {
+      font-size: 12px;
+      color: var(--color-text-secondary);
+      margin-top: 2px;
+    }
+    .income-item .income-right {
+      text-align: right;
+      flex-shrink: 0;
+    }
+    .income-item .income-amount {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--color-accent);
+    }
+    .income-item .income-status {
+      margin-top: 2px;
+    }
+  </style>
+</head>
+<body style="background-color: #1C1210; color: #F0E6DA;">
+  <div class="app-container">
+    <div class="page-no-tabs">
+      <!-- Top Nav -->
+      <div class="top-nav">
+        <a class="nav-back" href="profile.html" data-dom-id="back-profile">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15,18 9,12 15,6"/>
+          </svg>
+        </a>
+        <span class="nav-title">收入管理</span>
+      </div>
+
+      <div class="page-content">
+        <!-- Top Card -->
+        <div class="earnings-top-card fade-in">
+          <div class="earnings-label">本月收入</div>
+          <div class="earnings-main">¥8,560</div>
+          <div class="earnings-stats">
+            <div class="stat-item">
+              <div class="stat-value">¥156,800</div>
+              <div class="stat-label">累计收入</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value" style="color: var(--color-success);">¥6,200</div>
+              <div class="stat-label">可提现</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Withdraw Button -->
+        <div class="withdraw-btn-wrap fade-in">
+          <button class="btn-primary w-full">申请提现</button>
+        </div>
+
+        <!-- Detail Title -->
+        <div class="section-header">
+          <div class="section-title">收入明细</div>
+        </div>
+
+        <!-- Income Records -->
+        <div style="margin: 0 16px; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--color-border);">
+          <div class="income-item">
+            <div class="income-info">
+              <div class="income-title">祈福法会</div>
+              <div class="income-meta">张三 · 2026-06-28</div>
+            </div>
+            <div class="income-right">
+              <div class="income-amount">+¥200</div>
+              <div class="income-status"><span class="badge badge-warning">待结算</span></div>
+            </div>
+          </div>
+          <div class="income-item">
+            <div class="income-info">
+              <div class="income-title">命理咨询</div>
+              <div class="income-meta">李四 · 2026-06-27</div>
+            </div>
+            <div class="income-right">
+              <div class="income-amount">+¥100</div>
+              <div class="income-status"><span class="badge badge-success">已结算</span></div>
+            </div>
+          </div>
+          <div class="income-item">
+            <div class="income-info">
+              <div class="income-title">开光加持</div>
+              <div class="income-meta">王五 · 2026-06-26</div>
+            </div>
+            <div class="income-right">
+              <div class="income-amount">+¥168</div>
+              <div class="income-status"><span class="badge badge-success">已结算</span></div>
+            </div>
+          </div>
+          <div class="income-item">
+            <div class="income-info">
+              <div class="income-title">开光加持</div>
+              <div class="income-meta">赵六 · 2026-06-25</div>
+            </div>
+            <div class="income-right">
+              <div class="income-amount">+¥168</div>
+              <div class="income-status"><span class="badge badge-success">已结算</span></div>
+            </div>
+          </div>
+          <div class="income-item">
+            <div class="income-info">
+              <div class="income-title">祈福法会</div>
+              <div class="income-meta">陈七 · 2026-06-24</div>
+            </div>
+            <div class="income-right">
+              <div class="income-amount">+¥200</div>
+              <div class="income-status"><span class="badge badge-success">已结算</span></div>
+            </div>
+          </div>
+          <div class="income-item">
+            <div class="income-info">
+              <div class="income-title">命理咨询</div>
+              <div class="income-meta">周八 · 2026-06-23</div>
+            </div>
+            <div class="income-right">
+              <div class="income-amount">+¥100</div>
+              <div class="income-status"><span class="badge badge-success">已结算</span></div>
+            </div>
+          </div>
+          <div class="income-item">
+            <div class="income-info">
+              <div class="income-title">祈福法会</div>
+              <div class="income-meta">吴九 · 2026-06-22</div>
+            </div>
+            <div class="income-right">
+              <div class="income-amount">+¥168</div>
+              <div class="income-status"><span class="badge badge-success">已结算</span></div>
+            </div>
+          </div>
+          <div class="income-item">
+            <div class="income-info">
+              <div class="income-title">DIY手串加持</div>
+              <div class="income-meta">郑十 · 2026-06-20</div>
+            </div>
+            <div class="income-right">
+              <div class="income-amount">+¥168</div>
+              <div class="income-status"><span class="badge badge-success">已结算</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div style="height: 32px;"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

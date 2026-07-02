@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><style>html{color-scheme:dark}</style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="theme-color" content="#1C1210">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加持任务 - 法师工作台</title>
+  <link rel="stylesheet" href="../master-app.css">
+  <style>
+    .task-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      margin: 10px 16px 0;
+      background: var(--color-card-bg);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+    }
+    .task-card .tc-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-full);
+      background: var(--color-card-bg-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .task-card .tc-avatar svg {
+      width: 22px;
+      height: 22px;
+      stroke: var(--color-text-muted);
+    }
+    .task-card .tc-info {
+      flex: 1;
+      min-width: 0;
+    }
+    .task-card .tc-name-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .task-card .tc-name {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--color-text-primary);
+    }
+    .task-card .tc-meta {
+      font-size: 12px;
+      color: var(--color-text-secondary);
+      margin-top: 4px;
+    }
+    .task-card .tc-right {
+      flex-shrink: 0;
+      text-align: right;
+    }
+    .task-card .tc-amount {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--color-accent);
+    }
+    .task-card .tc-status {
+      margin-top: 4px;
+    }
+    .task-card .tc-action {
+      margin-top: 8px;
+      display: flex;
+      gap: 8px;
+    }
+    .tc-action .btn-tiny {
+      padding: 0 12px;
+      height: 30px;
+      font-size: 12px;
+      border-radius: var(--radius-sm);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .tc-action .btn-tiny-primary {
+      background: linear-gradient(135deg, var(--color-brand), var(--color-brand-dark));
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .tc-action .btn-tiny-ongoing {
+      background: rgba(91, 122, 170, 0.15);
+      color: var(--color-info);
+      border: none;
+      cursor: default;
+      font-weight: 500;
+    }
+    .tab-panel {
+      display: none;
+    }
+    .tab-panel.active {
+      display: block;
+    }
+  </style>
+</head>
+<body style="background-color: #1C1210; color: #F0E6DA;">
+  <div class="app-container">
+    <div class="page-no-tabs">
+      <!-- Top Nav -->
+      <div class="top-nav">
+        <a class="nav-back" href="workspace.html" data-dom-id="back-workspace">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15,18 9,12 15,6"/>
+          </svg>
+        </a>
+        <span class="nav-title">加持任务</span>
+      </div>
+
+      <div class="page-content">
+        <!-- Tab Filters -->
+        <div class="tab-filters" style="margin-top: 0;">
+          <div class="tab-filter active" onclick="switchTab(this, 'pending')">待处理<span class="filter-count">1</span></div>
+          <div class="tab-filter" onclick="switchTab(this, 'ongoing')">进行中<span class="filter-count">2</span></div>
+          <div class="tab-filter" onclick="switchTab(this, 'completed')">已完成<span class="filter-count">5</span></div>
+        </div>
+
+        <!-- Pending Tab -->
+        <div class="tab-panel active" id="tab-pending" style="padding-top: 10px;">
+          <div class="task-card fade-in">
+            <div class="tc-avatar">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+            </div>
+            <div class="tc-info">
+              <div class="tc-name-row">
+                <span class="tc-name">王芳</span>
+                <span class="badge badge-brand">开光加持</span>
+              </div>
+              <div class="tc-meta">紫檀·静心 · 手串12珠</div>
+              <div class="tc-action">
+                <a href="blessing-task-detail.html" class="btn-tiny btn-tiny-primary" data-dom-id="cta-blessing-task-detail">开始加持</a>
+              </div>
+            </div>
+            <div class="tc-right">
+              <div class="tc-amount">¥168</div>
+              <div class="tc-status"><span class="badge badge-warning">待处理</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ongoing Tab -->
+        <div class="tab-panel" id="tab-ongoing" style="padding-top: 10px;">
+          <div class="task-card fade-in">
+            <div class="tc-avatar">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+            </div>
+            <div class="tc-info">
+              <div class="tc-name-row">
+                <span class="tc-name">李明</span>
+                <span class="badge badge-accent">道长祈福</span>
+              </div>
+              <div class="tc-meta">白玉·清莲 · 手串15珠</div>
+              <div class="tc-action">
+                <span class="btn-tiny btn-tiny-ongoing">加持中...</span>
+              </div>
+            </div>
+            <div class="tc-right">
+              <div class="tc-amount">¥128</div>
+              <div class="tc-status"><span class="badge badge-info">进行中</span></div>
+            </div>
+          </div>
+
+          <div class="task-card fade-in">
+            <div class="tc-avatar">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+            </div>
+            <div class="tc-info">
+              <div class="tc-name-row">
+                <span class="tc-name">赵红</span>
+                <span class="badge badge-danger">武僧加持</span>
+              </div>
+              <div class="tc-meta">南红·祥瑞 · 手串10珠</div>
+              <div class="tc-action">
+                <span class="btn-tiny btn-tiny-ongoing">加持中...</span>
+              </div>
+            </div>
+            <div class="tc-right">
+              <div class="tc-amount">¥198</div>
+              <div class="tc-status"><span class="badge badge-info">进行中</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Completed Tab -->
+        <div class="tab-panel" id="tab-completed" style="padding-top: 10px;">
+          <div class="empty-state">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+              <polyline points="22,4 12,14.01 9,11.01"/>
+            </svg>
+            <div class="empty-text">暂无已完成的加持任务</div>
+          </div>
+        </div>
+
+        <div style="height: 24px;"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function switchTab(el, tabId) {
+      // Remove active from all filters
+      document.querySelectorAll('.tab-filter').forEach(f => f.classList.remove('active'));
+      el.classList.add('active');
+      // Hide all panels
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      // Show target panel
+      document.getElementById('tab-' + tabId).classList.add('active');
+    }
+  </script>
+</body>
+</html>

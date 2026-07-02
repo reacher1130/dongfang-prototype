@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><style>html{color-scheme:dark}</style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="theme-color" content="#1C1210">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>预约详情 - 法师工作台</title>
+  <link rel="stylesheet" href="../master-app.css">
+  <style>
+    .detail-card {
+      background: var(--color-card-bg);
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      margin: 12px 16px 0;
+      border: 1px solid var(--color-border);
+    }
+    .detail-card .detail-title {
+      font-size: 13px;
+      color: var(--color-text-muted);
+      margin-bottom: 10px;
+    }
+    .user-info-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .user-info-row .user-detail {
+      flex: 1;
+    }
+    .user-info-row .user-name {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+    }
+    .user-info-row .user-phone {
+      font-size: 13px;
+      color: var(--color-text-secondary);
+      margin-top: 2px;
+    }
+    .user-info-row .user-count {
+      font-size: 12px;
+      color: var(--color-text-muted);
+      margin-top: 4px;
+    }
+    .service-info {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .service-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .service-row .s-label {
+      font-size: 13px;
+      color: var(--color-text-secondary);
+    }
+    .service-row .s-value {
+      font-size: 13px;
+      color: var(--color-text-primary);
+      font-weight: 500;
+    }
+    .service-row .s-value.price {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--color-accent);
+    }
+    .notes-box {
+      background: var(--color-bg-secondary);
+      border-radius: var(--radius-md);
+      padding: 12px;
+      font-size: 13px;
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+      margin-top: 4px;
+    }
+    .action-bar {
+      display: flex;
+      gap: 12px;
+      padding: 16px;
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 430px;
+      background: var(--nav-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-top: 1px solid var(--glass-border);
+    }
+    .action-bar .btn-reject {
+      flex: 1;
+      height: 46px;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      background: transparent;
+      color: var(--color-text-muted);
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+    .action-bar .btn-confirm {
+      flex: 2;
+      height: 46px;
+      background: linear-gradient(135deg, var(--color-brand), #8B3A2A);
+      border-radius: var(--radius-lg);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+    }
+    .detail-section-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      padding: 16px 16px 8px;
+    }
+  </style>
+</head>
+<body style="background-color: #1C1210; color: #F0E6DA;">
+  <div class="app-container">
+    <div class="page-no-tabs">
+      <!-- Top Nav -->
+      <div class="top-nav">
+        <a class="nav-back" href="bookings.html" data-dom-id="back-bookings">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15,18 9,12 15,6"/>
+          </svg>
+        </a>
+        <span class="nav-title">预约详情</span>
+      </div>
+
+      <div class="page-content" style="padding-bottom: 120px;">
+        <!-- User Info Card -->
+        <div class="detail-card fade-in">
+          <div class="detail-title">预约人信息</div>
+          <div class="user-info-row">
+            <div class="avatar avatar-lg">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+            </div>
+            <div class="user-detail">
+              <div class="user-name">信众·张三</div>
+              <div class="user-phone">138****5678</div>
+              <div class="user-count">历史预约 5 次</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service Card -->
+        <div class="detail-card fade-in">
+          <div class="detail-title">服务信息</div>
+          <div class="service-info">
+            <div class="service-row">
+              <span class="s-label">服务类型</span>
+              <span class="badge badge-accent">祈福法会</span>
+            </div>
+            <div class="service-row">
+              <span class="s-label">地点</span>
+              <span class="s-value">灵隐寺大雄宝殿</span>
+            </div>
+            <div class="service-row">
+              <span class="s-label">日期</span>
+              <span class="s-value">2026-06-15</span>
+            </div>
+            <div class="service-row">
+              <span class="s-label">时间</span>
+              <span class="s-value">14:00 - 15:00</span>
+            </div>
+            <div class="service-row">
+              <span class="s-label">功德金</span>
+              <span class="s-value price">¥200</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Notes -->
+        <div class="detail-card fade-in">
+          <div class="detail-title">备注留言</div>
+          <div class="notes-box">希望法师能为家人祈福，保佑父母身体健康，孩子学业进步。家中最近有些不顺，想请法师指点迷津。</div>
+        </div>
+
+        <!-- Timeline -->
+        <div class="detail-section-title">预约进度</div>
+        <div class="timeline fade-in">
+          <div class="timeline-item">
+            <div class="timeline-dot">
+              <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2,6 5,9 10,3"/></svg>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-title">提交预约</div>
+              <div class="timeline-time">2026-06-14 20:30</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot active">
+              <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="6" r="2" fill="currentColor" stroke="none"/></svg>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-title" style="color: var(--color-brand);">待确认</div>
+              <div class="timeline-time">等待法师确认中...</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot">
+              <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="6" r="2"/></svg>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-title" style="color: var(--color-text-muted);">服务完成</div>
+              <div class="timeline-time">-</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Bar -->
+      <div class="action-bar">
+        <button class="btn-reject">拒绝</button>
+        <button class="btn-confirm">确认预约</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><style>html{color-scheme:dark}</style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="theme-color" content="#1C1210">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>退货详情 - 东方玄学·商城管理台</title>
+  <link rel="stylesheet" href="../shop-admin.css">
+</head>
+<body>
+<div class="admin-layout">
+  <aside class="sidebar">
+    <div class="sidebar-brand"><h1>东方玄学</h1><p>商城管理台</p></div>
+    <nav class="sidebar-nav">
+      <div class="nav-group-title">核心功能</div>
+      <a href="dashboard.html" class="nav-item" data-dom-id="nav-dashboard"></a>
+      <a href="product-list.html" class="nav-item" data-dom-id="nav-product"></a>
+      <a href="category-manage.html" class="nav-item" data-dom-id="nav-category"></a>
+      <a href="diy-order-list.html" class="nav-item" data-dom-id="nav-diy-order"><span class="nav-badge">3</span></a>
+      <a href="material-list.html" class="nav-item" data-dom-id="nav-material"></a>
+      <a href="service-list.html" class="nav-item" data-dom-id="nav-extra-service"></a>
+      <div class="nav-group-title">交易管理</div>
+      <a href="order-list.html" class="nav-item" data-dom-id="nav-order"><span class="nav-badge">12</span></a>
+      <a href="logistics.html" class="nav-item" data-dom-id="nav-logistics"></a>
+      <a href="return-list.html" class="nav-item active" data-dom-id="nav-return"><span class="nav-badge">2</span></a>
+      <div class="nav-group-title">运营</div>
+      <a href="report.html" class="nav-item" data-dom-id="nav-report"></a>
+      <a href="settings.html" class="nav-item" data-dom-id="nav-settings"></a>
+    </nav>
+    <div class="sidebar-footer"><a href="../login.html" style="color:rgba(232,222,212,0.5);font-size:12px;">退出登录</a></div>
+  </aside>
+  <main class="main-content">
+    <header class="top-header">
+      <div class="breadcrumb">商城管理台 / <a href="return-list.html" data-dom-id="back">退换货</a> / <span>退货详情</span></div>
+      <div class="header-right"><div class="header-user"><div class="header-avatar">管</div><span>管理员</span></div></div>
+    </header>
+    <div class="page-content">
+      <div class="flex-between mb-24">
+        <h1 class="page-title" style="margin-bottom:0;">退货详情</h1>
+        <a href="return-list.html" class="btn btn-outline">返回列表</a>
+      </div>
+
+      <div class="two-col">
+        <div>
+          <!-- Return Reason -->
+          <div class="card">
+            <div class="card-header">
+              <h3>退货原因</h3>
+              <span class="badge badge-warning">待处理</span>
+            </div>
+            <div class="card-body">
+              <div class="form-group">
+                <label>退货类型</label>
+                <div>退货退款</div>
+              </div>
+              <div class="form-group">
+                <label>退货原因</label>
+                <div>商品有瑕疵</div>
+              </div>
+              <div class="form-group">
+                <label>详细说明</label>
+                <div class="text-sm" style="line-height:1.8;">收到的香炉底部有一处明显的铸造缺陷，表面不平整，有气泡痕迹，与商品详情页描述的"精工铸造"不符。要求退货退款。</div>
+              </div>
+              <div class="form-group">
+                <label>凭证图片</label>
+                <div class="flex flex-gap-16 mt-8">
+                  <div class="img-placeholder" style="width:120px;height:120px;border-radius:8px;">凭证1</div>
+                  <div class="img-placeholder" style="width:120px;height:120px;border-radius:8px;">凭证2</div>
+                  <div class="img-placeholder" style="width:120px;height:120px;border-radius:8px;">凭证3</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product Info -->
+          <div class="card">
+            <div class="card-header"><h3>商品信息</h3></div>
+            <div class="table-wrapper">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>商品</th>
+                    <th>单价</th>
+                    <th>数量</th>
+                    <th>退款金额</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="flex items-center flex-gap-8">
+                        <div class="img-placeholder" style="width:48px;height:48px;border-radius:6px;flex-shrink:0;">图</div>
+                        <div>
+                          <div class="fw-600">黄铜香炉(大号)</div>
+                          <div class="text-sm text-muted">SKU: HTL-003</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="price">¥198.00</td>
+                    <td>1</td>
+                    <td class="price fw-600">¥198.00</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <!-- User Info -->
+          <div class="card">
+            <div class="card-header"><h3>用户信息</h3></div>
+            <div class="card-body">
+              <div class="cost-row">
+                <span class="cost-label">用户昵称</span>
+                <span class="cost-value">刘思琪</span>
+              </div>
+              <div class="cost-row">
+                <span class="cost-label">手机号</span>
+                <span class="cost-value">159****3456</span>
+              </div>
+              <div class="cost-row">
+                <span class="cost-label">退货单号</span>
+                <span class="cost-value">RET20260629001</span>
+              </div>
+              <div class="cost-row">
+                <span class="cost-label">原订单号</span>
+                <span class="cost-value">ORD20260628006</span>
+              </div>
+              <div class="cost-row">
+                <span class="cost-label">申请时间</span>
+                <span class="cost-value">2026-06-29 10:15</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Return Address -->
+          <div class="card">
+            <div class="card-header"><h3>退货收件信息</h3></div>
+            <div class="card-body">
+              <div class="cost-row">
+                <span class="cost-label">收件人</span>
+                <span class="cost-value">东方玄学售后部</span>
+              </div>
+              <div class="cost-row">
+                <span class="cost-label">联系电话</span>
+                <span class="cost-value">0571-8888-6666</span>
+              </div>
+              <div class="cost-row">
+                <span class="cost-label">退货地址</span>
+                <span class="cost-value" style="max-width:240px;text-align:right;">浙江省杭州市余杭区仓前街道文一西路1218号</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Actions -->
+          <div class="card">
+            <div class="card-header"><h3>处理操作</h3></div>
+            <div class="card-body">
+              <div class="form-group">
+                <label>处理说明</label>
+                <textarea class="form-control" rows="3" placeholder="请输入处理说明（可选）"></textarea>
+              </div>
+              <div class="btn-group" style="flex-direction:column;gap:10px;">
+                <button class="btn btn-success btn-block btn-lg">同意退货</button>
+                <button class="btn btn-danger btn-block">拒绝退货</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

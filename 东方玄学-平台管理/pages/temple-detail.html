@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><style>html{color-scheme:dark}</style>
+<head>
+<meta charset="UTF-8">
+  <meta name="theme-color" content="#1C1210">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>寺院详情 - 东方玄学平台管理台</title>
+<link rel="stylesheet" href="../platform-admin.css">
+</head>
+<body>
+<div class="admin-layout">
+  <aside class="sidebar">
+    <div class="sidebar-brand"><h1>东方玄学</h1><div class="brand-sub">平台管理台</div></div>
+    <nav class="sidebar-nav">
+      <div class="nav-group"><a class="nav-group-title" href="dashboard.html" data-dom-id="nav-dashboard"><span class="nav-icon">&#9632;</span>数据大盘</a></div>
+      <div class="nav-group"><div class="nav-group-title expanded" onclick="toggleNav(this)" data-dom-id="nav-temple"><span class="nav-icon">&#9775;</span>运营管理<span class="nav-arrow">&#9654;</span></div><div class="nav-sub show"><a href="temple-list.html" class="active">寺院管理</a><a href="temple-review.html">寺院审核</a><a href="master-list.html"> data-dom-id="nav-master">法师管理</a><a href="master-review.html">法师认证审核</a></div></div>
+      <div class="nav-group"><div class="nav-group-title" onclick="toggleNav(this)" data-dom-id="nav-user"><span class="nav-icon">&#9787;</span>用户管理<span class="nav-arrow">&#9654;</span></div><div class="nav-sub"><a href="user-list.html">用户列表</a></div></div>
+      <div class="nav-group"><div class="nav-group-title" onclick="toggleNav(this)" data-dom-id="nav-content"><span class="nav-icon">&#9998;</span>内容审核<span class="nav-badge">3</span><span class="nav-arrow">&#9654;</span></div><div class="nav-sub"><a href="content-design.html">设计广场审核</a><a href="content-comment.html">评论审核</a><a href="content-report.html">举报处理</a></div></div>
+      <div class="nav-group"><div class="nav-group-title" onclick="toggleNav(this)" data-dom-id="nav-finance"><span class="nav-icon">&#9733;</span>财务管理<span class="nav-arrow">&#9654;</span></div><div class="nav-sub"><a href="finance-overview.html">财务总览</a><a href="finance-temple.html">寺院结算</a><a href="finance-master.html">法师结算</a><a href="finance-reconcile.html">对账管理</a></div></div>
+      <div class="nav-group"><div class="nav-group-title" onclick="toggleNav(this)" data-dom-id="nav-marketing"><span class="nav-icon">&#9830;</span>营销管理<span class="nav-arrow">&#9654;</span></div><div class="nav-sub"><a href="marketing-coupon.html">优惠券管理</a><a href="marketing-banner.html">Banner管理</a><a href="marketing-activity.html">活动管理</a></div></div>
+      <div class="nav-group"><div class="nav-group-title" onclick="toggleNav(this)" data-dom-id="nav-settings"><span class="nav-icon">&#9881;</span>系统设置<span class="nav-arrow">&#9654;</span></div><div class="nav-sub"><a href="settings-role.html">角色权限</a><a href="settings-dict.html">数据字典</a><a href="settings-log.html">操作日志</a><a href="settings-backup.html">数据备份</a></div></div>
+    </nav>
+    <div class="sidebar-footer"><div class="sidebar-user"><div class="user-avatar">管</div><div class="user-info"><div class="user-name">超级管理员</div><div class="user-role">SUPER_ADMIN</div></div><a href="../login.html" class="logout-btn" title="退出">&#x2716;</a></div></div>
+  </aside>
+  <main class="main-content">
+    <div class="topbar"><div class="topbar-breadcrumb" data-dom-id="back">平台管理台 <span class="sep">/</span> 运营管理 <span class="sep">/</span> 寺院管理 <span class="sep">/</span> <span>灵隐寺</span></div><div class="topbar-actions"><button class="icon-btn notification-dot"> aria-label="通知">&#128276;</button><button class="icon-btn"> aria-label="通知">&#128269;</button></div></div>
+    <div class="page-content">
+      <div class="page-header"><h2>寺院详情 - 灵隐寺</h2><div class="flex" style="gap:10px;"><span class="badge badge-success">正常运营</span><span class="badge badge-accent">已推荐</span></div></div>
+      <div class="card mb-3">
+        <div class="card-header"><h3>基本信息</h3></div>
+        <div class="card-body">
+          <div class="detail-grid">
+            <div class="detail-item"><div class="detail-label">寺院名称</div><div class="detail-value">灵隐寺</div></div>
+            <div class="detail-item"><div class="detail-label">所在地区</div><div class="detail-value">浙江省杭州市西湖区</div></div>
+            <div class="detail-item"><div class="detail-label">详细地址</div><div class="detail-value">灵隐路法云弄1号</div></div>
+            <div class="detail-item"><div class="detail-label">寺院类型</div><div class="detail-value">汉传佛教</div></div>
+            <div class="detail-item"><div class="detail-label">创建时间</div><div class="detail-value">东晋咸和元年（326年）</div></div>
+            <div class="detail-item"><div class="detail-label">入驻时间</div><div class="detail-value">2024-01-15</div></div>
+            <div class="detail-item"><div class="detail-label">负责人</div><div class="detail-value">智海法师</div></div>
+            <div class="detail-item"><div class="detail-label">联系电话</div><div class="detail-value">139****7821</div></div>
+            <div class="detail-item"><div class="detail-label">评分</div><div class="detail-value">4.9 / 5.0（326条评价）</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="card mb-3">
+        <div class="card-header"><h3>法师列表</h3><span class="text-sm text-muted">共 4 位法师</span></div>
+        <div class="card-body">
+          <table class="data-table">
+            <thead><tr><th>法号</th><th>职位</th><th>宗派</th><th>认证状态</th><th>评分</th><th>服务次数</th></tr></thead>
+            <tbody>
+              <tr><td><div class="cell-user"><div class="cell-avatar">智</div><div class="cell-user-info"><div class="cell-name">智海法师</div></div></div></td><td>住持</td><td>汉传</td><td><span class="badge badge-success">已认证</span></td><td>4.9</td><td>1,256</td></tr>
+              <tr><td><div class="cell-user"><div class="cell-avatar">觉</div><div class="cell-user-info"><div class="cell-name">释觉远</div></div></div></td><td>监院</td><td>汉传</td><td><span class="badge badge-success">已认证</span></td><td>4.8</td><td>968</td></tr>
+              <tr><td><div class="cell-user"><div class="cell-avatar">定</div><div class="cell-user-info"><div class="cell-name">释定禅</div></div></div></td><td>知客</td><td>汉传</td><td><span class="badge badge-success">已认证</span></td><td>4.7</td><td>756</td></tr>
+              <tr><td><div class="cell-user"><div class="cell-avatar">慧</div><div class="cell-user-info"><div class="cell-name">释慧光</div></div></div></td><td>维那</td><td>汉传</td><td><span class="badge badge-success">已认证</span></td><td>4.6</td><td>523</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-box"><div class="stat-num">3,860</div><div class="stat-label">总订单</div></div>
+        <div class="stat-box"><div class="stat-num">256</div><div class="stat-label">本月订单</div></div>
+        <div class="stat-box"><div class="stat-num">&#165;486,500</div><div class="stat-label">累计收入</div></div>
+        <div class="stat-box"><div class="stat-num">&#165;32,100</div><div class="stat-label">本月收入</div></div>
+      </div>
+      <div class="card">
+        <div class="card-header"><h3>收入趋势</h3></div>
+        <div class="card-body">
+          <div style="height:200px;background:linear-gradient(135deg,#F9F6F3,#F0EAE2);display:flex;align-items:center;justify-content:center;color:#999;font-size:13px;">&#128200; 近6个月收入趋势柱状图：1月 &#165;28,500 / 2月 &#165;31,200 / 3月 &#165;35,800 / 4月 &#165;29,600 / 5月 &#165;33,400 / 6月 &#165;32,100</div>
+        </div>
+      </div>
+      <div class="mt-3" style="display:flex;gap:10px;">
+        <button class="btn btn-accent">推荐</button>
+        <button class="btn btn-primary">置顶</button>
+        <button class="btn btn-danger">封禁</button>
+      </div>
+    </div>
+  </main>
+</div>
+<script>function toggleNav(el){el.classList.toggle('expanded');var sub=el.nextElementSibling;if(sub&&sub.classList.contains('nav-sub')){sub.classList.toggle('show');}}</script>
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><style>html{color-scheme:dark}</style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="theme-color" content="#1C1210">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>日程管理 - 法师工作台</title>
+  <link rel="stylesheet" href="../master-app.css">
+  <style>
+    .month-selector {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      padding: 16px;
+    }
+    .month-selector .month-text {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      min-width: 120px;
+      text-align: center;
+    }
+    .month-selector .arrow-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-full);
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .month-selector .arrow-btn svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--color-text-secondary);
+    }
+    .time-slots-header {
+      padding: 12px 16px 8px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+    }
+    .time-slot {
+      display: flex;
+      align-items: center;
+      padding: 12px 16px;
+      gap: 12px;
+    }
+    .time-slot .slot-time {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--color-text-primary);
+      min-width: 100px;
+    }
+    .time-slot .slot-status {
+      flex: 1;
+    }
+    .time-slot .status-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      font-size: 12px;
+    }
+    .time-slot .status-free {
+      background: rgba(91, 140, 90, 0.15);
+      color: var(--color-success);
+    }
+    .time-slot .status-booked {
+      background: rgba(196, 90, 60, 0.15);
+      color: var(--color-danger);
+    }
+    .time-slot .slot-count {
+      font-size: 12px;
+      color: var(--color-text-muted);
+    }
+    .calendar-actions {
+      display: flex;
+      gap: 12px;
+      padding: 16px;
+      margin-top: 8px;
+    }
+    .calendar-actions .btn-outline,
+    .calendar-actions .btn-primary {
+      flex: 1;
+      height: 42px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body style="background-color: #1C1210; color: #F0E6DA;">
+  <div class="app-container">
+    <div class="page-no-tabs">
+      <!-- Top Nav -->
+      <div class="top-nav">
+        <a class="nav-back" href="workspace.html" data-dom-id="back-workspace">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15,18 9,12 15,6"/>
+          </svg>
+        </a>
+        <span class="nav-title">日程管理</span>
+      </div>
+
+      <div class="page-content">
+        <!-- Month Selector -->
+        <div class="month-selector">
+          <div class="arrow-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15,18 9,12 15,6"/>
+            </svg>
+          </div>
+          <div class="month-text">2026年6月</div>
+          <div class="arrow-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9,6 15,12 9,18"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Calendar Grid -->
+        <div class="calendar-grid">
+          <div class="calendar-header-cell">一</div>
+          <div class="calendar-header-cell">二</div>
+          <div class="calendar-header-cell">三</div>
+          <div class="calendar-header-cell">四</div>
+          <div class="calendar-header-cell">五</div>
+          <div class="calendar-header-cell">六</div>
+          <div class="calendar-header-cell">日</div>
+          <!-- Row 1 -->
+          <div class="calendar-cell other-month">26</div>
+          <div class="calendar-cell other-month">27</div>
+          <div class="calendar-cell other-month">28</div>
+          <div class="calendar-cell other-month">29</div>
+          <div class="calendar-cell other-month">30</div>
+          <div class="calendar-cell other-month">31</div>
+          <div class="calendar-cell">1</div>
+          <!-- Row 2 -->
+          <div class="calendar-cell">2<span class="dot"></span></div>
+          <div class="calendar-cell">3</div>
+          <div class="calendar-cell">4<span class="dot"></span></div>
+          <div class="calendar-cell">5</div>
+          <div class="calendar-cell">6</div>
+          <div class="calendar-cell">7<span class="dot"></span></div>
+          <div class="calendar-cell">8</div>
+          <!-- Row 3 -->
+          <div class="calendar-cell">9</div>
+          <div class="calendar-cell">10<span class="dot"></span></div>
+          <div class="calendar-cell">11</div>
+          <div class="calendar-cell">12</div>
+          <div class="calendar-cell">13<span class="dot"></span></div>
+          <div class="calendar-cell">14</div>
+          <div class="calendar-cell">15<span class="dot"></span></div>
+          <!-- Row 4 -->
+          <div class="calendar-cell">16</div>
+          <div class="calendar-cell">17</div>
+          <div class="calendar-cell">18<span class="dot"></span></div>
+          <div class="calendar-cell">19</div>
+          <div class="calendar-cell">20<span class="dot"></span></div>
+          <div class="calendar-cell">21</div>
+          <div class="calendar-cell">22</div>
+          <!-- Row 5 -->
+          <div class="calendar-cell">23</div>
+          <div class="calendar-cell">24<span class="dot"></span></div>
+          <div class="calendar-cell">25</div>
+          <div class="calendar-cell">26</div>
+          <div class="calendar-cell">27</div>
+          <div class="calendar-cell today selected">28<span class="dot"></span></div>
+          <div class="calendar-cell">29</div>
+          <!-- Row 6 -->
+          <div class="calendar-cell">30</div>
+          <div class="calendar-cell other-month">1</div>
+          <div class="calendar-cell other-month">2</div>
+          <div class="calendar-cell other-month">3</div>
+          <div class="calendar-cell other-month">4</div>
+          <div class="calendar-cell other-month">5</div>
+          <div class="calendar-cell other-month">6</div>
+        </div>
+
+        <!-- Time Slots -->
+        <div class="time-slots-header">6月28日 时段安排</div>
+
+        <div class="card-nomargin" style="margin: 8px 16px 0; border-radius: var(--radius-lg); overflow: hidden;">
+          <div class="time-slot" style="border-bottom: 1px solid var(--color-border);">
+            <div class="slot-time">08:00 - 09:00</div>
+            <div class="slot-status">
+              <span class="status-tag status-free">空闲</span>
+            </div>
+          </div>
+          <div class="time-slot" style="border-bottom: 1px solid var(--color-border);">
+            <div class="slot-time">09:00 - 10:00</div>
+            <div class="slot-status">
+              <span class="status-tag status-booked">已约1人</span>
+            </div>
+            <div class="slot-count">张三</div>
+          </div>
+          <div class="time-slot" style="border-bottom: 1px solid var(--color-border);">
+            <div class="slot-time">10:00 - 11:00</div>
+            <div class="slot-status">
+              <span class="status-tag status-free">空闲</span>
+            </div>
+          </div>
+          <div class="time-slot" style="border-bottom: 1px solid var(--color-border);">
+            <div class="slot-time">11:00 - 12:00</div>
+            <div class="slot-status">
+              <span class="status-tag status-booked">已约2人</span>
+            </div>
+            <div class="slot-count">李四、王五</div>
+          </div>
+          <div class="time-slot">
+            <div class="slot-time">14:00 - 15:00</div>
+            <div class="slot-status">
+              <span class="status-tag status-booked">已约2人</span>
+            </div>
+            <div class="slot-count">赵六、陈七</div>
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="calendar-actions">
+          <button class="btn-outline">批量设置</button>
+          <button class="btn-primary">设置休息日</button>
+        </div>
+
+        <div style="height: 32px;"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

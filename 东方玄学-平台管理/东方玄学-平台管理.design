@@ -1,0 +1,1501 @@
+{
+  "data": [
+    {
+      "id": "page-login",
+      "title": "登录页",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 0,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "login.html",
+        "interactions": [
+          {
+            "domId": "cta-login",
+            "targetPageId": "page-dashboard",
+            "transitionLabel": "登录"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-dashboard",
+      "title": "数据总览",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 620,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/dashboard.html",
+        "interactions": [
+          {
+            "domId": "nav-dashboard",
+            "targetPageId": "page-dashboard",
+            "transitionLabel": "仪表盘",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-temple",
+            "targetPageId": "page-temple-list",
+            "transitionLabel": "寺院信息/列表",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-master",
+            "targetPageId": "page-master-list",
+            "transitionLabel": "法师管理/找师傅",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-user",
+            "targetPageId": "page-user-list",
+            "transitionLabel": "用户管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-content",
+            "targetPageId": "page-content-design",
+            "transitionLabel": "内容管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-finance",
+            "targetPageId": "page-finance-overview",
+            "transitionLabel": "财务管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-marketing",
+            "targetPageId": "page-marketing-coupon",
+            "transitionLabel": "营销管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-settings",
+            "targetPageId": "page-settings-role",
+            "transitionLabel": "系统设置",
+            "hideEdge": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-temple-list",
+      "title": "道观列表",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 1240,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/temple-list.html",
+        "interactions": [
+          {
+            "domId": "nav-dashboard",
+            "targetPageId": "page-dashboard",
+            "transitionLabel": "仪表盘",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-temple",
+            "targetPageId": "page-temple-list",
+            "transitionLabel": "寺院信息/列表",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-master",
+            "targetPageId": "page-master-list",
+            "transitionLabel": "法师管理/找师傅",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-user",
+            "targetPageId": "page-user-list",
+            "transitionLabel": "用户管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-content",
+            "targetPageId": "page-content-design",
+            "transitionLabel": "内容管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-finance",
+            "targetPageId": "page-finance-overview",
+            "transitionLabel": "财务管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-marketing",
+            "targetPageId": "page-marketing-coupon",
+            "transitionLabel": "营销管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-settings",
+            "targetPageId": "page-settings-role",
+            "transitionLabel": "系统设置",
+            "hideEdge": true
+          },
+          {
+            "domId": "cta-temple-review",
+            "targetPageId": "page-temple-review",
+            "transitionLabel": "temple-review"
+          },
+          {
+            "domId": "cta-temple-detail",
+            "targetPageId": "page-temple-detail",
+            "transitionLabel": "temple-detail"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-temple-review",
+      "title": "道观审核",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 1860,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/temple-review.html",
+        "interactions": [
+          {
+            "domId": "nav-dashboard",
+            "targetPageId": "page-dashboard",
+            "transitionLabel": "仪表盘",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-temple",
+            "targetPageId": "page-temple-list",
+            "transitionLabel": "寺院信息/列表",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-master",
+            "targetPageId": "page-master-list",
+            "transitionLabel": "法师管理/找师傅",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-user",
+            "targetPageId": "page-user-list",
+            "transitionLabel": "用户管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-content",
+            "targetPageId": "page-content-design",
+            "transitionLabel": "内容管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-finance",
+            "targetPageId": "page-finance-overview",
+            "transitionLabel": "财务管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-marketing",
+            "targetPageId": "page-marketing-coupon",
+            "transitionLabel": "营销管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-settings",
+            "targetPageId": "page-settings-role",
+            "transitionLabel": "系统设置",
+            "hideEdge": true
+          },
+          {
+            "domId": "back",
+            "targetPageId": "page-temple-list",
+            "transitionLabel": "temple-list"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-temple-detail",
+      "title": "道观详情",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 2480,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/temple-detail.html",
+        "interactions": [
+          {
+            "domId": "nav-dashboard",
+            "targetPageId": "page-dashboard",
+            "transitionLabel": "仪表盘",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-temple",
+            "targetPageId": "page-temple-list",
+            "transitionLabel": "寺院信息/列表",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-master",
+            "targetPageId": "page-master-list",
+            "transitionLabel": "法师管理/找师傅",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-user",
+            "targetPageId": "page-user-list",
+            "transitionLabel": "用户管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-content",
+            "targetPageId": "page-content-design",
+            "transitionLabel": "内容管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-finance",
+            "targetPageId": "page-finance-overview",
+            "transitionLabel": "财务管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-marketing",
+            "targetPageId": "page-marketing-coupon",
+            "transitionLabel": "营销管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-settings",
+            "targetPageId": "page-settings-role",
+            "transitionLabel": "系统设置",
+            "hideEdge": true
+          },
+          {
+            "domId": "back",
+            "targetPageId": "page-temple-list",
+            "transitionLabel": "temple-list"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-master-list",
+      "title": "大师列表",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 3100,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/master-list.html",
+        "interactions": [
+          {
+            "domId": "nav-dashboard",
+            "targetPageId": "page-dashboard",
+            "transitionLabel": "仪表盘",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-temple",
+            "targetPageId": "page-temple-list",
+            "transitionLabel": "寺院信息/列表",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-master",
+            "targetPageId": "page-master-list",
+            "transitionLabel": "法师管理/找师傅",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-user",
+            "targetPageId": "page-user-list",
+            "transitionLabel": "用户管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-content",
+            "targetPageId": "page-content-design",
+            "transitionLabel": "内容管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-finance",
+            "targetPageId": "page-finance-overview",
+            "transitionLabel": "财务管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-marketing",
+            "targetPageId": "page-marketing-coupon",
+            "transitionLabel": "营销管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-settings",
+            "targetPageId": "page-settings-role",
+            "transitionLabel": "系统设置",
+            "hideEdge": true
+          },
+          {
+            "domId": "cta-master-review",
+            "targetPageId": "page-master-review",
+            "transitionLabel": "master-review"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-master-review",
+      "title": "大师审核",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 3720,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/master-review.html",
+        "interactions": [
+          {
+            "domId": "nav-dashboard",
+            "targetPageId": "page-dashboard",
+            "transitionLabel": "仪表盘",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-temple",
+            "targetPageId": "page-temple-list",
+            "transitionLabel": "寺院信息/列表",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-master",
+            "targetPageId": "page-master-list",
+            "transitionLabel": "法师管理/找师傅",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-user",
+            "targetPageId": "page-user-list",
+            "transitionLabel": "用户管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-content",
+            "targetPageId": "page-content-design",
+            "transitionLabel": "内容管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-finance",
+            "targetPageId": "page-finance-overview",
+            "transitionLabel": "财务管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-marketing",
+            "targetPageId": "page-marketing-coupon",
+            "transitionLabel": "营销管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-settings",
+            "targetPageId": "page-settings-role",
+            "transitionLabel": "系统设置",
+            "hideEdge": true
+          },
+          {
+            "domId": "back",
+            "targetPageId": "page-master-list",
+            "transitionLabel": "master-list"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-user-list",
+      "title": "用户列表",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 4340,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/user-list.html",
+        "interactions": [
+          {
+            "domId": "nav-dashboard",
+            "targetPageId": "page-dashboard",
+            "transitionLabel": "仪表盘",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-temple",
+            "targetPageId": "page-temple-list",
+            "transitionLabel": "寺院信息/列表",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-master",
+            "targetPageId": "page-master-list",
+            "transitionLabel": "法师管理/找师傅",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-user",
+            "targetPageId": "page-user-list",
+            "transitionLabel": "用户管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-content",
+            "targetPageId": "page-content-design",
+            "transitionLabel": "内容管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-finance",
+            "targetPageId": "page-finance-overview",
+            "transitionLabel": "财务管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-marketing",
+            "targetPageId": "page-marketing-coupon",
+            "transitionLabel": "营销管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-settings",
+            "targetPageId": "page-settings-role",
+            "transitionLabel": "系统设置",
+            "hideEdge": true
+          },
+          {
+            "domId": "cta-user-detail",
+            "targetPageId": "page-user-detail",
+            "transitionLabel": "user-detail"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-user-detail",
+      "title": "用户详情",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 4960,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/user-detail.html",
+        "interactions": [
+          {
+            "domId": "nav-dashboard",
+            "targetPageId": "page-dashboard",
+            "transitionLabel": "仪表盘",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-temple",
+            "targetPageId": "page-temple-list",
+            "transitionLabel": "寺院信息/列表",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-master",
+            "targetPageId": "page-master-list",
+            "transitionLabel": "法师管理/找师傅",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-user",
+            "targetPageId": "page-user-list",
+            "transitionLabel": "用户管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-content",
+            "targetPageId": "page-content-design",
+            "transitionLabel": "内容管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-finance",
+            "targetPageId": "page-finance-overview",
+            "transitionLabel": "财务管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-marketing",
+            "targetPageId": "page-marketing-coupon",
+            "transitionLabel": "营销管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-settings",
+            "targetPageId": "page-settings-role",
+            "transitionLabel": "系统设置",
+            "hideEdge": true
+          },
+          {
+            "domId": "back",
+            "targetPageId": "page-user-list",
+            "transitionLabel": "user-list"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-content-design",
+      "title": "内容设计",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 5580,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/content-design.html",
+        "interactions": [
+          {
+            "domId": "nav-dashboard",
+            "targetPageId": "page-dashboard",
+            "transitionLabel": "仪表盘",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-temple",
+            "targetPageId": "page-temple-list",
+            "transitionLabel": "寺院信息/列表",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-master",
+            "targetPageId": "page-master-list",
+            "transitionLabel": "法师管理/找师傅",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-user",
+            "targetPageId": "page-user-list",
+            "transitionLabel": "用户管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-content",
+            "targetPageId": "page-content-design",
+            "transitionLabel": "内容管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-finance",
+            "targetPageId": "page-finance-overview",
+            "transitionLabel": "财务管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-marketing",
+            "targetPageId": "page-marketing-coupon",
+            "transitionLabel": "营销管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-settings",
+            "targetPageId": "page-settings-role",
+            "transitionLabel": "系统设置",
+            "hideEdge": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-content-comment",
+      "title": "评论管理",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 6200,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/content-comment.html",
+        "interactions": [
+          {
+            "domId": "nav-dashboard",
+            "targetPageId": "page-dashboard",
+            "transitionLabel": "仪表盘",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-temple",
+            "targetPageId": "page-temple-list",
+            "transitionLabel": "寺院信息/列表",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-master",
+            "targetPageId": "page-master-list",
+            "transitionLabel": "法师管理/找师傅",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-user",
+            "targetPageId": "page-user-list",
+            "transitionLabel": "用户管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-content",
+            "targetPageId": "page-content-design",
+            "transitionLabel": "内容管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-finance",
+            "targetPageId": "page-finance-overview",
+            "transitionLabel": "财务管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-marketing",
+            "targetPageId": "page-marketing-coupon",
+            "transitionLabel": "营销管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-settings",
+            "targetPageId": "page-settings-role",
+            "transitionLabel": "系统设置",
+            "hideEdge": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-content-report",
+      "title": "举报管理",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 6820,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/content-report.html",
+        "interactions": [
+          {
+            "domId": "nav-dashboard",
+            "targetPageId": "page-dashboard",
+            "transitionLabel": "仪表盘",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-temple",
+            "targetPageId": "page-temple-list",
+            "transitionLabel": "寺院信息/列表",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-master",
+            "targetPageId": "page-master-list",
+            "transitionLabel": "法师管理/找师傅",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-user",
+            "targetPageId": "page-user-list",
+            "transitionLabel": "用户管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-content",
+            "targetPageId": "page-content-design",
+            "transitionLabel": "内容管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-finance",
+            "targetPageId": "page-finance-overview",
+            "transitionLabel": "财务管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-marketing",
+            "targetPageId": "page-marketing-coupon",
+            "transitionLabel": "营销管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-settings",
+            "targetPageId": "page-settings-role",
+            "transitionLabel": "系统设置",
+            "hideEdge": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-finance-overview",
+      "title": "财务总览",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 7440,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/finance-overview.html",
+        "interactions": [
+          {
+            "domId": "nav-dashboard",
+            "targetPageId": "page-dashboard",
+            "transitionLabel": "仪表盘",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-temple",
+            "targetPageId": "page-temple-list",
+            "transitionLabel": "寺院信息/列表",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-master",
+            "targetPageId": "page-master-list",
+            "transitionLabel": "法师管理/找师傅",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-user",
+            "targetPageId": "page-user-list",
+            "transitionLabel": "用户管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-content",
+            "targetPageId": "page-content-design",
+            "transitionLabel": "内容管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-finance",
+            "targetPageId": "page-finance-overview",
+            "transitionLabel": "财务管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-marketing",
+            "targetPageId": "page-marketing-coupon",
+            "transitionLabel": "营销管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-settings",
+            "targetPageId": "page-settings-role",
+            "transitionLabel": "系统设置",
+            "hideEdge": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-finance-temple",
+      "title": "道观财务",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 8060,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/finance-temple.html",
+        "interactions": [
+          {
+            "domId": "nav-dashboard",
+            "targetPageId": "page-dashboard",
+            "transitionLabel": "仪表盘",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-temple",
+            "targetPageId": "page-temple-list",
+            "transitionLabel": "寺院信息/列表",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-master",
+            "targetPageId": "page-master-list",
+            "transitionLabel": "法师管理/找师傅",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-user",
+            "targetPageId": "page-user-list",
+            "transitionLabel": "用户管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-content",
+            "targetPageId": "page-content-design",
+            "transitionLabel": "内容管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-finance",
+            "targetPageId": "page-finance-overview",
+            "transitionLabel": "财务管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-marketing",
+            "targetPageId": "page-marketing-coupon",
+            "transitionLabel": "营销管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-settings",
+            "targetPageId": "page-settings-role",
+            "transitionLabel": "系统设置",
+            "hideEdge": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-finance-master",
+      "title": "大师财务",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 8680,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/finance-master.html",
+        "interactions": [
+          {
+            "domId": "nav-dashboard",
+            "targetPageId": "page-dashboard",
+            "transitionLabel": "仪表盘",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-temple",
+            "targetPageId": "page-temple-list",
+            "transitionLabel": "寺院信息/列表",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-master",
+            "targetPageId": "page-master-list",
+            "transitionLabel": "法师管理/找师傅",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-user",
+            "targetPageId": "page-user-list",
+            "transitionLabel": "用户管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-content",
+            "targetPageId": "page-content-design",
+            "transitionLabel": "内容管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-finance",
+            "targetPageId": "page-finance-overview",
+            "transitionLabel": "财务管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-marketing",
+            "targetPageId": "page-marketing-coupon",
+            "transitionLabel": "营销管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-settings",
+            "targetPageId": "page-settings-role",
+            "transitionLabel": "系统设置",
+            "hideEdge": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-finance-reconcile",
+      "title": "对账管理",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 9300,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/finance-reconcile.html",
+        "interactions": [
+          {
+            "domId": "nav-dashboard",
+            "targetPageId": "page-dashboard",
+            "transitionLabel": "仪表盘",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-temple",
+            "targetPageId": "page-temple-list",
+            "transitionLabel": "寺院信息/列表",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-master",
+            "targetPageId": "page-master-list",
+            "transitionLabel": "法师管理/找师傅",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-user",
+            "targetPageId": "page-user-list",
+            "transitionLabel": "用户管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-content",
+            "targetPageId": "page-content-design",
+            "transitionLabel": "内容管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-finance",
+            "targetPageId": "page-finance-overview",
+            "transitionLabel": "财务管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-marketing",
+            "targetPageId": "page-marketing-coupon",
+            "transitionLabel": "营销管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-settings",
+            "targetPageId": "page-settings-role",
+            "transitionLabel": "系统设置",
+            "hideEdge": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-marketing-coupon",
+      "title": "优惠券管理",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 9920,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/marketing-coupon.html",
+        "interactions": [
+          {
+            "domId": "nav-dashboard",
+            "targetPageId": "page-dashboard",
+            "transitionLabel": "仪表盘",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-temple",
+            "targetPageId": "page-temple-list",
+            "transitionLabel": "寺院信息/列表",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-master",
+            "targetPageId": "page-master-list",
+            "transitionLabel": "法师管理/找师傅",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-user",
+            "targetPageId": "page-user-list",
+            "transitionLabel": "用户管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-content",
+            "targetPageId": "page-content-design",
+            "transitionLabel": "内容管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-finance",
+            "targetPageId": "page-finance-overview",
+            "transitionLabel": "财务管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-marketing",
+            "targetPageId": "page-marketing-coupon",
+            "transitionLabel": "营销管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-settings",
+            "targetPageId": "page-settings-role",
+            "transitionLabel": "系统设置",
+            "hideEdge": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-marketing-banner",
+      "title": "轮播图管理",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 10540,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/marketing-banner.html",
+        "interactions": [
+          {
+            "domId": "nav-dashboard",
+            "targetPageId": "page-dashboard",
+            "transitionLabel": "仪表盘",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-temple",
+            "targetPageId": "page-temple-list",
+            "transitionLabel": "寺院信息/列表",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-master",
+            "targetPageId": "page-master-list",
+            "transitionLabel": "法师管理/找师傅",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-user",
+            "targetPageId": "page-user-list",
+            "transitionLabel": "用户管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-content",
+            "targetPageId": "page-content-design",
+            "transitionLabel": "内容管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-finance",
+            "targetPageId": "page-finance-overview",
+            "transitionLabel": "财务管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-marketing",
+            "targetPageId": "page-marketing-coupon",
+            "transitionLabel": "营销管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-settings",
+            "targetPageId": "page-settings-role",
+            "transitionLabel": "系统设置",
+            "hideEdge": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-marketing-activity",
+      "title": "活动管理",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 11160,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/marketing-activity.html",
+        "interactions": [
+          {
+            "domId": "nav-dashboard",
+            "targetPageId": "page-dashboard",
+            "transitionLabel": "仪表盘",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-temple",
+            "targetPageId": "page-temple-list",
+            "transitionLabel": "寺院信息/列表",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-master",
+            "targetPageId": "page-master-list",
+            "transitionLabel": "法师管理/找师傅",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-user",
+            "targetPageId": "page-user-list",
+            "transitionLabel": "用户管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-content",
+            "targetPageId": "page-content-design",
+            "transitionLabel": "内容管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-finance",
+            "targetPageId": "page-finance-overview",
+            "transitionLabel": "财务管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-marketing",
+            "targetPageId": "page-marketing-coupon",
+            "transitionLabel": "营销管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-settings",
+            "targetPageId": "page-settings-role",
+            "transitionLabel": "系统设置",
+            "hideEdge": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-settings-role",
+      "title": "角色权限",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 11780,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/settings-role.html",
+        "interactions": [
+          {
+            "domId": "nav-dashboard",
+            "targetPageId": "page-dashboard",
+            "transitionLabel": "仪表盘",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-temple",
+            "targetPageId": "page-temple-list",
+            "transitionLabel": "寺院信息/列表",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-master",
+            "targetPageId": "page-master-list",
+            "transitionLabel": "法师管理/找师傅",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-user",
+            "targetPageId": "page-user-list",
+            "transitionLabel": "用户管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-content",
+            "targetPageId": "page-content-design",
+            "transitionLabel": "内容管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-finance",
+            "targetPageId": "page-finance-overview",
+            "transitionLabel": "财务管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-marketing",
+            "targetPageId": "page-marketing-coupon",
+            "transitionLabel": "营销管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-settings",
+            "targetPageId": "page-settings-role",
+            "transitionLabel": "系统设置",
+            "hideEdge": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-settings-dict",
+      "title": "字典管理",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 12400,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/settings-dict.html",
+        "interactions": [
+          {
+            "domId": "nav-dashboard",
+            "targetPageId": "page-dashboard",
+            "transitionLabel": "仪表盘",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-temple",
+            "targetPageId": "page-temple-list",
+            "transitionLabel": "寺院信息/列表",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-master",
+            "targetPageId": "page-master-list",
+            "transitionLabel": "法师管理/找师傅",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-user",
+            "targetPageId": "page-user-list",
+            "transitionLabel": "用户管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-content",
+            "targetPageId": "page-content-design",
+            "transitionLabel": "内容管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-finance",
+            "targetPageId": "page-finance-overview",
+            "transitionLabel": "财务管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-marketing",
+            "targetPageId": "page-marketing-coupon",
+            "transitionLabel": "营销管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-settings",
+            "targetPageId": "page-settings-role",
+            "transitionLabel": "系统设置",
+            "hideEdge": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-settings-log",
+      "title": "操作日志",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 13020,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/settings-log.html",
+        "interactions": [
+          {
+            "domId": "nav-dashboard",
+            "targetPageId": "page-dashboard",
+            "transitionLabel": "仪表盘",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-temple",
+            "targetPageId": "page-temple-list",
+            "transitionLabel": "寺院信息/列表",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-master",
+            "targetPageId": "page-master-list",
+            "transitionLabel": "法师管理/找师傅",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-user",
+            "targetPageId": "page-user-list",
+            "transitionLabel": "用户管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-content",
+            "targetPageId": "page-content-design",
+            "transitionLabel": "内容管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-finance",
+            "targetPageId": "page-finance-overview",
+            "transitionLabel": "财务管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-marketing",
+            "targetPageId": "page-marketing-coupon",
+            "transitionLabel": "营销管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-settings",
+            "targetPageId": "page-settings-role",
+            "transitionLabel": "系统设置",
+            "hideEdge": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-settings-backup",
+      "title": "备份管理",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 13640,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/settings-backup.html",
+        "interactions": [
+          {
+            "domId": "nav-dashboard",
+            "targetPageId": "page-dashboard",
+            "transitionLabel": "仪表盘",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-temple",
+            "targetPageId": "page-temple-list",
+            "transitionLabel": "寺院信息/列表",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-master",
+            "targetPageId": "page-master-list",
+            "transitionLabel": "法师管理/找师傅",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-user",
+            "targetPageId": "page-user-list",
+            "transitionLabel": "用户管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-content",
+            "targetPageId": "page-content-design",
+            "transitionLabel": "内容管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-finance",
+            "targetPageId": "page-finance-overview",
+            "transitionLabel": "财务管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-marketing",
+            "targetPageId": "page-marketing-coupon",
+            "transitionLabel": "营销管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-settings",
+            "targetPageId": "page-settings-role",
+            "transitionLabel": "系统设置",
+            "hideEdge": true
+          }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "autoLayout": true,
+    "deviceType": "desktop",
+    "showEdge": true
+  }
+}

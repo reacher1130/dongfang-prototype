@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><style>html{color-scheme:dark}</style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="theme-color" content="#1C1210">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>设计详情 - 东方玄学</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Brand CSS -->
+  <link rel="stylesheet" href="../colors_and_type.css">
+
+  <style>
+    body {
+      max-width: 430px;
+      margin: 0 auto;
+      padding-bottom: 160px;
+      font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    }
+
+    /* Service card checkbox toggle */
+    .service-card {
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .service-card:active {
+      background: rgba(200,169,110,0.08) !important;
+    }
+    .service-card .check-circle {
+      transition: background 0.2s, color 0.2s, border-color 0.2s, opacity 0.2s;
+    }
+    .service-card.checked {
+      border-color: rgba(196,90,60,0.35) !important;
+      background: rgba(196,90,60,0.04) !important;
+    }
+    .service-card.checked .check-circle {
+      background: #C45A3C !important;
+      border-color: #C45A3C !important;
+    }
+    .service-card.checked .check-circle svg {
+      display: block !important;
+    }
+    .service-card .check-circle svg {
+      display: none;
+    }
+
+    /* Button press feedback */
+    .btn-action {
+      transition: transform 0.15s, opacity 0.15s;
+    }
+    .btn-action:active {
+      transform: scale(0.97);
+      opacity: 0.9;
+    }
+
+    /* Pill button style */
+    .pill-btn {
+      transition: transform 0.15s, opacity 0.15s;
+    }
+    .pill-btn:active {
+      transform: scale(0.97);
+      opacity: 0.85;
+    }
+  </style>
+</head>
+
+<body class="font-sans" style="background-color: #1C1210; color: #F0E6DA;">
+
+  <!-- ===== 1. Top Navigation Bar ===== -->
+  <div style="position: sticky; top: 0; z-index: 50; display: flex; align-items: center; height: 44px; padding: 0 16px; background: rgba(28,18,16,0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(200,169,110,0.08);">
+    <!-- Back button -->
+    <a href="diy-design.html" data-dom-id="back-diy-design" style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; text-decoration: none;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C8A96E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M15 19l-7-7 7-7"/>
+      </svg>
+    </a>
+    <!-- Title -->
+    <span style="flex: 1; text-align: center; font-family: 'Noto Serif SC', serif; font-size: 17px; font-weight: 700; color: #C8A96E; margin-right: 80px;">设计详情</span>
+    <!-- Share icon + text -->
+    <div style="position: absolute; right: 16px; display: flex; align-items: center; gap: 5px; cursor: pointer;">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#C8A96E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+      </svg>
+      <span style="font-size: 12px; color: #C8A96E;">分享设计</span>
+    </div>
+  </div>
+
+  <!-- ===== 2. Product Showcase Area ===== -->
+  <div style="padding: 20px 16px 0; text-align: center;">
+    <div style="position: relative; width: 320px; height: 220px; margin: 0 auto;">
+      <!-- Subtle ambient glow -->
+      <div style="position: absolute; top: 45%; left: 50%; transform: translate(-50%, -50%); width: 280px; height: 180px; background: radial-gradient(ellipse, rgba(196,90,60,0.07) 0%, rgba(200,169,110,0.03) 40%, transparent 70%); border-radius: 50%; pointer-events: none;"></div>
+
+      <!-- SVG bracelet arc - 12 beads with 3D gradients + shadows -->
+      <svg width="320" height="200" viewBox="0 0 320 200" fill="none" style="display: block; margin: 0 auto;">
+        <defs>
+          <!-- 3D Gloss highlight -->
+          <radialGradient id="beadGloss" cx="38%" cy="28%">
+            <stop offset="0%" stop-color="rgba(255,255,255,0.28)"/>
+            <stop offset="60%" stop-color="rgba(255,255,255,0.06)"/>
+            <stop offset="100%" stop-color="rgba(0,0,0,0)"/>
+          </radialGradient>
+          <!-- Deep shadow for 3D effect -->
+          <filter id="bead3DShadow" x="-40%" y="-40%" width="180%" height="180%">
+            <feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-color="rgba(0,0,0,0.55)"/>
+          </filter>
+          <!-- Inner shadow for depth -->
+          <radialGradient id="innerDepth" cx="50%" cy="50%">
+            <stop offset="70%" stop-color="rgba(0,0,0,0)"/>
+            <stop offset="100%" stop-color="rgba(0,0,0,0.15)"/>
+          </radialGradient>
+          <!-- Material-specific gradients -->
+          <radialGradient id="gRedwood" cx="40%" cy="35%">
+            <stop offset="0%" stop-color="#7A3A28"/>
+            <stop offset="50%" stop-color="#5C2A1A"/>
+            <stop offset="100%" stop-color="#3A1508"/>
+          </radialGradient>
+          <radialGradient id="gAgate" cx="40%" cy="35%">
+            <stop offset="0%" stop-color="#D04030"/>
+            <stop offset="50%" stop-color="#A03020"/>
+            <stop offset="100%" stop-color="#701810"/>
+          </radialGradient>
+          <radialGradient id="gCrystal" cx="40%" cy="35%">
+            <stop offset="0%" stop-color="#FFFFFF"/>
+            <stop offset="40%" stop-color="#E8E0F0"/>
+            <stop offset="100%" stop-color="#C8C0D8"/>
+          </radialGradient>
+          <radialGradient id="gAmber" cx="40%" cy="35%">
+            <stop offset="0%" stop-color="#F0C860"/>
+            <stop offset="50%" stop-color="#D4A030"/>
+            <stop offset="100%" stop-color="#A07818"/>
+          </radialGradient>
+          <radialGradient id="gSilver" cx="40%" cy="35%">
+            <stop offset="0%" stop-color="#C0C0C0"/>
+            <stop offset="50%" stop-color="#909090"/>
+            <stop offset="100%" stop-color="#606060"/>
+          </radialGradient>
+        </defs>
+
+        <!-- String/cord arc (double line for realism) -->
+        <path d="M50 176 Q50 34 160 22 Q270 34 270 176" stroke="rgba(200,169,110,0.12)" stroke-width="2" fill="none"/>
+        <path d="M50 176 Q50 34 160 22 Q270 34 270 176" stroke="rgba(200,169,110,0.06)" stroke-width="3.5" fill="none"/>
+
+        <!-- Bead 1: 小叶紫檀 -->
+        <circle cx="54" cy="168" r="13" fill="url(#gRedwood)" filter="url(#bead3DShadow)"/>
+        <circle cx="54" cy="168" r="13" fill="url(#innerDepth)"/>
+        <circle cx="54" cy="168" r="13" fill="url(#beadGloss)"/>
+        <circle cx="51" cy="164" r="2.2" fill="rgba(255,255,255,0.18)"/>
+        <!-- wood grain -->
+        <ellipse cx="54" cy="170" rx="3" ry="7" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="0.5"/>
+
+        <!-- Bead 2: 小叶紫檀 -->
+        <circle cx="54" cy="130" r="13" fill="url(#gRedwood)" filter="url(#bead3DShadow)"/>
+        <circle cx="54" cy="130" r="13" fill="url(#innerDepth)"/>
+        <circle cx="54" cy="130" r="13" fill="url(#beadGloss)"/>
+        <circle cx="51" cy="126" r="2.2" fill="rgba(255,255,255,0.18)"/>
+        <ellipse cx="54" cy="132" rx="3" ry="7" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="0.5"/>
+
+        <!-- Bead 3: 南红玛瑙隔珠 (smaller) -->
+        <circle cx="66" cy="96" r="8" fill="url(#gAgate)" filter="url(#bead3DShadow)"/>
+        <circle cx="66" cy="96" r="8" fill="url(#beadGloss)"/>
+        <circle cx="64" cy="93" r="1.5" fill="rgba(255,255,255,0.22)"/>
+
+        <!-- Bead 4: 小叶紫檀 -->
+        <circle cx="90" cy="68" r="13" fill="url(#gRedwood)" filter="url(#bead3DShadow)"/>
+        <circle cx="90" cy="68" r="13" fill="url(#innerDepth)"/>
+        <circle cx="90" cy="68" r="13" fill="url(#beadGloss)"/>
+        <circle cx="87" cy="64" r="2.2" fill="rgba(255,255,255,0.18)"/>
+        <ellipse cx="90" cy="70" rx="3" ry="7" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="0.5"/>
+
+        <!-- Bead 5: 小叶紫檀 -->
+        <circle cx="124" cy="48" r="13" fill="url(#gRedwood)" filter="url(#bead3DShadow)"/>
+        <circle cx="124" cy="48" r="13" fill="url(#innerDepth)"/>
+        <circle cx="124" cy="48" r="13" fill="url(#beadGloss)"/>
+        <circle cx="121" cy="44" r="2.2" fill="rgba(255,255,255,0.18)"/>
+        <ellipse cx="124" cy="50" rx="3" ry="7" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="0.5"/>
+
+        <!-- Bead 6: 蜜蜡佛头 (larger, centered top) -->
+        <circle cx="160" cy="38" r="15" fill="url(#gAmber)" filter="url(#bead3DShadow)"/>
+        <circle cx="160" cy="38" r="15" fill="url(#innerDepth)"/>
+        <circle cx="160" cy="38" r="15" fill="url(#beadGloss)"/>
+        <circle cx="157" cy="33" r="2.8" fill="rgba(255,255,255,0.2)"/>
+        <!-- Buddha face hint -->
+        <circle cx="160" cy="38" r="8" fill="none" stroke="rgba(180,120,0,0.12)" stroke-width="0.5"/>
+
+        <!-- Bead 7: 小叶紫檀 -->
+        <circle cx="196" cy="48" r="13" fill="url(#gRedwood)" filter="url(#bead3DShadow)"/>
+        <circle cx="196" cy="48" r="13" fill="url(#innerDepth)"/>
+        <circle cx="196" cy="48" r="13" fill="url(#beadGloss)"/>
+        <circle cx="193" cy="44" r="2.2" fill="rgba(255,255,255,0.18)"/>
+        <ellipse cx="196" cy="50" rx="3" ry="7" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="0.5"/>
+
+        <!-- Bead 8: 藏银三通 (larger, metallic) -->
+        <circle cx="230" cy="68" r="14" fill="url(#gSilver)" filter="url(#bead3DShadow)"/>
+        <circle cx="230" cy="68" r="14" fill="url(#innerDepth)"/>
+        <circle cx="230" cy="68" r="14" fill="url(#beadGloss)"/>
+        <circle cx="227" cy="63" r="2.5" fill="rgba(255,255,255,0.3)"/>
+        <!-- Tibetan pattern -->
+        <circle cx="230" cy="68" r="6" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
+
+        <!-- Bead 9: 小叶紫檀 -->
+        <circle cx="254" cy="96" r="13" fill="url(#gRedwood)" filter="url(#bead3DShadow)"/>
+        <circle cx="254" cy="96" r="13" fill="url(#innerDepth)"/>
+        <circle cx="254" cy="96" r="13" fill="url(#beadGloss)"/>
+        <circle cx="251" cy="92" r="2.2" fill="rgba(255,255,255,0.18)"/>
+        <ellipse cx="254" cy="98" rx="3" ry="7" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="0.5"/>
+
+        <!-- Bead 10: 小叶紫檀 -->
+        <circle cx="266" cy="130" r="13" fill="url(#gRedwood)" filter="url(#bead3DShadow)"/>
+        <circle cx="266" cy="130" r="13" fill="url(#innerDepth)"/>
+        <circle cx="266" cy="130" r="13" fill="url(#beadGloss)"/>
+        <circle cx="263" cy="126" r="2.2" fill="rgba(255,255,255,0.18)"/>
+        <ellipse cx="266" cy="132" rx="3" ry="7" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="0.5"/>
+
+        <!-- Bead 11: 小叶紫檀 -->
+        <circle cx="266" cy="168" r="13" fill="url(#gRedwood)" filter="url(#bead3DShadow)"/>
+        <circle cx="266" cy="168" r="13" fill="url(#innerDepth)"/>
+        <circle cx="266" cy="168" r="13" fill="url(#beadGloss)"/>
+        <circle cx="263" cy="164" r="2.2" fill="rgba(255,255,255,0.18)"/>
+        <ellipse cx="266" cy="170" rx="3" ry="7" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="0.5"/>
+
+        <!-- Bead 12: 南红玛瑙隔珠 (smaller) -->
+        <circle cx="244" cy="188" r="8" fill="url(#gAgate)" filter="url(#bead3DShadow)"/>
+        <circle cx="244" cy="188" r="8" fill="url(#beadGloss)"/>
+        <circle cx="242" cy="185" r="1.5" fill="rgba(255,255,255,0.22)"/>
+      </svg>
+
+      <!-- Tassel hanging from center bottom -->
+      <svg width="20" height="42" viewBox="0 0 20 42" style="position: absolute; bottom: -8px; left: 50%; transform: translateX(-50%);">
+        <!-- Cord knot -->
+        <line x1="10" y1="0" x2="10" y2="12" stroke="#C8A96E" stroke-width="1.5"/>
+        <circle cx="10" cy="6" r="4" fill="#5C2A1A" stroke="#8B4A2A" stroke-width="0.6"/>
+        <circle cx="10" cy="6" r="4" fill="url(#beadGloss)"/>
+        <!-- Tassel strands -->
+        <line x1="6" y1="12" x2="5" y2="38" stroke="#C8A96E" stroke-width="0.6" opacity="0.4"/>
+        <line x1="7.5" y1="12" x2="7" y2="40" stroke="#C8A96E" stroke-width="0.7" opacity="0.6"/>
+        <line x1="9" y1="12" x2="8.5" y2="42" stroke="#C8A96E" stroke-width="0.8" opacity="0.8"/>
+        <line x1="10" y1="12" x2="10" y2="42" stroke="#C8A96E" stroke-width="0.9" opacity="0.9"/>
+        <line x1="11" y1="12" x2="11.5" y2="42" stroke="#C8A96E" stroke-width="0.8" opacity="0.8"/>
+        <line x1="12.5" y1="12" x2="13" y2="40" stroke="#C8A96E" stroke-width="0.7" opacity="0.6"/>
+        <line x1="14" y1="12" x2="15" y2="38" stroke="#C8A96E" stroke-width="0.6" opacity="0.4"/>
+      </svg>
+
+      <!-- Brand watermark overlay (subtle, center bottom of bracelet) -->
+      <div style="position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%); width: 40px; height: 40px; border-radius: 50%; background: rgba(28,18,16,0.5); border: 0.5px solid rgba(200,169,110,0.15); display: flex; align-items: center; justify-content: center; pointer-events: none;">
+        <span style="font-family: 'Noto Serif SC', serif; font-size: 8px; color: rgba(200,169,110,0.35); letter-spacing: 1px; writing-mode: vertical-rl;">东方玄学</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 3. Action Buttons Row ===== -->
+  <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin: 20px 16px 16px; flex-wrap: nowrap;">
+    <!-- 保存本地 -->
+    <div class="pill-btn" style="display: inline-flex; align-items: center; justify-content: center; gap: 5px; padding: 8px 16px; border-radius: 20px; border: 1px solid #C8A96E; background: transparent; cursor: pointer; white-space: nowrap;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C8A96E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+        <polyline points="7 10 12 15 17 10"/>
+        <line x1="12" y1="15" x2="12" y2="3"/>
+      </svg>
+      <span style="font-size: 12px; color: #C8A96E;">保存本地</span>
+    </div>
+    <!-- 分享给朋友 -->
+    <div class="pill-btn" style="display: inline-flex; align-items: center; justify-content: center; gap: 5px; padding: 8px 16px; border-radius: 20px; border: 1px solid #C8A96E; background: transparent; cursor: pointer; white-space: nowrap;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C8A96E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+      </svg>
+      <span style="font-size: 12px; color: #C8A96E;">分享给朋友</span>
+    </div>
+    <!-- 分享到朋友圈 -->
+    <div class="pill-btn" style="display: inline-flex; align-items: center; justify-content: center; gap: 5px; padding: 8px 16px; border-radius: 20px; border: none; background: #C45A3C; cursor: pointer; white-space: nowrap;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+      </svg>
+      <span style="font-size: 12px; color: #FFFFFF;">分享到朋友圈</span>
+    </div>
+  </div>
+
+  <!-- ===== 4. Product Info Card ===== -->
+  <div style="background: #2A1E1A; border-radius: 12px; padding: 16px; margin: 0 16px 12px;">
+    <!-- Design name with edit icon -->
+    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
+      <span style="font-size: 16px; font-weight: 700; color: #F0E6DA; font-family: 'Noto Serif SC', serif;">我设计的手串</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8A7A6A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="cursor: pointer;">
+        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+      </svg>
+    </div>
+
+    <!-- Price -->
+    <div style="margin-bottom: 14px;">
+      <span style="font-size: 26px; font-weight: 700; color: #C45A3C; font-family: 'Noto Serif SC', serif;">¥327.00</span>
+    </div>
+
+    <!-- Wrist size -->
+    <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 10px;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C8A96E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z"/>
+        <path d="m14.5 12.5 2-2"/><path d="m11.5 9.5 2-2"/><path d="m8.5 6.5 2-2"/><path d="m17.5 15.5 2-2"/>
+      </svg>
+      <span style="font-size: 13px; color: #C5B097;">手围约 13.0cm</span>
+    </div>
+
+    <!-- Likes -->
+    <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 14px;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C45A3C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+      </svg>
+      <span style="font-size: 13px; color: #C5B097;">点赞数: 0</span>
+    </div>
+
+    <!-- Divider -->
+    <div style="height: 1px; background: rgba(200,169,110,0.08); margin-bottom: 12px;"></div>
+
+    <!-- Action links row -->
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <!-- 检查手围 link button -->
+      <div style="display: inline-flex; align-items: center; gap: 4px; padding: 6px 14px; border-radius: 8px; background: #2A1E1A; border: 1px solid rgba(200,169,110,0.15); cursor: pointer;">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#C8A96E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z"/>
+        </svg>
+        <span style="font-size: 12px; color: #C8A96E;">检查手围</span>
+      </div>
+      <!-- 审核规范和技巧 投稿 link -->
+      <div style="flex: 1; display: flex; align-items: center; justify-content: flex-end; gap: 4px; cursor: pointer;">
+        <span style="font-size: 12px; color: #8A7A6A;">审核规范和技巧</span>
+        <span style="font-size: 12px; color: #C45A3C; margin: 0 2px;">投稿</span>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#8A7A6A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 18l6-6-6-6"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 5. Coupon Banner ===== -->
+  <div style="background: #2A1E1A; border-radius: 12px; padding: 14px 16px; margin: 0 16px 12px; display: flex; align-items: center; gap: 10px; border-left: 3px solid #E8853A;">
+    <!-- Left: coupon icon + text -->
+    <div style="display: flex; align-items: center; gap: 8px; flex: 1; min-width: 0;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E8853A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
+        <line x1="7" y1="7" x2="7.01" y2="7"/>
+      </svg>
+      <span style="font-size: 13px; color: #F0E6DA; font-weight: 500;">有 3 张优惠券可使用</span>
+    </div>
+    <!-- Right: link text -->
+    <div style="display: flex; align-items: center; gap: 3px; cursor: pointer; white-space: nowrap;">
+      <span style="font-size: 12px; color: #C45A3C;">下单时可自动抵扣，点击立即去制作</span>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#C45A3C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M9 18l6-6-6-6"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ===== 6. Material Breakdown Card ===== -->
+  <div style="background: #2A1E1A; border-radius: 12px; padding: 16px; margin: 0 16px 12px;">
+    <!-- Section title -->
+    <div style="font-size: 15px; font-weight: 600; color: #F0E6DA; margin-bottom: 12px;">商品详情</div>
+
+    <!-- Divider -->
+    <div style="height: 1px; background: rgba(200,169,110,0.1); margin-bottom: 14px;"></div>
+
+    <!-- Material list -->
+    <!-- Item 1 -->
+    <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid rgba(200,169,110,0.06);">
+      <div style="display: flex; align-items: center; gap: 10px; flex: 1; min-width: 0;">
+        <!-- Material color swatch -->
+        <div style="width: 28px; height: 28px; min-width: 28px; border-radius: 50%; background: radial-gradient(circle at 40% 35%, #7A3A28, #3A1508); box-shadow: inset 0 -2px 4px rgba(0,0,0,0.3), 0 1px 3px rgba(0,0,0,0.3);"></div>
+        <div>
+          <div style="font-size: 14px; font-weight: 500; color: #F0E6DA;">小叶紫檀圆珠</div>
+          <div style="font-size: 11px; color: #8A7A6A; margin-top: 1px;">10mm / x8</div>
+        </div>
+      </div>
+      <span style="font-size: 14px; font-weight: 600; color: #F0E6DA; white-space: nowrap; margin-left: 8px;">¥224.00</span>
+    </div>
+
+    <!-- Item 2 -->
+    <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid rgba(200,169,110,0.06);">
+      <div style="display: flex; align-items: center; gap: 10px; flex: 1; min-width: 0;">
+        <div style="width: 28px; height: 28px; min-width: 28px; border-radius: 50%; background: radial-gradient(circle at 40% 35%, #D04030, #701810); box-shadow: inset 0 -2px 4px rgba(0,0,0,0.3), 0 1px 3px rgba(0,0,0,0.3);"></div>
+        <div>
+          <div style="font-size: 14px; font-weight: 500; color: #F0E6DA;">南红玛瑙隔珠</div>
+          <div style="font-size: 11px; color: #8A7A6A; margin-top: 1px;">6mm / x2</div>
+        </div>
+      </div>
+      <span style="font-size: 14px; font-weight: 600; color: #F0E6DA; white-space: nowrap; margin-left: 8px;">¥32.00</span>
+    </div>
+
+    <!-- Item 3 -->
+    <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid rgba(200,169,110,0.06);">
+      <div style="display: flex; align-items: center; gap: 10px; flex: 1; min-width: 0;">
+        <div style="width: 28px; height: 28px; min-width: 28px; border-radius: 50%; background: radial-gradient(circle at 40% 35%, #FFFFFF, #C8C0D8); box-shadow: inset 0 -2px 4px rgba(0,0,0,0.15), 0 1px 3px rgba(0,0,0,0.2);"></div>
+        <div>
+          <div style="font-size: 14px; font-weight: 500; color: #F0E6DA;">白水晶</div>
+          <div style="font-size: 11px; color: #8A7A6A; margin-top: 1px;">8mm / x2</div>
+        </div>
+      </div>
+      <span style="font-size: 14px; font-weight: 600; color: #F0E6DA; white-space: nowrap; margin-left: 8px;">¥4.00</span>
+    </div>
+
+    <!-- Item 4 -->
+    <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid rgba(200,169,110,0.06);">
+      <div style="display: flex; align-items: center; gap: 10px; flex: 1; min-width: 0;">
+        <div style="width: 28px; height: 28px; min-width: 28px; border-radius: 50%; background: radial-gradient(circle at 40% 35%, #F0C860, #A07818); box-shadow: inset 0 -2px 4px rgba(0,0,0,0.2), 0 1px 3px rgba(0,0,0,0.3);"></div>
+        <div>
+          <div style="font-size: 14px; font-weight: 500; color: #F0E6DA;">蜜蜡佛头</div>
+          <div style="font-size: 11px; color: #8A7A6A; margin-top: 1px;">12mm / x1</div>
+        </div>
+      </div>
+      <span style="font-size: 14px; font-weight: 600; color: #F0E6DA; white-space: nowrap; margin-left: 8px;">¥68.00</span>
+    </div>
+
+    <!-- Item 5 -->
+    <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 0;">
+      <div style="display: flex; align-items: center; gap: 10px; flex: 1; min-width: 0;">
+        <div style="width: 28px; height: 28px; min-width: 28px; border-radius: 50%; background: radial-gradient(circle at 40% 35%, #C0C0C0, #606060); box-shadow: inset 0 -2px 4px rgba(0,0,0,0.2), 0 1px 3px rgba(0,0,0,0.3);"></div>
+        <div>
+          <div style="font-size: 14px; font-weight: 500; color: #F0E6DA;">藏银三通</div>
+          <div style="font-size: 11px; color: #8A7A6A; margin-top: 1px;">10mm / x1</div>
+        </div>
+      </div>
+      <span style="font-size: 14px; font-weight: 600; color: #F0E6DA; white-space: nowrap; margin-left: 8px;">¥48.00</span>
+    </div>
+  </div>
+
+  <!-- ===== 7. Extra Services Section ===== -->
+  <div style="padding: 4px 16px 0;">
+    <!-- Section title -->
+    <div style="font-size: 15px; font-weight: 600; color: #F0E6DA; margin-top: 16px;">额外服务</div>
+    <div style="font-size: 12px; color: #8A7A6A; margin-top: 3px; margin-bottom: 12px;">为手串加持文化属性（可选）</div>
+
+    <!-- Service cards -->
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+
+      <!-- Service 1: 灵隐寺 -->
+      <div class="service-card" onclick="toggleService(this)" data-price="168" style="background: #2A1E1A; border: 1px solid rgba(200,169,110,0.1); border-radius: 12px; padding: 14px; display: flex; align-items: center; gap: 12px;">
+        <div class="check-circle" style="width: 26px; height: 26px; min-width: 26px; border-radius: 50%; border: 1.5px solid #C8A96E; display: flex; align-items: center; justify-content: center; transition: background 0.2s, color 0.2s, border-color 0.2s, opacity 0.2s;">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 6L9 17l-5-5"/>
+          </svg>
+        </div>
+        <div style="flex: 1; min-width: 0;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: 14px; font-weight: 600; color: #F0E6DA;">灵隐寺 · 开光加持</span>
+            <span style="font-size: 14px; font-weight: 600; color: #C45A3C; white-space: nowrap; margin-left: 8px;">¥168</span>
+          </div>
+          <div style="font-size: 12px; color: #8A7A6A; margin-top: 4px; line-height: 1.4;">智海法师亲自为手串开光加持，注入禅宗正能量</div>
+          <div style="font-size: 11px; color: #C5B097; margin-top: 3px;">灵隐寺 · 智海法师</div>
+        </div>
+      </div>
+
+      <!-- Service 2: 白云观 -->
+      <div class="service-card" onclick="toggleService(this)" data-price="128" style="background: #2A1E1A; border: 1px solid rgba(200,169,110,0.1); border-radius: 12px; padding: 14px; display: flex; align-items: center; gap: 12px;">
+        <div class="check-circle" style="width: 26px; height: 26px; min-width: 26px; border-radius: 50%; border: 1.5px solid #C8A96E; display: flex; align-items: center; justify-content: center; transition: background 0.2s, color 0.2s, border-color 0.2s, opacity 0.2s;">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 6L9 17l-5-5"/>
+          </svg>
+        </div>
+        <div style="flex: 1; min-width: 0;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: 14px; font-weight: 600; color: #F0E6DA;">白云观 · 道长祈福</span>
+            <span style="font-size: 14px; font-weight: 600; color: #C45A3C; white-space: nowrap; margin-left: 8px;">¥128</span>
+          </div>
+          <div style="font-size: 12px; color: #8A7A6A; margin-top: 4px; line-height: 1.4;">清风道长以全真派科仪为手串祈福消灾</div>
+          <div style="font-size: 11px; color: #C5B097; margin-top: 3px;">白云观 · 清风道长</div>
+        </div>
+      </div>
+
+      <!-- Service 3: 少林寺 -->
+      <div class="service-card" onclick="toggleService(this)" data-price="198" style="background: #2A1E1A; border: 1px solid rgba(200,169,110,0.1); border-radius: 12px; padding: 14px; display: flex; align-items: center; gap: 12px;">
+        <div class="check-circle" style="width: 26px; height: 26px; min-width: 26px; border-radius: 50%; border: 1.5px solid #C8A96E; display: flex; align-items: center; justify-content: center; transition: background 0.2s, color 0.2s, border-color 0.2s, opacity 0.2s;">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 6L9 17l-5-5"/>
+          </svg>
+        </div>
+        <div style="flex: 1; min-width: 0;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: 14px; font-weight: 600; color: #F0E6DA;">少林寺 · 武僧加持</span>
+            <span style="font-size: 14px; font-weight: 600; color: #C45A3C; white-space: nowrap; margin-left: 8px;">¥198</span>
+          </div>
+          <div style="font-size: 12px; color: #8A7A6A; margin-top: 4px; line-height: 1.4;">释延心法师以少林禅功为手串加持护身</div>
+          <div style="font-size: 11px; color: #C5B097; margin-top: 3px;">少林寺 · 释延心法师</div>
+        </div>
+      </div>
+
+      <!-- Service 4: 大昭寺 -->
+      <div class="service-card" onclick="toggleService(this)" data-price="268" style="background: #2A1E1A; border: 1px solid rgba(200,169,110,0.1); border-radius: 12px; padding: 14px; display: flex; align-items: center; gap: 12px;">
+        <div class="check-circle" style="width: 26px; height: 26px; min-width: 26px; border-radius: 50%; border: 1.5px solid #C8A96E; display: flex; align-items: center; justify-content: center; transition: background 0.2s, color 0.2s, border-color 0.2s, opacity 0.2s;">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 6L9 17l-5-5"/>
+          </svg>
+        </div>
+        <div style="flex: 1; min-width: 0;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: 14px; font-weight: 600; color: #F0E6DA;">大昭寺 · 活佛灌顶</span>
+            <span style="font-size: 14px; font-weight: 600; color: #C45A3C; white-space: nowrap; margin-left: 8px;">¥268</span>
+          </div>
+          <div style="font-size: 12px; color: #8A7A6A; margin-top: 4px; line-height: 1.4;">扎西多吉活佛以藏密仪轨为手串灌顶加持</div>
+          <div style="font-size: 11px; color: #C5B097; margin-top: 3px;">大昭寺 · 扎西多吉活佛</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===== 8. Shipping Info Section ===== -->
+  <div style="padding: 20px 16px 8px; display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 7px;">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#8A7A6A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+        <circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
+      </svg>
+      <span style="font-size: 13px; color: #8A7A6A;">预计 7-15 个工作日制作发货</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 7px;">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5B8C5A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+        <polyline points="22 4 12 14.01 9 11.01"/>
+      </svg>
+      <span style="font-size: 13px; color: #5B8C5A;">顺丰包邮</span>
+    </div>
+  </div>
+
+  <!-- ===== 9. Bottom Action Bar ===== -->
+  <div id="bottomBar" style="position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 430px; z-index: 100; padding: 10px 16px; padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px)); background: rgba(28,18,16,0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-top: 1px solid rgba(200,169,110,0.1);">
+    <!-- Main buttons row -->
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <!-- Left: 客服 button -->
+      <div class="btn-action" style="display: flex; flex-direction: column; align-items: center; gap: 2px; cursor: pointer; min-width: 48px;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C8A96E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+          <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+        </svg>
+        <span style="font-size: 10px; color: #C8A96E;">客服</span>
+      </div>
+
+      <!-- Center: 继续设计 -->
+      <a href="diy-design.html" data-dom-id="back-diy-design" class="btn-action" style="display: inline-flex; align-items: center; justify-content: center; flex: 1; padding: 12px 20px; border-radius: 10px; background: transparent; border: 1.5px solid #C8A96E; color: #C8A96E; font-size: 14px; font-weight: 600; text-decoration: none; text-align: center; white-space: nowrap;">继续设计</a>
+
+      <!-- Right: 立即制作 -->
+      <div class="btn-action" style="display: inline-flex; align-items: center; justify-content: center; flex: 1.2; padding: 12px 20px; border-radius: 10px; background: linear-gradient(135deg, #C45A3C, #D97B4A); color: #FFFFFF; font-size: 14px; font-weight: 700; cursor: pointer; text-align: center; white-space: nowrap; box-shadow: 0 4px 14px rgba(196,90,60,0.35);">立即制作</div>
+    </div>
+
+    <!-- Total price line (hidden by default, shows when services selected) -->
+    <div id="serviceTotal" style="display: none; text-align: center; margin-top: 8px; padding-top: 6px; border-top: 1px solid rgba(200,169,110,0.06);">
+      <span style="font-size: 12px; color: #8A7A6A;">总计: </span>
+      <span id="serviceTotalPrice" style="font-size: 14px; font-weight: 700; color: #C45A3C; font-family: 'Noto Serif SC', serif;">¥327</span>
+    </div>
+  </div>
+
+  <!-- ===== Service Toggle JS ===== -->
+  <script>
+    var basePrice = 327;
+
+    function toggleService(card) {
+      card.classList.toggle('checked');
+      updateTotal();
+    }
+
+    function updateTotal() {
+      var cards = document.querySelectorAll('.service-card');
+      var extraTotal = 0;
+      var hasService = false;
+
+      cards.forEach(function(card) {
+        if (card.classList.contains('checked')) {
+          var price = parseInt(card.getAttribute('data-price')) || 0;
+          extraTotal += price;
+          hasService = true;
+        }
+      });
+
+      var totalEl = document.getElementById('serviceTotal');
+      var priceEl = document.getElementById('serviceTotalPrice');
+
+      if (hasService) {
+        totalEl.style.display = 'block';
+        priceEl.textContent = '\u00A5' + (basePrice + extraTotal);
+      } else {
+        totalEl.style.display = 'none';
+      }
+    }
+  </script>
+
+</body>
+</html>

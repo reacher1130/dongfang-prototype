@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><style>html{color-scheme:dark}</style>
+<head>
+<meta charset="UTF-8">
+  <meta name="theme-color" content="#1C1210">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>举报处理 - 东方玄学平台管理台</title>
+<link rel="stylesheet" href="../platform-admin.css">
+</head>
+<body>
+<div class="admin-layout">
+  <aside class="sidebar">
+    <div class="sidebar-brand"><h1>东方玄学</h1><div class="brand-sub">平台管理台</div></div>
+    <nav class="sidebar-nav">
+      <div class="nav-group"><a class="nav-group-title" href="dashboard.html" data-dom-id="nav-dashboard"><span class="nav-icon">&#9632;</span>数据大盘</a></div>
+      <div class="nav-group"><div class="nav-group-title" onclick="toggleNav(this)" data-dom-id="nav-temple"><span class="nav-icon">&#9775;</span>运营管理<span class="nav-arrow">&#9654;</span></div><div class="nav-sub"><a href="temple-list.html">寺院管理</a><a href="temple-review.html">寺院审核</a><a href="master-list.html"> data-dom-id="nav-master">法师管理</a><a href="master-review.html">法师认证审核</a></div></div>
+      <div class="nav-group"><div class="nav-group-title" onclick="toggleNav(this)" data-dom-id="nav-user"><span class="nav-icon">&#9787;</span>用户管理<span class="nav-arrow">&#9654;</span></div><div class="nav-sub"><a href="user-list.html">用户列表</a></div></div>
+      <div class="nav-group"><div class="nav-group-title expanded" onclick="toggleNav(this)" data-dom-id="nav-content"><span class="nav-icon">&#9998;</span>内容审核<span class="nav-badge">3</span><span class="nav-arrow">&#9654;</span></div><div class="nav-sub show"><a href="content-design.html">设计广场审核</a><a href="content-comment.html">评论审核</a><a href="content-report.html" class="active">举报处理</a></div></div>
+      <div class="nav-group"><div class="nav-group-title" onclick="toggleNav(this)" data-dom-id="nav-finance"><span class="nav-icon">&#9733;</span>财务管理<span class="nav-arrow">&#9654;</span></div><div class="nav-sub"><a href="finance-overview.html">财务总览</a><a href="finance-temple.html">寺院结算</a><a href="finance-master.html">法师结算</a><a href="finance-reconcile.html">对账管理</a></div></div>
+      <div class="nav-group"><div class="nav-group-title" onclick="toggleNav(this)" data-dom-id="nav-marketing"><span class="nav-icon">&#9830;</span>营销管理<span class="nav-arrow">&#9654;</span></div><div class="nav-sub"><a href="marketing-coupon.html">优惠券管理</a><a href="marketing-banner.html">Banner管理</a><a href="marketing-activity.html">活动管理</a></div></div>
+      <div class="nav-group"><div class="nav-group-title" onclick="toggleNav(this)" data-dom-id="nav-settings"><span class="nav-icon">&#9881;</span>系统设置<span class="nav-arrow">&#9654;</span></div><div class="nav-sub"><a href="settings-role.html">角色权限</a><a href="settings-dict.html">数据字典</a><a href="settings-log.html">操作日志</a><a href="settings-backup.html">数据备份</a></div></div>
+    </nav>
+    <div class="sidebar-footer"><div class="sidebar-user"><div class="user-avatar">管</div><div class="user-info"><div class="user-name">超级管理员</div><div class="user-role">SUPER_ADMIN</div></div><a href="../login.html" class="logout-btn" title="退出">&#x2716;</a></div></div>
+  </aside>
+  <main class="main-content">
+    <div class="topbar"><div class="topbar-breadcrumb">平台管理台 <span class="sep">/</span> 内容审核 <span class="sep">/</span> <span>举报处理</span></div><div class="topbar-actions"><button class="icon-btn notification-dot"> aria-label="通知">&#128276;</button><button class="icon-btn"> aria-label="通知">&#128269;</button></div></div>
+    <div class="page-content">
+      <div class="page-header"><h2>举报处理</h2><div class="page-desc">处理用户举报，维护平台秩序</div></div>
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead><tr><th>举报类型</th><th>举报对象</th><th>举报内容</th><th>举报人</th><th>时间</th><th>状态</th><th>操作</th></tr></thead>
+          <tbody>
+            <tr><td><span class="badge badge-danger">虚假信息</span></td><td>评论 #DF20260629-R12</td><td>用户"法无虚"在评论中声称某法事可以治病，涉嫌虚假宣传</td><td>慧光</td><td>2026-06-29 14:10</td><td><span class="badge badge-warning">待处理</span></td><td><button class="btn btn-primary btn-sm">处理</button><button class="btn btn-outline btn-sm">忽略</button></td></tr>
+            <tr><td><span class="badge badge-danger">不当言论</span></td><td>评论 #DF20260628-R08</td><td>用户"无名氏"在寺院评论区发表不当言论，攻击他人信仰</td><td>清莲</td><td>2026-06-28 18:30</td><td><span class="badge badge-warning">待处理</span></td><td><button class="btn btn-primary btn-sm">处理</button><button class="btn btn-outline btn-sm">忽略</button></td></tr>
+            <tr><td><span class="badge badge-danger">虚假信息</span></td><td>寺院"某某寺"</td><td>有用户举报该寺院上传的资质证书存在造假嫌疑</td><td>悟真</td><td>2026-06-27 09:45</td><td><span class="badge badge-success">已处理</span></td><td><button class="btn btn-text btn-sm">查看</button></td></tr>
+            <tr><td><span class="badge badge-warning">不当言论</span></td><td>用户"法无虚"</td><td>多次在公共评论区发布不当内容，已累计被举报 3 次</td><td>云端</td><td>2026-06-26 15:20</td><td><span class="badge badge-success">已处理</span></td><td><button class="btn btn-text btn-sm">查看</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+</div>
+<script>function toggleNav(el){el.classList.toggle('expanded');var sub=el.nextElementSibling;if(sub&&sub.classList.contains('nav-sub')){sub.classList.toggle('show');}}</script>
+</body>
+</html>

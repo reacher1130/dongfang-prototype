@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><style>html{color-scheme:dark}</style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="theme-color" content="#1C1210">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加持任务详情 - 寺院管理台</title>
+  <link rel="stylesheet" href="../admin.css">
+</head>
+<body>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-logo"><h1>东方玄学</h1><p>寺院管理台</p></div>
+    <nav class="sidebar-nav">
+      <div class="sidebar-section">主菜单</div>
+      <a href="dashboard.html" class="sidebar-item" data-dom-id="nav-dashboard">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect></svg>首页仪表盘</a>
+      <a href="temple-info.html" class="sidebar-item" data-dom-id="nav-temple">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>寺院管理</a>
+      <a href="master-list.html" class="sidebar-item" data-dom-id="nav-master">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 00-3-3.87"></path><path d="M16 3.13a4 4 0 010 7.75"></path></svg>法师管理</a>
+      <a href="service-list.html" class="sidebar-item" data-dom-id="nav-service">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>服务管理</a>
+      <div class="sidebar-section">运营</div>
+      <a href="booking-list.html" class="sidebar-item" data-dom-id="nav-booking">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>预约管理</a>
+      <a href="blessing-task-list.html" class="sidebar-item active" data-dom-id="nav-blessing-task">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L9 9l-7 1 5 5-1.5 7L12 18.5 18.5 22 17 15l5-5-7-1z"></path><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="12" x2="15" y2="14"></line></svg>加持任务</a>
+      <a href="review-list.html" class="sidebar-item" data-dom-id="nav-review">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"></path></svg>评价管理</a>
+      <div class="sidebar-section">数据</div>
+      <a href="report.html" class="sidebar-item" data-dom-id="nav-report">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>数据报表</a>
+      <a href="settings.html" class="sidebar-item" data-dom-id="nav-settings">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"></path></svg>系统设置</a>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="sidebar-user">
+        <div class="sidebar-user-avatar">悟</div>
+        <div class="sidebar-user-info"><div class="sidebar-user-name">释明心</div><div class="sidebar-user-role">管理员</div></div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Content -->
+  <main class="content">
+    <div class="page-header">
+      <div class="page-header-left">
+        <div>
+          <h2>加持任务详情</h2>
+          <div class="breadcrumb"><a href="blessing-task-list.html" data-dom-id="back-blessing-task-list">加持任务</a> / BL20260630001</div>
+        </div>
+      </div>
+      <div class="page-header-actions">
+        <span class="badge badge-warning"><span class="badge-dot warning"></span>待处理</span>
+      </div>
+    </div>
+
+    <div class="page-body">
+      <a href="blessing-task-list.html" class="back-link" data-dom-id="back-link-blessing-task-list">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        返回加持任务列表
+      </a>
+
+      <div class="grid-2">
+        <!-- Left Column -->
+        <div>
+          <!-- User Info -->
+          <div class="info-card mb-24">
+            <div class="info-card-header">用户信息</div>
+            <div class="info-card-body">
+              <div class="flex gap-16 items-center" style="margin-bottom:16px;">
+                <div class="user-cell-avatar" style="width:56px;height:56px;font-size:22px;border-radius:50%;background:var(--primary-light);color:var(--primary);display:flex;align-items:center;justify-content:center;">王</div>
+                <div>
+                  <div style="font-size:18px; font-weight:600;">用户·王芳</div>
+                  <div class="text-muted text-sm">注册时间: 2025年8月12日</div>
+                </div>
+              </div>
+              <div class="info-row">
+                <span class="info-label">手机号</span>
+                <span class="info-value">139****5678</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">用户ID</span>
+                <span class="info-value">U20250812003</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bracelet Design Info -->
+          <div class="info-card mb-24">
+            <div class="info-card-header">手串设计信息</div>
+            <div class="info-card-body">
+              <div class="info-row">
+                <span class="info-label">设计名称</span>
+                <span class="info-value" style="font-weight:600;">紫檀·静心</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">珠串材质</span>
+                <span class="info-value">小叶紫檀 x 18颗</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">配饰数量</span>
+                <span class="info-value">3 件 (银质莲花隔珠 x1、藏银念珠 x1、红玛瑙顶珠 x1)</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">手串价格</span>
+                <span class="info-value" style="color:var(--primary); font-weight:600;">&yen;1,280</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">商城状态</span>
+                <span class="info-value"><span class="badge badge-success"><span class="badge-dot success"></span>制作完成</span></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Blessing Service Info -->
+          <div class="info-card mb-24">
+            <div class="info-card-header">加持服务信息</div>
+            <div class="info-card-body">
+              <div class="info-row">
+                <span class="info-label">加持类型</span>
+                <span class="info-value"><span class="tag">灵隐寺开光</span></span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">对应寺院</span>
+                <span class="info-value">杭州灵隐寺</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">指定法师</span>
+                <span class="info-value">智海法师</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">服务价格</span>
+                <span class="info-value" style="color:var(--primary); font-weight:600;">&yen;368</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">订单总额</span>
+                <span class="info-value" style="font-size:18px; color:var(--primary); font-weight:700;">&yen;1,648</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column -->
+        <div>
+          <!-- Status Timeline -->
+          <div class="info-card mb-24">
+            <div class="info-card-header">任务进度</div>
+            <div class="info-card-body">
+              <div class="timeline">
+                <div class="timeline-item">
+                  <div class="timeline-dot success"></div>
+                  <div class="timeline-content">
+                    <div>
+                      <div class="timeline-text">订单创建</div>
+                      <div class="timeline-desc">用户下单 DIY手串 + 灵隐寺开光加持</div>
+                    </div>
+                    <span class="timeline-time">2026-06-30 09:15</span>
+                  </div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-dot success"></div>
+                  <div class="timeline-content">
+                    <div>
+                      <div class="timeline-text">商城制作完成</div>
+                      <div class="timeline-desc">手串已制作完成，等待加持</div>
+                    </div>
+                    <span class="timeline-time">2026-06-30 14:30</span>
+                  </div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-dot primary"></div>
+                  <div class="timeline-content">
+                    <div>
+                      <div class="timeline-text" style="font-weight:600;">加持任务分配</div>
+                      <div class="timeline-desc" style="color:var(--primary);">待分配法师进行加持</div>
+                    </div>
+                    <span class="timeline-time">当前步骤</span>
+                  </div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-content">
+                    <div>
+                      <div class="timeline-text" style="color:var(--text-light);">法师加持中</div>
+                      <div class="timeline-desc">法师进行加持仪式</div>
+                    </div>
+                    <span class="timeline-time">-</span>
+                  </div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-content">
+                    <div>
+                      <div class="timeline-text" style="color:var(--text-light);">加持完成上传凭证</div>
+                      <div class="timeline-desc">上传加持现场照片</div>
+                    </div>
+                    <span class="timeline-time">-</span>
+                  </div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-content">
+                    <div>
+                      <div class="timeline-text" style="color:var(--text-light);">任务完成</div>
+                      <div class="timeline-desc">手串发货至用户</div>
+                    </div>
+                    <span class="timeline-time">-</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Proof Photo Upload -->
+          <div class="info-card mb-24">
+            <div class="info-card-header">加持凭证</div>
+            <div class="info-card-body">
+              <div class="upload-grid">
+                <div class="upload-box">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                  <span>上传照片</span>
+                </div>
+                <div class="upload-box">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                  <span>上传照片</span>
+                </div>
+                <div class="upload-box">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                  <span>上传照片</span>
+                </div>
+              </div>
+              <div class="form-hint mt-12">上传加持现场照片作为凭证，最多3张</div>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="info-card">
+            <div class="info-card-header">操作</div>
+            <div class="info-card-body">
+              <div class="form-group">
+                <label class="form-label">分配法师</label>
+                <select class="form-select">
+                  <option selected>智海法师</option>
+                  <option>释延心法师</option>
+                  <option>清风道长</option>
+                  <option>扎西多吉活佛</option>
+                </select>
+              </div>
+              <div class="btn-group" style="margin-top:16px;">
+                <button class="btn btn-primary" data-dom->
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+                  分配法师
+                </button>
+                <button class="btn btn-success" data-dom->
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                  标记进行中
+                </button>
+                <button class="btn btn-warning" data-dom- onclick="document.getElementById('modal-complete').classList.add('active')">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                  完成加持
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal: Complete Blessing -->
+  <div class="modal-overlay" id="modal-complete">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>完成加持 - 上传凭证</h3>
+        <button class="modal-close" onclick="document.getElementById('modal-complete').classList.remove('active')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label">加持凭证照片 <span class="required">*</span></label>
+          <div class="upload-area">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+            <p>点击或拖拽上传加持现场照片</p>
+            <p class="text-sm text-muted">支持 JPG、PNG 格式，最多3张</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">备注说明</label>
+          <textarea class="form-textarea" placeholder="如有特殊说明请填写..."></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" onclick="document.getElementById('modal-complete').classList.remove('active')">取消</button>
+        <button class="btn btn-success" onclick="document.getElementById('modal-complete').classList.remove('active')">确认完成</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

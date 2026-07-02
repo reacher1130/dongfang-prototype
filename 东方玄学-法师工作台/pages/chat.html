@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><style>html{color-scheme:dark}</style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="theme-color" content="#1C1210">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>聊天 - 法师工作台</title>
+  <link rel="stylesheet" href="../master-app.css">
+  <style>
+    /* Chat area */
+    .chat-area {
+      padding: 16px;
+      padding-bottom: 80px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .chat-row {
+      display: flex;
+      gap: 8px;
+    }
+    .chat-row.received { flex-direction: row; }
+    .chat-row.sent { flex-direction: row-reverse; }
+    .chat-row .chat-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-full);
+      background: var(--color-card-bg-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .chat-row .chat-avatar svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--color-text-muted);
+    }
+    .chat-bubble-wrap {
+      display: flex;
+      flex-direction: column;
+      max-width: 75%;
+    }
+    .chat-row.sent .chat-bubble-wrap { align-items: flex-end; }
+    .chat-time-label {
+      text-align: center;
+      font-size: 11px;
+      color: var(--color-text-muted);
+      padding: 8px 0;
+    }
+
+    /* Online dot */
+    .online-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: var(--color-success);
+      border-radius: var(--radius-full);
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+
+    /* System message */
+    .chat-system {
+      text-align: center;
+      font-size: 12px;
+      color: var(--color-text-muted);
+      padding: 6px 0;
+      background: rgba(42, 30, 26, 0.5);
+      border-radius: var(--radius-full);
+      display: inline-block;
+      align-self: center;
+      padding: 4px 14px;
+    }
+    .chat-system-wrap {
+      display: flex;
+      justify-content: center;
+    }
+
+    /* Image bubble */
+    .chat-image-bubble {
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .chat-image-bubble img {
+      display: block;
+    }
+    .chat-image-label {
+      font-size: 12px;
+      color: var(--color-text-secondary);
+      margin-top: 4px;
+    }
+    .chat-row.sent .chat-image-label {
+      color: rgba(255,255,255,0.7);
+      text-align: right;
+    }
+
+    /* Voice bubble */
+    .chat-voice-bubble {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 120px;
+      cursor: pointer;
+    }
+    .voice-bars {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      height: 20px;
+    }
+    .voice-bar {
+      width: 3px;
+      border-radius: 2px;
+      background: var(--color-accent);
+    }
+    .chat-row.sent .voice-bar {
+      background: rgba(255,255,255,0.7);
+    }
+    .voice-duration {
+      font-size: 12px;
+      color: var(--color-text-secondary);
+      white-space: nowrap;
+    }
+    .chat-row.sent .voice-duration {
+      color: rgba(255,255,255,0.7);
+    }
+    .voice-play-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: var(--radius-full);
+      background: rgba(200, 169, 110, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .voice-play-icon svg {
+      width: 14px;
+      height: 14px;
+      stroke: var(--color-accent);
+      fill: var(--color-accent);
+    }
+    .chat-row.sent .voice-play-icon {
+      background: rgba(255,255,255,0.15);
+    }
+    .chat-row.sent .voice-play-icon svg {
+      stroke: #fff;
+      fill: #fff;
+    }
+
+    /* Video bubble */
+    .chat-video-bubble {
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+    .chat-video-bubble img {
+      display: block;
+    }
+    .video-play-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-full);
+      background: rgba(0,0,0,0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .video-play-overlay svg {
+      width: 20px;
+      height: 20px;
+      stroke: #fff;
+      fill: #fff;
+      margin-left: 2px;
+    }
+    .video-duration-badge {
+      position: absolute;
+      bottom: 6px;
+      right: 8px;
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+      font-size: 11px;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .video-label {
+      font-size: 12px;
+      color: var(--color-text-secondary);
+      margin-top: 4px;
+    }
+
+    /* Nav phone icon button */
+    .nav-phone-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .nav-phone-btn:hover { background: var(--glass-bg); }
+    .nav-phone-btn svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--color-text-secondary);
+    }
+
+    /* Media expand panel */
+    .media-panel {
+      position: fixed;
+      bottom: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 430px;
+      background: var(--color-card-bg);
+      border-top: 1px solid var(--color-border);
+      padding: 16px;
+      display: none;
+      z-index: 110;
+    }
+    .media-panel.show { display: block; }
+    .media-panel-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .media-panel-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+    .media-panel-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-md);
+      background: var(--color-card-bg-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .media-panel-icon:hover { background: var(--color-border); }
+    .media-panel-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--color-accent);
+    }
+    .media-panel-label {
+      font-size: 12px;
+      color: var(--color-text-secondary);
+    }
+
+    /* Call bottom sheet */
+    .call-sheet-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.45);
+      z-index: 200;
+      display: none;
+    }
+    .call-sheet-overlay.show { display: block; }
+    .call-sheet {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 430px;
+      background: var(--color-card-bg);
+      border-radius: 20px 20px 0 0;
+      padding: 24px 20px calc(24px + var(--safe-bottom));
+      z-index: 210;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+    .call-sheet.show { display: flex; }
+    .call-sheet-avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: var(--radius-full);
+      background: var(--color-card-bg-light);
+      border: 2px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .call-sheet-avatar svg {
+      width: 28px;
+      height: 28px;
+      stroke: var(--color-text-muted);
+    }
+    .call-sheet-name {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+    }
+    .call-sheet-actions {
+      display: flex;
+      gap: 16px;
+      width: 100%;
+    }
+    .call-sheet-btn {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      height: 48px;
+      border-radius: var(--radius-lg);
+      border: none;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 500;
+      transition: opacity 0.2s;
+    }
+    .call-sheet-btn:active { opacity: 0.8; }
+    .call-sheet-btn.voice {
+      background: linear-gradient(135deg, var(--color-brand), var(--color-brand-dark));
+      color: #fff;
+    }
+    .call-sheet-btn.video {
+      background: var(--color-card-bg-light);
+      color: var(--color-text-primary);
+      border: 1px solid var(--color-border);
+    }
+    .call-sheet-btn svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+    }
+    .call-sheet-cancel {
+      width: 100%;
+      height: 44px;
+      border: none;
+      background: none;
+      color: var(--color-text-muted);
+      font-size: 14px;
+      cursor: pointer;
+      border-top: 1px solid var(--color-border);
+      padding-top: 12px;
+      text-align: center;
+    }
+
+    /* Incoming call overlay */
+    .incoming-call-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 500;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: rgba(10, 6, 5, 0.92);
+      backdrop-filter: blur(30px);
+      -webkit-backdrop-filter: blur(30px);
+    }
+    .incoming-call-overlay.show { display: flex; }
+    .incoming-avatar-wrap {
+      position: relative;
+      width: 80px;
+      height: 80px;
+      margin-bottom: 20px;
+    }
+    .incoming-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: var(--radius-full);
+      background: var(--color-card-bg-light);
+      border: 2px solid var(--color-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 2;
+    }
+    .incoming-avatar svg {
+      width: 40px;
+      height: 40px;
+      stroke: var(--color-text-secondary);
+    }
+    .pulse-ring {
+      position: absolute;
+      top: 0; left: 0;
+      width: 80px;
+      height: 80px;
+      border-radius: var(--radius-full);
+      border: 2px solid var(--color-accent);
+      animation: pulseRing 1.8s ease-out infinite;
+    }
+    .pulse-ring:nth-child(2) { animation-delay: 0.6s; }
+    .pulse-ring:nth-child(3) { animation-delay: 1.2s; }
+    @keyframes pulseRing {
+      0% { transform: scale(1); opacity: 0.6; }
+      100% { transform: scale(1.8); opacity: 0; }
+    }
+    .incoming-name {
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      margin-bottom: 4px;
+    }
+    .incoming-status {
+      font-size: 15px;
+      color: var(--color-text-secondary);
+      margin-bottom: 48px;
+    }
+    .incoming-actions {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    .incoming-action {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+    .incoming-action-circle {
+      width: 64px;
+      height: 64px;
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.15s, opacity 0.15s;
+    }
+    .incoming-action-circle:active {
+      transform: scale(0.93);
+      opacity: 0.85;
+    }
+    .incoming-action-circle svg {
+      width: 26px;
+      height: 26px;
+      stroke: #fff;
+    }
+    .incoming-action.mute .incoming-action-circle {
+      width: 52px;
+      height: 52px;
+      border: 2px solid var(--color-border-light);
+      background: rgba(42, 30, 26, 0.6);
+    }
+    .incoming-action.mute .incoming-action-circle svg {
+      width: 22px;
+      height: 22px;
+    }
+    .incoming-action.answer .incoming-action-circle {
+      width: 72px;
+      height: 72px;
+      background: #5B8C5A;
+      box-shadow: 0 4px 20px rgba(91, 140, 90, 0.4);
+    }
+    .incoming-action.hangup .incoming-action-circle {
+      width: 72px;
+      height: 72px;
+      background: #C45A3C;
+      box-shadow: 0 4px 20px rgba(196, 90, 60, 0.4);
+    }
+    .incoming-action-label {
+      font-size: 12px;
+      color: var(--color-text-secondary);
+    }
+    .incoming-waiting {
+      font-size: 13px;
+      color: var(--color-text-muted);
+      animation: blink 1.5s ease-in-out infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    /* Demo incoming call button */
+    .demo-incoming-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin: 0 16px 12px;
+      padding: 8px 16px;
+      background: rgba(196, 90, 60, 0.12);
+      border: 1px solid rgba(196, 90, 60, 0.25);
+      border-radius: var(--radius-md);
+      color: var(--color-brand);
+      font-size: 12px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .demo-incoming-btn:hover { background: rgba(196, 90, 60, 0.2); }
+    .demo-incoming-btn svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--color-brand);
+    }
+
+    /* Mic toggle */
+    .mic-toggle {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .mic-toggle:hover { background: var(--glass-bg); }
+    .mic-toggle svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--color-text-secondary);
+    }
+
+    /* Plus button */
+    .plus-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .plus-btn:hover { background: var(--glass-bg); }
+    .plus-btn svg {
+      width: 22px;
+      height: 22px;
+      stroke: var(--color-text-secondary);
+    }
+
+    /* Fade animation for overlay */
+    .overlay-fade-in {
+      animation: fadeIn 0.3s ease-out;
+    }
+  </style>
+</head>
+<body style="background-color: #1C1210; color: #F0E6DA;">
+  <div class="app-container">
+    <div class="page-no-tabs">
+
+      <!-- Top Nav -->
+      <div class="top-nav">
+        <a class="nav-back" href="messages.html" data-dom-id="back-messages">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15,18 9,12 15,6"/>
+          </svg>
+        </a>
+        <span class="nav-title">信众 · 李明<span class="online-dot"></span></span>
+        <div class="nav-right">
+          <div class="nav-phone-btn" id="toggleCallSheet">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chat Messages -->
+      <div class="chat-area page-content">
+
+        <!-- Demo: Incoming call trigger -->
+        <div class="demo-incoming-btn" id="demoIncomingBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          <span>模拟来电</span>
+        </div>
+
+        <div class="chat-time-label">今天 10:30</div>
+
+        <!-- (a) Received text -->
+        <div class="chat-row received">
+          <div class="chat-avatar">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+          </div>
+          <div class="chat-bubble-wrap">
+            <div class="chat-bubble chat-received">法师您好，阿弥陀佛。我想预约明天的祈福法会</div>
+          </div>
+        </div>
+
+        <!-- (b) Sent text -->
+        <div class="chat-row sent">
+          <div class="chat-avatar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="10" r="6"/>
+              <path d="M8 20c0-2.2 1.8-4 4-4s4 1.8 4 4"/>
+            </svg>
+          </div>
+          <div class="chat-bubble-wrap">
+            <div class="chat-bubble chat-sent">阿弥陀佛，明天上午9点可以安排。为几个人祈福？</div>
+          </div>
+        </div>
+
+        <!-- (c) Received IMAGE -->
+        <div class="chat-row received">
+          <div class="chat-avatar">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+          </div>
+          <div class="chat-bubble-wrap">
+            <div class="chat-bubble chat-received" style="padding: 6px;">
+              <div class="chat-image-bubble">
+                <div style="width: 200px; height: 150px; background: var(--color-card-bg-light); display: flex; align-items: center; justify-content: center; border-radius: 8px;">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-muted)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                    <circle cx="8.5" cy="8.5" r="1.5"/>
+                    <polyline points="21,15 16,10 5,21"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="chat-image-label">这是我准备的供品</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- (d) Sent IMAGE -->
+        <div class="chat-row sent">
+          <div class="chat-avatar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="10" r="6"/>
+              <path d="M8 20c0-2.2 1.8-4 4-4s4 1.8 4 4"/>
+            </svg>
+          </div>
+          <div class="chat-bubble-wrap">
+            <div class="chat-bubble chat-sent" style="padding: 6px;">
+              <div class="chat-image-bubble">
+                <div style="width: 180px; height: 130px; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; border-radius: 8px;">
+                  <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                    <circle cx="8.5" cy="8.5" r="1.5"/>
+                    <polyline points="21,15 16,10 5,21"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="chat-image-label">供品摆放参考</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- (e) Received VOICE -->
+        <div class="chat-row received">
+          <div class="chat-avatar">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+          </div>
+          <div class="chat-bubble-wrap">
+            <div class="chat-bubble chat-received" style="padding: 10px 14px;">
+              <div class="chat-voice-bubble">
+                <div class="voice-play-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="5,3 19,12 5,21"/>
+                  </svg>
+                </div>
+                <div class="voice-bars">
+                  <div class="voice-bar" style="height: 8px;"></div>
+                  <div class="voice-bar" style="height: 14px;"></div>
+                  <div class="voice-bar" style="height: 10px;"></div>
+                  <div class="voice-bar" style="height: 18px;"></div>
+                  <div class="voice-bar" style="height: 12px;"></div>
+                  <div class="voice-bar" style="height: 16px;"></div>
+                  <div class="voice-bar" style="height: 9px;"></div>
+                  <div class="voice-bar" style="height: 13px;"></div>
+                  <div class="voice-bar" style="height: 6px;"></div>
+                  <div class="voice-bar" style="height: 15px;"></div>
+                  <div class="voice-bar" style="height: 11px;"></div>
+                  <div class="voice-bar" style="height: 8px;"></div>
+                </div>
+                <span class="voice-duration">0:15</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- (f) Sent VOICE -->
+        <div class="chat-row sent">
+          <div class="chat-avatar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="10" r="6"/>
+              <path d="M8 20c0-2.2 1.8-4 4-4s4 1.8 4 4"/>
+            </svg>
+          </div>
+          <div class="chat-bubble-wrap">
+            <div class="chat-bubble chat-sent" style="padding: 10px 14px;">
+              <div class="chat-voice-bubble" style="flex-direction: row-reverse;">
+                <div class="voice-play-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="5,3 19,12 5,21"/>
+                  </svg>
+                </div>
+                <div class="voice-bars">
+                  <div class="voice-bar" style="height: 10px;"></div>
+                  <div class="voice-bar" style="height: 16px;"></div>
+                  <div class="voice-bar" style="height: 8px;"></div>
+                  <div class="voice-bar" style="height: 20px;"></div>
+                  <div class="voice-bar" style="height: 14px;"></div>
+                  <div class="voice-bar" style="height: 18px;"></div>
+                  <div class="voice-bar" style="height: 7px;"></div>
+                  <div class="voice-bar" style="height: 15px;"></div>
+                  <div class="voice-bar" style="height: 11px;"></div>
+                  <div class="voice-bar" style="height: 17px;"></div>
+                  <div class="voice-bar" style="height: 9px;"></div>
+                  <div class="voice-bar" style="height: 13px;"></div>
+                  <div class="voice-bar" style="height: 10px;"></div>
+                  <div class="voice-bar" style="height: 16px;"></div>
+                  <div class="voice-bar" style="height: 6px;"></div>
+                </div>
+                <span class="voice-duration">0:22</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- (g) Received VIDEO -->
+        <div class="chat-row received">
+          <div class="chat-avatar">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+          </div>
+          <div class="chat-bubble-wrap">
+            <div class="chat-bubble chat-received" style="padding: 6px;">
+              <div class="chat-video-bubble">
+                <div style="width: 200px; height: 140px; background: var(--color-card-bg-light); display: flex; align-items: center; justify-content: center; border-radius: 8px; position: relative;">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-muted)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="23,7 16,12 23,17"/>
+                    <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+                  </svg>
+                  <div class="video-play-overlay">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polygon points="5,3 19,12 5,21"/>
+                    </svg>
+                  </div>
+                  <div class="video-duration-badge">2:05</div>
+                </div>
+              </div>
+              <div class="video-label">我想咨询一下关于超度法事的相关事宜</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- (h) System: video call started -->
+        <div class="chat-system-wrap">
+          <div class="chat-system">你 发起了视频通话 · 今天 14:30</div>
+        </div>
+
+        <!-- (i) Sent text -->
+        <div class="chat-row sent">
+          <div class="chat-avatar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="10" r="6"/>
+              <path d="M8 20c0-2.2 1.8-4 4-4s4 1.8 4 4"/>
+            </svg>
+          </div>
+          <div class="chat-bubble-wrap">
+            <div class="chat-bubble chat-sent">好的，我看到视频了，明天直接过来吧</div>
+          </div>
+        </div>
+
+        <!-- (j) System: call ended -->
+        <div class="chat-system-wrap">
+          <div class="chat-system">通话结束 · 通话时长 5分08秒</div>
+        </div>
+
+        <!-- (k) Received text -->
+        <div class="chat-row received">
+          <div class="chat-avatar">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+          </div>
+          <div class="chat-bubble-wrap">
+            <div class="chat-bubble chat-received">感恩法师！明天见</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Chat Input Bar -->
+      <div class="chat-input-bar" style="z-index: 120;">
+        <div class="plus-btn" id="toggleMediaPanel">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"/>
+            <line x1="5" y1="12" x2="19" y2="12"/>
+          </svg>
+        </div>
+        <input type="text" placeholder="输入消息..." style="background-color: #2A1E1A; border: 1px solid #3D2E28;" aria-label="输入消息...">
+        <div class="mic-toggle" id="micToggle">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" id="micIcon">
+            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+            <line x1="12" y1="19" x2="12" y2="23"/>
+            <line x1="8" y1="23" x2="16" y2="23"/>
+          </svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" id="keyboardIcon" style="display:none;">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <line x1="6" y1="8" x2="6.01" y2="8"/>
+            <line x1="10" y1="8" x2="10.01" y2="8"/>
+            <line x1="14" y1="8" x2="14.01" y2="8"/>
+            <line x1="18" y1="8" x2="18.01" y2="8"/>
+            <line x1="8" y1="12" x2="8.01" y2="12"/>
+            <line x1="12" y1="12" x2="12.01" y2="12"/>
+            <line x1="16" y1="12" x2="16.01" y2="12"/>
+            <line x1="6" y1="16" x2="18" y2="16"/>
+          </svg>
+        </div>
+        <div class="chat-send-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"/>
+            <polygon points="22,2 15,22 11,13 2,9"/>
+          </svg>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Media Expand Panel -->
+  <div class="media-panel" id="mediaPanel">
+    <div class="media-panel-grid">
+      <div class="media-panel-item">
+        <div class="media-panel-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+            <circle cx="8.5" cy="8.5" r="1.5"/>
+            <polyline points="21,15 16,10 5,21"/>
+          </svg>
+        </div>
+        <span class="media-panel-label">图片</span>
+      </div>
+      <div class="media-panel-item">
+        <div class="media-panel-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+            <circle cx="12" cy="13" r="4"/>
+          </svg>
+        </div>
+        <span class="media-panel-label">拍摄</span>
+      </div>
+      <div class="media-panel-item">
+        <div class="media-panel-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+            <line x1="12" y1="19" x2="12" y2="23"/>
+            <line x1="8" y1="23" x2="16" y2="23"/>
+          </svg>
+        </div>
+        <span class="media-panel-label">语音</span>
+      </div>
+      <div class="media-panel-item">
+        <div class="media-panel-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="23,7 16,12 23,17"/>
+            <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+          </svg>
+        </div>
+        <span class="media-panel-label">视频</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Call Sheet Overlay -->
+  <div class="call-sheet-overlay" id="callSheetOverlay"></div>
+
+  <!-- Call Sheet (Master-initiated) -->
+  <div class="call-sheet" id="callSheet">
+    <div class="call-sheet-avatar">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+        <circle cx="12" cy="7" r="4"/>
+      </svg>
+    </div>
+    <div class="call-sheet-name">信众 · 李明</div>
+    <div class="call-sheet-actions">
+      <button class="call-sheet-btn voice">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+        语音通话
+      </button>
+      <button class="call-sheet-btn video">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="23,7 16,12 23,17"/>
+          <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+        </svg>
+        视频通话
+      </button>
+    </div>
+    <div class="call-sheet-cancel" id="callSheetCancel">取消</div>
+  </div>
+
+  <!-- Incoming Call Overlay -->
+  <div class="incoming-call-overlay" id="incomingCallOverlay">
+    <div class="incoming-avatar-wrap">
+      <div class="incoming-avatar">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+      </div>
+      <div class="pulse-ring"></div>
+      <div class="pulse-ring"></div>
+      <div class="pulse-ring"></div>
+    </div>
+    <div class="incoming-name">信众 · 李明</div>
+    <div class="incoming-status">来电...</div>
+    <div class="incoming-actions">
+      <!-- Mute -->
+      <div class="incoming-action mute">
+        <div class="incoming-action-circle">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+            <line x1="1" y1="1" x2="23" y2="23"/>
+          </svg>
+        </div>
+        <span class="incoming-action-label">静音</span>
+      </div>
+      <!-- Answer -->
+      <div class="incoming-action answer" id="answerCallBtn">
+        <div class="incoming-action-circle">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+        </div>
+        <span class="incoming-action-label">接听</span>
+      </div>
+      <!-- Hangup -->
+      <div class="incoming-action hangup" id="hangupCallBtn">
+        <div class="incoming-action-circle">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10.68 13.31a16 16 0 0 0 3.41 2.6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7 2 2 0 0 1 1.72 2v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.42 19.42 0 0 1-3.33-2.67m-2.67-3.34a19.42 19.42 0 0 1-2.67-3.33 19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91"/>
+          </svg>
+        </div>
+        <span class="incoming-action-label">挂断</span>
+      </div>
+    </div>
+    <div class="incoming-waiting">来电等待中...</div>
+  </div>
+
+  <script>
+    // Toggle call sheet
+    const toggleCallSheet = document.getElementById('toggleCallSheet');
+    const callSheet = document.getElementById('callSheet');
+    const callSheetOverlay = document.getElementById('callSheetOverlay');
+    const callSheetCancel = document.getElementById('callSheetCancel');
+
+    function openCallSheet() {
+      callSheet.classList.add('show');
+      callSheetOverlay.classList.add('show');
+    }
+    function closeCallSheet() {
+      callSheet.classList.remove('show');
+      callSheetOverlay.classList.remove('show');
+    }
+    toggleCallSheet.addEventListener('click', openCallSheet);
+    callSheetOverlay.addEventListener('click', closeCallSheet);
+    callSheetCancel.addEventListener('click', closeCallSheet);
+
+    // Toggle media panel
+    const toggleMediaPanel = document.getElementById('toggleMediaPanel');
+    const mediaPanel = document.getElementById('mediaPanel');
+    toggleMediaPanel.addEventListener('click', function() {
+      mediaPanel.classList.toggle('show');
+    });
+
+    // Toggle mic/keyboard
+    const micToggle = document.getElementById('micToggle');
+    const micIcon = document.getElementById('micIcon');
+    const keyboardIcon = document.getElementById('keyboardIcon');
+    let isMic = true;
+    micToggle.addEventListener('click', function() {
+      isMic = !isMic;
+      micIcon.style.display = isMic ? 'block' : 'none';
+      keyboardIcon.style.display = isMic ? 'none' : 'block';
+    });
+
+    // Incoming call overlay
+    const demoIncomingBtn = document.getElementById('demoIncomingBtn');
+    const incomingCallOverlay = document.getElementById('incomingCallOverlay');
+    const answerCallBtn = document.getElementById('answerCallBtn');
+    const hangupCallBtn = document.getElementById('hangupCallBtn');
+
+    demoIncomingBtn.addEventListener('click', function() {
+      incomingCallOverlay.classList.add('show');
+    });
+
+    function hideIncomingCall() {
+      incomingCallOverlay.classList.remove('show');
+    }
+
+    answerCallBtn.addEventListener('click', function() {
+      hideIncomingCall();
+      // In a real app: navigate to call screen
+    });
+
+    hangupCallBtn.addEventListener('click', function() {
+      hideIncomingCall();
+    });
+
+    // Close media panel when clicking elsewhere
+    document.addEventListener('click', function(e) {
+      if (mediaPanel.classList.contains('show') &&
+          !mediaPanel.contains(e.target) &&
+          e.target !== toggleMediaPanel &&
+          !toggleMediaPanel.contains(e.target)) {
+        mediaPanel.classList.remove('show');
+      }
+    });
+  </script>
+</body>
+</html>

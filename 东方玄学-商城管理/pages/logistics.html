@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><style>html{color-scheme:dark}</style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="theme-color" content="#1C1210">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>物流管理 - 东方玄学·商城管理台</title>
+  <link rel="stylesheet" href="../shop-admin.css">
+</head>
+<body>
+<div class="admin-layout">
+  <aside class="sidebar">
+    <div class="sidebar-brand"><h1>东方玄学</h1><p>商城管理台</p></div>
+    <nav class="sidebar-nav">
+      <div class="nav-group-title">核心功能</div>
+      <a href="dashboard.html" class="nav-item" data-dom-id="nav-dashboard"><span class="nav-icon">&#9632;</span><span class="nav-label">首页仪表盘</span></a>
+      <a href="product-list.html" class="nav-item" data-dom-id="nav-product"></a>
+      <a href="category-manage.html" class="nav-item" data-dom-id="nav-category"></a>
+      <a href="diy-order-list.html" class="nav-item" data-dom-id="nav-diy-order"><span class="nav-badge">3</span></a>
+      <a href="material-list.html" class="nav-item" data-dom-id="nav-material"></a>
+      <a href="service-list.html" class="nav-item" data-dom-id="nav-extra-service"></a>
+      <div class="nav-group-title">交易管理</div>
+      <a href="order-list.html" class="nav-item" data-dom-id="nav-order"><span class="nav-badge">12</span></a>
+      <a href="logistics.html" class="nav-item active" data-dom-id="nav-logistics"></a>
+      <a href="return-list.html" class="nav-item" data-dom-id="nav-return"><span class="nav-badge">2</span></a>
+      <div class="nav-group-title">运营</div>
+      <a href="report.html" class="nav-item" data-dom-id="nav-report"></a>
+      <a href="settings.html" class="nav-item" data-dom-id="nav-settings"></a>
+    </nav>
+    <div class="sidebar-footer"><a href="../login.html" style="color:rgba(232,222,212,0.5);font-size:12px;">退出登录</a></div>
+  </aside>
+  <main class="main-content">
+    <header class="top-header">
+      <div class="breadcrumb">商城管理台 / <span>物流管理</span></div>
+      <div class="header-right"><div class="header-user"><div class="header-avatar">管</div><span>管理员</span></div></div>
+    </header>
+    <div class="page-content">
+      <h1 class="page-title">物流管理</h1>
+
+      <!-- Express Company -->
+      <div class="card">
+        <div class="card-header">
+          <h3>快递公司管理</h3>
+          <button class="btn btn-primary btn-sm">+ 添加快递公司</button>
+        </div>
+        <div class="table-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>快递公司</th>
+                <th>编码</th>
+                <th>联系电话</th>
+                <th>合作状态</th>
+                <th>累计发货量</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>顺丰速运</strong></td>
+                <td>shunfeng</td>
+                <td>95338</td>
+                <td><span class="badge badge-success">合作中</span></td>
+                <td>1,256</td>
+                <td class="col-actions">
+                  <button class="btn btn-ghost btn-sm">编辑</button>
+                  <button class="btn btn-ghost btn-sm text-danger">停用</button>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>中通快递</strong></td>
+                <td>zhongtong</td>
+                <td>95311</td>
+                <td><span class="badge badge-success">合作中</span></td>
+                <td>2,843</td>
+                <td class="col-actions">
+                  <button class="btn btn-ghost btn-sm">编辑</button>
+                  <button class="btn btn-ghost btn-sm text-danger">停用</button>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>圆通速递</strong></td>
+                <td>yuantong</td>
+                <td>95554</td>
+                <td><span class="badge badge-success">合作中</span></td>
+                <td>1,087</td>
+                <td class="col-actions">
+                  <button class="btn btn-ghost btn-sm">编辑</button>
+                  <button class="btn btn-ghost btn-sm text-danger">停用</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Shipping Templates -->
+      <div class="card">
+        <div class="card-header">
+          <h3>运费模板管理</h3>
+          <button class="btn btn-primary btn-sm">+ 添加运费模板</button>
+        </div>
+        <div class="table-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>模板名称</th>
+                <th>计费方式</th>
+                <th>运费规则</th>
+                <th>适用商品</th>
+                <th>状态</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>标准运费模板</strong></td>
+                <td>按重量计费</td>
+                <td>
+                  <div class="text-sm">首重1kg: ¥8.00<br>续重每kg: ¥3.00</div>
+                </td>
+                <td>法器、配饰、文创</td>
+                <td><span class="badge badge-success">启用</span></td>
+                <td class="col-actions">
+                  <button class="btn btn-ghost btn-sm">编辑</button>
+                  <button class="btn btn-ghost btn-sm text-danger">删除</button>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>满99包邮</strong></td>
+                <td>按件数计费</td>
+                <td>
+                  <div class="text-sm">订单满¥99包邮<br>不满¥99: ¥10.00/件</div>
+                </td>
+                <td>手串、项链</td>
+                <td><span class="badge badge-success">启用</span></td>
+                <td class="col-actions">
+                  <button class="btn btn-ghost btn-sm">编辑</button>
+                  <button class="btn btn-ghost btn-sm text-danger">删除</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

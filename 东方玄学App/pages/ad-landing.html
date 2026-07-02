@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><style>html{color-scheme:dark}</style>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>岁末祈福大典 - 东方玄学</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: { primary: '#1C1210', secondary: '#2A1E1A', tertiary: '#3A2C25', elevated: '#44342C' },
+            brand: { DEFAULT: '#C45A3C', light: '#D4735A', dark: '#A64830', hover: '#D8806A' },
+            gold: { DEFAULT: '#C8A96E', light: '#D4BC8A', dark: '#A88A50' },
+            cinnabar: { DEFAULT: '#B5453A', light: '#CC5A4F' },
+            txt: { primary: '#F0E6DA', secondary: '#C5B097', tertiary: '#8A7A6A' },
+          },
+          fontFamily: {
+            serif: ['"Noto Serif SC"', '"STSong"', '"SimSun"', 'serif'],
+            sans: ['"Noto Sans SC"', '"PingFang SC"', '"Microsoft YaHei"', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <!-- Brand CSS -->
+  <link rel="stylesheet" href="../colors_and_type.css" />
+  <style>
+    /* Page-specific overrides */
+    body { max-width: 375px; margin: 0 auto; padding-bottom: 40px; }
+
+    .hero-gradient {
+      background: linear-gradient(to top, #1C1210 0%, rgba(28, 18, 16, 0.5) 50%, transparent 100%);
+    }
+
+    .gold-divider {
+      height: 1px;
+      background: rgba(200, 169, 110, 0.2);
+    }
+  </style>
+</head>
+<body class="font-sans" style="background-color: #1C1210; color: #F0E6DA;">
+
+  <!-- ===== Hero Image ===== -->
+  <div class="relative w-full" style="height: 300px;">
+    <img
+      src="../assets/ad-landing-hero.jpg"
+      alt="灵隐寺祈福法会"
+      class="w-full h-full object-cover"
+    />
+    <!-- Dark gradient overlay at bottom -->
+    <div class="absolute inset-0 hero-gradient pointer-events-none"></div>
+
+    <!-- Back button (top-left) -->
+    <button
+      data-dom-id="back-home"
+      class="absolute top-4 left-4 z-10 flex items-center justify-center w-9 h-9 rounded-full"
+      style="background: rgba(28, 18, 16, 0.55); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);"
+    >
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ===== Content Area ===== -->
+  <div class="px-5 pt-6">
+
+    <!-- Title -->
+    <h1 class="font-serif text-2xl font-bold text-gold leading-tight">岁末祈福大典</h1>
+
+    <!-- Subtitle -->
+    <p class="mt-2 text-base text-txt-secondary leading-snug">灵隐寺&middot;腊月祈福法会&ensp;福泽万家</p>
+
+    <!-- Divider -->
+    <div class="gold-divider my-4"></div>
+
+    <!-- Body Text (article-style) -->
+    <div class="text-[15px] text-txt-secondary leading-[1.8] tracking-wide" style="text-align: justify;">
+      <p class="mb-4">岁末之际，灵隐寺举办年度盛大祈福法会。由智海法师亲自主持，汇聚四方信众，共修无量功德。</p>
+      <p class="mb-4">法会期间，可预约专属祈福牌位、供灯祈福、写疏文祈福等多项服务。智海法师将以天台宗止观法门，为信众开示修行要义。</p>
+      <p>本次法会限定名额200人，先到先得。预约成功后，将在法会当日收到专属祈福功德回向短信。</p>
+    </div>
+
+    <!-- Info Cards Grid (2 columns) -->
+    <div class="grid grid-cols-2 gap-3 mt-5">
+      <!-- Card 1: 法会时间 -->
+      <div class="rounded-lg p-4 border-gold-subtle" style="background: #2A1E1A;">
+        <div class="flex items-center mb-2">
+          <svg class="mr-1.5" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8A96E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          <span class="text-xs text-txt-tertiary">法会时间</span>
+        </div>
+        <p class="text-[15px] font-bold text-txt-primary leading-snug">腊月廿八至除夕</p>
+      </div>
+
+      <!-- Card 2: 法会地点 -->
+      <div class="rounded-lg p-4 border-gold-subtle" style="background: #2A1E1A;">
+        <div class="flex items-center mb-2">
+          <svg class="mr-1.5" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8A96E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          <span class="text-xs text-txt-tertiary">法会地点</span>
+        </div>
+        <p class="text-[15px] font-bold text-txt-primary leading-snug">灵隐寺大雄宝殿</p>
+      </div>
+
+      <!-- Card 3: 主持法师 -->
+      <div class="rounded-lg p-4 border-gold-subtle" style="background: #2A1E1A;">
+        <div class="flex items-center mb-2">
+          <svg class="mr-1.5" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8A96E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          <span class="text-xs text-txt-tertiary">主持法师</span>
+        </div>
+        <p class="text-[15px] font-bold text-txt-primary leading-snug">智海法师</p>
+      </div>
+
+      <!-- Card 4: 预约名额 -->
+      <div class="rounded-lg p-4 border-gold-subtle" style="background: #2A1E1A;">
+        <div class="flex items-center mb-2">
+          <svg class="mr-1.5" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8A96E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2z"></path>
+            <path d="M12 6v6l4 2"></path>
+            <line x1="4" y1="4" x2="6" y2="6" opacity="0.4"></line>
+          </svg>
+          <span class="text-xs text-txt-tertiary">预约名额</span>
+        </div>
+        <p class="text-[15px] font-bold text-txt-primary leading-snug">仅剩 36 席</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CTA Section ===== -->
+  <div class="px-5 mt-6">
+    <button
+      data-dom-id="cta-booking-temple"
+      class="w-full h-12 rounded-xl text-white text-base font-bold flex items-center justify-center transition-all duration-200"
+      style="background: #B5453A; box-shadow: 0 4px 16px rgba(181, 69, 58, 0.35);"
+      onmouseover="this.style.background='#CC5A4F'"
+      onmouseout="this.style.background='#B5453A'"
+    >
+      立即预约祈福
+    </div>
+    <p class="text-xs text-txt-tertiary text-center mt-3">预约成功后可在线参与</p>
+  </div>
+
+  <!-- ===== Related Recommendations ===== -->
+  <div class="px-5 mt-8 pb-10">
+    <h2 class="text-lg font-bold text-txt-primary mb-3">相关推荐</h2>
+
+    <!-- Recommendation Card 1: 少林寺 -->
+    <div
+      data-dom-id="rec-card-shaolinsi"
+      class="flex items-center gap-3 py-3 cursor-pointer"
+      style="border-bottom: 1px solid rgba(200, 169, 110, 0.08);"
+    >
+      <img
+        src="../assets/temple-card-shaolinsi.jpg"
+        alt="少林寺"
+        class="w-20 h-20 rounded-lg object-cover flex-shrink-0"
+      />
+      <div class="flex-1 min-w-0">
+        <h3 class="text-base font-semibold text-txt-primary truncate">少林寺</h3>
+        <p class="text-xs text-txt-secondary mt-1 truncate">千年古刹&middot;禅宗祖庭</p>
+        <div class="flex items-center mt-1.5">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="#C8A96E" class="mr-0.5">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+          <span class="text-xs text-gold font-medium">4.8</span>
+        </div>
+      </div>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8A7A6A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </div>
+
+    <!-- Recommendation Card 2: 白马寺 -->
+    <div
+      data-dom-id="rec-card-baimasi"
+      class="flex items-center gap-3 py-3 cursor-pointer"
+    >
+      <img
+        src="../assets/temple-card-baimasi.jpg"
+        alt="白马寺"
+        class="w-20 h-20 rounded-lg object-cover flex-shrink-0"
+      />
+      <div class="flex-1 min-w-0">
+        <h3 class="text-base font-semibold text-txt-primary truncate">白马寺</h3>
+        <p class="text-xs text-txt-secondary mt-1 truncate">中国第一古刹</p>
+        <div class="flex items-center mt-1.5">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="#C8A96E" class="mr-0.5">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+          <span class="text-xs text-gold font-medium">4.9</span>
+        </div>
+      </div>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8A7A6A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </div>
+  </div>
+
+</body>
+</html>

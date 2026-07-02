@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><style>html{color-scheme:dark}</style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="theme-color" content="#1C1210">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>东方玄学</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Brand CSS -->
+  <link rel="stylesheet" href="../colors_and_type.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'bg-primary': '#1C1210',
+            'bg-secondary': '#2A1E1A',
+            'bg-tertiary': '#3A2C25',
+            'brand': '#C45A3C',
+            'brand-light': '#D4735A',
+            'brand-dark': '#A64830',
+            'accent': '#C8A96E',
+            'accent-light': '#D4BC8A',
+            'accent-dark': '#A88A50',
+            'cinnabar': '#B5453A',
+            'text-primary': '#F0E6DA',
+            'text-secondary': '#C5B097',
+            'text-tertiary': '#8A7A6A',
+          },
+          fontFamily: {
+            serif: ['Noto Serif SC', 'STSong', 'SimSun', 'serif'],
+            sans: ['Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+
+  <style>
+    /* Page-specific styles */
+    body {
+      max-width: 430px;
+      margin: 0 auto;
+      padding-bottom: 80px;
+      position: relative;
+    }
+
+    /* Banner carousel */
+    .banner-track {
+      display: flex;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .banner-slide {
+      min-width: 100%;
+      position: relative;
+    }
+
+    .banner-slide img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .banner-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(28, 18, 16, 0.7) 0%, rgba(28, 18, 16, 0.1) 60%, transparent 100%);
+      display: flex;
+      align-items: flex-end;
+      padding: 16px;
+      border-radius: 12px;
+    }
+
+    /* Entry cards */
+    .entry-card {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      height: 120px;
+      flex: 1;
+    }
+
+    .entry-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .entry-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(28, 18, 16, 0.65), rgba(28, 18, 16, 0.35));
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    /* Temple card in horizontal scroll */
+    .temple-card {
+      min-width: 180px;
+      flex-shrink: 0;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .temple-card-img {
+      width: 180px;
+      height: 110px;
+      object-fit: cover;
+      border-radius: 8px 8px 0 0;
+      display: block;
+    }
+
+    /* Master card in horizontal scroll */
+    .master-card {
+      min-width: 155px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .master-avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      border: 2px solid #C8A96E;
+      object-fit: cover;
+    }
+
+    /* Bottom tab bar safe area */
+    .tab-bar-safe {
+      padding-bottom: env(safe-area-inset-bottom, 0);
+    }
+
+    /* Dot indicators */
+    .carousel-dots {
+      display: flex;
+      gap: 6px;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    .carousel-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #8A7A6A;
+      transition: width 0.3s ease, border-radius 0.3s ease, background 0.3s ease;
+    }
+
+    .carousel-dot.active {
+      width: 18px;
+      border-radius: 3px;
+      background: #C45A3C;
+    }
+
+    /* Hide scrollbar */
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+</head>
+
+<body class="font-sans" style="background-color: #1C1210; color: #F0E6DA;">
+
+  <!-- ========== 1. HEADER ========== -->
+  <header class="flex items-center justify-between px-4 h-14 sticky top-0 z-50"
+    style="background: rgba(28, 18, 16, 0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);">
+    <h1 class="font-serif text-accent" style="font-size: 24px; font-weight: 600;">东方玄学</h1>
+    <button class="w-9 h-9 rounded-full flex items-center justify-center" style="border: 1.5px solid #C8A96E; background: transparent;">
+      <!-- Search icon -->
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C8A96E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+    </button>
+  </header>
+
+  <!-- ========== 2. BANNER CAROUSEL ========== -->
+  <section class="px-4 mt-3">
+    <div class="overflow-hidden rounded-xl" id="bannerCarousel">
+      <div class="banner-track" id="bannerTrack">
+        <!-- Banner 1 -->
+        <div class="banner-slide" data-dom-id="cta-ad-landing">
+          <img src="../assets/banner-ad-1.jpg" alt="岁末祈福大典" width="180" height="110">
+          <div class="banner-overlay">
+            <span class="text-text-primary font-serif" style="font-size: 18px; font-weight: 600; text-shadow: 0 1px 4px rgba(0,0,0,0.5);">岁末祈福大典</span>
+          </div>
+        </div>
+        <!-- Banner 2 -->
+        <div class="banner-slide" data-dom-id="cta-ad-landing">
+          <img src="../assets/banner-ad-2.jpg" alt="线上祈福 福泽绵长" width="180" height="110">
+          <div class="banner-overlay">
+            <span class="text-text-primary font-serif" style="font-size: 18px; font-weight: 600; text-shadow: 0 1px 4px rgba(0,0,0,0.5);">线上祈福 福泽绵长</span>
+          </div>
+        </div>
+        <!-- Banner 3 -->
+        <div class="banner-slide" data-dom-id="cta-ad-landing">
+          <img src="../assets/banner-ad-3.jpg" alt="雪域修行 心灵之旅" width="180" height="110">
+          <div class="banner-overlay">
+            <span class="text-text-primary font-serif" style="font-size: 18px; font-weight: 600; text-shadow: 0 1px 4px rgba(0,0,0,0.5);">雪域修行 心灵之旅</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Dot indicators -->
+    <div class="carousel-dots" id="carouselDots">
+      <span class="carousel-dot active" data-index="0"></span>
+      <span class="carousel-dot" data-index="1"></span>
+      <span class="carousel-dot" data-index="2"></span>
+    </div>
+  </section>
+
+  <!-- ========== 3. TWO CORE ENTRY CARDS ========== -->
+  <section class="flex gap-3 px-4 mt-4">
+    <!-- Left: 找寺院 -->
+    <a href="temple-list.html" class="entry-card" data-dom-id="nav-temple">
+      <img src="../assets/entry-temple.jpg" alt="找寺院" width="180" height="110">
+      <div class="entry-card-overlay">
+        <!-- Temple icon -->
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C8A96E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 21h18"></path>
+          <path d="M5 21V7l7-4 7 4v14"></path>
+          <path d="M9 21v-6h6v6"></path>
+          <path d="M9 9h.01"></path>
+          <path d="M15 9h.01"></path>
+          <path d="M9 13h.01"></path>
+          <path d="M15 13h.01"></path>
+        </svg>
+        <span class="text-accent font-serif" style="font-size: 16px; font-weight: 600;">找寺院</span>
+      </div>
+    </a>
+    <!-- Right: 找师傅 -->
+    <a href="master-list.html" class="entry-card" data-dom-id="nav-master">
+      <img src="../assets/entry-master.jpg" alt="找师傅" width="180" height="110">
+      <div class="entry-card-overlay">
+        <!-- Person icon -->
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C8A96E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+        <span class="text-accent font-serif" style="font-size: 16px; font-weight: 600;">找师傅</span>
+      </div>
+    </a>
+  </section>
+
+  <!-- ========== 4. HOT SERVICES SECTION ========== -->
+  <section class="mt-4">
+    <div class="flex items-center justify-between px-4 mb-3">
+      <h2 class="font-sans" style="font-size: 17px; font-weight: 600; color: #F0E6DA;">热门服务</h2>
+      <a href="#" class="flex items-center" style="font-size: 13px; color: #C8A96E; text-decoration: none;">更多 ></a>
+    </div>
+    <div class="flex gap-3 px-4 overflow-x-auto" style="scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; -ms-overflow-style: none;">
+
+      <!-- 1. DIY手串 -->
+      <a href="diy-bracelet.html" class="flex flex-col items-center gap-1.5 flex-shrink-0" data-dom-id="cta-diy-bracelet"
+        style="width: 60px; text-decoration: none; cursor: pointer; scroll-snap-align: start;">
+        <div class="flex items-center justify-center rounded-full" style="width: 44px; height: 44px; background: linear-gradient(135deg, rgba(196,90,60,0.2), rgba(200,169,110,0.15)); border: 1px solid rgba(200,169,110,0.12);">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <circle cx="7" cy="12" r="3" stroke="#C45A3C" stroke-width="1.4" fill="none"/>
+            <circle cx="12" cy="10" r="3" stroke="#C8A96E" stroke-width="1.4" fill="none"/>
+            <circle cx="17" cy="12" r="3" stroke="#C45A3C" stroke-width="1.4" fill="none"/>
+            <path d="M4 12 Q12 17 20 12" stroke="rgba(200,169,110,0.5)" stroke-width="0.8" fill="none"/>
+          </svg>
+        </div>
+        <span style="font-size: 11px; font-weight: 500; color: #F0E6DA;">DIY手串</span>
+      </a>
+
+      <!-- 2. 祈福 -->
+      <a href="service-blessing.html" class="flex flex-col items-center gap-1.5 flex-shrink-0" data-dom-id="cta-service-blessing"
+        style="width: 60px; text-decoration: none; cursor: pointer; scroll-snap-align: start;">
+        <div class="flex items-center justify-center rounded-full" style="width: 44px; height: 44px; background: linear-gradient(135deg, rgba(200,169,110,0.18), rgba(168,138,80,0.12)); border: 1px solid rgba(200,169,110,0.12);">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <ellipse cx="12" cy="10" rx="4.5" ry="6.5" stroke="#C8A96E" stroke-width="1.2" fill="none"/>
+            <line x1="7.5" y1="16.5" x2="16.5" y2="16.5" stroke="#C45A3C" stroke-width="1" stroke-linecap="round"/>
+            <path d="M9.5 16.5 L10.5 20 L13.5 20 L14.5 16.5" stroke="#C8A96E" stroke-width="0.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="12" y="12" text-anchor="middle" fill="#C45A3C" font-size="5.5" font-weight="600" font-family="serif">福</text>
+          </svg>
+        </div>
+        <span style="font-size: 11px; font-weight: 500; color: #F0E6DA;">祈福</span>
+      </a>
+
+      <!-- 3. 供灯 -->
+      <a href="service-lamp.html" class="flex flex-col items-center gap-1.5 flex-shrink-0" data-dom-id="cta-service-lamp"
+        style="width: 60px; text-decoration: none; cursor: pointer; scroll-snap-align: start;">
+        <div class="flex items-center justify-center rounded-full" style="width: 44px; height: 44px; background: linear-gradient(135deg, rgba(200,169,110,0.2), rgba(212,188,138,0.1)); border: 1px solid rgba(200,169,110,0.12);">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M12 3 L9 7 L15 7 Z" fill="#C8A96E" opacity="0.6"/>
+            <ellipse cx="12" cy="12" rx="4" ry="5" stroke="#C8A96E" stroke-width="1.2" fill="none"/>
+            <ellipse cx="12" cy="12" rx="2" ry="3" fill="#C45A3C" opacity="0.3"/>
+            <line x1="12" y1="17" x2="12" y2="20" stroke="#C8A96E" stroke-width="1.2"/>
+            <line x1="8" y1="20" x2="16" y2="20" stroke="#C8A96E" stroke-width="1" stroke-linecap="round"/>
+            <circle cx="12" cy="12" r="1" fill="#C8A96E" opacity="0.8"/>
+          </svg>
+        </div>
+        <span style="font-size: 11px; font-weight: 500; color: #F0E6DA;">供灯</span>
+      </a>
+
+      <!-- 4. 上香 -->
+      <a href="service-incense.html" class="flex flex-col items-center gap-1.5 flex-shrink-0" data-dom-id="cta-service-incense"
+        style="width: 60px; text-decoration: none; cursor: pointer; scroll-snap-align: start;">
+        <div class="flex items-center justify-center rounded-full" style="width: 44px; height: 44px; background: linear-gradient(135deg, rgba(196,90,60,0.15), rgba(200,169,110,0.1)); border: 1px solid rgba(200,169,110,0.12);">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <line x1="9" y1="18" x2="9" y2="6" stroke="#C8A96E" stroke-width="1.2" stroke-linecap="round"/>
+            <line x1="12" y1="18" x2="12" y2="4" stroke="#C8A96E" stroke-width="1.2" stroke-linecap="round"/>
+            <line x1="15" y1="18" x2="15" y2="6" stroke="#C8A96E" stroke-width="1.2" stroke-linecap="round"/>
+            <circle cx="9" cy="5" r="0.8" fill="#C45A3C"/>
+            <circle cx="12" cy="3" r="0.8" fill="#C45A3C"/>
+            <circle cx="15" cy="5" r="0.8" fill="#C45A3C"/>
+            <path d="M7 18 Q12 22 17 18" stroke="rgba(200,169,110,0.4)" stroke-width="0.8" fill="none"/>
+            <line x1="6" y1="20" x2="18" y2="20" stroke="#C8A96E" stroke-width="0.8" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span style="font-size: 11px; font-weight: 500; color: #F0E6DA;">上香</span>
+      </a>
+
+      <!-- 5. 还愿 -->
+      <a href="service-vow.html" class="flex flex-col items-center gap-1.5 flex-shrink-0" data-dom-id="cta-service-vow"
+        style="width: 60px; text-decoration: none; cursor: pointer; scroll-snap-align: start;">
+        <div class="flex items-center justify-center rounded-full" style="width: 44px; height: 44px; background: linear-gradient(135deg, rgba(91,140,90,0.15), rgba(200,169,110,0.1)); border: 1px solid rgba(200,169,110,0.12);">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="8" r="4" stroke="#5B8C5A" stroke-width="1.2" fill="none"/>
+            <circle cx="12" cy="8" r="1.5" fill="#C8A96E" opacity="0.6"/>
+            <path d="M8 12 L12 16 L16 12" stroke="#5B8C5A" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="12" y1="16" x2="12" y2="20" stroke="#C8A96E" stroke-width="1" stroke-linecap="round"/>
+            <circle cx="12" cy="20" r="1" fill="#5B8C5A" opacity="0.5"/>
+          </svg>
+        </div>
+        <span style="font-size: 11px; font-weight: 500; color: #F0E6DA;">还愿</span>
+      </a>
+
+      <!-- 6. 超度 -->
+      <a href="service-rite.html" class="flex flex-col items-center gap-1.5 flex-shrink-0" data-dom-id="cta-service-rite"
+        style="width: 60px; text-decoration: none; cursor: pointer; scroll-snap-align: start;">
+        <div class="flex items-center justify-center rounded-full" style="width: 44px; height: 44px; background: linear-gradient(135deg, rgba(140,130,170,0.15), rgba(100,80,140,0.08)); border: 1px solid rgba(200,169,110,0.12);">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M12 3 C12 3 6 9 6 14 C6 17.3 8.7 20 12 20 C15.3 20 18 17.3 18 14 C18 9 12 3 12 3Z" stroke="#8A82AA" stroke-width="1.2" fill="none"/>
+            <path d="M10 14 Q12 10 14 14" stroke="#C8A96E" stroke-width="0.8" fill="none" opacity="0.6"/>
+            <circle cx="12" cy="16" r="1" fill="#8A82AA" opacity="0.4"/>
+          </svg>
+        </div>
+        <span style="font-size: 11px; font-weight: 500; color: #F0E6DA;">超度</span>
+      </a>
+
+      <!-- 7. 开光 -->
+      <a href="service-consecration.html" class="flex flex-col items-center gap-1.5 flex-shrink-0" data-dom-id="cta-service-consecration"
+        style="width: 60px; text-decoration: none; cursor: pointer; scroll-snap-align: start;">
+        <div class="flex items-center justify-center rounded-full" style="width: 44px; height: 44px; background: linear-gradient(135deg, rgba(200,169,110,0.2), rgba(196,90,60,0.12)); border: 1px solid rgba(200,169,110,0.12);">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="6" stroke="#C8A96E" stroke-width="1.2" fill="none"/>
+            <circle cx="12" cy="12" r="2.5" stroke="#C45A3C" stroke-width="1" fill="none"/>
+            <line x1="12" y1="3" x2="12" y2="5" stroke="#C8A96E" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
+            <line x1="12" y1="19" x2="12" y2="21" stroke="#C8A96E" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
+            <line x1="3" y1="12" x2="5" y2="12" stroke="#C8A96E" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
+            <line x1="19" y1="12" x2="21" y2="12" stroke="#C8A96E" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
+            <circle cx="12" cy="12" r="0.8" fill="#C45A3C"/>
+            <line x1="6" y1="6" x2="7.5" y2="7.5" stroke="#C8A96E" stroke-width="0.6" opacity="0.4"/>
+            <line x1="18" y1="6" x2="16.5" y2="7.5" stroke="#C8A96E" stroke-width="0.6" opacity="0.4"/>
+            <line x1="6" y1="18" x2="7.5" y2="16.5" stroke="#C8A96E" stroke-width="0.6" opacity="0.4"/>
+            <line x1="18" y1="18" x2="16.5" y2="16.5" stroke="#C8A96E" stroke-width="0.6" opacity="0.4"/>
+          </svg>
+        </div>
+        <span style="font-size: 11px; font-weight: 500; color: #F0E6DA;">开光</span>
+      </a>
+
+      <!-- 8. 化太岁 -->
+      <a href="service-taisui.html" class="flex flex-col items-center gap-1.5 flex-shrink-0" data-dom-id="cta-service-taisui"
+        style="width: 60px; text-decoration: none; cursor: pointer; scroll-snap-align: start;">
+        <div class="flex items-center justify-center rounded-full" style="width: 44px; height: 44px; background: linear-gradient(135deg, rgba(196,90,60,0.18), rgba(140,100,80,0.12)); border: 1px solid rgba(200,169,110,0.12);">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2 L4 6 V12 C4 16.4 7.4 20.5 12 22 C16.6 20.5 20 16.4 20 12 V6 L12 2Z" stroke="#C45A3C" stroke-width="1.2" fill="none"/>
+            <text x="12" y="14" text-anchor="middle" fill="#C8A96E" font-size="7" font-weight="600" font-family="serif">岁</text>
+            <circle cx="12" cy="6.5" r="0.8" fill="#C45A3C" opacity="0.5"/>
+          </svg>
+        </div>
+        <span style="font-size: 11px; font-weight: 500; color: #F0E6DA;">化太岁</span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ========== 5. HOT TEMPLES SECTION ========== -->
+  <section class="mt-4">
+    <div class="flex items-center px-4 mb-3">
+      <h2 class="font-sans" style="font-size: 17px; font-weight: 600; color: #F0E6DA;">热门寺院</h2>
+    </div>
+    <!-- Horizontal scrollable cards -->
+    <div class="flex gap-3 px-4 overflow-x-auto hide-scrollbar" style="scroll-snap-type: x mandatory;">
+
+      <!-- 白马寺 -->
+      <a href="temple-detail.html" class="temple-card" data-dom-id="link-temple-detail" style="scroll-snap-align: start;">
+        <div class="rounded-lg overflow-hidden" style="background: #2A1E1A; border: 1px solid rgba(200,169,110,0.15);">
+          <div style="position: relative;">
+            <img src="../assets/temple-card-baimasi.jpg" alt="白马寺" class="temple-card-img" width="180" height="110">
+            <span style="position:absolute; top:8px; left:8px; background:rgba(196,90,60,0.85); color:#fff; font-size:10px; padding:2px 8px; border-radius:10px;">汉传佛教</span>
+          </div>
+          <div class="p-2.5">
+            <div class="flex items-center justify-between">
+              <p style="font-size: 14px; font-weight: 600; color: #F0E6DA;">白马寺</p>
+              <span style="font-size: 11px; color: #C8A96E; font-weight: 500;">&#9733; 4.9</span>
+            </div>
+            <div class="flex items-center gap-1 mt-1">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#8A7A6A" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span style="font-size: 11px; color: #8A7A6A;">洛阳·河南</span>
+            </div>
+            <div class="flex items-center justify-between mt-2" style="border-top: 1px solid rgba(200,169,110,0.08); padding-top: 6px;">
+              <span style="font-size: 10px; color: #C5B097;">法事·祈福·供灯·开光</span>
+              <span style="font-size: 10px; color: #C45A3C; font-weight: 500;">5项服务</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- 少林寺 -->
+      <a href="temple-detail.html" class="temple-card" data-dom-id="link-temple-detail" style="scroll-snap-align: start;">
+        <div class="rounded-lg overflow-hidden" style="background: #2A1E1A; border: 1px solid rgba(200,169,110,0.15);">
+          <div style="position: relative;">
+            <img src="../assets/temple-card-shaolinsi.jpg" alt="少林寺" class="temple-card-img" width="180" height="110">
+            <span style="position:absolute; top:8px; left:8px; background:rgba(196,90,60,0.85); color:#fff; font-size:10px; padding:2px 8px; border-radius:10px;">汉传佛教</span>
+          </div>
+          <div class="p-2.5">
+            <div class="flex items-center justify-between">
+              <p style="font-size: 14px; font-weight: 600; color: #F0E6DA;">少林寺</p>
+              <span style="font-size: 11px; color: #C8A96E; font-weight: 500;">&#9733; 4.8</span>
+            </div>
+            <div class="flex items-center gap-1 mt-1">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#8A7A6A" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span style="font-size: 11px; color: #8A7A6A;">登封·河南</span>
+            </div>
+            <div class="flex items-center justify-between mt-2" style="border-top: 1px solid rgba(200,169,110,0.08); padding-top: 6px;">
+              <span style="font-size: 10px; color: #C5B097;">法事·禅修·开光·超度</span>
+              <span style="font-size: 10px; color: #C45A3C; font-weight: 500;">6项服务</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- 灵隐寺 -->
+      <a href="temple-detail.html" class="temple-card" data-dom-id="link-temple-detail" style="scroll-snap-align: start;">
+        <div class="rounded-lg overflow-hidden" style="background: #2A1E1A; border: 1px solid rgba(200,169,110,0.15);">
+          <div style="position: relative;">
+            <img src="../assets/temple-card-lingyinsi.jpg" alt="灵隐寺" class="temple-card-img" width="180" height="110">
+            <span style="position:absolute; top:8px; left:8px; background:rgba(196,90,60,0.85); color:#fff; font-size:10px; padding:2px 8px; border-radius:10px;">汉传佛教</span>
+          </div>
+          <div class="p-2.5">
+            <div class="flex items-center justify-between">
+              <p style="font-size: 14px; font-weight: 600; color: #F0E6DA;">灵隐寺</p>
+              <span style="font-size: 11px; color: #C8A96E; font-weight: 500;">&#9733; 4.9</span>
+            </div>
+            <div class="flex items-center gap-1 mt-1">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#8A7A6A" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span style="font-size: 11px; color: #8A7A6A;">杭州·浙江</span>
+            </div>
+            <div class="flex items-center justify-between mt-2" style="border-top: 1px solid rgba(200,169,110,0.08); padding-top: 6px;">
+              <span style="font-size: 10px; color: #C5B097;">祈福·供灯·开光·法事</span>
+              <span style="font-size: 10px; color: #C45A3C; font-weight: 500;">5项服务</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- 青羊宫 -->
+      <a href="temple-detail.html" class="temple-card" data-dom-id="link-temple-detail" style="scroll-snap-align: start;">
+        <div class="rounded-lg overflow-hidden" style="background: #2A1E1A; border: 1px solid rgba(200,169,110,0.15);">
+          <div style="position: relative;">
+            <img src="../assets/temple-card-qingyanggong.jpg" alt="青羊宫" class="temple-card-img" width="180" height="110">
+            <span style="position:absolute; top:8px; left:8px; background:rgba(158,143,178,0.85); color:#fff; font-size:10px; padding:2px 8px; border-radius:10px;">道教道观</span>
+          </div>
+          <div class="p-2.5">
+            <div class="flex items-center justify-between">
+              <p style="font-size: 14px; font-weight: 600; color: #F0E6DA;">青羊宫</p>
+              <span style="font-size: 11px; color: #C8A96E; font-weight: 500;">&#9733; 4.7</span>
+            </div>
+            <div class="flex items-center gap-1 mt-1">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#8A7A6A" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span style="font-size: 11px; color: #8A7A6A;">成都·四川</span>
+            </div>
+            <div class="flex items-center justify-between mt-2" style="border-top: 1px solid rgba(200,169,110,0.08); padding-top: 6px;">
+              <span style="font-size: 10px; color: #C5B097;">祈福·法事·供灯</span>
+              <span style="font-size: 10px; color: #C45A3C; font-weight: 500;">4项服务</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- 查看更多 -->
+      <a href="temple-list.html" class="temple-card" data-dom-id="cta-temple-list" style="scroll-snap-align: start;">
+        <div class="rounded-lg overflow-hidden flex items-center justify-center" style="background: #2A1E1A; border: 1px solid rgba(200,169,110,0.15); min-width: 80px; height: 200px;">
+          <div class="flex flex-col items-center gap-2">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C45A3C" stroke-width="1.8" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
+            <span style="font-size: 12px; color: #C45A3C;">查看更多</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Spacer for scroll -->
+      <div style="min-width: 16px; flex-shrink: 0;"></div>
+    </div>
+  </section>
+
+  <!-- ========== 5. HOT MASTERS SECTION ========== -->
+  <section class="mt-5">
+    <!-- Section header -->
+    <div class="flex items-center px-4 mb-3">
+      <h2 class="font-sans" style="font-size: 17px; font-weight: 600; color: #F0E6DA;">热门师傅</h2>
+    </div>
+    <!-- Horizontal scrollable cards -->
+    <div class="flex gap-3 px-4 overflow-x-auto hide-scrollbar" style="scroll-snap-type: x mandatory;">
+
+      <!-- 释明远 -->
+      <a href="master-profile.html" class="master-card" data-dom-id="link-master-profile" style="scroll-snap-align: start;">
+        <div class="rounded-xl p-3 flex flex-col items-center" style="background: #2A1E1A; border: 1px solid rgba(200,169,110,0.15); min-width: 155px;">
+          <img src="../assets/master-avatar-shimingyuan.jpg" alt="释明远" class="master-avatar" width="180" height="110">
+          <p style="font-size: 14px; font-weight: 600; color: #F0E6DA;">释明远法师</p>
+          <div class="flex items-center gap-1 flex-wrap justify-center">
+            <span style="font-size: 10px; color: #C8A96E; border: 1px solid rgba(200,169,110,0.25); padding: 1px 6px; border-radius: 8px;">禅宗</span>
+            <span style="font-size: 10px; color: #8A7A6A;">少林寺</span>
+          </div>
+          <div class="flex items-center gap-2 mt-1" style="font-size: 10px; color: #C5B097;">
+            <span>30年修行</span>
+            <span style="color: rgba(200,169,110,0.2);">|</span>
+            <span>12,680人咨询</span>
+          </div>
+          <div class="flex items-center gap-1 mt-0.5">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#C8A96E" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <span style="font-size: 11px; color: #C8A96E; font-weight: 500;">4.9</span>
+          </div>
+          <div class="flex items-center justify-between w-full mt-1" style="border-top: 1px solid rgba(200,169,110,0.08); padding-top: 5px;">
+            <span style="font-size: 10px; color: #C5B097;">禅修·开示</span>
+            <span style="font-size: 11px; color: #C45A3C; font-weight: 600;">¥388起</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 清风道长 -->
+      <a href="master-profile.html" class="master-card" data-dom-id="link-master-profile" style="scroll-snap-align: start;">
+        <div class="rounded-xl p-3 flex flex-col items-center" style="background: #2A1E1A; border: 1px solid rgba(200,169,110,0.15); min-width: 155px;">
+          <img src="../assets/master-avatar-qingfeng.jpg" alt="清风道长" class="master-avatar" width="180" height="110">
+          <p style="font-size: 14px; font-weight: 600; color: #F0E6DA;">清风道长</p>
+          <div class="flex items-center gap-1 flex-wrap justify-center">
+            <span style="font-size: 10px; color: #C8A96E; border: 1px solid rgba(200,169,110,0.25); padding: 1px 6px; border-radius: 8px;">全真派</span>
+            <span style="font-size: 10px; color: #8A7A6A;">白云观</span>
+          </div>
+          <div class="flex items-center gap-2 mt-1" style="font-size: 10px; color: #C5B097;">
+            <span>25年修行</span>
+            <span style="color: rgba(200,169,110,0.2);">|</span>
+            <span>8,320人咨询</span>
+          </div>
+          <div class="flex items-center gap-1 mt-0.5">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#C8A96E" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <span style="font-size: 11px; color: #C8A96E; font-weight: 500;">4.8</span>
+          </div>
+          <div class="flex items-center justify-between w-full mt-1" style="border-top: 1px solid rgba(200,169,110,0.08); padding-top: 5px;">
+            <span style="font-size: 10px; color: #C5B097;">内丹·辟谷</span>
+            <span style="font-size: 11px; color: #C45A3C; font-weight: 600;">¥268起</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 扎西多吉 -->
+      <a href="master-profile.html" class="master-card" data-dom-id="link-master-profile" style="scroll-snap-align: start;">
+        <div class="rounded-xl p-3 flex flex-col items-center" style="background: #2A1E1A; border: 1px solid rgba(200,169,110,0.15); min-width: 155px;">
+          <img src="../assets/master-avatar-zhaxiduoji.jpg" alt="扎西多吉" class="master-avatar" width="180" height="110">
+          <p style="font-size: 14px; font-weight: 600; color: #F0E6DA;">扎西多吉</p>
+          <div class="flex items-center gap-1 flex-wrap justify-center">
+            <span style="font-size: 10px; color: #C8A96E; border: 1px solid rgba(200,169,110,0.25); padding: 1px 6px; border-radius: 8px;">藏密</span>
+            <span style="font-size: 10px; color: #8A7A6A;">大昭寺</span>
+          </div>
+          <div class="flex items-center gap-2 mt-1" style="font-size: 10px; color: #C5B097;">
+            <span>18年修行</span>
+            <span style="color: rgba(200,169,110,0.2);">|</span>
+            <span>5,460人咨询</span>
+          </div>
+          <div class="flex items-center gap-1 mt-0.5">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#C8A96E" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <span style="font-size: 11px; color: #C8A96E; font-weight: 500;">5.0</span>
+          </div>
+          <div class="flex items-center justify-between w-full mt-1" style="border-top: 1px solid rgba(200,169,110,0.08); padding-top: 5px;">
+            <span style="font-size: 10px; color: #C5B097;">灌顶·加持</span>
+            <span style="font-size: 11px; color: #C45A3C; font-weight: 600;">¥458起</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 智海法师 -->
+      <a href="master-profile.html" class="master-card" data-dom-id="link-master-profile" style="scroll-snap-align: start;">
+        <div class="rounded-xl p-3 flex flex-col items-center" style="background: #2A1E1A; border: 1px solid rgba(200,169,110,0.15); min-width: 155px;">
+          <img src="../assets/master-avatar-zhihai.jpg" alt="智海法师" class="master-avatar" width="180" height="110">
+          <p style="font-size: 14px; font-weight: 600; color: #F0E6DA;">智海法师</p>
+          <div class="flex items-center gap-1 flex-wrap justify-center">
+            <span style="font-size: 10px; color: #C8A96E; border: 1px solid rgba(200,169,110,0.25); padding: 1px 6px; border-radius: 8px;">天台宗</span>
+            <span style="font-size: 10px; color: #8A7A6A;">灵隐寺</span>
+          </div>
+          <div class="flex items-center gap-2 mt-1" style="font-size: 10px; color: #C5B097;">
+            <span>22年修行</span>
+            <span style="color: rgba(200,169,110,0.2);">|</span>
+            <span>9,150人咨询</span>
+          </div>
+          <div class="flex items-center gap-1 mt-0.5">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#C8A96E" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <span style="font-size: 11px; color: #C8A96E; font-weight: 500;">4.7</span>
+          </div>
+          <div class="flex items-center justify-between w-full mt-1" style="border-top: 1px solid rgba(200,169,110,0.08); padding-top: 5px;">
+            <span style="font-size: 10px; color: #C5B097;">止观·净土</span>
+            <span style="font-size: 11px; color: #C45A3C; font-weight: 600;">¥328起</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 查看更多 -->
+      <a href="master-list.html" class="master-card" data-dom-id="cta-master-list" style="scroll-snap-align: start;">
+        <div class="rounded-xl flex flex-col items-center justify-center" style="background: #2A1E1A; border: 1px solid rgba(200,169,110,0.15); min-width: 80px; height: 220px;">
+          <div class="flex flex-col items-center gap-2">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C45A3C" stroke-width="1.8" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
+            <span style="font-size: 12px; color: #C45A3C;">查看更多</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Spacer -->
+      <div style="min-width: 16px; flex-shrink: 0;"></div>
+    </div>
+  </section>
+
+  <!-- ========== 6. FIXED BOTTOM TAB BAR (5 Tabs) ========== -->
+  <nav class="nav-bar" style="position: fixed; bottom: 0; left: 0; right: 0; max-width: 430px; margin: 0 auto; padding-bottom: env(safe-area-inset-bottom, 0);">
+    <!-- 首页 (active) -->
+    <a href="home.html" style="flex:1; display:flex; flex-direction:column; align-items:center; gap:2px; text-decoration:none; cursor:pointer;" data-dom-id="nav-home">
+        <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C45A3C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12L5 10M5 10L12 3L19 10M5 10V20C5 20.55 5.45 21 6 21H9M19 10L21 12M19 10V20C19 20.55 18.55 21 18 21H15M9 21C9 21 9 15 12 15C15 15 15 21 15 21M9 21H15"/></svg>
+      <span style="font-size:10px; color:#C45A3C; font-weight:500;">首页</span>
+    </a>
+    <!-- 对话 -->
+    <a href="chat.html" style="flex:1; display:flex; flex-direction:column; align-items:center; gap:2px; text-decoration:none; cursor:pointer;" data-dom-id="nav-chat">
+        <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8A7A6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+      <span style="font-size:10px; color:#8A7A6A;">对话</span>
+    </a>
+    <!-- AI问事 (center, prominent) -->
+    <a href="ai-divination.html" style="flex:1; display:flex; flex-direction:column; align-items:center; gap:2px; text-decoration:none; cursor:pointer;" data-dom-id="nav-ai">
+        <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8A7A6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/><circle cx="12" cy="12" r="1" fill="#8A7A6A" stroke="none"/></svg>
+      <span style="font-size:10px; color:#8A7A6A;">AI问事</span>
+    </a>
+    <!-- 商城 -->
+    <a href="shop.html" style="flex:1; display:flex; flex-direction:column; align-items:center; gap:2px; text-decoration:none; cursor:pointer;" data-dom-id="nav-shop">
+        <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8A7A6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      <span style="font-size:10px; color:#8A7A6A;">商城</span>
+    </a>
+    <!-- 我的 -->
+    <a href="profile.html" style="flex:1; display:flex; flex-direction:column; align-items:center; gap:2px; text-decoration:none; cursor:pointer;" data-dom-id="nav-mine">
+        <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8A7A6A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7V12L15 15"/></svg>
+      <span style="font-size:10px; color:#8A7A6A;">我的</span>
+    </a>
+  </nav>
+
+  <!-- ========== CAROUSEL AUTO-ROTATION SCRIPT ========== -->
+  <script>
+    (function () {
+      const track = document.getElementById('bannerTrack');
+      const dots = document.querySelectorAll('.carousel-dot');
+      const slides = track.children;
+      const totalSlides = slides.length;
+      let currentIndex = 0;
+      let timer = null;
+
+      function goTo(index) {
+        if (index < 0) index = totalSlides - 1;
+        if (index >= totalSlides) index = 0;
+        currentIndex = index;
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('active', i === currentIndex);
+        });
+      }
+
+      function startAutoPlay() {
+        timer = setInterval(() => {
+          goTo(currentIndex + 1);
+        }, 4000);
+      }
+
+      function resetAutoPlay() {
+        clearInterval(timer);
+        startAutoPlay();
+      }
+
+      // Dot click
+      dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+          goTo(parseInt(dot.dataset.index));
+          resetAutoPlay();
+        });
+      });
+
+      // Touch swipe support
+      let startX = 0;
+      let isDragging = false;
+      track.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        isDragging = true;
+        clearInterval(timer);
+      }, { passive: true });
+
+      track.addEventListener('touchend', (e) => {
+        if (!isDragging) return;
+        const endX = e.changedTouches[0].clientX;
+        const diff = startX - endX;
+        if (Math.abs(diff) > 40) {
+          if (diff > 0) {
+            goTo(currentIndex + 1);
+          } else {
+            goTo(currentIndex - 1);
+          }
+        }
+        isDragging = false;
+        startAutoPlay();
+      }, { passive: true });
+
+      // Start
+      startAutoPlay();
+    })();
+  </script>
+
+</body>
+</html>

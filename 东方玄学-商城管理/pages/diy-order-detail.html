@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><style>html{color-scheme:dark}</style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="theme-color" content="#1C1210">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DIY订单详情 - 东方玄学·商城管理台</title>
+  <link rel="stylesheet" href="../shop-admin.css">
+</head>
+<body>
+<div class="admin-layout">
+  <aside class="sidebar">
+    <div class="sidebar-brand"><h1>东方玄学</h1><p>商城管理台</p></div>
+    <nav class="sidebar-nav">
+      <div class="nav-group-title">核心功能</div>
+      <a href="dashboard.html" class="nav-item" data-dom-id="nav-dashboard"></a>
+      <a href="product-list.html" class="nav-item" data-dom-id="nav-product"></a>
+      <a href="category-manage.html" class="nav-item" data-dom-id="nav-category"></a>
+      <a href="diy-order-list.html" class="nav-item active" data-dom-id="nav-diy-order"><span class="nav-badge">3</span></a>
+      <a href="material-list.html" class="nav-item" data-dom-id="nav-material"></a>
+      <a href="service-list.html" class="nav-item" data-dom-id="nav-extra-service"></a>
+      <div class="nav-group-title">交易管理</div>
+      <a href="order-list.html" class="nav-item" data-dom-id="nav-order"><span class="nav-badge">12</span></a>
+      <a href="logistics.html" class="nav-item" data-dom-id="nav-logistics"></a>
+      <a href="return-list.html" class="nav-item" data-dom-id="nav-return"><span class="nav-badge">2</span></a>
+      <div class="nav-group-title">运营</div>
+      <a href="report.html" class="nav-item" data-dom-id="nav-report"></a>
+      <a href="settings.html" class="nav-item" data-dom-id="nav-settings"></a>
+    </nav>
+    <div class="sidebar-footer"><a href="../login.html" style="color:rgba(232,222,212,0.5);font-size:12px;">退出登录</a></div>
+  </aside>
+  <main class="main-content">
+    <header class="top-header">
+      <div class="breadcrumb">商城管理台 / <a href="diy-order-list.html" data-dom-id="back">DIY订单</a> / <span>订单详情</span></div>
+      <div class="header-right"><div class="header-user"><div class="header-avatar">管</div><span>管理员</span></div></div>
+    </header>
+    <div class="page-content">
+      <div class="flex-between mb-24">
+        <h1 class="page-title" style="margin-bottom:0;">DIY订单详情</h1>
+        <a href="diy-order-list.html" class="btn btn-outline">返回列表</a>
+      </div>
+
+      <!-- Status Timeline -->
+      <div class="card">
+        <div class="card-header"><h3>订单状态</h3><span class="badge badge-warning">待审核</span></div>
+        <div class="card-body">
+          <div class="status-steps">
+            <div class="status-step done">
+              <div class="step-dot">&#10003;</div>
+              <div class="step-label">提交订单</div>
+            </div>
+            <div class="status-step active">
+              <div class="step-dot">2</div>
+              <div class="step-label">审核确认</div>
+            </div>
+            <div class="status-step">
+              <div class="step-dot">3</div>
+              <div class="step-label">开始制作</div>
+            </div>
+            <div class="status-step">
+              <div class="step-dot">4</div>
+              <div class="step-label">制作完成</div>
+            </div>
+            <div class="status-step">
+              <div class="step-dot">5</div>
+              <div class="step-label">发货</div>
+            </div>
+            <div class="status-step">
+              <div class="step-dot">6</div>
+              <div class="step-label">完成</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div>
+          <!-- User Info -->
+          <div class="card">
+            <div class="card-header"><h3>用户信息</h3></div>
+            <div class="card-body">
+              <div class="form-row">
+                <div><span class="text-sm text-muted">用户昵称</span><div class="mt-8">李明轩</div></div>
+                <div><span class="text-sm text-muted">手机号</span><div class="mt-8">138****6789</div></div>
+              </div>
+              <div class="form-row mt-16">
+                <div><span class="text-sm text-muted">订单编号</span><div class="mt-8">DIY20260629001</div></div>
+                <div><span class="text-sm text-muted">下单时间</span><div class="mt-8">2026-06-29 09:15:23</div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Material BOM -->
+          <div class="card">
+            <div class="card-header"><h3>材料清单 (BOM)</h3></div>
+            <div class="table-wrapper">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>序号</th>
+                    <th>材料名称</th>
+                    <th>分类</th>
+                    <th>规格</th>
+                    <th>数量</th>
+                    <th>单价</th>
+                    <th>小计</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>
+                      <div class="flex items-center flex-gap-8">
+                        <span class="color-swatch" style="background:#3D1C0A;"></span>
+                        小叶紫檀主珠(8mm)
+                      </div>
+                    </td>
+                    <td>主珠</td>
+                    <td>8mm 圆珠</td>
+                    <td>18颗</td>
+                    <td>¥12.00</td>
+                    <td class="price">¥216.00</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>
+                      <div class="flex items-center flex-gap-8">
+                        <span class="color-swatch" style="background:#C8A96E;"></span>
+                        18K金隔珠(6mm)
+                      </div>
+                    </td>
+                    <td>配珠</td>
+                    <td>6mm 圆珠</td>
+                    <td>4颗</td>
+                    <td>¥28.00</td>
+                    <td class="price">¥112.00</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>
+                      <div class="flex items-center flex-gap-8">
+                        <span class="color-swatch" style="background:#D4A574;"></span>
+                        南红玛瑙佛头
+                      </div>
+                    </td>
+                    <td>佛头</td>
+                    <td>12mm</td>
+                    <td>1个</td>
+                    <td>¥35.00</td>
+                    <td class="price">¥35.00</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>
+                      <div class="flex items-center flex-gap-8">
+                        <span class="color-swatch" style="background:#2D5016;"></span>
+                        绿松石弟子珠(4mm)
+                      </div>
+                    </td>
+                    <td>配珠</td>
+                    <td>4mm 圆珠</td>
+                    <td>6颗</td>
+                    <td>¥8.00</td>
+                    <td class="price">¥48.00</td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>
+                      <div class="flex items-center flex-gap-8">
+                        <span class="color-swatch" style="background:#8B0000;"></span>
+                        朱砂背云
+                      </div>
+                    </td>
+                    <td>配饰</td>
+                    <td>10mm</td>
+                    <td>1个</td>
+                    <td>¥15.00</td>
+                    <td class="price">¥15.00</td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td>
+                      <div class="flex items-center flex-gap-8">
+                        <span class="color-swatch" style="background:#C8A96E;"></span>
+                        18K金流苏
+                      </div>
+                    </td>
+                    <td>配件</td>
+                    <td>标准</td>
+                    <td>1条</td>
+                    <td>¥45.00</td>
+                    <td class="price">¥45.00</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <!-- Bracelet Preview -->
+          <div class="card">
+            <div class="card-header"><h3>手串设计预览</h3></div>
+            <div class="card-body" style="text-align:center;">
+              <svg class="bracelet-preview" viewBox="0 0 200 200">
+                <!-- Outer circle representing bracelet -->
+                <circle cx="100" cy="100" r="85" fill="none" stroke="#3D1C0A" stroke-width="8" opacity="0.3"/>
+                <!-- Beads -->
+                <circle cx="100" cy="15" r="6" fill="#3D1C0A"/>
+                <circle cx="130" cy="22" r="6" fill="#3D1C0A"/>
+                <circle cx="155" cy="45" r="6" fill="#3D1C0A"/>
+                <circle cx="170" cy="75" r="6" fill="#3D1C0A"/>
+                <!-- Gold spacer -->
+                <circle cx="175" cy="100" r="4.5" fill="#C8A96E"/>
+                <!-- More beads -->
+                <circle cx="170" cy="125" r="6" fill="#3D1C0A"/>
+                <circle cx="155" cy="155" r="6" fill="#3D1C0A"/>
+                <circle cx="130" cy="178" r="6" fill="#3D1C0A"/>
+                <!-- Buddha head -->
+                <circle cx="100" cy="185" r="8" fill="#D4A574"/>
+                <!-- More beads -->
+                <circle cx="70" cy="178" r="6" fill="#3D1C0A"/>
+                <circle cx="45" cy="155" r="6" fill="#3D1C0A"/>
+                <circle cx="30" cy="125" r="6" fill="#3D1C0A"/>
+                <!-- Gold spacer -->
+                <circle cx="25" cy="100" r="4.5" fill="#C8A96E"/>
+                <!-- More beads -->
+                <circle cx="30" cy="75" r="6" fill="#3D1C0A"/>
+                <circle cx="45" cy="45" r="6" fill="#3D1C0A"/>
+                <circle cx="70" cy="22" r="6" fill="#3D1C0A"/>
+                <!-- Tassel -->
+                <line x1="100" y1="193" x2="100" y2="198" stroke="#C8A96E" stroke-width="1.5"/>
+                <text x="100" y="115" text-anchor="middle" fill="#8C847A" font-size="10">设计预览</text>
+              </svg>
+              <div class="mt-8">
+                <span class="text-sm text-muted">紫檀转运手串 - 单圈 18颗</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cost Breakdown -->
+          <div class="card">
+            <div class="card-header"><h3>费用明细</h3></div>
+            <div class="card-body">
+              <div class="cost-row">
+                <span class="cost-label">材料成本</span>
+                <span class="cost-value">¥471.00</span>
+              </div>
+              <div class="cost-row">
+                <span class="cost-label">手工费</span>
+                <span class="cost-value">¥50.00</span>
+              </div>
+              <div class="cost-row">
+                <span class="cost-label">灵隐寺开光服务</span>
+                <span class="cost-value">¥168.00</span>
+              </div>
+              <div class="cost-row">
+                <span class="cost-label">运费</span>
+                <span class="cost-value">免运费</span>
+              </div>
+              <div class="cost-row total">
+                <span class="cost-label">订单总价</span>
+                <span class="cost-value">¥689.00</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Extra Service -->
+          <div class="card">
+            <div class="card-header"><h3>额外服务</h3><span class="badge badge-gold">已选</span></div>
+            <div class="card-body">
+              <div class="cost-row">
+                <span class="cost-label">服务名称</span>
+                <span class="cost-value">灵隐寺开光</span>
+              </div>
+              <div class="cost-row">
+                <span class="cost-label">执行寺庙</span>
+                <span class="cost-value">杭州灵隐寺</span>
+              </div>
+              <div class="cost-row">
+                <span class="cost-label">主法法师</span>
+                <span class="cost-value">智海法师</span>
+              </div>
+              <div class="cost-row">
+                <span class="cost-label">服务费用</span>
+                <span class="cost-value price">¥168.00</span>
+              </div>
+              <div class="cost-row">
+                <span class="cost-label">服务时长</span>
+                <span class="cost-value">约1-2个工作日</span>
+              </div>
+              <button class="btn btn-primary" style="margin-top: 12px;">发送加持任务到灵隐寺</button>
+            </div>
+          </div>
+
+          <!-- 加持进度追踪 -->
+          <div class="detail-card" style="background: #fff; border-radius: 10px; padding: 20px; margin-top: 16px;">
+            <h3 style="font-size: 15px; font-weight: 600; color: #2A1E1A; margin-bottom: 12px;">加持进度</h3>
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
+              <div class="badge badge-gold">灵隐寺·开光加持</div>
+              <span style="font-size: 13px; color: #6A5A4A;">智海法师</span>
+              <span class="badge" style="background: #FFF3E0; color: #E65100;">等待加持</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 4px;">
+              <div style="width: 20px; height: 20px; border-radius: 50%; background: #5B8C5A; display: flex; align-items: center; justify-content: center;">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div style="flex: 1; height: 3px; background: #E8E0D8; border-radius: 2px;">
+                <div style="width: 50%; height: 100%; background: #C8A96E; border-radius: 2px;"></div>
+              </div>
+              <div style="width: 20px; height: 20px; border-radius: 50%; background: #E8E0D8; display: flex; align-items: center; justify-content: center;">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#9A8A7A" stroke-width="3"><circle cx="12" cy="12" r="8"/></svg>
+              </div>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-top: 6px; font-size: 11px; color: #9A8A7A;">
+              <span>已发送加持请求</span>
+              <span>加持完成</span>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="card">
+            <div class="card-body">
+              <div class="btn-group" style="flex-direction:column;gap:10px;">
+                <button class="btn btn-primary btn-block btn-lg">审核通过</button>
+                <button class="btn btn-accent btn-block">开始制作</button>
+                <button class="btn btn-success btn-block">确认发货</button>
+                <a href="diy-order-list.html" class="btn btn-outline btn-block">取消</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

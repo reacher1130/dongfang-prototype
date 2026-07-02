@@ -1,0 +1,1510 @@
+{
+  "data": [
+    {
+      "id": "page-login",
+      "title": "登录",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 0,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "login.html",
+        "interactions": [
+          {
+            "domId": "cta-login",
+            "targetPageId": "page-dashboard",
+            "transitionLabel": "登录"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-dashboard",
+      "title": "工作台",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 620,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/dashboard.html",
+        "interactions": [
+          {
+            "domId": "nav-dashboard",
+            "targetPageId": "page-dashboard",
+            "transitionLabel": "仪表盘",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-product",
+            "targetPageId": "page-product-list",
+            "transitionLabel": "商品管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-category",
+            "targetPageId": "page-category-manage",
+            "transitionLabel": "分类管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-diy-order",
+            "targetPageId": "page-diy-order-list",
+            "transitionLabel": "DIY订单",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-material",
+            "targetPageId": "page-material-list",
+            "transitionLabel": "素材管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-extra-service",
+            "targetPageId": "page-service-list",
+            "transitionLabel": "增值服务",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-order",
+            "targetPageId": "page-order-list",
+            "transitionLabel": "订单管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-logistics",
+            "targetPageId": "page-logistics",
+            "transitionLabel": "物流管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-return",
+            "targetPageId": "page-return-list",
+            "transitionLabel": "退货管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-report",
+            "targetPageId": "page-report",
+            "transitionLabel": "数据报表",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-settings",
+            "targetPageId": "page-settings",
+            "transitionLabel": "系统设置",
+            "hideEdge": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-product-list",
+      "title": "商品列表",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 820,
+        "y": 411,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/product-list.html",
+        "interactions": [
+          {
+            "domId": "cta-add-product",
+            "targetPageId": "page-product-edit",
+            "transitionLabel": "product-edit"
+          },
+          {
+            "domId": "row",
+            "targetPageId": "page-product-edit",
+            "transitionLabel": "product-edit"
+          },
+          {
+            "domId": "nav-dashboard",
+            "targetPageId": "page-dashboard",
+            "transitionLabel": "仪表盘",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-product",
+            "targetPageId": "page-product-list",
+            "transitionLabel": "商品管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-category",
+            "targetPageId": "page-category-manage",
+            "transitionLabel": "分类管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-diy-order",
+            "targetPageId": "page-diy-order-list",
+            "transitionLabel": "DIY订单",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-material",
+            "targetPageId": "page-material-list",
+            "transitionLabel": "素材管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-extra-service",
+            "targetPageId": "page-service-list",
+            "transitionLabel": "增值服务",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-order",
+            "targetPageId": "page-order-list",
+            "transitionLabel": "订单管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-logistics",
+            "targetPageId": "page-logistics",
+            "transitionLabel": "物流管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-return",
+            "targetPageId": "page-return-list",
+            "transitionLabel": "退货管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-report",
+            "targetPageId": "page-report",
+            "transitionLabel": "数据报表",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-settings",
+            "targetPageId": "page-settings",
+            "transitionLabel": "系统设置",
+            "hideEdge": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-product-edit",
+      "title": "商品编辑",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 200,
+        "y": 411,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/product-edit.html",
+        "interactions": [
+          {
+            "domId": "back",
+            "targetPageId": "page-product-list",
+            "transitionLabel": "product-list"
+          },
+          {
+            "domId": "nav-dashboard",
+            "targetPageId": "page-dashboard",
+            "transitionLabel": "仪表盘",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-product",
+            "targetPageId": "page-product-list",
+            "transitionLabel": "商品管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-category",
+            "targetPageId": "page-category-manage",
+            "transitionLabel": "分类管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-diy-order",
+            "targetPageId": "page-diy-order-list",
+            "transitionLabel": "DIY订单",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-material",
+            "targetPageId": "page-material-list",
+            "transitionLabel": "素材管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-extra-service",
+            "targetPageId": "page-service-list",
+            "transitionLabel": "增值服务",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-order",
+            "targetPageId": "page-order-list",
+            "transitionLabel": "订单管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-logistics",
+            "targetPageId": "page-logistics",
+            "transitionLabel": "物流管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-return",
+            "targetPageId": "page-return-list",
+            "transitionLabel": "退货管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-report",
+            "targetPageId": "page-report",
+            "transitionLabel": "数据报表",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-settings",
+            "targetPageId": "page-settings",
+            "transitionLabel": "系统设置",
+            "hideEdge": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-category-manage",
+      "title": "分类管理",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 0,
+        "y": 3520,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/category-manage.html",
+        "interactions": [
+          {
+            "domId": "nav-dashboard",
+            "targetPageId": "page-dashboard",
+            "transitionLabel": "仪表盘",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-product",
+            "targetPageId": "page-product-list",
+            "transitionLabel": "商品管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-category",
+            "targetPageId": "page-category-manage",
+            "transitionLabel": "分类管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-diy-order",
+            "targetPageId": "page-diy-order-list",
+            "transitionLabel": "DIY订单",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-material",
+            "targetPageId": "page-material-list",
+            "transitionLabel": "素材管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-extra-service",
+            "targetPageId": "page-service-list",
+            "transitionLabel": "增值服务",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-order",
+            "targetPageId": "page-order-list",
+            "transitionLabel": "订单管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-logistics",
+            "targetPageId": "page-logistics",
+            "transitionLabel": "物流管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-return",
+            "targetPageId": "page-return-list",
+            "transitionLabel": "退货管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-report",
+            "targetPageId": "page-report",
+            "transitionLabel": "数据报表",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-settings",
+            "targetPageId": "page-settings",
+            "transitionLabel": "系统设置",
+            "hideEdge": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-diy-order-list",
+      "title": "DIY定制订单列表",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 820,
+        "y": 1081,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/diy-order-list.html",
+        "interactions": [
+          {
+            "domId": "cta-diy-detail",
+            "targetPageId": "page-diy-order-detail",
+            "transitionLabel": "diy-order-detail"
+          },
+          {
+            "domId": "nav-dashboard",
+            "targetPageId": "page-dashboard",
+            "transitionLabel": "仪表盘",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-product",
+            "targetPageId": "page-product-list",
+            "transitionLabel": "商品管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-category",
+            "targetPageId": "page-category-manage",
+            "transitionLabel": "分类管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-diy-order",
+            "targetPageId": "page-diy-order-list",
+            "transitionLabel": "DIY订单",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-material",
+            "targetPageId": "page-material-list",
+            "transitionLabel": "素材管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-extra-service",
+            "targetPageId": "page-service-list",
+            "transitionLabel": "增值服务",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-order",
+            "targetPageId": "page-order-list",
+            "transitionLabel": "订单管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-logistics",
+            "targetPageId": "page-logistics",
+            "transitionLabel": "物流管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-return",
+            "targetPageId": "page-return-list",
+            "transitionLabel": "退货管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-report",
+            "targetPageId": "page-report",
+            "transitionLabel": "数据报表",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-settings",
+            "targetPageId": "page-settings",
+            "transitionLabel": "系统设置",
+            "hideEdge": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-diy-order-detail",
+      "title": "DIY定制订单详情",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 200,
+        "y": 1081,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/diy-order-detail.html",
+        "interactions": [
+          {
+            "domId": "back",
+            "targetPageId": "page-diy-order-list",
+            "transitionLabel": "diy-order-list"
+          },
+          {
+            "domId": "nav-dashboard",
+            "targetPageId": "page-dashboard",
+            "transitionLabel": "仪表盘",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-product",
+            "targetPageId": "page-product-list",
+            "transitionLabel": "商品管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-category",
+            "targetPageId": "page-category-manage",
+            "transitionLabel": "分类管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-diy-order",
+            "targetPageId": "page-diy-order-list",
+            "transitionLabel": "DIY订单",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-material",
+            "targetPageId": "page-material-list",
+            "transitionLabel": "素材管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-extra-service",
+            "targetPageId": "page-service-list",
+            "transitionLabel": "增值服务",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-order",
+            "targetPageId": "page-order-list",
+            "transitionLabel": "订单管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-logistics",
+            "targetPageId": "page-logistics",
+            "transitionLabel": "物流管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-return",
+            "targetPageId": "page-return-list",
+            "transitionLabel": "退货管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-report",
+            "targetPageId": "page-report",
+            "transitionLabel": "数据报表",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-settings",
+            "targetPageId": "page-settings",
+            "transitionLabel": "系统设置",
+            "hideEdge": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-material-list",
+      "title": "材质列表",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 820,
+        "y": 1727,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/material-list.html",
+        "interactions": [
+          {
+            "domId": "cta-add-material",
+            "targetPageId": "page-material-edit",
+            "transitionLabel": "material-edit"
+          },
+          {
+            "domId": "nav-dashboard",
+            "targetPageId": "page-dashboard",
+            "transitionLabel": "仪表盘",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-product",
+            "targetPageId": "page-product-list",
+            "transitionLabel": "商品管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-category",
+            "targetPageId": "page-category-manage",
+            "transitionLabel": "分类管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-diy-order",
+            "targetPageId": "page-diy-order-list",
+            "transitionLabel": "DIY订单",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-material",
+            "targetPageId": "page-material-list",
+            "transitionLabel": "素材管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-extra-service",
+            "targetPageId": "page-service-list",
+            "transitionLabel": "增值服务",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-order",
+            "targetPageId": "page-order-list",
+            "transitionLabel": "订单管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-logistics",
+            "targetPageId": "page-logistics",
+            "transitionLabel": "物流管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-return",
+            "targetPageId": "page-return-list",
+            "transitionLabel": "退货管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-report",
+            "targetPageId": "page-report",
+            "transitionLabel": "数据报表",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-settings",
+            "targetPageId": "page-settings",
+            "transitionLabel": "系统设置",
+            "hideEdge": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-material-edit",
+      "title": "材质编辑",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 200,
+        "y": 1727,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/material-edit.html",
+        "interactions": [
+          {
+            "domId": "back",
+            "targetPageId": "page-material-list",
+            "transitionLabel": "material-list"
+          },
+          {
+            "domId": "nav-dashboard",
+            "targetPageId": "page-dashboard",
+            "transitionLabel": "仪表盘",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-product",
+            "targetPageId": "page-product-list",
+            "transitionLabel": "商品管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-category",
+            "targetPageId": "page-category-manage",
+            "transitionLabel": "分类管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-diy-order",
+            "targetPageId": "page-diy-order-list",
+            "transitionLabel": "DIY订单",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-material",
+            "targetPageId": "page-material-list",
+            "transitionLabel": "素材管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-extra-service",
+            "targetPageId": "page-service-list",
+            "transitionLabel": "增值服务",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-order",
+            "targetPageId": "page-order-list",
+            "transitionLabel": "订单管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-logistics",
+            "targetPageId": "page-logistics",
+            "transitionLabel": "物流管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-return",
+            "targetPageId": "page-return-list",
+            "transitionLabel": "退货管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-report",
+            "targetPageId": "page-report",
+            "transitionLabel": "数据报表",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-settings",
+            "targetPageId": "page-settings",
+            "transitionLabel": "系统设置",
+            "hideEdge": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-service-list",
+      "title": "增值服务列表",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 820,
+        "y": 2252,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/service-list.html",
+        "interactions": [
+          {
+            "domId": "cta-add-service",
+            "targetPageId": "page-service-edit",
+            "transitionLabel": "service-edit"
+          },
+          {
+            "domId": "nav-dashboard",
+            "targetPageId": "page-dashboard",
+            "transitionLabel": "仪表盘",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-product",
+            "targetPageId": "page-product-list",
+            "transitionLabel": "商品管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-category",
+            "targetPageId": "page-category-manage",
+            "transitionLabel": "分类管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-diy-order",
+            "targetPageId": "page-diy-order-list",
+            "transitionLabel": "DIY订单",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-material",
+            "targetPageId": "page-material-list",
+            "transitionLabel": "素材管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-extra-service",
+            "targetPageId": "page-service-list",
+            "transitionLabel": "增值服务",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-order",
+            "targetPageId": "page-order-list",
+            "transitionLabel": "订单管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-logistics",
+            "targetPageId": "page-logistics",
+            "transitionLabel": "物流管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-return",
+            "targetPageId": "page-return-list",
+            "transitionLabel": "退货管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-report",
+            "targetPageId": "page-report",
+            "transitionLabel": "数据报表",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-settings",
+            "targetPageId": "page-settings",
+            "transitionLabel": "系统设置",
+            "hideEdge": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-service-edit",
+      "title": "增值服务编辑",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 200,
+        "y": 2252,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/service-edit.html",
+        "interactions": [
+          {
+            "domId": "back",
+            "targetPageId": "page-service-list",
+            "transitionLabel": "service-list"
+          },
+          {
+            "domId": "nav-dashboard",
+            "targetPageId": "page-dashboard",
+            "transitionLabel": "仪表盘",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-product",
+            "targetPageId": "page-product-list",
+            "transitionLabel": "商品管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-category",
+            "targetPageId": "page-category-manage",
+            "transitionLabel": "分类管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-diy-order",
+            "targetPageId": "page-diy-order-list",
+            "transitionLabel": "DIY订单",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-material",
+            "targetPageId": "page-material-list",
+            "transitionLabel": "素材管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-extra-service",
+            "targetPageId": "page-service-list",
+            "transitionLabel": "增值服务",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-order",
+            "targetPageId": "page-order-list",
+            "transitionLabel": "订单管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-logistics",
+            "targetPageId": "page-logistics",
+            "transitionLabel": "物流管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-return",
+            "targetPageId": "page-return-list",
+            "transitionLabel": "退货管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-report",
+            "targetPageId": "page-report",
+            "transitionLabel": "数据报表",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-settings",
+            "targetPageId": "page-settings",
+            "transitionLabel": "系统设置",
+            "hideEdge": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-order-list",
+      "title": "订单列表",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 820,
+        "y": 2629,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/order-list.html",
+        "interactions": [
+          {
+            "domId": "cta-order-detail",
+            "targetPageId": "page-order-detail",
+            "transitionLabel": "order-detail"
+          },
+          {
+            "domId": "nav-dashboard",
+            "targetPageId": "page-dashboard",
+            "transitionLabel": "仪表盘",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-product",
+            "targetPageId": "page-product-list",
+            "transitionLabel": "商品管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-category",
+            "targetPageId": "page-category-manage",
+            "transitionLabel": "分类管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-diy-order",
+            "targetPageId": "page-diy-order-list",
+            "transitionLabel": "DIY订单",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-material",
+            "targetPageId": "page-material-list",
+            "transitionLabel": "素材管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-extra-service",
+            "targetPageId": "page-service-list",
+            "transitionLabel": "增值服务",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-order",
+            "targetPageId": "page-order-list",
+            "transitionLabel": "订单管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-logistics",
+            "targetPageId": "page-logistics",
+            "transitionLabel": "物流管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-return",
+            "targetPageId": "page-return-list",
+            "transitionLabel": "退货管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-report",
+            "targetPageId": "page-report",
+            "transitionLabel": "数据报表",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-settings",
+            "targetPageId": "page-settings",
+            "transitionLabel": "系统设置",
+            "hideEdge": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-order-detail",
+      "title": "订单详情",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 200,
+        "y": 2629,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/order-detail.html",
+        "interactions": [
+          {
+            "domId": "back",
+            "targetPageId": "page-order-list",
+            "transitionLabel": "order-list"
+          },
+          {
+            "domId": "nav-dashboard",
+            "targetPageId": "page-dashboard",
+            "transitionLabel": "仪表盘",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-product",
+            "targetPageId": "page-product-list",
+            "transitionLabel": "商品管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-category",
+            "targetPageId": "page-category-manage",
+            "transitionLabel": "分类管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-diy-order",
+            "targetPageId": "page-diy-order-list",
+            "transitionLabel": "DIY订单",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-material",
+            "targetPageId": "page-material-list",
+            "transitionLabel": "素材管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-extra-service",
+            "targetPageId": "page-service-list",
+            "transitionLabel": "增值服务",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-order",
+            "targetPageId": "page-order-list",
+            "transitionLabel": "订单管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-logistics",
+            "targetPageId": "page-logistics",
+            "transitionLabel": "物流管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-return",
+            "targetPageId": "page-return-list",
+            "transitionLabel": "退货管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-report",
+            "targetPageId": "page-report",
+            "transitionLabel": "数据报表",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-settings",
+            "targetPageId": "page-settings",
+            "transitionLabel": "系统设置",
+            "hideEdge": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-logistics",
+      "title": "物流管理",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 620,
+        "y": 3520,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/logistics.html",
+        "interactions": [
+          {
+            "domId": "nav-dashboard",
+            "targetPageId": "page-dashboard",
+            "transitionLabel": "仪表盘",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-product",
+            "targetPageId": "page-product-list",
+            "transitionLabel": "商品管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-category",
+            "targetPageId": "page-category-manage",
+            "transitionLabel": "分类管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-diy-order",
+            "targetPageId": "page-diy-order-list",
+            "transitionLabel": "DIY订单",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-material",
+            "targetPageId": "page-material-list",
+            "transitionLabel": "素材管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-extra-service",
+            "targetPageId": "page-service-list",
+            "transitionLabel": "增值服务",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-order",
+            "targetPageId": "page-order-list",
+            "transitionLabel": "订单管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-logistics",
+            "targetPageId": "page-logistics",
+            "transitionLabel": "物流管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-return",
+            "targetPageId": "page-return-list",
+            "transitionLabel": "退货管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-report",
+            "targetPageId": "page-report",
+            "transitionLabel": "数据报表",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-settings",
+            "targetPageId": "page-settings",
+            "transitionLabel": "系统设置",
+            "hideEdge": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-return-list",
+      "title": "退货列表",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 820,
+        "y": 3091,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/return-list.html",
+        "interactions": [
+          {
+            "domId": "cta-return-detail",
+            "targetPageId": "page-return-detail",
+            "transitionLabel": "return-detail"
+          },
+          {
+            "domId": "nav-dashboard",
+            "targetPageId": "page-dashboard",
+            "transitionLabel": "仪表盘",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-product",
+            "targetPageId": "page-product-list",
+            "transitionLabel": "商品管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-category",
+            "targetPageId": "page-category-manage",
+            "transitionLabel": "分类管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-diy-order",
+            "targetPageId": "page-diy-order-list",
+            "transitionLabel": "DIY订单",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-material",
+            "targetPageId": "page-material-list",
+            "transitionLabel": "素材管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-extra-service",
+            "targetPageId": "page-service-list",
+            "transitionLabel": "增值服务",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-order",
+            "targetPageId": "page-order-list",
+            "transitionLabel": "订单管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-logistics",
+            "targetPageId": "page-logistics",
+            "transitionLabel": "物流管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-return",
+            "targetPageId": "page-return-list",
+            "transitionLabel": "退货管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-report",
+            "targetPageId": "page-report",
+            "transitionLabel": "数据报表",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-settings",
+            "targetPageId": "page-settings",
+            "transitionLabel": "系统设置",
+            "hideEdge": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-return-detail",
+      "title": "退货详情",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 200,
+        "y": 3091,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/return-detail.html",
+        "interactions": [
+          {
+            "domId": "back",
+            "targetPageId": "page-return-list",
+            "transitionLabel": "return-list"
+          },
+          {
+            "domId": "nav-dashboard",
+            "targetPageId": "page-dashboard",
+            "transitionLabel": "仪表盘",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-product",
+            "targetPageId": "page-product-list",
+            "transitionLabel": "商品管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-category",
+            "targetPageId": "page-category-manage",
+            "transitionLabel": "分类管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-diy-order",
+            "targetPageId": "page-diy-order-list",
+            "transitionLabel": "DIY订单",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-material",
+            "targetPageId": "page-material-list",
+            "transitionLabel": "素材管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-extra-service",
+            "targetPageId": "page-service-list",
+            "transitionLabel": "增值服务",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-order",
+            "targetPageId": "page-order-list",
+            "transitionLabel": "订单管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-logistics",
+            "targetPageId": "page-logistics",
+            "transitionLabel": "物流管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-return",
+            "targetPageId": "page-return-list",
+            "transitionLabel": "退货管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-report",
+            "targetPageId": "page-report",
+            "transitionLabel": "数据报表",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-settings",
+            "targetPageId": "page-settings",
+            "transitionLabel": "系统设置",
+            "hideEdge": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-report",
+      "title": "数据报表",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 1240,
+        "y": 3520,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/report.html",
+        "interactions": [
+          {
+            "domId": "nav-dashboard",
+            "targetPageId": "page-dashboard",
+            "transitionLabel": "仪表盘",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-product",
+            "targetPageId": "page-product-list",
+            "transitionLabel": "商品管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-category",
+            "targetPageId": "page-category-manage",
+            "transitionLabel": "分类管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-diy-order",
+            "targetPageId": "page-diy-order-list",
+            "transitionLabel": "DIY订单",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-material",
+            "targetPageId": "page-material-list",
+            "transitionLabel": "素材管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-extra-service",
+            "targetPageId": "page-service-list",
+            "transitionLabel": "增值服务",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-order",
+            "targetPageId": "page-order-list",
+            "transitionLabel": "订单管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-logistics",
+            "targetPageId": "page-logistics",
+            "transitionLabel": "物流管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-return",
+            "targetPageId": "page-return-list",
+            "transitionLabel": "退货管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-report",
+            "targetPageId": "page-report",
+            "transitionLabel": "数据报表",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-settings",
+            "targetPageId": "page-settings",
+            "transitionLabel": "系统设置",
+            "hideEdge": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-settings",
+      "title": "系统设置",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 1860,
+        "y": 3520,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/settings.html",
+        "interactions": [
+          {
+            "domId": "nav-dashboard",
+            "targetPageId": "page-dashboard",
+            "transitionLabel": "仪表盘",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-product",
+            "targetPageId": "page-product-list",
+            "transitionLabel": "商品管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-category",
+            "targetPageId": "page-category-manage",
+            "transitionLabel": "分类管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-diy-order",
+            "targetPageId": "page-diy-order-list",
+            "transitionLabel": "DIY订单",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-material",
+            "targetPageId": "page-material-list",
+            "transitionLabel": "素材管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-extra-service",
+            "targetPageId": "page-service-list",
+            "transitionLabel": "增值服务",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-order",
+            "targetPageId": "page-order-list",
+            "transitionLabel": "订单管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-logistics",
+            "targetPageId": "page-logistics",
+            "transitionLabel": "物流管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-return",
+            "targetPageId": "page-return-list",
+            "transitionLabel": "退货管理",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-report",
+            "targetPageId": "page-report",
+            "transitionLabel": "数据报表",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-settings",
+            "targetPageId": "page-settings",
+            "transitionLabel": "系统设置",
+            "hideEdge": true
+          }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "autoLayout": true,
+    "deviceType": "desktop",
+    "windowSize": {
+      "width": 800,
+      "height": 600
+    }
+  }
+}

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><style>html{color-scheme:dark}</style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="theme-color" content="#1C1210">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>个人资料 - 法师工作台</title>
+  <link rel="stylesheet" href="../master-app.css">
+  <style>
+    .avatar-upload {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 32px 0 24px;
+    }
+    .avatar-upload .avatar-circle {
+      width: 88px;
+      height: 88px;
+      border-radius: var(--radius-full);
+      background: var(--color-card-bg);
+      border: 2px dashed var(--color-border);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      cursor: pointer;
+      position: relative;
+    }
+    .avatar-upload .avatar-circle svg {
+      width: 28px;
+      height: 28px;
+      stroke: var(--color-text-muted);
+    }
+    .avatar-upload .avatar-circle .upload-text {
+      font-size: 10px;
+      color: var(--color-text-muted);
+    }
+    .form-list {
+      margin: 0 16px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+    }
+    .form-list .form-row {
+      padding: 0 16px;
+      background: var(--color-card-bg);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .form-list .form-row:last-child {
+      border-bottom: none;
+    }
+    .form-list .form-row label {
+      display: block;
+      font-size: 13px;
+      color: var(--color-text-secondary);
+      padding: 12px 0 6px;
+    }
+    .form-list .form-row input,
+    .form-list .form-row select,
+    .form-list .form-row textarea {
+      width: 100%;
+      background: transparent;
+      border: none;
+      color: var(--color-text-primary);
+      font-size: 15px;
+      padding-bottom: 12px;
+    }
+    .form-list .form-row input:read-only {
+      color: var(--color-text-muted);
+    }
+    .form-list .form-row select {
+      -webkit-appearance: none;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' stroke='%237A6E62' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline points='9,18 15,12 9,6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0 center;
+      background-size: 16px;
+      padding-right: 20px;
+    }
+    .form-list .form-row textarea {
+      min-height: 80px;
+      resize: none;
+      padding-bottom: 12px;
+      line-height: 1.6;
+    }
+    .save-btn-wrap {
+      padding: 24px 16px;
+    }
+  </style>
+</head>
+<body style="background-color: #1C1210; color: #F0E6DA;">
+  <div class="app-container">
+    <div class="page-no-tabs">
+      <!-- Top Nav -->
+      <div class="top-nav">
+        <a class="nav-back" href="profile.html" data-dom-id="back-profile">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15,18 9,12 15,6"/>
+          </svg>
+        </a>
+        <span class="nav-title">个人资料</span>
+      </div>
+
+      <div class="page-content">
+        <!-- Avatar Upload -->
+        <div class="avatar-upload fade-in">
+          <div class="avatar-circle">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+              <circle cx="8.5" cy="8.5" r="1.5"/>
+              <polyline points="21,15 16,10 5,21"/>
+            </svg>
+            <span class="upload-text">更换头像</span>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <div class="form-list fade-in">
+          <div class="form-row">
+            <label>法号</label>
+            <input type="text" value="智海" readonly class="form-input-readonly" aria-label="输入">
+          </div>
+          <div class="form-row">
+            <label>俗名</label>
+            <input type="text" value="李明远" placeholder="请输入俗名" aria-label="请输入俗名">
+          </div>
+          <div class="form-row">
+            <label>职位</label>
+            <input type="text" value="住持" placeholder="请输入职位" aria-label="请输入职位">
+          </div>
+          <div class="form-row">
+            <label>宗派</label>
+            <select>
+              <option>汉传佛教</option>
+              <option>禅宗</option>
+              <option>净土宗</option>
+              <option>天台宗</option>
+              <option>华严宗</option>
+              <option>密宗</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label>个人简介</label>
+            <textarea placeholder="请输入个人简介">灵隐寺住持，佛学修行三十余年，擅长祈福法会、超度法事等佛事活动。愿以佛法智慧，为信众排忧解难，指引人生方向。</textarea>
+          </div>
+        </div>
+
+        <!-- Save Button -->
+        <div class="save-btn-wrap">
+          <button class="btn-primary w-full">保存修改</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

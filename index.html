@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>东方玄学 - 产品原型总览</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Noto Sans SC', sans-serif;
+      background: #0F0A08;
+      color: #F0E6DA;
+      min-height: 100vh;
+    }
+
+    /* ===== 入口导航页 ===== */
+    .landing { display: flex; flex-direction: column; align-items: center; }
+    .hero {
+      width: 100%; max-width: 960px;
+      padding: 60px 24px 40px; text-align: center;
+    }
+    .hero h1 {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 36px; font-weight: 700;
+      color: #C8A96E; margin-bottom: 12px;
+    }
+    .hero p {
+      font-size: 16px; color: #8A7A6A;
+      line-height: 1.6; max-width: 600px; margin: 0 auto;
+    }
+    .projects {
+      width: 100%; max-width: 960px;
+      padding: 0 24px 80px;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .project-card {
+      background: #1C1210;
+      border: 1px solid rgba(200,169,110,0.12);
+      border-radius: 12px; padding: 28px 24px;
+      cursor: pointer;
+      transition: border-color 0.3s, transform 0.2s;
+      text-decoration: none; color: inherit;
+      display: flex; flex-direction: column;
+    }
+    .project-card:hover {
+      border-color: rgba(200,169,110,0.35);
+      transform: translateY(-2px);
+    }
+    .card-icon {
+      width: 48px; height: 48px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px; flex-shrink: 0;
+    }
+    .card-icon svg { width: 24px; height: 24px; }
+    .card-title {
+      font-size: 18px; font-weight: 700;
+      color: #F0E6DA; margin-bottom: 8px;
+    }
+    .card-desc {
+      font-size: 13px; color: #8A7A6A;
+      line-height: 1.5; flex: 1;
+    }
+    .card-meta {
+      margin-top: 16px; padding-top: 12px;
+      border-top: 1px solid rgba(200,169,110,0.08);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .page-count { font-size: 12px; color: #C5B097; }
+    .card-arrow { color: #C8A96E; font-size: 18px; }
+    .badge {
+      display: inline-block; padding: 2px 8px;
+      border-radius: 6px; font-size: 11px; font-weight: 500;
+    }
+    .badge-c { background: rgba(196,90,60,0.15); color: #C45A3C; }
+    .badge-m { background: rgba(91,140,90,0.15); color: #5B8C5A; }
+    .badge-a { background: rgba(200,169,110,0.15); color: #C8A96E; }
+    .badge-s { background: rgba(100,140,200,0.15); color: #648CC8; }
+    .badge-p { background: rgba(160,100,180,0.15); color: #A064B4; }
+    .badge-w { background: rgba(100,180,200,0.15); color: #64B4C8; }
+    .footer {
+      padding: 20px; text-align: center;
+      font-size: 12px; color: #8A7A6A;
+      border-top: 1px solid rgba(200,169,110,0.06);
+      width: 100%;
+    }
+
+    /* ===== 手机壳展示页 ===== */
+    .viewer { display: none; flex-direction: column; height: 100vh; }
+    .viewer.active { display: flex; }
+    .viewer-header {
+      display: flex; align-items: center; gap: 12px;
+      padding: 12px 20px;
+      background: rgba(28,18,16,0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(200,169,110,0.08);
+      position: sticky; top: 0; z-index: 100;
+    }
+    .viewer-back {
+      background: none; border: 1px solid rgba(200,169,110,0.2);
+      color: #C8A96E; padding: 6px 14px;
+      border-radius: 6px; font-size: 13px;
+      cursor: pointer; font-family: inherit;
+      transition: background 0.2s;
+    }
+    .viewer-back:hover { background: rgba(200,169,110,0.1); }
+    .viewer-title {
+      font-size: 15px; font-weight: 600; color: #F0E6DA;
+    }
+    .viewer-device {
+      flex: 1; display: flex; justify-content: center;
+      align-items: flex-start; padding: 20px 0 40px;
+      overflow: auto;
+    }
+    .phone-frame {
+      width: 390px; height: 844px;
+      border-radius: 40px;
+      border: 3px solid #3A2C25;
+      background: #000;
+      box-shadow: 0 0 0 2px #1C1210, 0 20px 60px rgba(0,0,0,0.5);
+      overflow: hidden;
+      position: relative;
+      flex-shrink: 0;
+    }
+    .phone-frame.is-desktop {
+      width: 100%; max-width: 1280px; height: 100%;
+      border-radius: 12px; border: 1px solid #3A2C25;
+    }
+    .phone-notch {
+      position: absolute; top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 120px; height: 28px;
+      background: #000; border-radius: 0 0 16px 16px;
+      z-index: 10;
+    }
+    .phone-frame.is-desktop .phone-notch { display: none; }
+    .phone-frame iframe {
+      width: 100%; height: 100%;
+      border: none;
+    }
+    .viewer-nav {
+      display: flex; justify-content: center; gap: 8px;
+      padding: 10px 20px 16px;
+      background: rgba(28,18,16,0.95);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(200,169,110,0.08);
+      flex-wrap: wrap;
+    }
+    .viewer-nav button {
+      background: #1C1210; border: 1px solid rgba(200,169,110,0.12);
+      color: #C5B097; padding: 5px 12px;
+      border-radius: 6px; font-size: 12px;
+      cursor: pointer; font-family: inherit;
+      transition: all 0.2s;
+    }
+    .viewer-nav button:hover { background: #2A1E1A; color: #F0E6DA; }
+    .viewer-nav button.active { background: #C45A3C; color: #fff; border-color: #C45A3C; }
+
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 28px; }
+      .hero { padding: 40px 20px 28px; }
+      .projects { padding: 0 16px 60px; gap: 14px; }
+      .project-card { padding: 22px 18px; }
+      .phone-frame {
+        width: 100%; height: 100vh;
+        border-radius: 0; border: none;
+        box-shadow: none;
+      }
+      .phone-notch { display: none; }
+      .viewer-device { padding: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- 入口导航页 -->
+<div class="landing" id="landing">
+  <div class="hero">
+    <h1>东方玄学 · 产品原型</h1>
+    <p>佛教/道教灵修服务一站式平台 — 涵盖 C 端 App、寺院管理、法师工作台、商城管理、平台管理五大产品线</p>
+  </div>
+  <div class="projects">
+    <a class="project-card" onclick="openProject('app', event)">
+      <div class="card-icon" style="background:rgba(196,90,60,0.12);">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#C45A3C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/>
+        </svg>
+      </div>
+      <div class="card-title">东方玄学 App <span class="badge badge-c">C 端</span></div>
+      <div class="card-desc">面向信众的手机应用，涵盖首页、找寺院、找师傅、AI 问事、对话聊天、在线商城、法务预约、DIY 手串等核心功能</div>
+      <div class="card-meta"><span class="page-count">23 个页面</span><span class="card-arrow">→</span></div>
+    </a>
+    <a class="project-card" onclick="openProject('temple', event)">
+      <div class="card-icon" style="background:rgba(200,169,110,0.12);">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#C8A96E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+      </div>
+      <div class="card-title">寺院管理台 <span class="badge badge-a">B 端</span></div>
+      <div class="card-desc">寺院管理员的 Web 后台，管理寺院信息、法师排班、法务配置、预约审核、评价管理、数据报表</div>
+      <div class="card-meta"><span class="page-count">14 个页面</span><span class="card-arrow">→</span></div>
+    </a>
+    <a class="project-card" onclick="openProject('master', event)">
+      <div class="card-icon" style="background:rgba(91,140,90,0.12);">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#5B8C5A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 013 3L7 19l-4 1 1-4z"/>
+        </svg>
+      </div>
+      <div class="card-title">法师工作台 <span class="badge badge-m">B 端</span></div>
+      <div class="card-desc">法师专用的移动端工作台，管理预约日程、加持任务、在线对话、收入统计、评价管理</div>
+      <div class="card-meta"><span class="page-count">16 个页面</span><span class="card-arrow">→</span></div>
+    </a>
+    <a class="project-card" onclick="openProject('shop', event)">
+      <div class="card-icon" style="background:rgba(100,140,200,0.12);">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#648CC8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/>
+        </svg>
+      </div>
+      <div class="card-title">商城管理台 <span class="badge badge-s">B 端</span></div>
+      <div class="card-desc">文创商城管理后台，管理商品上下架、分类、DIY 订单、物流、素材、增值服务、退货、数据报表</div>
+      <div class="card-meta"><span class="page-count">18 个页面</span><span class="card-arrow">→</span></div>
+    </a>
+    <a class="project-card" onclick="openProject('platform', event)">
+      <div class="card-icon" style="background:rgba(160,100,180,0.12);">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#A064B4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/>
+        </svg>
+      </div>
+      <div class="card-title">平台管理台 <span class="badge badge-p">B 端</span></div>
+      <div class="card-desc">平台运营总管理后台，统筹寺院审核、法师审核、用户管理、内容审核、财务结算、营销活动、系统配置</div>
+      <div class="card-meta"><span class="page-count">23 个页面</span><span class="card-arrow">→</span></div>
+    </a>
+  </div>
+  <div class="footer">东方玄学 · 产品原型文档 — 共 5 个产品线 · 94 个页面</div>
+</div>
+
+<!-- 项目查看页（带手机壳） -->
+<div class="viewer" id="viewer">
+  <div class="viewer-header">
+    <button class="viewer-back" onclick="goBack()">← 返回总览</button>
+    <span class="viewer-title" id="viewerTitle"></span>
+  </div>
+  <div class="viewer-device">
+    <div class="phone-frame" id="phoneFrame">
+      <div class="phone-notch"></div>
+      <iframe id="viewerFrame"></iframe>
+    </div>
+  </div>
+  <div class="viewer-nav" id="viewerNav"></div>
+</div>
+
+<script>
+var PROJECTS = {
+  app: {
+    title: '东方玄学 App',
+    dir: '东方玄学App/pages/',
+    desktop: false,
+    pages: [
+      {file:'home.html',label:'首页'},
+      {file:'temple-list.html',label:'找寺院'},
+      {file:'master-list.html',label:'找师傅'},
+      {file:'ai-divination.html',label:'AI问事'},
+      {file:'chat.html',label:'对话'},
+      {file:'chat-detail.html',label:'对话详情'},
+      {file:'shop.html',label:'商城'},
+      {file:'booking.html',label:'预约'},
+      {file:'service-blessing.html',label:'祈福'},
+      {file:'service-consecration.html',label:'开光'},
+      {file:'service-incense.html',label:'上香'},
+      {file:'service-lamp.html',label:'供灯'},
+      {file:'service-rite.html',label:'法事'},
+      {file:'service-taisui.html',label:'化太岁'},
+      {file:'service-vow.html',label:'还愿'},
+      {file:'diy-bracelet.html',label:'DIY手串'},
+      {file:'diy-design.html',label:'DIY设计'},
+      {file:'diy-detail.html',label:'DIY详情'},
+      {file:'diy-order.html',label:'DIY订单'},
+      {file:'temple-detail.html',label:'寺院详情'},
+      {file:'master-profile.html',label:'法师主页'},
+      {file:'profile.html',label:'我的'},
+      {file:'ad-landing.html',label:'活动页'},
+    ]
+  },
+  temple: {
+    title: '寺院管理台',
+    dir: '东方玄学-寺院管理/',
+    desktop: true,
+    pages: [
+      {file:'login.html',label:'登录'},
+      {file:'pages/dashboard.html',label:'仪表盘'},
+      {file:'pages/temple-info.html',label:'寺院信息'},
+      {file:'pages/master-list.html',label:'法师管理'},
+      {file:'pages/master-edit.html',label:'编辑法师'},
+      {file:'pages/service-list.html',label:'法务管理'},
+      {file:'pages/service-edit.html',label:'编辑法务'},
+      {file:'pages/booking-list.html',label:'预约列表'},
+      {file:'pages/booking-detail.html',label:'预约详情'},
+      {file:'pages/blessing-task-list.html',label:'加持任务'},
+      {file:'pages/blessing-task-detail.html',label:'任务详情'},
+      {file:'pages/review-list.html',label:'评价管理'},
+      {file:'pages/report.html',label:'数据报表'},
+      {file:'pages/settings.html',label:'系统设置'},
+    ]
+  },
+  master: {
+    title: '法师工作台',
+    dir: '东方玄学-法师工作台/pages/',
+    desktop: false,
+    pages: [
+      {file:'login.html',label:'登录'},
+      {file:'workspace.html',label:'工作台'},
+      {file:'calendar.html',label:'日程'},
+      {file:'bookings.html',label:'预约列表'},
+      {file:'booking-detail.html',label:'预约详情'},
+      {file:'blessing-tasks.html',label:'加持任务'},
+      {file:'blessing-task-detail.html',label:'任务详情'},
+      {file:'chat.html',label:'对话'},
+      {file:'messages.html',label:'消息'},
+      {file:'profile.html',label:'个人主页'},
+      {file:'profile-edit.html',label:'编辑资料'},
+      {file:'earnings.html',label:'收入统计'},
+      {file:'reviews.html',label:'评价管理'},
+      {file:'skills.html',label:'技能管理'},
+      {file:'pricing.html',label:'定价管理'},
+      {file:'settings.html',label:'设置'},
+    ]
+  },
+  shop: {
+    title: '商城管理台',
+    dir: '东方玄学-商城管理/',
+    desktop: true,
+    pages: [
+      {file:'login.html',label:'登录'},
+      {file:'pages/dashboard.html',label:'仪表盘'},
+      {file:'pages/product-list.html',label:'商品管理'},
+      {file:'pages/product-edit.html',label:'编辑商品'},
+      {file:'pages/category-manage.html',label:'分类管理'},
+      {file:'pages/order-list.html',label:'订单管理'},
+      {file:'pages/order-detail.html',label:'订单详情'},
+      {file:'pages/diy-order-list.html',label:'DIY订单'},
+      {file:'pages/diy-order-detail.html',label:'DIY详情'},
+      {file:'pages/material-list.html',label:'素材库'},
+      {file:'pages/material-edit.html',label:'编辑素材'},
+      {file:'pages/service-list.html',label:'增值服务'},
+      {file:'pages/service-edit.html',label:'编辑服务'},
+      {file:'pages/logistics.html',label:'物流管理'},
+      {file:'pages/return-list.html',label:'退换货'},
+      {file:'pages/return-detail.html',label:'退货详情'},
+      {file:'pages/report.html',label:'数据报表'},
+      {file:'pages/settings.html',label:'系统设置'},
+    ]
+  },
+  platform: {
+    title: '平台管理台',
+    dir: '东方玄学-平台管理/',
+    desktop: true,
+    pages: [
+      {file:'login.html',label:'登录'},
+      {file:'pages/dashboard.html',label:'数据大盘'},
+      {file:'pages/temple-list.html',label:'寺院管理'},
+      {file:'pages/temple-detail.html',label:'寺院详情'},
+      {file:'pages/temple-review.html',label:'寺院审核'},
+      {file:'pages/master-list.html',label:'法师管理'},
+      {file:'pages/master-review.html',label:'法师审核'},
+      {file:'pages/user-list.html',label:'用户管理'},
+      {file:'pages/user-detail.html',label:'用户详情'},
+      {file:'pages/content-design.html',label:'内容设计'},
+      {file:'pages/content-comment.html',label:'评论管理'},
+      {file:'pages/content-report.html',label:'举报管理'},
+      {file:'pages/finance-overview.html',label:'财务总览'},
+      {file:'pages/finance-temple.html',label:'寺院结算'},
+      {file:'pages/finance-master.html',label:'法师结算'},
+      {file:'pages/finance-reconcile.html',label:'对账管理'},
+      {file:'pages/marketing-banner.html',label:'轮播管理'},
+      {file:'pages/marketing-activity.html',label:'活动管理'},
+      {file:'pages/marketing-coupon.html',label:'优惠券'},
+      {file:'pages/settings-role.html',label:'角色权限'},
+      {file:'pages/settings-dict.html',label:'数据字典'},
+      {file:'pages/settings-log.html',label:'操作日志'},
+      {file:'pages/settings-backup.html',label:'备份恢复'},
+    ]
+  }
+};
+
+var currentProject = null;
+var currentPageIdx = 0;
+
+function openProject(key, e) {
+  if (e) e.preventDefault();
+  var proj = PROJECTS[key];
+  currentProject = key;
+  currentPageIdx = 0;
+  document.getElementById('landing').style.display = 'none';
+  document.getElementById('viewer').classList.add('active');
+  document.getElementById('viewerTitle').textContent = proj.title;
+
+  var frame = document.getElementById('phoneFrame');
+  if (proj.desktop) {
+    frame.classList.add('is-desktop');
+  } else {
+    frame.classList.remove('is-desktop');
+  }
+
+  renderNav(proj);
+  loadPage(proj, 0);
+
+  // Warn if opened via file:// protocol (iframe won't work)
+  if (location.protocol === 'file:') {
+    var nav = document.getElementById('viewerNav');
+    var warn = document.createElement('div');
+    warn.style.cssText = 'width:100%;text-align:center;padding:8px 12px;font-size:12px;color:#C45A3C;background:rgba(196,90,60,0.08);border-radius:6px;';
+    warn.textContent = '⚠ 当前通过文件协议打开，部分浏览器可能无法加载 iframe。建议通过 http.server 访问。';
+    nav.parentNode.insertBefore(warn, nav);
+  }
+}
+
+function renderNav(proj) {
+  var nav = document.getElementById('viewerNav');
+  nav.innerHTML = '';
+  proj.pages.forEach(function(p, i) {
+    var btn = document.createElement('button');
+    btn.textContent = p.label;
+    btn.onclick = function() { loadPage(proj, i); };
+    if (i === currentPageIdx) btn.classList.add('active');
+    nav.appendChild(btn);
+  });
+}
+
+function loadPage(proj, idx) {
+  currentPageIdx = idx;
+  var frame = document.getElementById('viewerFrame');
+  frame.src = proj.dir + proj.pages[idx].file;
+  // Update nav active state
+  var btns = document.querySelectorAll('#viewerNav button');
+  btns.forEach(function(b, i) {
+    b.classList.toggle('active', i === idx);
+  });
+}
+
+function goBack() {
+  document.getElementById('viewer').classList.remove('active');
+  document.getElementById('landing').style.display = '';
+  document.getElementById('viewerFrame').src = '';
+  currentProject = null;
+}
+
+// Listen for iframe navigation to sync bottom nav
+var frameEl = document.getElementById('viewerFrame');
+frameEl.addEventListener('load', function() {
+  if (!currentProject) return;
+  var proj = PROJECTS[currentProject];
+  try {
+    var iframePath = frameEl.contentWindow.location.pathname;
+    // Extract filename from path
+    var parts = iframePath.split('/');
+    var filename = parts[parts.length - 1];
+    // Try to match with project pages
+    proj.pages.forEach(function(p, i) {
+      if (p.file === filename) {
+        currentPageIdx = i;
+        var btns = document.querySelectorAll('#viewerNav button');
+        btns.forEach(function(b, j) {
+          b.classList.toggle('active', j === i);
+        });
+      }
+    });
+  } catch(e) {
+    // Cross-origin or sandbox restriction — ignore
+  }
+});
+
+// Keyboard navigation
+document.addEventListener('keydown', function(e) {
+  if (!currentProject) return;
+  var proj = PROJECTS[currentProject];
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+    e.preventDefault();
+    var next = (currentPageIdx + 1) % proj.pages.length;
+    loadPage(proj, next);
+  } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+    e.preventDefault();
+    var prev = (currentPageIdx - 1 + proj.pages.length) % proj.pages.length;
+    loadPage(proj, prev);
+  } else if (e.key === 'Escape') {
+    goBack();
+  }
+});
+</script>
+</body>
+</html>

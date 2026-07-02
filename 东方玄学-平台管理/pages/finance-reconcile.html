@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><style>html{color-scheme:dark}</style>
+<head>
+<meta charset="UTF-8">
+  <meta name="theme-color" content="#1C1210">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>对账管理 - 东方玄学平台管理台</title>
+<link rel="stylesheet" href="../platform-admin.css">
+</head>
+<body>
+<div class="admin-layout">
+  <aside class="sidebar">
+    <div class="sidebar-brand"><h1>东方玄学</h1><div class="brand-sub">平台管理台</div></div>
+    <nav class="sidebar-nav">
+      <div class="nav-group"><a class="nav-group-title" href="dashboard.html" data-dom-id="nav-dashboard"><span class="nav-icon">&#9632;</span>数据大盘</a></div>
+      <div class="nav-group"><div class="nav-group-title" onclick="toggleNav(this)" data-dom-id="nav-temple"><span class="nav-icon">&#9775;</span>运营管理<span class="nav-arrow">&#9654;</span></div><div class="nav-sub"><a href="temple-list.html">寺院管理</a><a href="temple-review.html">寺院审核</a><a href="master-list.html"> data-dom-id="nav-master">法师管理</a><a href="master-review.html">法师认证审核</a></div></div>
+      <div class="nav-group"><div class="nav-group-title" onclick="toggleNav(this)" data-dom-id="nav-user"><span class="nav-icon">&#9787;</span>用户管理<span class="nav-arrow">&#9654;</span></div><div class="nav-sub"><a href="user-list.html">用户列表</a></div></div>
+      <div class="nav-group"><div class="nav-group-title" onclick="toggleNav(this)" data-dom-id="nav-content"><span class="nav-icon">&#9998;</span>内容审核<span class="nav-badge">3</span><span class="nav-arrow">&#9654;</span></div><div class="nav-sub"><a href="content-design.html">设计广场审核</a><a href="content-comment.html">评论审核</a><a href="content-report.html">举报处理</a></div></div>
+      <div class="nav-group"><div class="nav-group-title expanded" onclick="toggleNav(this)" data-dom-id="nav-finance"><span class="nav-icon">&#9733;</span>财务管理<span class="nav-arrow">&#9654;</span></div><div class="nav-sub show"><a href="finance-overview.html">财务总览</a><a href="finance-temple.html">寺院结算</a><a href="finance-master.html">法师结算</a><a href="finance-reconcile.html" class="active">对账管理</a></div></div>
+      <div class="nav-group"><div class="nav-group-title" onclick="toggleNav(this)" data-dom-id="nav-marketing"><span class="nav-icon">&#9830;</span>营销管理<span class="nav-arrow">&#9654;</span></div><div class="nav-sub"><a href="marketing-coupon.html">优惠券管理</a><a href="marketing-banner.html">Banner管理</a><a href="marketing-activity.html">活动管理</a></div></div>
+      <div class="nav-group"><div class="nav-group-title" onclick="toggleNav(this)" data-dom-id="nav-settings"><span class="nav-icon">&#9881;</span>系统设置<span class="nav-arrow">&#9654;</span></div><div class="nav-sub"><a href="settings-role.html">角色权限</a><a href="settings-dict.html">数据字典</a><a href="settings-log.html">操作日志</a><a href="settings-backup.html">数据备份</a></div></div>
+    </nav>
+    <div class="sidebar-footer"><div class="sidebar-user"><div class="user-avatar">管</div><div class="user-info"><div class="user-name">超级管理员</div><div class="user-role">SUPER_ADMIN</div></div><a href="../login.html" class="logout-btn" title="退出">&#x2716;</a></div></div>
+  </aside>
+  <main class="main-content">
+    <div class="topbar"><div class="topbar-breadcrumb">平台管理台 <span class="sep">/</span> 财务管理 <span class="sep">/</span> <span>对账管理</span></div><div class="topbar-actions"><button class="icon-btn notification-dot"> aria-label="通知">&#128276;</button><button class="icon-btn"> aria-label="通知">&#128269;</button></div></div>
+    <div class="page-content">
+      <div class="page-header"><h2>对账管理</h2><div class="page-desc">核对平台订单数据与支付渠道数据</div></div>
+      <div class="filter-bar">
+        <div class="filter-item"><span class="filter-label">开始日期：</span><input type="date" value="2026-06-01" aria-label="输入"></div>
+        <div class="filter-item"><span class="filter-label">结束日期：</span><input type="date" value="2026-06-29" aria-label="输入"></div>
+        <div class="filter-item"><span class="filter-label">支付渠道：</span><select><option>全部渠道</option><option>微信支付</option><option>支付宝</option></select></div>
+        <button class="btn btn-primary btn-sm">开始对账</button>
+        <button class="btn btn-outline btn-sm">导出报表</button>
+      </div>
+      <div class="stat-row">
+        <div class="stat-box"><div class="stat-num">&#165;89,200</div><div class="stat-label">订单总额</div></div>
+        <div class="stat-box"><div class="stat-num">&#165;89,185</div><div class="stat-label">支付渠道总额</div></div>
+        <div class="stat-box"><div class="stat-num" style="color:#E53935;">&#165;15</div><div class="stat-label">差异金额</div></div>
+        <div class="stat-box"><div class="stat-num">2,168</div><div class="stat-label">订单笔数</div></div>
+      </div>
+      <div class="data-table-wrap">
+        <div class="table-header"><h3>对账明细</h3><span class="badge badge-success">差异在允许范围内（&lt;&#165;100）</span></div>
+        <table class="data-table">
+          <thead><tr><th>日期</th><th>订单数</th><th>订单总额</th><th>渠道总额</th><th>差异</th><th>状态</th></tr></thead>
+          <tbody>
+            <tr><td>2026-06-29</td><td>78</td><td>&#165;3,280</td><td>&#165;3,278</td><td>&#165;2</td><td><span class="badge badge-success">一致</span></td></tr>
+            <tr><td>2026-06-28</td><td>82</td><td>&#165;3,560</td><td>&#165;3,558</td><td>&#165;2</td><td><span class="badge badge-success">一致</span></td></tr>
+            <tr><td>2026-06-27</td><td>91</td><td>&#165;3,890</td><td>&#165;3,888</td><td>&#165;2</td><td><span class="badge badge-success">一致</span></td></tr>
+            <tr><td>2026-06-26</td><td>76</td><td>&#165;3,120</td><td>&#165;3,119</td><td>&#165;1</td><td><span class="badge badge-success">一致</span></td></tr>
+            <tr><td>2026-06-25</td><td>85</td><td>&#165;3,450</td><td>&#165;3,448</td><td>&#165;2</td><td><span class="badge badge-success">一致</span></td></tr>
+            <tr><td>2026-06-24</td><td>68</td><td>&#165;2,980</td><td>&#165;2,978</td><td>&#165;2</td><td><span class="badge badge-success">一致</span></td></tr>
+            <tr><td>2026-06-23</td><td>73</td><td>&#165;3,210</td><td>&#165;3,208</td><td>&#165;2</td><td><span class="badge badge-success">一致</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+</div>
+<script>function toggleNav(el){el.classList.toggle('expanded');var sub=el.nextElementSibling;if(sub&&sub.classList.contains('nav-sub')){sub.classList.toggle('show');}}</script>
+</body>
+</html>

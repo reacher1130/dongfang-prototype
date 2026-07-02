@@ -1,0 +1,1011 @@
+{
+  "data": [
+    {
+      "id": "page-login",
+      "title": "登录",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 0,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "login.html",
+        "interactions": [
+          {
+            "domId": "cta-login",
+            "targetPageId": "page-dashboard",
+            "transitionLabel": "登录进入后台"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-dashboard",
+      "title": "仪表盘",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 620,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/dashboard.html",
+        "interactions": [
+          {
+            "domId": "nav-dashboard",
+            "targetPageId": "page-dashboard",
+            "hideEdge": true,
+            "transitionLabel": "仪表盘"
+          },
+          {
+            "domId": "nav-temple",
+            "targetPageId": "page-temple-info",
+            "hideEdge": true,
+            "transitionLabel": "寺院信息"
+          },
+          {
+            "domId": "nav-master",
+            "targetPageId": "page-master-list",
+            "hideEdge": true,
+            "transitionLabel": "法师管理"
+          },
+          {
+            "domId": "nav-service",
+            "targetPageId": "page-service-list",
+            "hideEdge": true,
+            "transitionLabel": "法务管理"
+          },
+          {
+            "domId": "nav-booking",
+            "targetPageId": "page-booking-list",
+            "hideEdge": true,
+            "transitionLabel": "预约管理"
+          },
+          {
+            "domId": "nav-review",
+            "targetPageId": "page-review-list",
+            "hideEdge": true,
+            "transitionLabel": "评价管理"
+          },
+          {
+            "domId": "nav-report",
+            "targetPageId": "page-report",
+            "hideEdge": true,
+            "transitionLabel": "数据报表"
+          },
+          {
+            "domId": "nav-settings",
+            "targetPageId": "page-settings",
+            "hideEdge": true,
+            "transitionLabel": "系统设置"
+          },
+          {
+            "domId": "cta-recent-booking",
+            "targetPageId": "page-booking-detail",
+            "hideEdge": true,
+            "transitionLabel": "查看最近预约"
+          },
+          {
+            "domId": "nav-blessing-task",
+            "targetPageId": "page-blessing-task-list",
+            "hideEdge": true,
+            "transitionLabel": "加持任务"
+          },
+          {
+            "domId": "cta-blessing-task",
+            "targetPageId": "page-blessing-task-list",
+            "hideEdge": true,
+            "transitionLabel": "查看加持任务"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-temple-info",
+      "title": "寺院信息",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 0,
+        "y": 2043,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/temple-info.html",
+        "interactions": [
+          {
+            "domId": "nav-dashboard",
+            "targetPageId": "page-dashboard",
+            "hideEdge": true,
+            "transitionLabel": "仪表盘"
+          },
+          {
+            "domId": "nav-temple",
+            "targetPageId": "page-temple-info",
+            "hideEdge": true,
+            "transitionLabel": "寺院信息"
+          },
+          {
+            "domId": "nav-master",
+            "targetPageId": "page-master-list",
+            "hideEdge": true,
+            "transitionLabel": "法师管理"
+          },
+          {
+            "domId": "nav-service",
+            "targetPageId": "page-service-list",
+            "hideEdge": true,
+            "transitionLabel": "法务管理"
+          },
+          {
+            "domId": "nav-booking",
+            "targetPageId": "page-booking-list",
+            "hideEdge": true,
+            "transitionLabel": "预约管理"
+          },
+          {
+            "domId": "nav-review",
+            "targetPageId": "page-review-list",
+            "hideEdge": true,
+            "transitionLabel": "评价管理"
+          },
+          {
+            "domId": "nav-report",
+            "targetPageId": "page-report",
+            "hideEdge": true,
+            "transitionLabel": "数据报表"
+          },
+          {
+            "domId": "nav-settings",
+            "targetPageId": "page-settings",
+            "hideEdge": true,
+            "transitionLabel": "系统设置"
+          },
+          {
+            "domId": "nav-blessing-task",
+            "targetPageId": "page-blessing-task-list",
+            "hideEdge": true,
+            "transitionLabel": "加持任务"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-master-list",
+      "title": "法师列表",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 0,
+        "y": 452,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/master-list.html",
+        "interactions": [
+          {
+            "domId": "nav-dashboard",
+            "targetPageId": "page-dashboard",
+            "hideEdge": true,
+            "transitionLabel": "仪表盘"
+          },
+          {
+            "domId": "nav-temple",
+            "targetPageId": "page-temple-info",
+            "hideEdge": true,
+            "transitionLabel": "寺院信息"
+          },
+          {
+            "domId": "nav-master",
+            "targetPageId": "page-master-list",
+            "hideEdge": true,
+            "transitionLabel": "法师管理"
+          },
+          {
+            "domId": "nav-service",
+            "targetPageId": "page-service-list",
+            "hideEdge": true,
+            "transitionLabel": "法务管理"
+          },
+          {
+            "domId": "nav-booking",
+            "targetPageId": "page-booking-list",
+            "hideEdge": true,
+            "transitionLabel": "预约管理"
+          },
+          {
+            "domId": "nav-review",
+            "targetPageId": "page-review-list",
+            "hideEdge": true,
+            "transitionLabel": "评价管理"
+          },
+          {
+            "domId": "nav-report",
+            "targetPageId": "page-report",
+            "hideEdge": true,
+            "transitionLabel": "数据报表"
+          },
+          {
+            "domId": "nav-settings",
+            "targetPageId": "page-settings",
+            "hideEdge": true,
+            "transitionLabel": "系统设置"
+          },
+          {
+            "domId": "cta-add-master",
+            "targetPageId": "page-master-edit",
+            "transitionLabel": "添加法师"
+          },
+          {
+            "domId": "nav-blessing-task",
+            "targetPageId": "page-blessing-task-list",
+            "hideEdge": true,
+            "transitionLabel": "加持任务"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-master-edit",
+      "title": "法师编辑",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 620,
+        "y": 452,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/master-edit.html",
+        "interactions": [
+          {
+            "domId": "nav-dashboard",
+            "targetPageId": "page-dashboard",
+            "hideEdge": true,
+            "transitionLabel": "仪表盘"
+          },
+          {
+            "domId": "nav-temple",
+            "targetPageId": "page-temple-info",
+            "hideEdge": true,
+            "transitionLabel": "寺院信息"
+          },
+          {
+            "domId": "nav-master",
+            "targetPageId": "page-master-list",
+            "hideEdge": true,
+            "transitionLabel": "法师管理"
+          },
+          {
+            "domId": "nav-service",
+            "targetPageId": "page-service-list",
+            "hideEdge": true,
+            "transitionLabel": "法务管理"
+          },
+          {
+            "domId": "nav-booking",
+            "targetPageId": "page-booking-list",
+            "hideEdge": true,
+            "transitionLabel": "预约管理"
+          },
+          {
+            "domId": "nav-review",
+            "targetPageId": "page-review-list",
+            "hideEdge": true,
+            "transitionLabel": "评价管理"
+          },
+          {
+            "domId": "nav-report",
+            "targetPageId": "page-report",
+            "hideEdge": true,
+            "transitionLabel": "数据报表"
+          },
+          {
+            "domId": "nav-settings",
+            "targetPageId": "page-settings",
+            "hideEdge": true,
+            "transitionLabel": "系统设置"
+          },
+          {
+            "domId": "back-master-list",
+            "targetPageId": "page-master-list",
+            "hideEdge": true,
+            "transitionLabel": "返回法师列表"
+          },
+          {
+            "domId": "nav-blessing-task",
+            "targetPageId": "page-blessing-task-list",
+            "hideEdge": true,
+            "transitionLabel": "加持任务"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-service-list",
+      "title": "法务列表",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 0,
+        "y": 882,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/service-list.html",
+        "interactions": [
+          {
+            "domId": "nav-dashboard",
+            "targetPageId": "page-dashboard",
+            "hideEdge": true,
+            "transitionLabel": "仪表盘"
+          },
+          {
+            "domId": "nav-temple",
+            "targetPageId": "page-temple-info",
+            "hideEdge": true,
+            "transitionLabel": "寺院信息"
+          },
+          {
+            "domId": "nav-master",
+            "targetPageId": "page-master-list",
+            "hideEdge": true,
+            "transitionLabel": "法师管理"
+          },
+          {
+            "domId": "nav-service",
+            "targetPageId": "page-service-list",
+            "hideEdge": true,
+            "transitionLabel": "法务管理"
+          },
+          {
+            "domId": "nav-booking",
+            "targetPageId": "page-booking-list",
+            "hideEdge": true,
+            "transitionLabel": "预约管理"
+          },
+          {
+            "domId": "nav-review",
+            "targetPageId": "page-review-list",
+            "hideEdge": true,
+            "transitionLabel": "评价管理"
+          },
+          {
+            "domId": "nav-report",
+            "targetPageId": "page-report",
+            "hideEdge": true,
+            "transitionLabel": "数据报表"
+          },
+          {
+            "domId": "nav-settings",
+            "targetPageId": "page-settings",
+            "hideEdge": true,
+            "transitionLabel": "系统设置"
+          },
+          {
+            "domId": "cta-add-service",
+            "targetPageId": "page-service-edit",
+            "transitionLabel": "添加法务"
+          },
+          {
+            "domId": "nav-blessing-task",
+            "targetPageId": "page-blessing-task-list",
+            "hideEdge": true,
+            "transitionLabel": "加持任务"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-service-edit",
+      "title": "法务编辑",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 620,
+        "y": 882,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/service-edit.html",
+        "interactions": [
+          {
+            "domId": "nav-dashboard",
+            "targetPageId": "page-dashboard",
+            "hideEdge": true,
+            "transitionLabel": "仪表盘"
+          },
+          {
+            "domId": "nav-temple",
+            "targetPageId": "page-temple-info",
+            "hideEdge": true,
+            "transitionLabel": "寺院信息"
+          },
+          {
+            "domId": "nav-master",
+            "targetPageId": "page-master-list",
+            "hideEdge": true,
+            "transitionLabel": "法师管理"
+          },
+          {
+            "domId": "nav-service",
+            "targetPageId": "page-service-list",
+            "hideEdge": true,
+            "transitionLabel": "法务管理"
+          },
+          {
+            "domId": "nav-booking",
+            "targetPageId": "page-booking-list",
+            "hideEdge": true,
+            "transitionLabel": "预约管理"
+          },
+          {
+            "domId": "nav-review",
+            "targetPageId": "page-review-list",
+            "hideEdge": true,
+            "transitionLabel": "评价管理"
+          },
+          {
+            "domId": "nav-report",
+            "targetPageId": "page-report",
+            "hideEdge": true,
+            "transitionLabel": "数据报表"
+          },
+          {
+            "domId": "nav-settings",
+            "targetPageId": "page-settings",
+            "hideEdge": true,
+            "transitionLabel": "系统设置"
+          },
+          {
+            "domId": "back-service-list",
+            "targetPageId": "page-service-list",
+            "hideEdge": true,
+            "transitionLabel": "返回法务列表"
+          },
+          {
+            "domId": "nav-blessing-task",
+            "targetPageId": "page-blessing-task-list",
+            "hideEdge": true,
+            "transitionLabel": "加持任务"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-booking-list",
+      "title": "预约列表",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 0,
+        "y": 1617,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/booking-list.html",
+        "interactions": [
+          {
+            "domId": "nav-dashboard",
+            "targetPageId": "page-dashboard",
+            "hideEdge": true,
+            "transitionLabel": "仪表盘"
+          },
+          {
+            "domId": "nav-temple",
+            "targetPageId": "page-temple-info",
+            "hideEdge": true,
+            "transitionLabel": "寺院信息"
+          },
+          {
+            "domId": "nav-master",
+            "targetPageId": "page-master-list",
+            "hideEdge": true,
+            "transitionLabel": "法师管理"
+          },
+          {
+            "domId": "nav-service",
+            "targetPageId": "page-service-list",
+            "hideEdge": true,
+            "transitionLabel": "法务管理"
+          },
+          {
+            "domId": "nav-booking",
+            "targetPageId": "page-booking-list",
+            "hideEdge": true,
+            "transitionLabel": "预约管理"
+          },
+          {
+            "domId": "nav-review",
+            "targetPageId": "page-review-list",
+            "hideEdge": true,
+            "transitionLabel": "评价管理"
+          },
+          {
+            "domId": "nav-report",
+            "targetPageId": "page-report",
+            "hideEdge": true,
+            "transitionLabel": "数据报表"
+          },
+          {
+            "domId": "nav-settings",
+            "targetPageId": "page-settings",
+            "hideEdge": true,
+            "transitionLabel": "系统设置"
+          },
+          {
+            "domId": "cta-booking-detail",
+            "targetPageId": "page-booking-detail",
+            "transitionLabel": "查看预约详情"
+          },
+          {
+            "domId": "nav-blessing-task",
+            "targetPageId": "page-blessing-task-list",
+            "hideEdge": true,
+            "transitionLabel": "加持任务"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-booking-detail",
+      "title": "预约详情",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 620,
+        "y": 1617,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/booking-detail.html",
+        "interactions": [
+          {
+            "domId": "nav-dashboard",
+            "targetPageId": "page-dashboard",
+            "hideEdge": true,
+            "transitionLabel": "仪表盘"
+          },
+          {
+            "domId": "nav-temple",
+            "targetPageId": "page-temple-info",
+            "hideEdge": true,
+            "transitionLabel": "寺院信息"
+          },
+          {
+            "domId": "nav-master",
+            "targetPageId": "page-master-list",
+            "hideEdge": true,
+            "transitionLabel": "法师管理"
+          },
+          {
+            "domId": "nav-service",
+            "targetPageId": "page-service-list",
+            "hideEdge": true,
+            "transitionLabel": "法务管理"
+          },
+          {
+            "domId": "nav-booking",
+            "targetPageId": "page-booking-list",
+            "hideEdge": true,
+            "transitionLabel": "预约管理"
+          },
+          {
+            "domId": "nav-review",
+            "targetPageId": "page-review-list",
+            "hideEdge": true,
+            "transitionLabel": "评价管理"
+          },
+          {
+            "domId": "nav-report",
+            "targetPageId": "page-report",
+            "hideEdge": true,
+            "transitionLabel": "数据报表"
+          },
+          {
+            "domId": "nav-settings",
+            "targetPageId": "page-settings",
+            "hideEdge": true,
+            "transitionLabel": "系统设置"
+          },
+          {
+            "domId": "back-booking-list",
+            "targetPageId": "page-booking-list",
+            "hideEdge": true,
+            "transitionLabel": "返回预约列表"
+          },
+          {
+            "domId": "nav-blessing-task",
+            "targetPageId": "page-blessing-task-list",
+            "hideEdge": true,
+            "transitionLabel": "加持任务"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-review-list",
+      "title": "评价列表",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 620,
+        "y": 2043,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/review-list.html",
+        "interactions": [
+          {
+            "domId": "nav-dashboard",
+            "targetPageId": "page-dashboard",
+            "hideEdge": true,
+            "transitionLabel": "仪表盘"
+          },
+          {
+            "domId": "nav-temple",
+            "targetPageId": "page-temple-info",
+            "hideEdge": true,
+            "transitionLabel": "寺院信息"
+          },
+          {
+            "domId": "nav-master",
+            "targetPageId": "page-master-list",
+            "hideEdge": true,
+            "transitionLabel": "法师管理"
+          },
+          {
+            "domId": "nav-service",
+            "targetPageId": "page-service-list",
+            "hideEdge": true,
+            "transitionLabel": "法务管理"
+          },
+          {
+            "domId": "nav-booking",
+            "targetPageId": "page-booking-list",
+            "hideEdge": true,
+            "transitionLabel": "预约管理"
+          },
+          {
+            "domId": "nav-review",
+            "targetPageId": "page-review-list",
+            "hideEdge": true,
+            "transitionLabel": "评价管理"
+          },
+          {
+            "domId": "nav-report",
+            "targetPageId": "page-report",
+            "hideEdge": true,
+            "transitionLabel": "数据报表"
+          },
+          {
+            "domId": "nav-settings",
+            "targetPageId": "page-settings",
+            "hideEdge": true,
+            "transitionLabel": "系统设置"
+          },
+          {
+            "domId": "nav-blessing-task",
+            "targetPageId": "page-blessing-task-list",
+            "hideEdge": true,
+            "transitionLabel": "加持任务"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-report",
+      "title": "数据报表",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 1240,
+        "y": 2043,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/report.html",
+        "interactions": [
+          {
+            "domId": "nav-dashboard",
+            "targetPageId": "page-dashboard",
+            "hideEdge": true,
+            "transitionLabel": "仪表盘"
+          },
+          {
+            "domId": "nav-temple",
+            "targetPageId": "page-temple-info",
+            "hideEdge": true,
+            "transitionLabel": "寺院信息"
+          },
+          {
+            "domId": "nav-master",
+            "targetPageId": "page-master-list",
+            "hideEdge": true,
+            "transitionLabel": "法师管理"
+          },
+          {
+            "domId": "nav-service",
+            "targetPageId": "page-service-list",
+            "hideEdge": true,
+            "transitionLabel": "法务管理"
+          },
+          {
+            "domId": "nav-booking",
+            "targetPageId": "page-booking-list",
+            "hideEdge": true,
+            "transitionLabel": "预约管理"
+          },
+          {
+            "domId": "nav-review",
+            "targetPageId": "page-review-list",
+            "hideEdge": true,
+            "transitionLabel": "评价管理"
+          },
+          {
+            "domId": "nav-report",
+            "targetPageId": "page-report",
+            "hideEdge": true,
+            "transitionLabel": "数据报表"
+          },
+          {
+            "domId": "nav-settings",
+            "targetPageId": "page-settings",
+            "hideEdge": true,
+            "transitionLabel": "系统设置"
+          },
+          {
+            "domId": "nav-blessing-task",
+            "targetPageId": "page-blessing-task-list",
+            "hideEdge": true,
+            "transitionLabel": "加持任务"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-settings",
+      "title": "系统设置",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 1860,
+        "y": 2043,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/settings.html",
+        "interactions": [
+          {
+            "domId": "nav-dashboard",
+            "targetPageId": "page-dashboard",
+            "hideEdge": true,
+            "transitionLabel": "仪表盘"
+          },
+          {
+            "domId": "nav-temple",
+            "targetPageId": "page-temple-info",
+            "hideEdge": true,
+            "transitionLabel": "寺院信息"
+          },
+          {
+            "domId": "nav-master",
+            "targetPageId": "page-master-list",
+            "hideEdge": true,
+            "transitionLabel": "法师管理"
+          },
+          {
+            "domId": "nav-service",
+            "targetPageId": "page-service-list",
+            "hideEdge": true,
+            "transitionLabel": "法务管理"
+          },
+          {
+            "domId": "nav-booking",
+            "targetPageId": "page-booking-list",
+            "hideEdge": true,
+            "transitionLabel": "预约管理"
+          },
+          {
+            "domId": "nav-review",
+            "targetPageId": "page-review-list",
+            "hideEdge": true,
+            "transitionLabel": "评价管理"
+          },
+          {
+            "domId": "nav-report",
+            "targetPageId": "page-report",
+            "hideEdge": true,
+            "transitionLabel": "数据报表"
+          },
+          {
+            "domId": "nav-settings",
+            "targetPageId": "page-settings",
+            "hideEdge": true,
+            "transitionLabel": "系统设置"
+          },
+          {
+            "domId": "nav-blessing-task",
+            "targetPageId": "page-blessing-task-list",
+            "hideEdge": true,
+            "transitionLabel": "加持任务"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-blessing-task-list",
+      "title": "加持任务列表",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 2480,
+        "y": 2043,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/blessing-task-list.html",
+        "interactions": [
+          {
+            "domId": "nav-dashboard",
+            "targetPageId": "page-dashboard",
+            "hideEdge": true,
+            "transitionLabel": "仪表盘"
+          },
+          {
+            "domId": "nav-temple",
+            "targetPageId": "page-temple-info",
+            "hideEdge": true,
+            "transitionLabel": "寺院信息"
+          },
+          {
+            "domId": "nav-master",
+            "targetPageId": "page-master-list",
+            "hideEdge": true,
+            "transitionLabel": "法师管理"
+          },
+          {
+            "domId": "nav-service",
+            "targetPageId": "page-service-list",
+            "hideEdge": true,
+            "transitionLabel": "法务管理"
+          },
+          {
+            "domId": "nav-booking",
+            "targetPageId": "page-booking-list",
+            "hideEdge": true,
+            "transitionLabel": "预约管理"
+          },
+          {
+            "domId": "nav-blessing-task",
+            "targetPageId": "page-blessing-task-list",
+            "hideEdge": true,
+            "transitionLabel": "加持任务"
+          },
+          {
+            "domId": "nav-review",
+            "targetPageId": "page-review-list",
+            "hideEdge": true,
+            "transitionLabel": "评价管理"
+          },
+          {
+            "domId": "nav-report",
+            "targetPageId": "page-report",
+            "hideEdge": true,
+            "transitionLabel": "数据报表"
+          },
+          {
+            "domId": "nav-settings",
+            "targetPageId": "page-settings",
+            "hideEdge": true,
+            "transitionLabel": "系统设置"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-blessing-task-detail",
+      "title": "加持任务详情",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 3100,
+        "y": 2043,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/blessing-task-detail.html",
+        "interactions": [
+          {
+            "domId": "nav-dashboard",
+            "targetPageId": "page-dashboard",
+            "hideEdge": true,
+            "transitionLabel": "仪表盘"
+          },
+          {
+            "domId": "nav-temple",
+            "targetPageId": "page-temple-info",
+            "hideEdge": true,
+            "transitionLabel": "寺院信息"
+          },
+          {
+            "domId": "nav-master",
+            "targetPageId": "page-master-list",
+            "hideEdge": true,
+            "transitionLabel": "法师管理"
+          },
+          {
+            "domId": "nav-service",
+            "targetPageId": "page-service-list",
+            "hideEdge": true,
+            "transitionLabel": "法务管理"
+          },
+          {
+            "domId": "nav-booking",
+            "targetPageId": "page-booking-list",
+            "hideEdge": true,
+            "transitionLabel": "预约管理"
+          },
+          {
+            "domId": "nav-blessing-task",
+            "targetPageId": "page-blessing-task-list",
+            "hideEdge": true,
+            "transitionLabel": "加持任务"
+          },
+          {
+            "domId": "nav-review",
+            "targetPageId": "page-review-list",
+            "hideEdge": true,
+            "transitionLabel": "评价管理"
+          },
+          {
+            "domId": "nav-report",
+            "targetPageId": "page-report",
+            "hideEdge": true,
+            "transitionLabel": "数据报表"
+          },
+          {
+            "domId": "nav-settings",
+            "targetPageId": "page-settings",
+            "hideEdge": true,
+            "transitionLabel": "系统设置"
+          },
+          {
+            "domId": "back-blessing-task-list",
+            "targetPageId": "page-blessing-task-list",
+            "hideEdge": true,
+            "transitionLabel": "返回加持任务列表"
+          },
+          {
+            "domId": "back-link-blessing-task-list",
+            "targetPageId": "page-blessing-task-list",
+            "hideEdge": true,
+            "transitionLabel": "返回加持任务列表"
+          }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "autoLayout": true,
+    "deviceType": "desktop",
+    "showEdge": true
+  }
+}

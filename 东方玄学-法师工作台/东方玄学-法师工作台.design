@@ -1,0 +1,537 @@
+{
+  "data": [
+    {
+      "id": "page-login",
+      "title": "登录",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 0,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/login.html",
+        "interactions": [
+          {
+            "domId": "cta-login",
+            "targetPageId": "page-workspace",
+            "transitionLabel": "登录",
+            "hideEdge": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-workspace",
+      "title": "工作台",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 420,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/workspace.html",
+        "interactions": [
+          {
+            "domId": "nav-workspace",
+            "targetPageId": "page-workspace",
+            "transitionLabel": "工作台",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-bookings",
+            "targetPageId": "page-bookings",
+            "transitionLabel": "预约列表",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-messages",
+            "targetPageId": "page-messages",
+            "transitionLabel": "消息中心",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-profile",
+            "targetPageId": "page-profile",
+            "transitionLabel": "个人中心",
+            "hideEdge": true
+          },
+          {
+            "domId": "cta-calendar",
+            "targetPageId": "page-calendar",
+            "transitionLabel": "calendar",
+            "hideEdge": false
+          },
+          {
+            "domId": "cta-earnings",
+            "targetPageId": "page-earnings",
+            "transitionLabel": "earnings",
+            "hideEdge": false
+          },
+          {
+            "domId": "cta-today-booking",
+            "targetPageId": "page-booking-detail",
+            "transitionLabel": "booking-detail",
+            "hideEdge": false
+          },
+          {
+            "domId": "cta-blessing-tasks",
+            "targetPageId": "page-blessing-tasks",
+            "transitionLabel": "blessing-tasks",
+            "hideEdge": false
+          },
+          {
+            "domId": "cta-blessing-task-detail",
+            "targetPageId": "page-blessing-task-detail",
+            "transitionLabel": "blessing-task-detail",
+            "hideEdge": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-blessing-tasks",
+      "title": "加持任务",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 840,
+        "y": 2050,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/blessing-tasks.html",
+        "interactions": [
+          {
+            "domId": "back-workspace",
+            "targetPageId": "page-workspace",
+            "transitionLabel": "返回工作台",
+            "hideEdge": true
+          },
+          {
+            "domId": "cta-blessing-task-detail",
+            "targetPageId": "page-blessing-task-detail",
+            "transitionLabel": "blessing-task-detail",
+            "hideEdge": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-blessing-task-detail",
+      "title": "加持任务详情",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 1260,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/blessing-task-detail.html",
+        "interactions": [
+          {
+            "domId": "back-blessing-tasks",
+            "targetPageId": "page-blessing-tasks",
+            "transitionLabel": "返回加持任务",
+            "hideEdge": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-calendar",
+      "title": "日历",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 840,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/calendar.html",
+        "interactions": [
+          {
+            "domId": "back-workspace",
+            "targetPageId": "page-workspace",
+            "transitionLabel": "返回工作台",
+            "hideEdge": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-bookings",
+      "title": "预约管理",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 420,
+        "y": 590,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/bookings.html",
+        "interactions": [
+          {
+            "domId": "nav-workspace",
+            "targetPageId": "page-workspace",
+            "transitionLabel": "工作台",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-bookings",
+            "targetPageId": "page-bookings",
+            "transitionLabel": "预约列表",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-messages",
+            "targetPageId": "page-messages",
+            "transitionLabel": "消息中心",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-profile",
+            "targetPageId": "page-profile",
+            "transitionLabel": "个人中心",
+            "hideEdge": true
+          },
+          {
+            "domId": "cta-booking-detail",
+            "targetPageId": "page-booking-detail",
+            "transitionLabel": "booking-detail",
+            "hideEdge": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-booking-detail",
+      "title": "预约详情",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 840,
+        "y": 1378,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/booking-detail.html",
+        "interactions": [
+          {
+            "domId": "back-bookings",
+            "targetPageId": "page-bookings",
+            "transitionLabel": "返回预约列表",
+            "hideEdge": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-messages",
+      "title": "消息",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 0,
+        "y": 4191,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/messages.html",
+        "interactions": [
+          {
+            "domId": "nav-workspace",
+            "targetPageId": "page-workspace",
+            "transitionLabel": "工作台",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-bookings",
+            "targetPageId": "page-bookings",
+            "transitionLabel": "预约列表",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-messages",
+            "targetPageId": "page-messages",
+            "transitionLabel": "消息中心",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-profile",
+            "targetPageId": "page-profile",
+            "transitionLabel": "个人中心",
+            "hideEdge": true
+          },
+          {
+            "domId": "cta-chat",
+            "targetPageId": "page-chat",
+            "transitionLabel": "chat",
+            "hideEdge": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-chat",
+      "title": "聊天",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 420,
+        "y": 4191,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/chat.html",
+        "interactions": [
+          {
+            "domId": "back-messages",
+            "targetPageId": "page-messages",
+            "transitionLabel": "返回消息列表",
+            "hideEdge": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-profile",
+      "title": "个人主页",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 0,
+        "y": 590,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/profile.html",
+        "interactions": [
+          {
+            "domId": "nav-workspace",
+            "targetPageId": "page-workspace",
+            "transitionLabel": "工作台",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-bookings",
+            "targetPageId": "page-bookings",
+            "transitionLabel": "预约列表",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-messages",
+            "targetPageId": "page-messages",
+            "transitionLabel": "消息中心",
+            "hideEdge": true
+          },
+          {
+            "domId": "nav-profile",
+            "targetPageId": "page-profile",
+            "transitionLabel": "个人中心",
+            "hideEdge": true
+          },
+          {
+            "domId": "cta-earnings",
+            "targetPageId": "page-earnings",
+            "transitionLabel": "earnings",
+            "hideEdge": false
+          },
+          {
+            "domId": "cta-profile-edit",
+            "targetPageId": "page-profile-edit",
+            "transitionLabel": "profile-edit",
+            "hideEdge": false
+          },
+          {
+            "domId": "cta-reviews",
+            "targetPageId": "page-reviews",
+            "transitionLabel": "reviews",
+            "hideEdge": false
+          },
+          {
+            "domId": "cta-pricing",
+            "targetPageId": "page-pricing",
+            "transitionLabel": "pricing",
+            "hideEdge": false
+          },
+          {
+            "domId": "cta-skills",
+            "targetPageId": "page-skills",
+            "transitionLabel": "skills",
+            "hideEdge": false
+          },
+          {
+            "domId": "cta-settings",
+            "targetPageId": "page-settings",
+            "transitionLabel": "settings",
+            "hideEdge": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-earnings",
+      "title": "收益",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 840,
+        "y": 633,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/earnings.html",
+        "interactions": [
+          {
+            "domId": "back-profile",
+            "targetPageId": "page-profile",
+            "transitionLabel": "返回个人中心",
+            "hideEdge": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-profile-edit",
+      "title": "编辑资料",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 420,
+        "y": 1180,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/profile-edit.html",
+        "interactions": [
+          {
+            "domId": "back-profile",
+            "targetPageId": "page-profile",
+            "transitionLabel": "返回个人中心",
+            "hideEdge": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-reviews",
+      "title": "评价管理",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 420,
+        "y": 1770,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/reviews.html",
+        "interactions": [
+          {
+            "domId": "back-profile",
+            "targetPageId": "page-profile",
+            "transitionLabel": "返回个人中心",
+            "hideEdge": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-pricing",
+      "title": "定价管理",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 420,
+        "y": 2421,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/pricing.html",
+        "interactions": [
+          {
+            "domId": "back-profile",
+            "targetPageId": "page-profile",
+            "transitionLabel": "返回个人中心",
+            "hideEdge": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-skills",
+      "title": "技能管理",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 420,
+        "y": 3011,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/skills.html",
+        "interactions": [
+          {
+            "domId": "back-profile",
+            "targetPageId": "page-profile",
+            "transitionLabel": "返回个人中心",
+            "hideEdge": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-settings",
+      "title": "设置",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1751064000000,
+      "canvasData": {
+        "x": 420,
+        "y": 3601,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/settings.html",
+        "interactions": [
+          {
+            "domId": "back-profile",
+            "targetPageId": "page-profile",
+            "transitionLabel": "返回个人中心",
+            "hideEdge": true
+          }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "autoLayout": true,
+    "deviceType": "mobile",
+    "windowSize": {
+      "width": 800,
+      "height": 600
+    },
+    "showEdge": true
+  }
+}

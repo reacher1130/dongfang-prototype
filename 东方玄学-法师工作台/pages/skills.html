@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><style>html{color-scheme:dark}</style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="theme-color" content="#1C1210">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>专长管理 - 法师工作台</title>
+  <link rel="stylesheet" href="../master-app.css">
+  <style>
+    .tags-section {
+      padding: 16px;
+    }
+    .tags-section .tags-label {
+      font-size: 13px;
+      color: var(--color-text-secondary);
+      margin-bottom: 12px;
+    }
+    .tags-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .skill-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-full);
+      font-size: 14px;
+      color: var(--color-text-primary);
+    }
+    .skill-tag .remove-icon {
+      width: 16px;
+      height: 16px;
+      stroke: var(--color-text-muted);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .skill-tag .remove-icon:hover {
+      stroke: var(--color-brand);
+    }
+    .add-tag-section {
+      padding: 16px;
+      border-top: 1px solid var(--color-border);
+    }
+    .add-tag-row {
+      display: flex;
+      gap: 10px;
+    }
+    .add-tag-row .tag-input {
+      flex: 1;
+      height: 44px;
+      padding: 0 14px;
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      color: var(--color-text-primary);
+      font-size: 14px;
+    }
+    .add-tag-row .tag-input:focus {
+      border-color: var(--color-brand);
+    }
+    .add-tag-row .tag-input::placeholder {
+      color: var(--color-text-muted);
+    }
+    .add-tag-row .add-btn {
+      height: 44px;
+      padding: 0 16px;
+      background: var(--color-brand);
+      color: #fff;
+      border-radius: var(--radius-md);
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+      flex-shrink: 0;
+    }
+    .suggested-tags {
+      margin-top: 16px;
+    }
+    .suggested-tags .sug-label {
+      font-size: 12px;
+      color: var(--color-text-muted);
+      margin-bottom: 8px;
+    }
+    .suggested-tags .sug-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .suggested-tags .sug-tag {
+      padding: 6px 12px;
+      background: transparent;
+      border: 1px dashed var(--color-border);
+      border-radius: var(--radius-full);
+      font-size: 12px;
+      color: var(--color-text-muted);
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, border-color 0.2s, opacity 0.2s;
+    }
+    .suggested-tags .sug-tag:hover {
+      border-color: var(--color-brand);
+      color: var(--color-brand);
+    }
+  </style>
+</head>
+<body style="background-color: #1C1210; color: #F0E6DA;">
+  <div class="app-container">
+    <div class="page-no-tabs">
+      <!-- Top Nav -->
+      <div class="top-nav">
+        <a class="nav-back" href="profile.html" data-dom-id="back-profile">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15,18 9,12 15,6"/>
+          </svg>
+        </a>
+        <span class="nav-title">专长管理</span>
+      </div>
+
+      <div class="page-content">
+        <!-- Current Tags -->
+        <div class="tags-section fade-in">
+          <div class="tags-label">当前专长</div>
+          <div class="tags-wrap">
+            <div class="skill-tag">
+              佛学
+              <svg class="remove-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+              </svg>
+            </div>
+            <div class="skill-tag">
+              禅修
+              <svg class="remove-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+              </svg>
+            </div>
+            <div class="skill-tag">
+              命理
+              <svg class="remove-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+              </svg>
+            </div>
+            <div class="skill-tag">
+              风水
+              <svg class="remove-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add Tag -->
+        <div class="add-tag-section fade-in">
+          <div class="tags-label">添加专长</div>
+          <div class="add-tag-row">
+            <input type="text" class="tag-input" placeholder="输入专长名称" aria-label="输入专长名称">
+            <button class="add-btn">添加</button>
+          </div>
+          <div class="suggested-tags">
+            <div class="sug-label">推荐标签</div>
+            <div class="sug-list">
+              <span class="sug-tag">道教</span>
+              <span class="sug-tag">易经</span>
+              <span class="sug-tag">八卦</span>
+              <span class="sug-tag">占卜</span>
+              <span class="sug-tag">面相</span>
+              <span class="sug-tag">手相</span>
+              <span class="sug-tag">塔罗</span>
+              <span class="sug-tag">星盘</span>
+              <span class="sug-tag">符咒</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
