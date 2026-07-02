@@ -89,7 +89,7 @@
     }
 
     /* ===== 手机壳展示页 ===== */
-    .viewer { display: none; flex-direction: column; height: 100vh; }
+    .viewer { display: none; flex-direction: column; height: 100vh; height: 100dvh; }
     .viewer.active { display: flex; }
     .viewer-header {
       display: flex; align-items: center; gap: 12px;
@@ -109,11 +109,40 @@
     .viewer-back:hover { background: rgba(200,169,110,0.1); }
     .viewer-title {
       font-size: 15px; font-weight: 600; color: #F0E6DA;
+      flex: 1;
+      min-width: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .viewer-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .viewer-action {
+      background: #1C1210;
+      border: 1px solid rgba(200,169,110,0.18);
+      color: #C5B097;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 16px;
+      line-height: 1;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .viewer-action:hover {
+      background: #2A1E1A;
+      color: #F0E6DA;
+      border-color: rgba(200,169,110,0.35);
     }
     .viewer-device {
       flex: 1; display: flex; justify-content: center;
       align-items: flex-start; padding: 20px 0 40px;
       overflow: auto;
+      min-height: 0;
     }
     .phone-frame {
       width: 390px; height: 844px;
@@ -139,7 +168,8 @@
       .phone-frame { width: 100%; height: 100vh; max-height: 100vh; border-radius: 0; border: none; box-shadow: none; }
     }
     .phone-frame.is-desktop {
-      width: 100%; max-width: 1280px; height: 100%;
+      width: 100%; max-width: 1280px; height: calc(100vh - 130px);
+      min-height: 620px;
       border-radius: 12px; border: 1px solid #3A2C25;
     }
     .phone-notch {
@@ -178,12 +208,36 @@
       .projects { padding: 0 16px 60px; gap: 14px; }
       .project-card { padding: 22px 18px; }
       .phone-frame {
-        width: 100%; height: 100vh;
+        width: 100%; height: 100%;
+        max-height: none;
         border-radius: 0; border: none;
         box-shadow: none;
       }
       .phone-notch { display: none; }
-      .viewer-device { padding: 0; }
+      .viewer-header {
+        padding: 10px 12px;
+        gap: 8px;
+      }
+      .viewer-back {
+        padding: 6px 10px;
+        flex-shrink: 0;
+      }
+      .viewer-action {
+        width: 30px;
+        height: 30px;
+      }
+      .viewer-device { padding: 0; overflow: hidden; }
+      .viewer-nav {
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding: 8px 10px 10px;
+        -webkit-overflow-scrolling: touch;
+      }
+      .viewer-nav button {
+        white-space: nowrap;
+        flex: 0 0 auto;
+      }
     }
   </style>
 </head>
@@ -255,6 +309,10 @@
   <div class="viewer-header">
     <button class="viewer-back" onclick="goBack()">← 返回总览</button>
     <span class="viewer-title" id="viewerTitle"></span>
+    <div class="viewer-actions">
+      <button class="viewer-action" onclick="prevPage()" aria-label="上一页">‹</button>
+      <button class="viewer-action" onclick="nextPage()" aria-label="下一页">›</button>
+    </div>
   </div>
   <div class="viewer-device">
     <div class="phone-frame" id="phoneFrame">
@@ -444,18 +502,28 @@ function renderNav(proj) {
 
 function loadPage(proj, idx) {
   currentPageIdx = idx;
-  // On mobile, navigate directly instead of using iframe
-  if (window.innerWidth <= 640 && !proj.desktop) {
-    window.location.href = proj.dir + proj.pages[idx].file;
-    return;
-  }
   var frame = document.getElementById('viewerFrame');
   frame.src = proj.dir + proj.pages[idx].file;
-  // Update nav active state
+  updateNavState(idx);
+}
+
+function updateNavState(idx) {
   var btns = document.querySelectorAll('#viewerNav button');
   btns.forEach(function(b, i) {
     b.classList.toggle('active', i === idx);
   });
+}
+
+function nextPage() {
+  if (!currentProject) return;
+  var proj = PROJECTS[currentProject];
+  loadPage(proj, (currentPageIdx + 1) % proj.pages.length);
+}
+
+function prevPage() {
+  if (!currentProject) return;
+  var proj = PROJECTS[currentProject];
+  loadPage(proj, (currentPageIdx - 1 + proj.pages.length) % proj.pages.length);
 }
 
 function goBack() {
@@ -471,18 +539,12 @@ frameEl.addEventListener('load', function() {
   if (!currentProject) return;
   var proj = PROJECTS[currentProject];
   try {
-    var iframePath = frameEl.contentWindow.location.pathname;
-    // Extract filename from path
-    var parts = iframePath.split('/');
-    var filename = parts[parts.length - 1];
-    // Try to match with project pages
+    var iframePath = decodeURIComponent(frameEl.contentWindow.location.pathname);
     proj.pages.forEach(function(p, i) {
-      if (p.file === filename) {
+      var expected = '/' + proj.dir + p.file;
+      if (iframePath.endsWith(expected) || iframePath.endsWith('/' + p.file)) {
         currentPageIdx = i;
-        var btns = document.querySelectorAll('#viewerNav button');
-        btns.forEach(function(b, j) {
-          b.classList.toggle('active', j === i);
-        });
+        updateNavState(i);
       }
     });
   } catch(e) {
@@ -496,12 +558,10 @@ document.addEventListener('keydown', function(e) {
   var proj = PROJECTS[currentProject];
   if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
     e.preventDefault();
-    var next = (currentPageIdx + 1) % proj.pages.length;
-    loadPage(proj, next);
+    nextPage();
   } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
     e.preventDefault();
-    var prev = (currentPageIdx - 1 + proj.pages.length) % proj.pages.length;
-    loadPage(proj, prev);
+    prevPage();
   } else if (e.key === 'Escape') {
     goBack();
   }
