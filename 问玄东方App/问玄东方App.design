@@ -395,7 +395,7 @@
       "createdAt": 1751064000000,
       "canvasData": {
         "x": 840,
-        "y": 707,
+        "y": 742,
         "group": 0
       },
       "devMetadata": {
@@ -616,7 +616,7 @@
           {
             "domId": "rec-card-baimasi",
             "targetPageId": "page-temple-detail",
-            "transitionLabel": "白马寺推荐"
+            "transitionLabel": "白云观推荐"
           },
           {
             "domId": "rec-card-shaolinsi",
@@ -634,7 +634,7 @@
       "createdAt": 1751064000000,
       "canvasData": {
         "x": 0,
-        "y": 688,
+        "y": 682,
         "group": 0
       },
       "devMetadata": {
@@ -726,7 +726,7 @@
       "createdAt": 1751064000000,
       "canvasData": {
         "x": 0,
-        "y": 8684,
+        "y": 8673,
         "group": 0
       },
       "devMetadata": {
@@ -820,7 +820,7 @@
       "createdAt": 1751064000000,
       "canvasData": {
         "x": 420,
-        "y": 3118,
+        "y": 3106,
         "group": 0
       },
       "devMetadata": {
@@ -843,7 +843,7 @@
       "createdAt": 1751064000000,
       "canvasData": {
         "x": 840,
-        "y": 7901,
+        "y": 7895,
         "group": 0
       },
       "devMetadata": {
@@ -935,7 +935,7 @@
       "createdAt": 1751064000000,
       "canvasData": {
         "x": 1260,
-        "y": 910,
+        "y": 954,
         "group": 0
       },
       "devMetadata": {
@@ -1039,7 +1039,7 @@
       "createdAt": 1751064000000,
       "canvasData": {
         "x": 420,
-        "y": 2162,
+        "y": 2150,
         "group": 0
       },
       "devMetadata": {
@@ -1072,7 +1072,7 @@
       "createdAt": 1751064000000,
       "canvasData": {
         "x": 840,
-        "y": 2162,
+        "y": 2150,
         "group": 0
       },
       "devMetadata": {
@@ -1100,7 +1100,7 @@
       "createdAt": 1751064000000,
       "canvasData": {
         "x": 1260,
-        "y": 2162,
+        "y": 2150,
         "group": 0
       },
       "devMetadata": {
@@ -1128,7 +1128,7 @@
       "createdAt": 1751064000000,
       "canvasData": {
         "x": 1680,
-        "y": 2162,
+        "y": 2150,
         "group": 0
       },
       "devMetadata": {
@@ -1151,7 +1151,7 @@
       "createdAt": 1751064000000,
       "canvasData": {
         "x": 840,
-        "y": 3092,
+        "y": 3086,
         "group": 0
       },
       "devMetadata": {
@@ -1179,7 +1179,7 @@
       "createdAt": 1751064000000,
       "canvasData": {
         "x": 840,
-        "y": 3779,
+        "y": 3773,
         "group": 0
       },
       "devMetadata": {
@@ -1207,7 +1207,7 @@
       "createdAt": 1751064000000,
       "canvasData": {
         "x": 840,
-        "y": 4466,
+        "y": 4460,
         "group": 0
       },
       "devMetadata": {
@@ -1235,7 +1235,7 @@
       "createdAt": 1751064000000,
       "canvasData": {
         "x": 840,
-        "y": 5153,
+        "y": 5147,
         "group": 0
       },
       "devMetadata": {
@@ -1263,7 +1263,7 @@
       "createdAt": 1751064000000,
       "canvasData": {
         "x": 840,
-        "y": 5840,
+        "y": 5834,
         "group": 0
       },
       "devMetadata": {
@@ -1291,7 +1291,7 @@
       "createdAt": 1751064000000,
       "canvasData": {
         "x": 840,
-        "y": 6527,
+        "y": 6521,
         "group": 0
       },
       "devMetadata": {
@@ -1319,7 +1319,7 @@
       "createdAt": 1751064000000,
       "canvasData": {
         "x": 840,
-        "y": 7214,
+        "y": 7208,
         "group": 0
       },
       "devMetadata": {
@@ -1347,7 +1347,7 @@
       "createdAt": 1751064000000,
       "canvasData": {
         "x": 0,
-        "y": 9640
+        "y": 9623
       },
       "devMetadata": {
         "imageSrc": "assets/banner-ad-1.jpg"
@@ -1361,7 +1361,7 @@
       "createdAt": 1751064000000,
       "canvasData": {
         "x": 420,
-        "y": 9640
+        "y": 9623
       },
       "devMetadata": {
         "imageSrc": "assets/banner-ad-2.jpg"
@@ -1375,7 +1375,7 @@
       "createdAt": 1751064000000,
       "canvasData": {
         "x": 840,
-        "y": 9640
+        "y": 9623
       },
       "devMetadata": {
         "imageSrc": "assets/banner-ad-3.jpg"
@@ -1389,7 +1389,7 @@
       "createdAt": 1751064000000,
       "canvasData": {
         "x": 1260,
-        "y": 9640
+        "y": 9623
       },
       "devMetadata": {
         "imageSrc": "assets/entry-temple.jpg"
@@ -1403,7 +1403,7 @@
       "createdAt": 1751064000000,
       "canvasData": {
         "x": 1680,
-        "y": 9640
+        "y": 9623
       },
       "devMetadata": {
         "imageSrc": "assets/entry-master.jpg"
@@ -1411,13 +1411,13 @@
     },
     {
       "id": "img-temple-card-baimasi",
-      "title": "白马寺",
+      "title": "白云观",
       "type": "image",
       "version": 1,
       "createdAt": 1751064000000,
       "canvasData": {
         "x": 2100,
-        "y": 9640
+        "y": 9623
       },
       "devMetadata": {
         "imageSrc": "assets/temple-card-baimasi.jpg"
@@ -1431,7 +1431,7 @@
       "createdAt": 1751064000000,
       "canvasData": {
         "x": 2520,
-        "y": 9640
+        "y": 9623
       },
       "devMetadata": {
         "imageSrc": "assets/temple-card-shaolinsi.jpg"
@@ -1445,7 +1445,7 @@
       "createdAt": 1751064000000,
       "canvasData": {
         "x": 2940,
-        "y": 9640
+        "y": 9623
       },
       "devMetadata": {
         "imageSrc": "assets/temple-card-lingyinsi.jpg"
@@ -1453,13 +1453,13 @@
     },
     {
       "id": "img-temple-card-qingyanggong",
-      "title": "青羊宫",
+      "title": "武当山",
       "type": "image",
       "version": 1,
       "createdAt": 1751064000000,
       "canvasData": {
         "x": 3360,
-        "y": 9640
+        "y": 9623
       },
       "devMetadata": {
         "imageSrc": "assets/temple-card-qingyanggong.jpg"
@@ -1467,13 +1467,13 @@
     },
     {
       "id": "img-temple-card-famensi",
-      "title": "法门寺",
+      "title": "普陀山",
       "type": "image",
       "version": 1,
       "createdAt": 1751064000000,
       "canvasData": {
         "x": 3780,
-        "y": 9640
+        "y": 9623
       },
       "devMetadata": {
         "imageSrc": "assets/temple-card-famensi.jpg"
@@ -1487,7 +1487,7 @@
       "createdAt": 1751064000000,
       "canvasData": {
         "x": 4200,
-        "y": 9640
+        "y": 9623
       },
       "devMetadata": {
         "imageSrc": "assets/temple-card-dazhaosi.jpg"
@@ -1501,7 +1501,7 @@
       "createdAt": 1751064000000,
       "canvasData": {
         "x": 4620,
-        "y": 9640
+        "y": 9623
       },
       "devMetadata": {
         "imageSrc": "assets/temple-hero-lingyinsi.jpg"
@@ -1509,13 +1509,13 @@
     },
     {
       "id": "img-master-avatar-shimingyuan",
-      "title": "释明远法师",
+      "title": "释延心法师",
       "type": "image",
       "version": 1,
       "createdAt": 1751064000000,
       "canvasData": {
         "x": 5040,
-        "y": 9640
+        "y": 9623
       },
       "devMetadata": {
         "imageSrc": "assets/master-avatar-shimingyuan.jpg"
@@ -1529,7 +1529,7 @@
       "createdAt": 1751064000000,
       "canvasData": {
         "x": 5460,
-        "y": 9640
+        "y": 9623
       },
       "devMetadata": {
         "imageSrc": "assets/master-avatar-qingfeng.jpg"
@@ -1543,7 +1543,7 @@
       "createdAt": 1751064000000,
       "canvasData": {
         "x": 5880,
-        "y": 9640
+        "y": 9623
       },
       "devMetadata": {
         "imageSrc": "assets/master-avatar-zhaxiduoji.jpg"
@@ -1557,7 +1557,7 @@
       "createdAt": 1751064000000,
       "canvasData": {
         "x": 6300,
-        "y": 9640
+        "y": 9623
       },
       "devMetadata": {
         "imageSrc": "assets/master-avatar-zhihai.jpg"
@@ -1565,13 +1565,13 @@
     },
     {
       "id": "img-master-avatar-miaoyin",
-      "title": "妙音法师",
+      "title": "慧明法师",
       "type": "image",
       "version": 1,
       "createdAt": 1751064000000,
       "canvasData": {
         "x": 6720,
-        "y": 9640
+        "y": 9623
       },
       "devMetadata": {
         "imageSrc": "assets/master-avatar-miaoyin.jpg"
@@ -1579,13 +1579,13 @@
     },
     {
       "id": "img-master-avatar-zhangzhishun",
-      "title": "张至顺道长",
+      "title": "真武道长",
       "type": "image",
       "version": 1,
       "createdAt": 1751064000000,
       "canvasData": {
         "x": 7140,
-        "y": 9640
+        "y": 9623
       },
       "devMetadata": {
         "imageSrc": "assets/master-avatar-zhangzhishun.jpg"
@@ -1599,7 +1599,7 @@
       "createdAt": 1751064000000,
       "canvasData": {
         "x": 7560,
-        "y": 9640
+        "y": 9623
       },
       "devMetadata": {
         "imageSrc": "assets/master-profile-bg.jpg"
@@ -1613,7 +1613,7 @@
       "createdAt": 1751064000000,
       "canvasData": {
         "x": 7980,
-        "y": 9640
+        "y": 9623
       },
       "devMetadata": {
         "imageSrc": "assets/product-shuzhu.jpg"
@@ -1627,7 +1627,7 @@
       "createdAt": 1751064000000,
       "canvasData": {
         "x": 8400,
-        "y": 9640
+        "y": 9623
       },
       "devMetadata": {
         "imageSrc": "assets/product-xiangdao.jpg"
@@ -1641,7 +1641,7 @@
       "createdAt": 1751064000000,
       "canvasData": {
         "x": 8820,
-        "y": 9640
+        "y": 9623
       },
       "devMetadata": {
         "imageSrc": "assets/product-jingshu.jpg"
@@ -1655,7 +1655,7 @@
       "createdAt": 1751064000000,
       "canvasData": {
         "x": 9240,
-        "y": 9640
+        "y": 9623
       },
       "devMetadata": {
         "imageSrc": "assets/product-hushenfu.jpg"
@@ -1669,7 +1669,7 @@
       "createdAt": 1751064000000,
       "canvasData": {
         "x": 9660,
-        "y": 9640
+        "y": 9623
       },
       "devMetadata": {
         "imageSrc": "assets/video-thumb-jiangjing.jpg"
@@ -1683,7 +1683,7 @@
       "createdAt": 1751064000000,
       "canvasData": {
         "x": 10080,
-        "y": 9640
+        "y": 9623
       },
       "devMetadata": {
         "imageSrc": "assets/video-thumb-chanxiu.jpg"
@@ -1697,7 +1697,7 @@
       "createdAt": 1751064000000,
       "canvasData": {
         "x": 10500,
-        "y": 9640
+        "y": 9623
       },
       "devMetadata": {
         "imageSrc": "assets/video-thumb-fashi.jpg"
@@ -1711,7 +1711,7 @@
       "createdAt": 1751064000000,
       "canvasData": {
         "x": 10920,
-        "y": 9640
+        "y": 9623
       },
       "devMetadata": {
         "imageSrc": "assets/ad-landing-hero.jpg"
