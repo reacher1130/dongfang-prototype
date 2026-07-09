@@ -35,41 +35,6 @@
             "transitionLabel": "DIY手串入口"
           },
           {
-            "domId": "cta-service-blessing",
-            "targetPageId": "page-service-blessing",
-            "transitionLabel": "祈福服务入口"
-          },
-          {
-            "domId": "cta-service-lamp",
-            "targetPageId": "page-service-lamp",
-            "transitionLabel": "供灯服务入口"
-          },
-          {
-            "domId": "cta-service-incense",
-            "targetPageId": "page-service-incense",
-            "transitionLabel": "上香服务入口"
-          },
-          {
-            "domId": "cta-service-vow",
-            "targetPageId": "page-service-vow",
-            "transitionLabel": "还愿服务入口"
-          },
-          {
-            "domId": "cta-service-rite",
-            "targetPageId": "page-service-rite",
-            "transitionLabel": "超度服务入口"
-          },
-          {
-            "domId": "cta-service-consecration",
-            "targetPageId": "page-service-consecration",
-            "transitionLabel": "开光服务入口"
-          },
-          {
-            "domId": "cta-service-taisui",
-            "targetPageId": "page-service-taisui",
-            "transitionLabel": "化太岁服务入口"
-          },
-          {
             "domId": "link-temple-detail",
             "targetPageId": "page-temple-detail",
             "hideEdge": true,
@@ -122,6 +87,72 @@
             "targetPageId": "page-master-list",
             "hideEdge": true,
             "transitionLabel": "Tab师傅"
+          },
+          {
+            "domId": "cta-belief-daoism",
+            "targetPageId": "page-belief-topic",
+            "hideEdge": false,
+            "transitionLabel": "道教流派入口"
+          },
+          {
+            "domId": "cta-belief-hanchuan",
+            "targetPageId": "page-belief-topic",
+            "hideEdge": false,
+            "transitionLabel": "汉传佛教流派入口"
+          },
+          {
+            "domId": "cta-belief-tibetan",
+            "targetPageId": "page-belief-topic",
+            "hideEdge": false,
+            "transitionLabel": "藏传佛教流派入口"
+          },
+          {
+            "domId": "cta-belief-folk",
+            "targetPageId": "page-belief-topic",
+            "hideEdge": false,
+            "transitionLabel": "民间信仰流派入口"
+          },
+          {
+            "domId": "cta-intention-love",
+            "targetPageId": "page-intention-hub",
+            "hideEdge": false,
+            "transitionLabel": "诉求聚合入口"
+          },
+          {
+            "domId": "cta-intention-peace",
+            "targetPageId": "page-intention-hub",
+            "hideEdge": false,
+            "transitionLabel": "诉求聚合入口"
+          },
+          {
+            "domId": "cta-intention-wealth",
+            "targetPageId": "page-intention-hub",
+            "hideEdge": false,
+            "transitionLabel": "诉求聚合入口"
+          },
+          {
+            "domId": "cta-intention-study",
+            "targetPageId": "page-intention-hub",
+            "hideEdge": false,
+            "transitionLabel": "诉求聚合入口"
+          },
+          {
+            "domId": "cta-intention-health",
+            "targetPageId": "page-intention-hub",
+            "hideEdge": false,
+            "transitionLabel": "诉求聚合入口"
+          },
+          {
+            "domId": "cta-intention-career",
+            "targetPageId": "page-intention-hub",
+            "hideEdge": false,
+            "transitionLabel": "诉求聚合入口"
+          },
+          {
+            "domId": "cta-intention-taisui",
+            "targetPageId": "page-intention-hub",
+            "hideEdge": false,
+            "transitionLabel": "诉求聚合入口"
           }
         ]
       }
@@ -714,6 +745,18 @@
             "domId": "tab-private",
             "targetPageId": null,
             "transitionLabel": "私聊"
+          },
+          {
+            "domId": "cta-post-detail",
+            "targetPageId": "page-master-profile",
+            "hideEdge": false,
+            "transitionLabel": "图文帖详情/作者主页"
+          },
+          {
+            "domId": "cta-video-feed",
+            "targetPageId": "page-chat",
+            "hideEdge": true,
+            "transitionLabel": "进入竖滑视频流"
           }
         ]
       }
@@ -732,18 +775,6 @@
       "devMetadata": {
         "htmlSrc": "pages/ai-divination.html",
         "interactions": [
-          {
-            "domId": "cta-ai-category",
-            "targetPageId": "page-ai-divination",
-            "hideEdge": true,
-            "transitionLabel": "选择问事类别"
-          },
-          {
-            "domId": "cta-ai-start",
-            "targetPageId": "page-ai-divination",
-            "hideEdge": true,
-            "transitionLabel": "开始AI问事"
-          },
           {
             "domId": "nav-home",
             "targetPageId": "page-home",
@@ -775,39 +806,22 @@
             "transitionLabel": "Tab我的"
           },
           {
-            "domId": "cta-skill-featured",
-            "targetPageId": null,
-            "transitionLabel": "推荐师傅"
+            "domId": "open-ai-history",
+            "targetPageId": "page-ai-divination",
+            "hideEdge": true,
+            "transitionLabel": "打开历史抽屉"
           },
           {
-            "domId": "cta-skill-fengshui",
-            "targetPageId": null,
-            "transitionLabel": "风水"
+            "domId": "cta-ai-new",
+            "targetPageId": "page-ai-divination",
+            "hideEdge": true,
+            "transitionLabel": "新建AI对话"
           },
           {
-            "domId": "cta-skill-liuyao",
-            "targetPageId": null,
-            "transitionLabel": "六爻"
-          },
-          {
-            "domId": "cta-skill-qimen",
-            "targetPageId": null,
-            "transitionLabel": "奇门遁甲"
-          },
-          {
-            "domId": "cta-skill-tarot",
-            "targetPageId": null,
-            "transitionLabel": "塔罗"
-          },
-          {
-            "domId": "cta-skill-yinyuan",
-            "targetPageId": null,
-            "transitionLabel": "因缘"
-          },
-          {
-            "domId": "cta-skill-ziwei",
-            "targetPageId": null,
-            "transitionLabel": "紫微斗数"
+            "domId": "cta-ai-send",
+            "targetPageId": "page-ai-divination",
+            "hideEdge": true,
+            "transitionLabel": "发送提问"
           }
         ]
       }
@@ -1088,6 +1102,12 @@
             "domId": "cta-use-design",
             "targetPageId": "page-diy-design",
             "transitionLabel": "使用此设计"
+          },
+          {
+            "domId": "cta-direct-order",
+            "targetPageId": "page-diy-order",
+            "hideEdge": false,
+            "transitionLabel": "按作品直接下单"
           }
         ]
       }
@@ -1741,6 +1761,72 @@
             "targetPageId": "page-home",
             "hideEdge": true,
             "transitionLabel": "返回首页"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-belief-topic",
+      "title": "流派专题",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1783609397810,
+      "canvasData": {
+        "x": 1680,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/belief-topic.html",
+        "interactions": [
+          {
+            "domId": "back-home",
+            "targetPageId": "page-home",
+            "hideEdge": true,
+            "transitionLabel": "返回首页"
+          },
+          {
+            "domId": "cta-master-list-filter",
+            "targetPageId": "page-master-list",
+            "transitionLabel": "带流派筛选进入大师列表"
+          },
+          {
+            "domId": "cta-temple-list-filter",
+            "targetPageId": "page-temple-list",
+            "transitionLabel": "带流派筛选进入寺庙列表"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-intention-hub",
+      "title": "诉求聚合",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1783609397810,
+      "canvasData": {
+        "x": 2100,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/intention-hub.html",
+        "interactions": [
+          {
+            "domId": "back-home",
+            "targetPageId": "page-home",
+            "hideEdge": true,
+            "transitionLabel": "返回首页"
+          },
+          {
+            "domId": "cta-intention-product",
+            "targetPageId": "page-shop",
+            "transitionLabel": "商品详情/商城"
+          },
+          {
+            "domId": "cta-intention-service",
+            "targetPageId": "page-booking",
+            "transitionLabel": "法事服务下单"
           }
         ]
       }

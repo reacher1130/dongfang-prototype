@@ -375,7 +375,20 @@
     </div>
   </div>
 
-  <!-- ===== 6. Design Philosophy Card ===== -->
+  <!-- ===== 6. Direct Order Card ===== -->
+  <div style="background: linear-gradient(135deg, rgba(196,90,60,0.12), rgba(42,30,26,1)); border: 1px solid rgba(196,90,60,0.18); border-radius: 12px; padding: 16px; margin: 0 16px 12px;">
+    <div style="display: flex; align-items: flex-start; gap: 10px;">
+      <div style="width: 34px; height: 34px; border-radius: 50%; background: rgba(196,90,60,0.18); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C45A3C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      </div>
+      <div style="flex: 1; min-width: 0;">
+        <div style="font-size: 15px; font-weight: 700; color: #F0E6DA;">按此作品直接下单</div>
+        <p style="font-size: 13px; color: #C5B097; line-height: 1.7; margin: 6px 0 0;">复制已审核上架的设计快照，自动计算材料价格并进入订单支付流程；原创作者分成待平台规则确认。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 7. Design Philosophy Card ===== -->
   <div style="background: #2A1E1A; border-radius: 12px; padding: 16px; margin: 0 16px 12px;">
     <div style="font-size: 15px; font-weight: 600; color: #F0E6DA; margin-bottom: 10px;">设计理念</div>
     <p style="font-size: 14px; color: #C5B097; line-height: 1.9; margin: 0;">
@@ -383,7 +396,7 @@
     </p>
   </div>
 
-  <!-- ===== 7. Bottom Action Bar (fixed, frosted glass) ===== -->
+  <!-- ===== 8. Bottom Action Bar (fixed, frosted glass) ===== -->
   <div style="position: fixed; bottom: 0; left: 0; right: 0; z-index: 100; padding: 10px 16px; padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px)); background: rgba(28,18,16,0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-top: 1px solid rgba(200,169,110,0.1);">
     <div style="width: 100%; margin: 0 auto; display: flex; align-items: center; gap: 10px;">
       <!-- Left: Like -->
@@ -405,19 +418,14 @@
         <span style="font-size: 13px; font-weight: 600; color: #C8A96E;">分享好友</span>
       </div>
 
-      <!-- Center-right: 分享朋友圈 filled button -->
-      <div style="flex: 1; display: flex; align-items: center; justify-content: center; height: 40px; border-radius: 10px; background: #C45A3C; cursor: pointer;">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;">
-          <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
-          <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
-          <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
-        </svg>
-        <span style="font-size: 13px; font-weight: 600; color: #FFFFFF;">分享朋友圈</span>
-      </div>
+      <!-- Center-right: 使用此设计 -->
+      <a href="diy-design.html" data-dom-id="cta-use-design" style="flex: 1; display: flex; align-items: center; justify-content: center; height: 40px; border-radius: 10px; background: rgba(200,169,110,0.14); border: 1px solid rgba(200,169,110,0.28); cursor: pointer; text-decoration: none;">
+        <span style="font-size: 13px; font-weight: 600; color: #C8A96E;">继续编辑</span>
+      </a>
 
-      <!-- Right: 使用此设计 filled button (gradient) -->
-      <a href="diy-design.html" data-dom-id="cta-use-design" style="flex: 1.2; display: flex; align-items: center; justify-content: center; height: 40px; border-radius: 10px; background: linear-gradient(135deg, #C45A3C, #D97B4A); cursor: pointer; box-shadow: 0 4px 16px rgba(196,90,60,0.35);">
-        <span style="font-size: 15px; font-weight: 600; color: #FFFFFF;">使用此设计</span>
+      <!-- Right: Direct order filled button (gradient) -->
+      <a href="diy-order.html" data-dom-id="cta-direct-order" style="flex: 1.2; display: flex; align-items: center; justify-content: center; height: 40px; border-radius: 10px; background: linear-gradient(135deg, #C45A3C, #D97B4A); cursor: pointer; box-shadow: 0 4px 16px rgba(196,90,60,0.35); text-decoration: none;">
+        <span style="font-size: 15px; font-weight: 600; color: #FFFFFF;">直接下单</span>
       </a>
     </div>
   </div>
