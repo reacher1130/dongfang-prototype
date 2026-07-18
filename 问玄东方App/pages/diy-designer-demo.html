@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#141815">
+  <title>实时串珠设计器 Demo</title>
+  <link rel="stylesheet" href="../diy-designer-demo.css">
+</head>
+<body>
+  <main class="designer" aria-label="实时串珠设计器">
+    <header class="topbar">
+      <a class="icon-button" href="diy-bracelet.html" title="返回" aria-label="返回">‹</a>
+      <div class="title-block">
+        <strong>设计你的手串</strong>
+        <span id="saveState">示例设计 · 未保存</span>
+      </div>
+      <div class="top-actions">
+        <button class="icon-button" id="undoButton" type="button" title="撤销" aria-label="撤销">↶</button>
+        <button class="icon-button" id="redoButton" type="button" title="重做" aria-label="重做">↷</button>
+      </div>
+    </header>
+
+    <section class="stage" id="stage" aria-label="手串实时预览区域">
+      <div class="stage-shade" aria-hidden="true"></div>
+
+      <div class="status-row">
+        <label class="wrist-control">
+          <span>手围</span>
+          <select id="wristSize" aria-label="选择手围">
+            <option value="140">14 cm</option>
+            <option value="150">15 cm</option>
+            <option value="160" selected>16 cm</option>
+            <option value="170">17 cm</option>
+            <option value="180">18 cm</option>
+            <option value="190">19 cm</option>
+            <option value="200">20 cm</option>
+          </select>
+        </label>
+        <div class="fit-status" id="fitStatus" data-state="good">
+          <i aria-hidden="true"></i>
+          <span>松紧合适</span>
+        </div>
+        <div class="price-block">
+          <small>预估</small>
+          <strong id="totalPrice">¥0</strong>
+        </div>
+      </div>
+
+      <div class="bracelet-scene" id="braceletScene">
+        <div class="cord-ring" id="cordRing" aria-hidden="true"></div>
+        <div class="bead-layer" id="beadLayer"></div>
+        <div class="center-readout" aria-live="polite">
+          <strong><span id="beadCount">0</span><small>颗</small></strong>
+          <span id="lengthReadout">已用 0 mm</span>
+        </div>
+      </div>
+
+      <div class="delete-zone" id="deleteZone" aria-hidden="true">
+        <span>×</span>
+        <strong>松手移除</strong>
+      </div>
+    </section>
+
+    <section class="selected-toolbar" id="selectedToolbar" aria-label="已选珠子操作">
+      <div class="selected-info">
+        <span class="mini-bead" id="selectedSwatch"></span>
+        <div><small>当前选中</small><strong id="selectedName">未选择珠子</strong></div>
+      </div>
+      <div class="selected-actions">
+        <button id="duplicateButton" type="button" disabled>复制</button>
+        <button id="removeButton" type="button" disabled>移除</button>
+      </div>
+    </section>
+
+    <section class="material-panel" aria-label="材料选择">
+      <div class="panel-head">
+        <div>
+          <strong>选一颗珠子</strong>
+          <span>点击加入，长按查看材质说明</span>
+        </div>
+        <label class="search-box">
+          <span aria-hidden="true">⌕</span>
+          <input id="materialSearch" type="search" placeholder="搜索材质" aria-label="搜索材质">
+        </label>
+      </div>
+
+      <div class="category-tabs" id="categoryTabs" role="tablist" aria-label="材料分类">
+        <button class="active" type="button" data-category="all" role="tab">全部</button>
+        <button type="button" data-category="main_bead" role="tab">主珠</button>
+        <button type="button" data-category="spacer" role="tab">隔珠</button>
+        <button type="button" data-category="buddha_head" role="tab">佛头</button>
+        <button type="button" data-category="three_way" role="tab">三通</button>
+        <button type="button" data-category="pendant" role="tab">吊坠</button>
+        <button type="button" data-category="tassel" role="tab">流苏</button>
+        <button type="button" data-category="cord" role="tab">绳线</button>
+      </div>
+
+      <div class="material-grid" id="materialGrid"></div>
+    </section>
+
+    <footer class="bottom-bar">
+      <button class="clear-button" id="clearButton" type="button" title="清空设计" aria-label="清空设计">⌫</button>
+      <div class="summary">
+        <span><strong id="footerCount">0</strong> 颗</span>
+        <small>下单由服务端重新计价</small>
+      </div>
+      <button class="save-button" id="saveButton" type="button">保存设计</button>
+      <button class="finish-button" id="finishButton" type="button">完成设计</button>
+    </footer>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="../diy-designer-demo.js"></script>
+</body>
+</html>
