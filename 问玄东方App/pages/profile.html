@@ -309,7 +309,7 @@
       <!-- Section 1: User Info Card -->
       <section style="padding: 20px 16px 0;">
         <a href="profile.html" data-dom-id="cta-edit-profile" style="display: flex; align-items: center; gap: 14px; cursor: pointer; padding: 4px 0;">
-        <img src="../assets/default-avatar.jpg" alt="头像" style="width: 56px; height: 56px; border-radius: 50%; object-fit: cover; border: 2px solid var(--color-accent);">
+        <img src="../assets/master-avatar-qingfeng.jpg" alt="头像" style="width: 56px; height: 56px; border-radius: 50%; object-fit: cover; border: 2px solid var(--color-accent);">
         <div style="flex: 1;">
           <div style="font-size: 18px; font-weight: 700; color: var(--color-text-primary);">玄学爱好者</div>
           <div style="font-size: 13px; color: var(--color-text-tertiary); margin-top: 2px;">ID: DF20250101</div>
@@ -342,11 +342,11 @@
       <section style="padding: 20px 16px 0;">
         <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;">
           <span style="font-size: 15px; font-weight: 600; color: #F0E6DA;">订单中心</span>
-          <a href="#" style="font-size: 13px; color: var(--color-text-tertiary); text-decoration: none; display: flex; align-items: center; gap: 2px;">查看全部 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+          <a href="orders.html" style="font-size: 13px; color: var(--color-text-tertiary); text-decoration: none; display: flex; align-items: center; gap: 2px;">查看全部 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
         </div>
         <div style="background: var(--color-bg-secondary); border: 1px solid var(--color-border); border-radius: 12px; padding: 18px 8px; display: flex; align-items: flex-start; justify-content: space-around;">
           <!-- 服务订单 -->
-          <a href="shop.html" data-dom-id="cta-service-orders" style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 8px; text-decoration: none; position: relative;">
+          <a href="orders.html?type=service" data-dom-id="cta-service-orders" style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 8px; text-decoration: none; position: relative;">
             <div style="position: relative; width: 40px; height: 40px; border-radius: 50%; background: var(--color-bg-tertiary); display: flex; align-items: center; justify-content: center;">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-tertiary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
               <span style="position: absolute; top: -4px; right: -8px; height: 16px; padding: 0 5px; border-radius: 999px; background: var(--color-brand); color: #FFFFFF; font-size: 10px; font-weight: 500; display: flex; align-items: center; justify-content: center; white-space: nowrap;">2待确认</span>
@@ -354,7 +354,7 @@
             <span style="font-size: 12px; color: var(--color-text-secondary);">服务订单</span>
           </a>
           <!-- 商城订单 -->
-          <a href="shop.html" data-dom-id="cta-shop-orders" style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 8px; text-decoration: none; position: relative;">
+          <a href="orders.html?type=shop" data-dom-id="cta-shop-orders" style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 8px; text-decoration: none; position: relative;">
             <div style="position: relative; width: 40px; height: 40px; border-radius: 50%; background: var(--color-bg-tertiary); display: flex; align-items: center; justify-content: center;">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-tertiary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
               <span style="position: absolute; top: -4px; right: -8px; height: 16px; padding: 0 5px; border-radius: 999px; background: var(--color-brand); color: #FFFFFF; font-size: 10px; font-weight: 500; display: flex; align-items: center; justify-content: center; white-space: nowrap;">1待收货</span>
@@ -382,15 +382,15 @@
       <!-- Section 3: Assets -->
       <section style="padding: 20px 16px 0;">
         <div style="display: flex; align-items: center; gap: 10px;">
-          <a href="#" data-dom-id="cta-merit-balance" style="flex: 1; background: var(--color-bg-secondary); border: 1px solid var(--color-border); border-radius: 12px; padding: 16px 12px; text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 6px; transition: opacity 0.2s;">
+          <a href="profile-section.html?view=merit" data-dom-id="cta-merit-balance" style="flex: 1; background: var(--color-bg-secondary); border: 1px solid var(--color-border); border-radius: 12px; padding: 16px 12px; text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 6px; transition: opacity 0.2s;">
             <div style="font-size: 20px; font-weight: 600; color: var(--color-accent); font-variant-numeric: tabular-nums;">&#165;128.00</div>
             <div style="font-size: 12px; color: var(--color-text-tertiary);">功德金余额</div>
           </a>
-          <a href="#" data-dom-id="cta-coupons" style="flex: 1; background: var(--color-bg-secondary); border: 1px solid var(--color-border); border-radius: 12px; padding: 16px 12px; text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 6px; transition: opacity 0.2s;">
+          <a href="profile-section.html?view=coupons" data-dom-id="cta-coupons" style="flex: 1; background: var(--color-bg-secondary); border: 1px solid var(--color-border); border-radius: 12px; padding: 16px 12px; text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 6px; transition: opacity 0.2s;">
             <div style="font-size: 20px; font-weight: 600; color: var(--color-accent); font-variant-numeric: tabular-nums;">5<span style="font-size: 13px; font-weight: 400;">张可用</span></div>
             <div style="font-size: 12px; color: var(--color-text-tertiary);">优惠券</div>
           </a>
-          <a href="#" data-dom-id="cta-points-history" style="flex: 1; background: var(--color-bg-secondary); border: 1px solid var(--color-border); border-radius: 12px; padding: 16px 12px; text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 6px; transition: opacity 0.2s;">
+          <a href="profile-section.html?view=points" data-dom-id="cta-points-history" style="flex: 1; background: var(--color-bg-secondary); border: 1px solid var(--color-border); border-radius: 12px; padding: 16px 12px; text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 6px; transition: opacity 0.2s;">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
             <div style="font-size: 12px; color: var(--color-text-tertiary);">积分明细</div>
           </a>
@@ -400,33 +400,33 @@
       <!-- Section 4: My Services -->
       <section style="padding: 20px 16px 0;">
         <div style="background: var(--color-bg-secondary); border: 1px solid var(--color-border); border-radius: 12px; overflow: hidden;">
-          <a href="#" style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; text-decoration: none; border-bottom: 1px solid rgba(200, 169, 110, 0.08);">
+          <a href="profile-section.html?view=favorites" style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; text-decoration: none; border-bottom: 1px solid rgba(200, 169, 110, 0.08);">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-tertiary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
             <span style="flex: 1; font-size: 14px; color: #F0E6DA;">我的收藏</span>
             <span style="font-size: 13px; color: var(--color-text-tertiary);">已收藏6位大师</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-tertiary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
           </a>
-          <a href="#" style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; text-decoration: none; border-bottom: 1px solid rgba(200, 169, 110, 0.08);">
+          <a href="profile-section.html?view=history" style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; text-decoration: none; border-bottom: 1px solid rgba(200, 169, 110, 0.08);">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-tertiary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
             <span style="flex: 1; font-size: 14px; color: #F0E6DA;">浏览记录</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-tertiary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
           </a>
-          <a href="#" style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; text-decoration: none; border-bottom: 1px solid rgba(200, 169, 110, 0.08);">
+          <a href="profile-section.html?view=reviews" style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; text-decoration: none; border-bottom: 1px solid rgba(200, 169, 110, 0.08);">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-tertiary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
             <span style="flex: 1; font-size: 14px; color: #F0E6DA;">我的评价</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-tertiary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
           </a>
-          <a href="#" style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; text-decoration: none; border-bottom: 1px solid rgba(200, 169, 110, 0.08);">
+          <a href="profile-section.html?view=addresses" style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; text-decoration: none; border-bottom: 1px solid rgba(200, 169, 110, 0.08);">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-tertiary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             <span style="flex: 1; font-size: 14px; color: #F0E6DA;">收货地址</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-tertiary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
           </a>
-          <a href="#" style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; text-decoration: none; border-bottom: 1px solid rgba(200, 169, 110, 0.08);">
+          <a href="profile-section.html?view=calls" style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; text-decoration: none; border-bottom: 1px solid rgba(200, 169, 110, 0.08);">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-tertiary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             <span style="flex: 1; font-size: 14px; color: #F0E6DA;">通话记录</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-tertiary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
           </a>
-          <a href="#" style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; text-decoration: none;">
+          <a href="profile-section.html?view=help" style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; text-decoration: none;">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-tertiary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
             <span style="flex: 1; font-size: 14px; color: #F0E6DA;">帮助与客服</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-tertiary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
@@ -437,27 +437,27 @@
       <!-- Section 5: System Functions -->
       <section style="padding: 20px 16px 0;">
         <div style="background: var(--color-bg-secondary); border: 1px solid var(--color-border); border-radius: 12px; overflow: hidden;">
-          <a href="#" data-dom-id="cta-settings-profile" style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; text-decoration: none; border-bottom: 1px solid rgba(200, 169, 110, 0.08);">
+          <a href="profile-section.html?view=profile" data-dom-id="cta-settings-profile" style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; text-decoration: none; border-bottom: 1px solid rgba(200, 169, 110, 0.08);">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-tertiary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
             <span style="flex: 1; font-size: 14px; color: #F0E6DA;">个人资料</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-tertiary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
           </a>
-          <a href="#" style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; text-decoration: none; border-bottom: 1px solid rgba(200, 169, 110, 0.08);">
+          <a href="profile-section.html?view=notifications" style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; text-decoration: none; border-bottom: 1px solid rgba(200, 169, 110, 0.08);">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-tertiary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
             <span style="flex: 1; font-size: 14px; color: #F0E6DA;">消息通知</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-tertiary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
           </a>
-          <a href="#" style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; text-decoration: none; border-bottom: 1px solid rgba(200, 169, 110, 0.08);">
+          <a href="profile-section.html?view=security" style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; text-decoration: none; border-bottom: 1px solid rgba(200, 169, 110, 0.08);">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-tertiary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
             <span style="flex: 1; font-size: 14px; color: #F0E6DA;">账号安全</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-tertiary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
           </a>
-          <a href="#" style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; text-decoration: none; border-bottom: 1px solid rgba(200, 169, 110, 0.08);">
+          <a href="profile-section.html?view=about" style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; text-decoration: none; border-bottom: 1px solid rgba(200, 169, 110, 0.08);">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-tertiary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
             <span style="flex: 1; font-size: 14px; color: #F0E6DA;">关于问玄东方</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-tertiary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
           </a>
-          <a href="#" style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; text-decoration: none;">
+          <a href="home.html" style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; text-decoration: none;">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-brand)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
             <span style="flex: 1; font-size: 14px; color: var(--color-brand);">退出登录</span>
           </a>

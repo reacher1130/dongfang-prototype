@@ -35,33 +35,30 @@
           </div>
         </div>
         <div class="card flex-1">
-          <div class="card-header"><h3>自动备份配置</h3><button class="btn btn-outline btn-sm">修改配置</button></div>
+          <div class="card-header"><h3>当前备份能力</h3></div>
           <div class="card-body">
             <div class="info-list">
-              <div class="info-item"><span class="info-label">备份频率</span><span class="info-value">每日凌晨 3:00</span></div>
-              <div class="info-item"><span class="info-label">保留天数</span><span class="info-value">30 天</span></div>
-              <div class="info-item"><span class="info-label">备份类型</span><span class="info-value">全量备份 + 增量备份</span></div>
-              <div class="info-item"><span class="info-label">存储位置</span><span class="info-value">OSS 备份桶（华东）</span></div>
-              <div class="info-item"><span class="info-label">上次自动备份</span><span class="info-value" style="color:#4CAF50;">2026-06-29 03:00:12 成功</span></div>
-              <div class="info-item"><span class="info-label">自动备份状态</span><span class="info-value"><span class="badge badge-success">已启用</span></span></div>
+              <div class="info-item"><span class="info-label">备份方式</span><span class="info-value">超级管理员手动执行</span></div>
+              <div class="info-item"><span class="info-label">备份类型</span><span class="info-value">MySQL 全量一致性快照</span></div>
+              <div class="info-item"><span class="info-label">存储位置</span><span class="info-value">私有 MinIO 备份桶</span></div>
+              <div class="info-item"><span class="info-label">文件格式</span><span class="info-value">压缩 SQL（.sql.gz）</span></div>
+              <div class="info-item"><span class="info-label">恢复保护</span><span class="info-value">完整文件名二次确认</span></div>
+              <div class="info-item"><span class="info-label">自动/增量</span><span class="info-value"><span class="badge badge-default">当前未启用</span></span></div>
             </div>
           </div>
         </div>
       </div>
 
       <div class="data-table-wrap mt-3">
-        <div class="table-header"><h3>备份历史</h3><span class="text-sm text-muted">共 30 条备份记录</span></div>
+        <div class="table-header"><h3>备份历史</h3><span class="text-sm text-muted">对象存储中的真实快照</span></div>
         <table class="data-table">
           <thead><tr><th>备份时间</th><th>文件大小</th><th>类型</th><th>操作人</th><th>状态</th><th>操作</th></tr></thead>
           <tbody>
-            <tr><td>2026-06-29 03:00:12</td><td>2.8 GB</td><td><span class="badge badge-primary">自动全量</span></td><td>系统</td><td><span class="badge badge-success">成功</span></td><td><a class="btn-text btn-sm">下载</a> <a class="btn-text btn-sm">恢复</a></td></tr>
-            <tr><td>2026-06-28 03:00:08</td><td>156 MB</td><td><span class="badge badge-accent">自动增量</span></td><td>系统</td><td><span class="badge badge-success">成功</span></td><td><a class="btn-text btn-sm">下载</a> <a class="btn-text btn-sm">恢复</a></td></tr>
-            <tr><td>2026-06-27 03:00:11</td><td>2.7 GB</td><td><span class="badge badge-primary">自动全量</span></td><td>系统</td><td><span class="badge badge-success">成功</span></td><td><a class="btn-text btn-sm">下载</a> <a class="btn-text btn-sm">恢复</a></td></tr>
-            <tr><td>2026-06-26 15:30:45</td><td>2.6 GB</td><td><span class="badge badge-info">手动全量</span></td><td>超级管理员</td><td><span class="badge badge-success">成功</span></td><td><a class="btn-text btn-sm">下载</a> <a class="btn-text btn-sm">恢复</a></td></tr>
-            <tr><td>2026-06-26 03:00:09</td><td>148 MB</td><td><span class="badge badge-accent">自动增量</span></td><td>系统</td><td><span class="badge badge-success">成功</span></td><td><a class="btn-text btn-sm">下载</a> <a class="btn-text btn-sm">恢复</a></td></tr>
+            <tr><td>2026-07-18 06:30:12</td><td>2.8 GB</td><td><span class="badge badge-info">手动全量</span></td><td>超级管理员</td><td><span class="badge badge-success">成功</span></td><td><a class="btn-text btn-sm">下载</a> <a class="btn-text btn-sm">恢复</a></td></tr>
+            <tr><td>2026-07-17 20:15:45</td><td>2.7 GB</td><td><span class="badge badge-info">手动全量</span></td><td>超级管理员</td><td><span class="badge badge-success">成功</span></td><td><a class="btn-text btn-sm">下载</a> <a class="btn-text btn-sm">恢复</a></td></tr>
           </tbody>
         </table>
-        <div class="pagination"><div class="page-info">第 1-5 条 / 共 30 条</div><div class="page-btns"><div class="page-btn disabled">&lt;</div><div class="page-btn active">1</div><div class="page-btn">2</div><div class="page-btn">3</div><div class="page-btn">4</div><div class="page-btn">5</div><div class="page-btn">6</div><div class="page-btn">&gt;</div></div></div>
+        <div class="pagination"><div class="page-info">第 1-2 条 / 共 2 条</div><div class="page-btns"><div class="page-btn disabled">&lt;</div><div class="page-btn active">1</div><div class="page-btn disabled">&gt;</div></div></div>
       </div>
     </div>
   </main>
